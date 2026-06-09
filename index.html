@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>小明學打字 · Xiǎo Míng Learns to Type</title>
+<title>碩寬學打字 · Shuòkuān Learns to Type</title>
 <style>
   :root{
     --bg:#fff7ec; --card:#fff; --ink:#2d2a26;
@@ -24,6 +24,20 @@
     display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .1s}
   .avatar:hover{transform:scale(1.06)}
   .buy.avatarpick{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+  /* avatar frames (unlocked by level) — apply to avatar + shop preview */
+  .f-bronze{border-color:#cd7f32 !important;box-shadow:0 0 0 2px #e8b894}
+  .f-silver{border-color:#9aa4af !important;box-shadow:0 0 0 2px #d7dde3}
+  .f-gold{border-color:#f2b705 !important;box-shadow:0 0 0 2px #ffe08a,0 0 12px 1px #ffd54a}
+  .f-rainbow{border:3px solid transparent !important;
+    background:linear-gradient(#fff,#fff) padding-box,
+      conic-gradient(from 0deg,#ff5f6d,#ffc371,#47e891,#4ea8ff,#a86bff,#ff5f6d) border-box !important}
+  .f-nebula{border:3px solid transparent !important;
+    background:radial-gradient(circle at 50% 50%,#fff 60%,#f3e9ff 100%) padding-box,
+      conic-gradient(from 0deg,#7d5bff,#c46bff,#4ea8ff,#7d5bff) border-box !important;
+    box-shadow:0 0 14px 2px #b98bff;animation:nebula 3s linear infinite}
+  @keyframes nebula{to{filter:hue-rotate(360deg)}}
+  .frame-prev{width:42px;height:42px;border-radius:50%;border:3px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 2px;background:#fff}
 
   .wrap{width:100%;max-width:640px}
   .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
@@ -178,8 +192,8 @@
     <div class="title-row">
       <button class="avatar" id="avatar" title="點我換頭像 · tap to change avatar">🧒</button>
       <div>
-        <h1>✏️ 小明學打字</h1>
-        <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
+        <h1>✏️ 碩寬學打字</h1>
+        <p>Shuòkuān Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
       </div>
     </div>
   </header>
@@ -217,7 +231,7 @@
     </div>
 
     <div class="panel">
-      <h3>📅 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
+      <h3><span id="dailyAvatar">🧒</span> 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
       <div class="cal-title" id="calTitle"></div>
       <div class="cal" id="calGrid"></div>
     </div>
@@ -235,7 +249,7 @@
 
 <script>
 /* =========================================================================
-   VOCABULARY — 小明 can already SAY each of these; he is learning to READ
+   VOCABULARY — 碩寬 can already SAY each of these; he is learning to READ
    and TYPE them. `key` = plain pinyin letters to type; `pinyin` = a hint
    that FADES on revisits; `en` = shown only first time; `img` = a picture
    (emoji) for concrete words. Homophones share a `key` but have unique ids.
@@ -408,19 +422,19 @@ const VOCAB = {
    ========================================================================= */
 const CURRICULUM = [
   { grade:"一年級 上學期 · Grade 1 (1st sem)", title:"我開始學寫字",
-    blurb:"小明上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
+    blurb:"碩寬上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
     stages:[
       { name:"階段一 · 單字", intro:"先從最簡單的字開始。讀出聲音，再打出拼音。",
         challenges:[[{w:"wo"}],[{w:"ni"}],[{w:"da"}],[{w:"xiao"}],[{w:"ren"}],[{w:"kou"}],[{w:"shou"}],[{w:"shan"}],[{w:"shui"}],[{w:"huo"}]] },
       { name:"階段二 · 詞語", intro:"兩個字合在一起，就變成詞語。",
         challenges:[[{w:"baba"}],[{w:"mama"}],[{w:"gege"}],[{w:"nihao"}],[{w:"dajia"}],[{w:"laoshi"}]] },
-      { name:"階段三 · 短句", intro:"小明會打出短短的句子了！",
+      { name:"階段三 · 短句", intro:"碩寬會打出短短的句子了！",
         challenges:[[{w:"nihao"},"，",{w:"laoshi"},"。"],[{w:"wo"},{w:"ai"},{w:"baba"},{w:"mama"},"。"],[{w:"dajia"},{w:"hao"},"！"]] },
       { name:"階段四 · 完整句子", intro:"把學過的字串成一個完整的句子。",
         challenges:[[{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"]] },
     ] },
   { grade:"一年級 下學期 · Grade 1 (2nd sem)", title:"我的一天",
-    blurb:"小明越來越會讀了。這學期，他要打出自己的一天。",
+    blurb:"碩寬越來越會讀了。這學期，他要打出自己的一天。",
     stages:[
       { name:"階段一 · 單字", intro:"再多認識一些每天會用到的字。",
         challenges:[[{w:"xia"}],[{w:"tian"}],[{w:"ri"}],[{w:"yue"}],[{w:"zhong"}],[{w:"wen"}],[{w:"mu"}],[{w:"qu"}],[{w:"lai"}]] },
@@ -428,11 +442,11 @@ const CURRICULUM = [
         challenges:[[{w:"zaocan"}],[{w:"xuexiao"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"pengyou"}]] },
       { name:"階段三 · 短句", intro:"用詞語和舊字組成短句。",
         challenges:[[{w:"zaoan"},"！",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],[{w:"wo"},{w:"chi"},{w:"zaocan"},"。"],["中午",{w:"wo"},{w:"huijia"},"。"]] },
-      { name:"階段四 · 完整句子", intro:"小明的一天，一句一句打出來。",
+      { name:"階段四 · 完整句子", intro:"碩寬的一天，一句一句打出來。",
         challenges:[["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"]] },
     ] },
   { grade:"二年級 上學期 · Grade 2 (1st sem)", title:"我會讀故事了",
-    blurb:"二年級的小明已經認識很多字，開始讀故事、寫日記。",
+    blurb:"二年級的碩寬已經認識很多字，開始讀故事、寫日記。",
     stages:[
       { name:"階段一 · 單字", intro:"讀和寫的字，要好好認識。",
         challenges:[[{w:"zi"}],[{w:"xie"}],[{w:"jia"}],[{w:"gou"}],[{w:"shu"}],[{w:"du"}]] },
@@ -444,7 +458,7 @@ const CURRICULUM = [
         challenges:[["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"]] },
     ] },
   { grade:"二年級 下學期 · Grade 2 (2nd sem)", title:"我的日記",
-    blurb:"現在小明每天寫日記，把生活記下來。最後，他要打出一整篇。",
+    blurb:"現在碩寬每天寫日記，把生活記下來。最後，他要打出一整篇。",
     stages:[
       { name:"階段一 · 單字", intro:"複習：這些字你都讀得出來了嗎？",
         challenges:[[{w:"kan"}],[{w:"lai"}],[{w:"qu"}],[{w:"tian"}],[{w:"yue"}]] },
@@ -452,13 +466,13 @@ const CURRICULUM = [
         challenges:[[{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}]] },
       { name:"階段三 · 短句", intro:"日記裡的小句子。",
         challenges:[["我每天",{w:"du"},{w:"zhongwen"},"。"],[{w:"yue"},"亮出",{w:"lai"},"了。"],[{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"]] },
-      { name:"階段四 · 完整句子（日記）", intro:"小明的日記——把一整天打出來！",
+      { name:"階段四 · 完整句子（日記）", intro:"碩寬的日記——把一整天打出來！",
         challenges:[["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
                     ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
                     ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"]] },
     ] },
   { grade:"三年級 上學期 · Grade 3 (1st sem)", title:"大自然",
-    blurb:"三年級了！小明開始觀察大自然，認識季節和天氣。",
+    blurb:"三年級了！碩寬開始觀察大自然，認識季節和天氣。",
     stages:[
       { name:"階段一 · 單字", intro:"大自然裡的字。",
         challenges:[[{w:"feng"}],[{w:"yu"}],[{w:"yun"}],[{w:"hua"}],[{w:"cao"}],[{w:"niao"}]] },
@@ -471,7 +485,7 @@ const CURRICULUM = [
                     [{w:"qiutian"},"的",{w:"feng"},"，吹過",{w:"cao"},"地。"]] },
     ] },
   { grade:"三年級 下學期 · Grade 3 (2nd sem)", title:"我的學校生活",
-    blurb:"小明的學校生活很豐富，有同學、有功課，也有下課的玩樂。",
+    blurb:"碩寬的學校生活很豐富，有同學、有功課，也有下課的玩樂。",
     stages:[
       { name:"階段一 · 單字", intro:"學校裡的字。",
         challenges:[[{w:"tong"}],[{w:"ban"}],[{w:"ke"}],[{w:"jiao"}],[{w:"bi"}],[{w:"zhi"}]] },
@@ -486,7 +500,7 @@ const CURRICULUM = [
                     ["寫完",{w:"gongke"},"，",{w:"wo"},"就",{w:"qu"},{w:"gongyuan"},"。"]] },
     ] },
   { grade:"四年級 上學期 · Grade 4 (1st sem)", title:"家鄉與旅行",
-    blurb:"四年級的小明喜歡旅行，認識家鄉、交通工具和不同的地方。",
+    blurb:"四年級的碩寬喜歡旅行，認識家鄉、交通工具和不同的地方。",
     stages:[
       { name:"階段一 · 單字", intro:"路上會看到的字。",
         challenges:[[{w:"che"}],[{w:"lu"}],[{w:"qiao"}],[{w:"heriver"}],[{w:"hai"}],[{w:"chuan"}]] },
@@ -501,7 +515,7 @@ const CURRICULUM = [
                     [{w:"hai"},"邊有很多",{w:"chuan"},"，真美。"]] },
     ] },
   { grade:"四年級 下學期 · Grade 4 (2nd sem)", title:"節日與文化",
-    blurb:"小明最喜歡過節了！過年、端午、中秋，每個節日都好熱鬧。",
+    blurb:"碩寬最喜歡過節了！過年、端午、中秋，每個節日都好熱鬧。",
     stages:[
       { name:"階段一 · 單字", intro:"節日裡的字。",
         challenges:[[{w:"jie"}],[{w:"long"}],[{w:"deng"}],[{w:"cha"}],[{w:"mi"}],[{w:"bing"}]] },
@@ -516,7 +530,7 @@ const CURRICULUM = [
                     [{w:"duanwu"},{w:"jie"},"，",{w:"dajia"},"一起",{w:"kan"},"划",{w:"long"},"舟。"]] },
     ] },
   { grade:"五年級 上學期 · Grade 5 (1st sem)", title:"情感與品格",
-    blurb:"五年級的小明開始懂得自己的心情，也學著勇敢和努力。",
+    blurb:"五年級的碩寬開始懂得自己的心情，也學著勇敢和努力。",
     stages:[
       { name:"階段一 · 單字", intro:"心情的字。",
         challenges:[[{w:"xin"}],[{w:"xiang"}],[{w:"xiao_laugh"}],[{w:"ku"}],[{w:"pa"}],[{w:"lei"}]] },
@@ -531,7 +545,7 @@ const CURRICULUM = [
                     ["看到",{w:"pengyou"},{w:"nanguo"},"，",{w:"wo"},"也",{w:"xiang"},"幫忙。"]] },
     ] },
   { grade:"五年級 下學期 · Grade 5 (2nd sem)", title:"科學與自然",
-    blurb:"小明愛上了科學，想知道太陽、月亮和星星的祕密。",
+    blurb:"碩寬愛上了科學，想知道太陽、月亮和星星的祕密。",
     stages:[
       { name:"階段一 · 單字", intro:"科學裡的字。",
         challenges:[[{w:"guang"}],[{w:"dian"}],[{w:"xing"}],[{w:"di"}],[{w:"qiu"}],[{w:"li"}]] },
@@ -546,7 +560,7 @@ const CURRICULUM = [
                     [{w:"dongwu"},{w:"he"},"植物都需要",{w:"shui"},"。"]] },
     ] },
   { grade:"六年級 上學期 · Grade 6 (1st sem)", title:"社會與世界",
-    blurb:"六年級的小明關心社會，認識國家、城市和世界文化。",
+    blurb:"六年級的碩寬關心社會，認識國家、城市和世界文化。",
     stages:[
       { name:"階段一 · 單字", intro:"社會裡的字。",
         challenges:[[{w:"guo"}],[{w:"min"}],[{w:"cheng"}],[{w:"jie_world"}],[{w:"shichar"}]] },
@@ -561,7 +575,7 @@ const CURRICULUM = [
                     [{w:"chengshi"},"裡有很多",{w:"ren"},{w:"he"},{w:"che"},"。"]] },
     ] },
   { grade:"六年級 下學期 · Grade 6 (2nd sem)", title:"夢想與未來",
-    blurb:"快畢業了。小明寫下他的夢想，謝謝一路上陪他長大的人。",
+    blurb:"快畢業了。碩寬寫下他的夢想，謝謝一路上陪他長大的人。",
     stages:[
       { name:"階段一 · 單字", intro:"夢想裡的字。",
         challenges:[[{w:"meng"}],[{w:"wei"}],[{w:"xi"}],[{w:"wang"}],[{w:"zhi"}],[{w:"xue"}]] },
@@ -671,6 +685,7 @@ let pets={};                                  // petId -> stage index (multiple 
 let tokens={hint:0,skip:0,first:0};
 let quest=null;
 let avatar=null;                              // chosen sticker id, e.g. "s12"
+let frame="none";                             // avatar frame, unlocked by level
 const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
@@ -679,7 +694,7 @@ function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   practiceDays:[...practiceDays], stats, reviewsDone,
   spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
   ownedThemes:[...ownedThemes], theme,
-  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar })); }
+  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar, frame })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -693,7 +708,7 @@ function load(){ try{
   ownedStickers=new Set(d.ownedStickers||[]);
   pets=d.pets|| (d.pet?{bird:d.pet.stage||0}:{});   // migrate old single pet
   tokens=Object.assign({hint:0,skip:0,first:0}, d.tokens||{}); quest=d.quest||null;
-  avatar=d.avatar||null;
+  avatar=d.avatar||null; frame=d.frame||"none";
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -802,9 +817,24 @@ function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) ret
 function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=p.stages.length-1||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.stages[pets[k]]+" 長大了！"); afterShop(); }
 function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
 function avatarEmoji(){ if(avatar!=null){ const i=+avatar.slice(1); if(ownedStickers.has(avatar) && STICKERS[i]) return STICKERS[i].e; } return "🧒"; }
-function updateAvatar(){ const a=document.getElementById("avatar"); if(a) a.textContent=avatarEmoji(); }
+function updateAvatar(){ const a=document.getElementById("avatar"); if(!a) return;
+  a.textContent=avatarEmoji(); a.className="avatar"+(frame&&frame!=="none"?" f-"+frame:""); }
 function setAvatar(i){ if(!ownedStickers.has("s"+i)) return; avatar="s"+i; save(); updateAvatar(); renderShop();
   queueToast({e:STICKERS[i].e, zh:"換上新頭像！"+STICKERS[i].n, en:"Avatar set!"}); }
+
+/* ---- Avatar frames (unlocked by level, not bought) ---- */
+const FRAMES=[
+  {id:"none",   name:"無 None",       lvl:1},
+  {id:"bronze", name:"青銅 Bronze",   lvl:3},
+  {id:"silver", name:"白銀 Silver",   lvl:6},
+  {id:"gold",   name:"黃金 Gold",     lvl:10},
+  {id:"rainbow",name:"彩虹 Rainbow",  lvl:15},
+  {id:"nebula", name:"星雲 Nebula",   lvl:20},
+];
+function selectFrame(id){ const f=FRAMES.find(x=>x.id===id); if(!f) return;
+  if(levelFromXP(points).level < f.lvl){ queueToast({e:"🔒", zh:`需要等級 ${f.lvl}`, en:`Reach Lv.${f.lvl} first`}); return; }
+  frame=id; save(); updateAvatar(); renderShop();
+  if(id!=="none") queueToast({e:"🖼️", zh:"換上新頭像框！"+f.name, en:"Frame equipped!"}); }
 
 const card=document.getElementById("card");
 
@@ -876,6 +906,7 @@ function renderCalendar(){
   document.getElementById("calGrid").innerHTML=cells;
   document.getElementById("calTitle").textContent=`${y} 年 ${m+1} 月`;
   document.getElementById("dailyNum").textContent=dailyStreak();
+  const da=document.getElementById("dailyAvatar"); if(da) da.textContent=avatarEmoji();
 }
 
 /* ---- Prizes ---- */
@@ -1071,7 +1102,7 @@ function success(active){
   if(boostLeft>0){ gained*=boostMult; boostLeft--; }     // ✨ 雙倍/三倍卡
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
-  fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
+  fb.textContent=avatarEmoji()+" ✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
 
   const item=FLAT[pos];
   const wcount=item.parts.filter(p=>typeof p==="object"&&p.w).length;
@@ -1160,6 +1191,15 @@ function renderShop(){
     return `<div class="buy ${max?"owned":aff(PET_FEED)}" ${max?"":`onclick="feedPet('${k}')"`}><div class="be">${p.stages[st]}</div><div class="bn">${p.name}<br>第 ${st+1}/${p.stages.length} 階段</div><div class="bc">${max?"已最大🎉":"🍖 餵食 🪙 "+PET_FEED}</div></div>`;
   }).join("");
   html+=`</div></div>`;
+  // avatar frames (unlocked by level)
+  const myLvl=levelFromXP(points).level;
+  html+=`<div class="shop-sec"><h4>🖼️ 頭像框 Avatar Frames <span style="color:#b9a78f;font-weight:400">— 升級解鎖 unlocked by level</span></h4><div class="shop-row">`;
+  html+=FRAMES.map(f=>{ const unlocked=myLvl>=f.lvl; const using=frame===f.id;
+    const prev=`<div class="frame-prev ${f.id!=="none"?"f-"+f.id:""}">${avatarEmoji()}</div>`;
+    if(!unlocked) return `<div class="buy cant">${prev}<div class="bn">${f.name}</div><div class="bc">🔒 Lv.${f.lvl}</div></div>`;
+    return `<div class="buy ${using?"using":""}" onclick="selectFrame('${f.id}')">${prev}<div class="bn">${f.name}</div><div class="bc">${using?"使用中 in use":"使用 use"}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
   // stickers (60) — owned ones can be set as your avatar
   html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length} <span style="color:#b9a78f;font-weight:400">· 點已擁有的貼紙設為頭像 tap an owned sticker to use as avatar</span></h4><div class="shop-row scrollrow tall">`;
   html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i); const isAv=avatar==="s"+i;
@@ -1218,7 +1258,7 @@ function renderQuizItem(){
     (errs)=>{ recordStat(id, errs); if(errs===0) quizCorrect++;
       bumpQuest(); points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
       const fb=document.getElementById("feedback"); fb.className="feedback good";
-      fb.textContent= errs===0 ? "✓ 答對了！ Nailed it!" : "✓ 對了！(再記一下) Got it!";
+      fb.textContent= avatarEmoji()+(errs===0 ? " ✓ 答對了！ Nailed it!" : " ✓ 對了！(再記一下) Got it!");
       setTimeout(()=>{ quizIdx++; renderQuizItem(); }, 650); },
     (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${VOCAB[id].pinyin}</b>`; } });
 }
@@ -1253,9 +1293,9 @@ function showFinish(){
   document.getElementById("crumb").innerHTML="全部完成 · All done";
   const li=levelFromXP(points);
   card.innerHTML=`<div class="interstitial">
-    <div class="big">${avatarEmoji()}🎓🌟</div><h2>小明畢業了！</h2>
+    <div class="big">${avatarEmoji()}🎓🌟</div><h2>碩寬畢業了！</h2>
     <p class="intro" style="text-align:center">
-      從一年級到六年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
+      從一年級到六年級，碩寬學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
       拿到 <b>${points}</b> 點數、升到 <b>等級 ${li.level}</b>、收集 <b>${prizesEarned.size}</b> 個獎品！</p>
     <p class="intro" style="text-align:center">
       Grade 1 → 6 · <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes!</p>
@@ -1270,7 +1310,7 @@ function resetAll(){
   stats={}; reviewsDone=0; mode="story";
   spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
   ownedThemes=new Set(["classic"]); theme="classic";
-  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null;
+  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null; frame="none";
   warmedStages.clear(); applyTheme("classic"); updateAvatar();
   render();
 }
