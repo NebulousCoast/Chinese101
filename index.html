@@ -25,6 +25,15 @@
   .tbtns{display:flex;gap:6px}
   .mini{font-size:.78rem;border:1px solid var(--line);color:#a9926f;background:#fff;
     border-radius:99px;padding:3px 10px;cursor:pointer}
+  .mini.review{border-color:var(--accent);color:#fff;background:linear-gradient(135deg,var(--accent),#ffb066);font-weight:700}
+  .chip.weak{border-color:var(--bad);background:#fff5f5}
+  .chip .badge{color:var(--bad);font-size:.66rem;font-weight:700}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .quiz-tag{display:inline-block;background:#ffe9e0;color:var(--bad);font-weight:700;font-size:.8rem;border-radius:8px;padding:2px 10px}
+  .quiz-list{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:10px 0}
+  .quiz-pill{background:#fff5f5;border:1px solid #f3c9c9;border-radius:99px;padding:4px 12px;font-size:1rem}
+  .quiz-pill .b{color:var(--bad);font-size:.7rem;margin-left:4px}
+  .ghost{margin-top:10px;background:#fff;color:#a9926f;border:1px solid var(--line)}
   .progress-wrap{height:11px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}
   .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .4s}
   .progress-text{font-size:.78rem;color:#9b8a74;margin-bottom:10px}
@@ -133,6 +142,7 @@
     <div class="topbar">
       <span class="crumb" id="crumb"></span>
       <div class="tbtns">
+        <button class="mini review" id="reviewBtn">🧠 複習 Review</button>
         <button class="mini" id="soundBtn">🔊</button>
         <button class="mini" id="restartBtn">重新開始 · Restart</button>
       </div>
@@ -531,6 +541,8 @@ CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi], 
 STREAK_MILES.forEach((n,i)=>CATALOG.push({id:`streak-${n}`, emoji:["🔥","⚡","🌈","💥","🏵️"][i], zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
 LEVEL_MILES.forEach((n,i)=>CATALOG.push({id:`level-${n}`, emoji:["🎖️","🏅","👑","💎","🌟"][i], zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
 DAILY_MILES.forEach((n,i)=>CATALOG.push({id:`daily-${n}`, emoji:["📅","🗓️","🔥"][i], zh:`連續練習 ${n} 天`, hint:`連續 ${n} 天來練習`}));
+const REVIEW_MILES=[1,5,15];
+REVIEW_MILES.forEach((n,i)=>CATALOG.push({id:`review-${n}`, emoji:["🧠","🦉","🎯"][i], zh:n===1?`第一次複習`:`複習 ${n} 次`, hint:n===1?`完成第一次複習`:`完成 ${n} 次複習`}));
 const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 
 /* =========================================================================
@@ -539,19 +551,30 @@ const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 const SAVE_KEY="xiaoming_typing_v3";
 let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
 let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDays=new Set();
+let stats={}, reviewsDone=0;                 // per-word accuracy + review sessions
+let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
   mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
-  practiceDays:[...practiceDays] })); }
+  practiceDays:[...practiceDays], stats, reviewsDone })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
   streak=d.streak||0; maxStreak=d.maxStreak||0;
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
+  stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
+
+/* ---- Per-character accuracy / weakness ---- */
+function recordStat(id, errs){ const s=stats[id]||(stats[id]={seen:0,errors:0}); s.seen++; s.errors+=errs; }
+function weaknessOf(id){ const s=stats[id]||{seen:0,errors:0}; return s.seen ? s.errors/s.seen : 0; }
+function weakWords(n){
+  return [...mastered].map(id=>({id, w:weaknessOf(id), e:(stats[id]||{}).errors||0, s:(stats[id]||{}).seen||0}))
+    .sort((a,b)=> b.w-a.w || b.e-a.e || a.s-b.s).slice(0,n);
+}
 
 const card=document.getElementById("card");
 
@@ -616,6 +639,7 @@ function deriveEarned(){
   STREAK_MILES.forEach(n=>{ if(maxStreak>=n) e.add(`streak-${n}`); });
   const L=levelFromXP(points).level; LEVEL_MILES.forEach(n=>{ if(L>=n) e.add(`level-${n}`); });
   const ds=dailyStreak(); DAILY_MILES.forEach(n=>{ if(ds>=n) e.add(`daily-${n}`); });
+  REVIEW_MILES.forEach(n=>{ if(reviewsDone>=n) e.add(`review-${n}`); });
   return e;
 }
 function syncPrizes(){
@@ -678,10 +702,41 @@ function render(){
     html+=`<div class="typer">${panel}</div>`;
   }
   card.innerHTML=html;
-  updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar();
-  const input=document.getElementById("typeInput");
-  if(input){ input.addEventListener("input", onType); input.focus(); }
+  refreshSide();
+  if(activeWord){
+    const pinyinEl=null;
+    wireInput(VOCAB[activeWord.w].key,
+      (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); },
+      null);
+  }
 }
+
+/* Shared typing widget: colours tiles, plays sounds, counts wrong keystrokes.
+   onCorrect(errs) fires when the word is typed; onWrong(errs) fires per miss. */
+function wireInput(target, onCorrect, onWrong){
+  const input=document.getElementById("typeInput"); if(!input) return;
+  const tiles=[...document.querySelectorAll("#tiles .tile")];
+  let errs=0; input.dataset.len=0;
+  input.addEventListener("input",()=>{
+    let val=input.value.toLowerCase().replace(/[^a-z]/g,""); input.value=val;
+    const prev=+(input.dataset.len||0); input.dataset.len=val.length;
+    let allGood=true;
+    tiles.forEach((t,i)=>{
+      t.classList.remove("good","bad","cursor","filled");
+      if(i<val.length){ t.classList.add("filled"); t.textContent=val[i];
+        if(val[i]===target[i]) t.classList.add("good"); else { t.classList.add("bad"); allGood=false; } }
+      else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
+    });
+    if(val.length>prev && val!==target){ const i=val.length-1;
+      if(val[i]===target[i]) sTick(); else { sWrong(); errs++; if(onWrong) onWrong(errs); } }
+    const fb=document.getElementById("feedback");
+    if(val===target){ sCorrect(); onCorrect(errs); }
+    else { fb.className="feedback"; fb.textContent = val.length&&!allGood ? "再看一次… try again…" : " "; }
+  });
+  input.focus();
+}
+
+function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); }
 
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
@@ -695,25 +750,6 @@ function renderBookIntro(bi,book){
 }
 
 const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!","你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
-
-function onType(e){
-  const item=FLAT[pos]; let wIdx=-1, active=null;
-  item.parts.forEach(p=>{ if(typeof p==="object"&&p.w){ wIdx++; if(wIdx===wordCursor) active=p; }});
-  const target=VOCAB[active.w].key;
-  let val=e.target.value.toLowerCase().replace(/[^a-z]/g,""); e.target.value=val;
-  const prevLen=+(e.target.dataset.len||0); e.target.dataset.len=val.length;
-  const tiles=[...document.querySelectorAll("#tiles .tile")]; let allGood=true;
-  tiles.forEach((t,i)=>{
-    t.classList.remove("good","bad","cursor","filled");
-    if(i<val.length){ t.classList.add("filled"); t.textContent=val[i];
-      if(val[i]===target[i]) t.classList.add("good"); else { t.classList.add("bad"); allGood=false; } }
-    else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
-  });
-  if(val.length>prevLen && val!==target){ const i=val.length-1; (val[i]===target[i]?sTick:sWrong)(); }
-  const fb=document.getElementById("feedback");
-  if(val===target){ sCorrect(); success(active); }
-  else { fb.className="feedback"; fb.textContent = val.length&&!allGood ? "再看一次… try again…" : " "; }
-}
 
 function success(active){
   const oldLevel=levelFromXP(points).level;
@@ -762,8 +798,11 @@ function updateProgress(){
 function renderPool(){
   const chips=document.getElementById("chips");
   if(mastered.size===0){ chips.innerHTML=`<span class="ct">還沒有 · none yet — 開始打字吧！</span>`; return; }
-  chips.innerHTML=[...mastered].map(k=>{ const v=VOCAB[k];
-    return `<span class="chip">${v.img?v.img+" ":""}<b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${seenTotal[k]}</span></span>`;
+  // weakest first, so the pool itself resurfaces shaky characters
+  const order=[...mastered].sort((a,b)=> weaknessOf(b)-weaknessOf(a) || (((stats[b]||{}).errors||0)-((stats[a]||{}).errors||0)));
+  chips.innerHTML=order.map(k=>{ const v=VOCAB[k]; const e=(stats[k]||{}).errors||0;
+    return `<span class="chip ${e>0?"weak":""}">${v.img?v.img+" ":""}<b>${v.hanzi}</b><span class="py">${v.pinyin}</span>`+
+           (e>0?`<span class="badge">⚠️${e}</span>`:`<span class="ct">×${seenTotal[k]}</span>`)+`</span>`;
   }).join("");
 }
 function renderCabinet(){
@@ -771,6 +810,92 @@ function renderCabinet(){
     const got=prizesEarned.has(p.id);
     return `<div class="slot ${got?"earned":"locked"}"><div class="pe">${got?p.emoji:"🔒"}</div><div class="pn">${got?p.zh:p.hint}</div></div>`;
   }).join("");
+}
+
+/* =========================================================================
+   Review / Quiz mode — resurfaces your weakest characters
+   ========================================================================= */
+function startReview(){ mode="quiz"; renderQuizIntro(); }
+function exitReview(){ mode="story"; render(); }
+
+function renderQuizIntro(){
+  document.getElementById("crumb").innerHTML=`🧠 複習模式 · Review mode`;
+  if(mastered.size===0){
+    card.innerHTML=`<div class="interstitial"><div class="big">🧠</div>
+      <h2>還沒有字可以複習</h2>
+      <p class="intro" style="text-align:center">先去玩故事，學會幾個字，再回來複習你最弱的字！<br>
+      Play the story first to learn some characters, then come back.</p>
+      <button class="btn ghost" id="backBtn">返回故事 · Back to story</button></div>`;
+    refreshSide(); document.getElementById("backBtn").onclick=exitReview; return;
+  }
+  const n=Math.min(10, mastered.size);
+  quizList=weakWords(n).map(o=>o.id); quizIdx=0; quizCorrect=0;
+  const preview=weakWords(n);
+  const pills=preview.map(o=>{ const v=VOCAB[o.id]; const e=(stats[o.id]||{}).errors||0;
+    return `<span class="quiz-pill">${v.img?v.img+" ":""}${v.hanzi}${e>0?`<span class="b">⚠️${e}</span>`:""}</span>`; }).join("");
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">🧠</div><h2>複習你最弱的字</h2>
+    <p class="intro" style="text-align:center">這 ${n} 個字會考你——只給漢字和圖片，<b>拼音要靠自己記</b>！<br>
+    Type the pinyin from memory. Hint reveals only after a few misses.</p>
+    <div class="quiz-list">${pills}</div>
+    <button class="btn" id="goBtn">開始複習 · Start (${n}) ➜</button>
+    <div><button class="btn ghost" id="backBtn">返回故事 · Back to story</button></div></div>`;
+  refreshSide();
+  document.getElementById("goBtn").onclick=renderQuizItem;
+  document.getElementById("backBtn").onclick=exitReview;
+}
+
+function renderQuizItem(){
+  if(quizIdx>=quizList.length){ return renderQuizDone(); }
+  const id=quizList[quizIdx]; const v=VOCAB[id];
+  document.getElementById("crumb").innerHTML=`🧠 複習 Review · ${quizIdx+1} / ${quizList.length}`;
+  let html=`<div class="quiz-head"><span class="quiz-tag">複習 ${quizIdx+1}/${quizList.length}</span>
+    <span class="ct" style="color:#9b8a74">✓ ${quizCorrect}</span></div>`;
+  html+=`<div class="typer">
+    <div class="read-hint">🧠 靠記憶打出拼音 · type the pinyin from memory</div>
+    ${v.img?`<div class="pic">${v.img}</div>`:""}
+    <div class="hint-hanzi">${v.hanzi}</div>
+    <div class="hint-en">${v.en}</div>
+    <div class="hint-pinyin" id="revealPinyin">&nbsp;</div>
+    <div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>
+    <input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />
+    <div class="feedback" id="feedback">&nbsp;</div>
+    <button class="btn ghost" id="backBtn">結束複習 · End review</button>
+  </div>`;
+  card.innerHTML=html; refreshSide();
+  document.getElementById("backBtn").onclick=()=>{ finishReview(); };
+  wireInput(v.key,
+    (errs)=>{ recordStat(id, errs); if(errs===0) quizCorrect++;
+      points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
+      const fb=document.getElementById("feedback"); fb.className="feedback good";
+      fb.textContent= errs===0 ? "✓ 答對了！ Nailed it!" : "✓ 對了！(再記一下) Got it!";
+      setTimeout(()=>{ quizIdx++; renderQuizItem(); }, 650); },
+    (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${VOCAB[id].pinyin}</b>`; } });
+}
+
+function renderQuizDone(){ finishReview(); }
+
+function finishReview(){
+  reviewsDone++;
+  const oldLevel=levelFromXP(points).level;
+  const done=quizIdx; // attempted count
+  // small completion bonus
+  points+=10;
+  const newLevel=levelFromXP(points).level;
+  if(newLevel>oldLevel){ sLevel(); for(let L=oldLevel+1;L<=newLevel;L++) queueToast({e:"⬆️",zh:`升級！等級 ${L}`,en:`Level up! Lv.${L}`}); }
+  syncPrizes(); save();
+  document.getElementById("crumb").innerHTML=`🧠 複習完成 · Review done`;
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">🧠✨</div><h2>複習完成！</h2>
+    <p class="intro" style="text-align:center">
+      你複習了 <b>${done}</b> 個字，一次就答對 <b>${quizCorrect}</b> 個。<br>
+      這是你的第 <b>${reviewsDone}</b> 次複習。越練越強！</p>
+    <p class="intro" style="text-align:center">Reviewed <b>${done}</b> weak words · <b>${quizCorrect}</b> first-try correct.</p>
+    <button class="btn" id="againBtn">再複習一次 · Review again 🔁</button>
+    <div><button class="btn ghost" id="backBtn">返回故事 · Back to story</button></div></div>`;
+  refreshSide();
+  document.getElementById("againBtn").onclick=renderQuizIntro;
+  document.getElementById("backBtn").onclick=exitReview;
 }
 
 function showFinish(){
@@ -792,9 +917,12 @@ function resetAll(){
   localStorage.removeItem(SAVE_KEY);
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
+  stats={}; reviewsDone=0; mode="story";
   render();
 }
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
+
+document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
 
 setupSoundBtn();
 load(); render();
