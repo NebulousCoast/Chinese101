@@ -22,13 +22,13 @@
   .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
   .crumb{font-size:.85rem;color:#9b8a74;font-weight:700}
   .crumb b{color:var(--accent-dark)}
+  .tbtns{display:flex;gap:6px}
   .mini{font-size:.78rem;border:1px solid var(--line);color:#a9926f;background:#fff;
     border-radius:99px;padding:3px 10px;cursor:pointer}
   .progress-wrap{height:11px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}
   .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .4s}
   .progress-text{font-size:.78rem;color:#9b8a74;margin-bottom:10px}
 
-  /* ---- HUD: level / points / streak / prizes ---- */
   .hud{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}
   .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center;position:relative}
   .lvlbadge{font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),#ffb066);
@@ -91,20 +91,28 @@
 
   .panel{margin-top:16px;background:#fffaf3;border-radius:16px;padding:12px 16px;border:1px solid var(--line)}
   .panel h3{margin:0 0 8px;font-size:.82rem;color:#9b8a74;font-weight:700}
-  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;max-height:140px;overflow:auto}
   .chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 11px;font-size:.88rem;display:flex;gap:5px;align-items:baseline}
   .chip .py{color:var(--accent-dark);font-size:.74rem}
   .chip .ct{color:#c0ad94;font-size:.7rem}
 
-  /* ---- prize cabinet ---- */
-  .cabinet{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+  .cabinet{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;max-height:300px;overflow:auto}
   .slot{border-radius:12px;padding:8px 6px;text-align:center;border:1px solid var(--line);background:#fff}
   .slot.earned{border-color:var(--gold);background:linear-gradient(180deg,#fffdf2,#fff7df);box-shadow:0 6px 14px -10px var(--gold)}
   .slot.locked{opacity:.7;filter:grayscale(.4)}
   .slot .pe{font-size:1.7rem;line-height:1.2}
   .slot .pn{font-size:.66rem;color:#8a7a66;margin-top:2px;line-height:1.25}
 
-  /* ---- celebration toast ---- */
+  /* daily-streak calendar */
+  .cal-title{font-size:.78rem;color:#8a7a66;font-weight:700;text-align:center;margin-bottom:4px}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .cal-h{font-size:.68rem;color:#b9a78f;text-align:center;padding:2px 0}
+  .cal-d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;
+    background:#fff;border:1px solid var(--line);font-size:.78rem;color:#9b8a74}
+  .cal-d.empty{background:transparent;border:none}
+  .cal-d.done{background:#fff1df;border-color:var(--accent)}
+  .cal-d.today{box-shadow:0 0 0 2px var(--accent-dark)}
+
   .toast-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:50}
   .toast{background:#fff;border:2px solid var(--gold);border-radius:20px;padding:18px 28px;text-align:center;
     box-shadow:0 22px 55px -16px rgba(150,90,20,.6);animation:pop .28s ease-out, fadeout .3s 1s forwards}
@@ -124,7 +132,10 @@
   <div class="wrap">
     <div class="topbar">
       <span class="crumb" id="crumb"></span>
-      <button class="mini" id="restartBtn">重新開始 · Restart</button>
+      <div class="tbtns">
+        <button class="mini" id="soundBtn">🔊</button>
+        <button class="mini" id="restartBtn">重新開始 · Restart</button>
+      </div>
     </div>
     <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
     <div class="progress-text" id="progressText"></div>
@@ -143,12 +154,18 @@
     <div class="card" id="card"></div>
 
     <div class="panel">
+      <h3>📅 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
+      <div class="cal-title" id="calTitle"></div>
+      <div class="cal" id="calGrid"></div>
+    </div>
+
+    <div class="panel">
       <h3>📚 學會讀＋打的字 · Characters you can now read &amp; type</h3>
       <div class="chips" id="chips"></div>
     </div>
 
     <div class="panel">
-      <h3>🎁 獎品櫃 · Prize Cabinet</h3>
+      <h3>🎁 獎品櫃 · Prize Cabinet — <span id="przFull">0</span></h3>
       <div class="cabinet" id="cabinet"></div>
     </div>
   </div>
@@ -156,11 +173,12 @@
 <script>
 /* =========================================================================
    VOCABULARY — 小明 can already SAY each of these; he is learning to READ
-   and TYPE them. `key` = plain pinyin letters to type; `pinyin` = hint that
-   FADES on revisits; `en` = shown only first time; `img` = a picture (emoji)
-   shown for concrete words ("when appropriate" — abstract words have none).
+   and TYPE them. `key` = plain pinyin letters to type; `pinyin` = a hint
+   that FADES on revisits; `en` = shown only first time; `img` = a picture
+   (emoji) for concrete words. Homophones share a `key` but have unique ids.
    ========================================================================= */
 const VOCAB = {
+  /* ----- Book 1 (Grade 1上) ----- */
   wo:{hanzi:"我",pinyin:"wǒ",key:"wo",en:"I / me"},
   ni:{hanzi:"你",pinyin:"nǐ",key:"ni",en:"you"},
   da:{hanzi:"大",pinyin:"dà",key:"da",en:"big"},
@@ -184,6 +202,7 @@ const VOCAB = {
   shuo:{hanzi:"說",pinyin:"shuō",key:"shuo",en:"to say",img:"💬"},
   zaoan:{hanzi:"早安",pinyin:"zǎo'ān",key:"zaoan",en:"good morning",img:"🌅"},
   kan:{hanzi:"看",pinyin:"kàn",key:"kan",en:"to look / read",img:"👀"},
+  /* ----- Book 2 (Grade 1下) ----- */
   xia:{hanzi:"下",pinyin:"xià",key:"xia",en:"down",img:"⬇️"},
   tian:{hanzi:"天",pinyin:"tiān",key:"tian",en:"sky / day",img:"☁️"},
   ri:{hanzi:"日",pinyin:"rì",key:"ri",en:"sun / day",img:"☀️"},
@@ -204,6 +223,7 @@ const VOCAB = {
   women:{hanzi:"我們",pinyin:"wǒmen",key:"women",en:"we / us",img:"👨‍👩‍👧"},
   du:{hanzi:"讀",pinyin:"dú",key:"du",en:"to read",img:"📖"},
   shu:{hanzi:"書",pinyin:"shū",key:"shu",en:"book",img:"📚"},
+  /* ----- Book 3 (Grade 2上) ----- */
   zi:{hanzi:"字",pinyin:"zì",key:"zi",en:"character / word",img:"🔤"},
   xie:{hanzi:"寫",pinyin:"xiě",key:"xie",en:"to write",img:"✍️"},
   jia:{hanzi:"家",pinyin:"jiā",key:"jia",en:"home / family",img:"🏠"},
@@ -211,16 +231,111 @@ const VOCAB = {
   kaixin:{hanzi:"開心",pinyin:"kāixīn",key:"kaixin",en:"happy",img:"😄"},
   xiexie:{hanzi:"謝謝",pinyin:"xièxie",key:"xiexie",en:"thank you",img:"🙏"},
   xiezi:{hanzi:"寫字",pinyin:"xiězì",key:"xiezi",en:"to write characters",img:"📝"},
+  /* ----- Book 5 (Grade 3上) 大自然 ----- */
+  feng:{hanzi:"風",pinyin:"fēng",key:"feng",en:"wind",img:"🌬️"},
+  yu:{hanzi:"雨",pinyin:"yǔ",key:"yu",en:"rain",img:"🌧️"},
+  yun:{hanzi:"雲",pinyin:"yún",key:"yun",en:"cloud",img:"☁️"},
+  hua:{hanzi:"花",pinyin:"huā",key:"hua",en:"flower",img:"🌸"},
+  cao:{hanzi:"草",pinyin:"cǎo",key:"cao",en:"grass",img:"🌿"},
+  niao:{hanzi:"鳥",pinyin:"niǎo",key:"niao",en:"bird",img:"🐦"},
+  chuntian:{hanzi:"春天",pinyin:"chūntiān",key:"chuntian",en:"spring",img:"🌱"},
+  xiatian:{hanzi:"夏天",pinyin:"xiàtiān",key:"xiatian",en:"summer",img:"☀️"},
+  qiutian:{hanzi:"秋天",pinyin:"qiūtiān",key:"qiutian",en:"autumn",img:"🍂"},
+  dongtian:{hanzi:"冬天",pinyin:"dōngtiān",key:"dongtian",en:"winter",img:"❄️"},
+  tianqi:{hanzi:"天氣",pinyin:"tiānqì",key:"tianqi",en:"weather",img:"🌤️"},
+  /* ----- Book 6 (Grade 3下) 學校生活 ----- */
+  tong:{hanzi:"同",pinyin:"tóng",key:"tong",en:"same / together"},
+  ban:{hanzi:"班",pinyin:"bān",key:"ban",en:"class",img:"🧑‍🤝‍🧑"},
+  ke:{hanzi:"課",pinyin:"kè",key:"ke",en:"lesson",img:"📚"},
+  jiao:{hanzi:"教",pinyin:"jiào",key:"jiao",en:"to teach",img:"👩‍🏫"},
+  bi:{hanzi:"筆",pinyin:"bǐ",key:"bi",en:"pen",img:"🖊️"},
+  zhi:{hanzi:"紙",pinyin:"zhǐ",key:"zhi",en:"paper",img:"📄"},
+  tongxue:{hanzi:"同學",pinyin:"tóngxué",key:"tongxue",en:"classmate",img:"👫"},
+  shangke:{hanzi:"上課",pinyin:"shàngkè",key:"shangke",en:"class begins",img:"🔔"},
+  xiake:{hanzi:"下課",pinyin:"xiàkè",key:"xiake",en:"recess",img:"🛎️"},
+  gongke:{hanzi:"功課",pinyin:"gōngkè",key:"gongke",en:"homework",img:"📓"},
+  qianbi:{hanzi:"鉛筆",pinyin:"qiānbǐ",key:"qianbi",en:"pencil",img:"✏️"},
+  /* ----- Book 7 (Grade 4上) 家鄉與旅行 ----- */
+  che:{hanzi:"車",pinyin:"chē",key:"che",en:"car / vehicle",img:"🚗"},
+  lu:{hanzi:"路",pinyin:"lù",key:"lu",en:"road",img:"🛣️"},
+  qiao:{hanzi:"橋",pinyin:"qiáo",key:"qiao",en:"bridge",img:"🌉"},
+  heriver:{hanzi:"河",pinyin:"hé",key:"he",en:"river",img:"🏞️"},
+  hai:{hanzi:"海",pinyin:"hǎi",key:"hai",en:"sea",img:"🌊"},
+  chuan:{hanzi:"船",pinyin:"chuán",key:"chuan",en:"boat",img:"⛵"},
+  huoche:{hanzi:"火車",pinyin:"huǒchē",key:"huoche",en:"train",img:"🚂"},
+  gongche:{hanzi:"公車",pinyin:"gōngchē",key:"gongche",en:"bus",img:"🚌"},
+  feiji:{hanzi:"飛機",pinyin:"fēijī",key:"feiji",en:"airplane",img:"✈️"},
+  jiaxiang:{hanzi:"家鄉",pinyin:"jiāxiāng",key:"jiaxiang",en:"hometown",img:"🏡"},
+  difang:{hanzi:"地方",pinyin:"dìfāng",key:"difang",en:"place",img:"📍"},
+  /* ----- Book 8 (Grade 4下) 節日與文化 ----- */
+  jie:{hanzi:"節",pinyin:"jié",key:"jie",en:"festival",img:"🎉"},
+  long:{hanzi:"龍",pinyin:"lóng",key:"long",en:"dragon",img:"🐉"},
+  deng:{hanzi:"燈",pinyin:"dēng",key:"deng",en:"lantern / light",img:"🏮"},
+  cha:{hanzi:"茶",pinyin:"chá",key:"cha",en:"tea",img:"🍵"},
+  mi:{hanzi:"米",pinyin:"mǐ",key:"mi",en:"rice",img:"🍚"},
+  bing:{hanzi:"餅",pinyin:"bǐng",key:"bing",en:"cake / pastry",img:"🥮"},
+  guonian:{hanzi:"過年",pinyin:"guònián",key:"guonian",en:"Lunar New Year",img:"🧧"},
+  duanwu:{hanzi:"端午",pinyin:"duānwǔ",key:"duanwu",en:"Dragon Boat Festival",img:"🚣"},
+  zhongqiu:{hanzi:"中秋",pinyin:"zhōngqiū",key:"zhongqiu",en:"Mid-Autumn",img:"🌕"},
+  yuebing:{hanzi:"月餅",pinyin:"yuèbǐng",key:"yuebing",en:"mooncake",img:"🥮"},
+  hongbao:{hanzi:"紅包",pinyin:"hóngbāo",key:"hongbao",en:"red envelope",img:"🧧"},
+  /* ----- Book 9 (Grade 5上) 情感與品格 ----- */
+  xin:{hanzi:"心",pinyin:"xīn",key:"xin",en:"heart",img:"❤️"},
+  xiang:{hanzi:"想",pinyin:"xiǎng",key:"xiang",en:"to think / want",img:"💭"},
+  xiao_laugh:{hanzi:"笑",pinyin:"xiào",key:"xiao",en:"to laugh / smile",img:"😄"},
+  ku:{hanzi:"哭",pinyin:"kū",key:"ku",en:"to cry",img:"😢"},
+  pa:{hanzi:"怕",pinyin:"pà",key:"pa",en:"to fear",img:"😨"},
+  lei:{hanzi:"累",pinyin:"lèi",key:"lei",en:"tired",img:"😫"},
+  gaoxing:{hanzi:"高興",pinyin:"gāoxìng",key:"gaoxing",en:"glad",img:"😊"},
+  nanguo:{hanzi:"難過",pinyin:"nánguò",key:"nanguo",en:"sad",img:"😞"},
+  shengqi:{hanzi:"生氣",pinyin:"shēngqì",key:"shengqi",en:"angry",img:"😠"},
+  nuli:{hanzi:"努力",pinyin:"nǔlì",key:"nuli",en:"to work hard",img:"💪"},
+  yonggan:{hanzi:"勇敢",pinyin:"yǒnggǎn",key:"yonggan",en:"brave",img:"🦁"},
+  /* ----- Book 10 (Grade 5下) 科學與自然 ----- */
+  guang:{hanzi:"光",pinyin:"guāng",key:"guang",en:"light",img:"💡"},
+  dian:{hanzi:"電",pinyin:"diàn",key:"dian",en:"electricity",img:"⚡"},
+  xing:{hanzi:"星",pinyin:"xīng",key:"xing",en:"star",img:"⭐"},
+  di:{hanzi:"地",pinyin:"dì",key:"di",en:"earth / ground",img:"🌍"},
+  qiu:{hanzi:"球",pinyin:"qiú",key:"qiu",en:"ball / globe",img:"🌐"},
+  li:{hanzi:"力",pinyin:"lì",key:"li",en:"strength",img:"💪"},
+  shi_be:{hanzi:"是",pinyin:"shì",key:"shi",en:"to be"},
+  taiyang:{hanzi:"太陽",pinyin:"tàiyáng",key:"taiyang",en:"sun",img:"☀️"},
+  yueliang:{hanzi:"月亮",pinyin:"yuèliàng",key:"yueliang",en:"moon",img:"🌝"},
+  xingxing:{hanzi:"星星",pinyin:"xīngxing",key:"xingxing",en:"stars",img:"✨"},
+  diqiu:{hanzi:"地球",pinyin:"dìqiú",key:"diqiu",en:"Earth",img:"🌍"},
+  dongwu:{hanzi:"動物",pinyin:"dòngwù",key:"dongwu",en:"animal",img:"🐾"},
+  /* ----- Book 11 (Grade 6上) 社會與世界 ----- */
+  guo:{hanzi:"國",pinyin:"guó",key:"guo",en:"country",img:"🏳️"},
+  min:{hanzi:"民",pinyin:"mín",key:"min",en:"people / citizen"},
+  cheng:{hanzi:"城",pinyin:"chéng",key:"cheng",en:"city wall / city",img:"🏙️"},
+  jie_world:{hanzi:"界",pinyin:"jiè",key:"jie",en:"boundary / world",img:"🌐"},
+  shichar:{hanzi:"史",pinyin:"shǐ",key:"shi",en:"history",img:"📜"},
+  guojia:{hanzi:"國家",pinyin:"guójiā",key:"guojia",en:"nation",img:"🏛️"},
+  shijie:{hanzi:"世界",pinyin:"shìjiè",key:"shijie",en:"world",img:"🌍"},
+  chengshi:{hanzi:"城市",pinyin:"chéngshì",key:"chengshi",en:"city",img:"🏙️"},
+  lishi:{hanzi:"歷史",pinyin:"lìshǐ",key:"lishi",en:"history",img:"📜"},
+  wenhua:{hanzi:"文化",pinyin:"wénhuà",key:"wenhua",en:"culture",img:"🎎"},
+  /* ----- Book 12 (Grade 6下) 夢想與未來 ----- */
+  meng:{hanzi:"夢",pinyin:"mèng",key:"meng",en:"dream",img:"💭"},
+  wei:{hanzi:"未",pinyin:"wèi",key:"wei",en:"not yet / future"},
+  xi:{hanzi:"希",pinyin:"xī",key:"xi",en:"to hope"},
+  wang:{hanzi:"望",pinyin:"wàng",key:"wang",en:"to look toward / hope",img:"🌟"},
+  zhi:{hanzi:"志",pinyin:"zhì",key:"zhi",en:"ambition"},
+  mengxiang:{hanzi:"夢想",pinyin:"mèngxiǎng",key:"mengxiang",en:"dream / aspiration",img:"🌠"},
+  weilai:{hanzi:"未來",pinyin:"wèilái",key:"weilai",en:"the future",img:"🔮"},
+  xiwang:{hanzi:"希望",pinyin:"xīwàng",key:"xiwang",en:"hope",img:"🌈"},
+  mubiao:{hanzi:"目標",pinyin:"mùbiāo",key:"mubiao",en:"goal",img:"🎯"},
+  xue:{hanzi:"學",pinyin:"xué",key:"xue",en:"to learn",img:"🎓"},
 };
 
 /* =========================================================================
-   CURRICULUM — series of Books (冊) → Taiwan 國小 Grade/semester.
+   CURRICULUM — 12 Books (冊) → Taiwan 國小 Grades 1–6 (上/下學期).
    Inside each book: 單字 → 詞語 → 短句 → 完整句子. Strings are shown (not
-   typed); { w:"id" } must be read + typed. Words recycle across books in
-   ever-longer sentences (Bruner spiral).
+   typed); { w:"id" } must be read + typed. Words recycle across the whole
+   series inside ever-longer sentences (Bruner spiral).
    ========================================================================= */
 const CURRICULUM = [
-  { grade:"一年級 上學期 · Grade 1, 1st semester", title:"我開始學寫字",
+  { grade:"一年級 上學期 · Grade 1 (1st sem)", title:"我開始學寫字",
     blurb:"小明上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
     stages:[
       { name:"階段一 · 單字", intro:"先從最簡單的字開始。讀出聲音，再打出拼音。",
@@ -232,7 +347,7 @@ const CURRICULUM = [
       { name:"階段四 · 完整句子", intro:"把學過的字串成一個完整的句子。",
         challenges:[[{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"]] },
     ] },
-  { grade:"一年級 下學期 · Grade 1, 2nd semester", title:"我的一天",
+  { grade:"一年級 下學期 · Grade 1 (2nd sem)", title:"我的一天",
     blurb:"小明越來越會讀了。這學期，他要打出自己的一天。",
     stages:[
       { name:"階段一 · 單字", intro:"再多認識一些每天會用到的字。",
@@ -244,7 +359,7 @@ const CURRICULUM = [
       { name:"階段四 · 完整句子", intro:"小明的一天，一句一句打出來。",
         challenges:[["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"]] },
     ] },
-  { grade:"二年級 上學期 · Grade 2, 1st semester", title:"我會讀故事了",
+  { grade:"二年級 上學期 · Grade 2 (1st sem)", title:"我會讀故事了",
     blurb:"二年級的小明已經認識很多字，開始讀故事、寫日記。",
     stages:[
       { name:"階段一 · 單字", intro:"讀和寫的字，要好好認識。",
@@ -256,7 +371,7 @@ const CURRICULUM = [
       { name:"階段四 · 完整句子", intro:"把心情寫進長句子裡。",
         challenges:[["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"]] },
     ] },
-  { grade:"二年級 下學期 · Grade 2, 2nd semester", title:"我的日記",
+  { grade:"二年級 下學期 · Grade 2 (2nd sem)", title:"我的日記",
     blurb:"現在小明每天寫日記，把生活記下來。最後，他要打出一整篇。",
     stages:[
       { name:"階段一 · 單字", intro:"複習：這些字你都讀得出來了嗎？",
@@ -265,10 +380,129 @@ const CURRICULUM = [
         challenges:[[{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}]] },
       { name:"階段三 · 短句", intro:"日記裡的小句子。",
         challenges:[["我每天",{w:"du"},{w:"zhongwen"},"。"],[{w:"yue"},"亮出",{w:"lai"},"了。"],[{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"]] },
-      { name:"階段四 · 完整句子（日記）", intro:"小明的日記——最長的句子，全部自己打！",
+      { name:"階段四 · 完整句子（日記）", intro:"小明的日記——把一整天打出來！",
         challenges:[["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
                     ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
                     ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"]] },
+    ] },
+  { grade:"三年級 上學期 · Grade 3 (1st sem)", title:"大自然",
+    blurb:"三年級了！小明開始觀察大自然，認識季節和天氣。",
+    stages:[
+      { name:"階段一 · 單字", intro:"大自然裡的字。",
+        challenges:[[{w:"feng"}],[{w:"yu"}],[{w:"yun"}],[{w:"hua"}],[{w:"cao"}],[{w:"niao"}]] },
+      { name:"階段二 · 詞語", intro:"四季和天氣。",
+        challenges:[[{w:"chuntian"}],[{w:"xiatian"}],[{w:"qiutian"}],[{w:"dongtian"}],[{w:"tianqi"}]] },
+      { name:"階段三 · 短句", intro:"說說天氣和季節。",
+        challenges:[[{w:"chuntian"},{w:"lai"},"了，",{w:"hua"},"開了。"],[{w:"tianqi"},"很",{w:"hao"},"。"],[{w:"niao"},"在",{w:"tian"},{w:"shang"},"飛。"]] },
+      { name:"階段四 · 完整句子", intro:"把大自然寫成句子。",
+        challenges:[[{w:"xiatian"},"的",{w:"yu"},"，",{w:"xia"},"得很",{w:"da"},"。"],
+                    [{w:"qiutian"},"的",{w:"feng"},"，吹過",{w:"cao"},"地。"]] },
+    ] },
+  { grade:"三年級 下學期 · Grade 3 (2nd sem)", title:"我的學校生活",
+    blurb:"小明的學校生活很豐富，有同學、有功課，也有下課的玩樂。",
+    stages:[
+      { name:"階段一 · 單字", intro:"學校裡的字。",
+        challenges:[[{w:"tong"}],[{w:"ban"}],[{w:"ke"}],[{w:"jiao"}],[{w:"bi"}],[{w:"zhi"}]] },
+      { name:"階段二 · 詞語", intro:"上學會用到的詞語。",
+        challenges:[[{w:"tongxue"}],[{w:"shangke"}],[{w:"xiake"}],[{w:"gongke"}],[{w:"qianbi"}]] },
+      { name:"階段三 · 短句", intro:"學校裡的一天。",
+        challenges:[[{w:"shangke"},"了，",{w:"dajia"},"坐",{w:"hao"},"。"],
+                    [{w:"wo"},{w:"he"},{w:"tongxue"},{w:"qu"},{w:"xuexiao"},"。"],
+                    [{w:"laoshi"},{w:"jiao"},{w:"women"},{w:"xie"},{w:"zi"},"。"]] },
+      { name:"階段四 · 完整句子", intro:"把學校生活寫成長句。",
+        challenges:[[{w:"xiake"},"的時候，",{w:"wo"},{w:"he"},{w:"pengyou"},"一起",{w:"wan"},"。"],
+                    ["寫完",{w:"gongke"},"，",{w:"wo"},"就",{w:"qu"},{w:"gongyuan"},"。"]] },
+    ] },
+  { grade:"四年級 上學期 · Grade 4 (1st sem)", title:"家鄉與旅行",
+    blurb:"四年級的小明喜歡旅行，認識家鄉、交通工具和不同的地方。",
+    stages:[
+      { name:"階段一 · 單字", intro:"路上會看到的字。",
+        challenges:[[{w:"che"}],[{w:"lu"}],[{w:"qiao"}],[{w:"heriver"}],[{w:"hai"}],[{w:"chuan"}]] },
+      { name:"階段二 · 詞語", intro:"交通工具和地方。",
+        challenges:[[{w:"huoche"}],[{w:"gongche"}],[{w:"feiji"}],[{w:"jiaxiang"}],[{w:"difang"}]] },
+      { name:"階段三 · 短句", intro:"出門去旅行。",
+        challenges:[[{w:"wo"},"坐",{w:"huoche"},{w:"qu"},{w:"hai"},"邊。"],
+                    [{w:"jiaxiang"},"有一條",{w:"heriver"},"。"],
+                    [{w:"feiji"},"在",{w:"tian"},{w:"shang"},"飛。"]] },
+      { name:"階段四 · 完整句子", intro:"把旅行寫成長句。",
+        challenges:[[{w:"wo"},{w:"he"},{w:"baba"},"坐",{w:"gongche"},{w:"qu"},{w:"gongyuan"},"。"],
+                    [{w:"hai"},"邊有很多",{w:"chuan"},"，真美。"]] },
+    ] },
+  { grade:"四年級 下學期 · Grade 4 (2nd sem)", title:"節日與文化",
+    blurb:"小明最喜歡過節了！過年、端午、中秋，每個節日都好熱鬧。",
+    stages:[
+      { name:"階段一 · 單字", intro:"節日裡的字。",
+        challenges:[[{w:"jie"}],[{w:"long"}],[{w:"deng"}],[{w:"cha"}],[{w:"mi"}],[{w:"bing"}]] },
+      { name:"階段二 · 詞語", intro:"傳統節日。",
+        challenges:[[{w:"guonian"}],[{w:"duanwu"}],[{w:"zhongqiu"}],[{w:"yuebing"}],[{w:"hongbao"}]] },
+      { name:"階段三 · 短句", intro:"過節真開心。",
+        challenges:[[{w:"guonian"},"了，",{w:"dajia"},"很",{w:"kaixin"},"。"],
+                    [{w:"zhongqiu"},{w:"jie"},{w:"chi"},{w:"yuebing"},"。"],
+                    [{w:"mama"},"給",{w:"wo"},{w:"hongbao"},"。"]] },
+      { name:"階段四 · 完整句子", intro:"把節日寫成長句。",
+        challenges:[[{w:"guonian"},"的時候，",{w:"women"},{w:"chi"},"年夜飯，拿",{w:"hongbao"},"。"],
+                    [{w:"duanwu"},{w:"jie"},"，",{w:"dajia"},"一起",{w:"kan"},"划",{w:"long"},"舟。"]] },
+    ] },
+  { grade:"五年級 上學期 · Grade 5 (1st sem)", title:"情感與品格",
+    blurb:"五年級的小明開始懂得自己的心情，也學著勇敢和努力。",
+    stages:[
+      { name:"階段一 · 單字", intro:"心情的字。",
+        challenges:[[{w:"xin"}],[{w:"xiang"}],[{w:"xiao_laugh"}],[{w:"ku"}],[{w:"pa"}],[{w:"lei"}]] },
+      { name:"階段二 · 詞語", intro:"形容心情和品格。",
+        challenges:[[{w:"gaoxing"}],[{w:"nanguo"}],[{w:"shengqi"}],[{w:"nuli"}],[{w:"yonggan"}]] },
+      { name:"階段三 · 短句", intro:"說說自己的感覺。",
+        challenges:[[{w:"wo"},"今天很",{w:"gaoxing"},"。"],
+                    ["不要",{w:"pa"},"，要",{w:"yonggan"},"。"],
+                    [{w:"nuli"},"的",{w:"ren"},"會成功。"]] },
+      { name:"階段四 · 完整句子", intro:"把感受寫成長句。",
+        challenges:[["雖然很",{w:"lei"},"，但",{w:"wo"},"不會放棄。"],
+                    ["看到",{w:"pengyou"},{w:"nanguo"},"，",{w:"wo"},"也",{w:"xiang"},"幫忙。"]] },
+    ] },
+  { grade:"五年級 下學期 · Grade 5 (2nd sem)", title:"科學與自然",
+    blurb:"小明愛上了科學，想知道太陽、月亮和星星的祕密。",
+    stages:[
+      { name:"階段一 · 單字", intro:"科學裡的字。",
+        challenges:[[{w:"guang"}],[{w:"dian"}],[{w:"xing"}],[{w:"di"}],[{w:"qiu"}],[{w:"li"}]] },
+      { name:"階段二 · 詞語", intro:"天上和地上的事物。",
+        challenges:[[{w:"taiyang"}],[{w:"yueliang"}],[{w:"xingxing"}],[{w:"diqiu"}],[{w:"dongwu"}]] },
+      { name:"階段三 · 短句", intro:"觀察大自然。",
+        challenges:[[{w:"taiyang"},"從東邊出",{w:"lai"},"。"],
+                    ["晚上可以",{w:"kan"},"到",{w:"xingxing"},"。"],
+                    [{w:"diqiu"},{w:"shi_be"},{w:"women"},"的",{w:"jia"},"。"]] },
+      { name:"階段四 · 完整句子", intro:"把科學寫成長句。",
+        challenges:[[{w:"yueliang"},"會反射",{w:"taiyang"},"的",{w:"guang"},"。"],
+                    [{w:"dongwu"},{w:"he"},"植物都需要",{w:"shui"},"。"]] },
+    ] },
+  { grade:"六年級 上學期 · Grade 6 (1st sem)", title:"社會與世界",
+    blurb:"六年級的小明關心社會，認識國家、城市和世界文化。",
+    stages:[
+      { name:"階段一 · 單字", intro:"社會裡的字。",
+        challenges:[[{w:"guo"}],[{w:"min"}],[{w:"cheng"}],[{w:"jie_world"}],[{w:"shichar"}]] },
+      { name:"階段二 · 詞語", intro:"國家與世界。",
+        challenges:[[{w:"guojia"}],[{w:"shijie"}],[{w:"chengshi"}],[{w:"lishi"}],[{w:"wenhua"}]] },
+      { name:"階段三 · 短句", intro:"談談我們的世界。",
+        challenges:[["台灣",{w:"shi_be"},"我的",{w:"guojia"},"。"],
+                    [{w:"shijie"},{w:"shang"},"有很多",{w:"guojia"},"。"],
+                    [{w:"wo"},"喜歡",{w:"du"},{w:"lishi"},"。"]] },
+      { name:"階段四 · 完整句子", intro:"把社會寫成長句。",
+        challenges:[["每個",{w:"guojia"},"都有自己的",{w:"wenhua"},"。"],
+                    [{w:"chengshi"},"裡有很多",{w:"ren"},{w:"he"},{w:"che"},"。"]] },
+    ] },
+  { grade:"六年級 下學期 · Grade 6 (2nd sem)", title:"夢想與未來",
+    blurb:"快畢業了。小明寫下他的夢想，謝謝一路上陪他長大的人。",
+    stages:[
+      { name:"階段一 · 單字", intro:"夢想裡的字。",
+        challenges:[[{w:"meng"}],[{w:"wei"}],[{w:"xi"}],[{w:"wang"}],[{w:"zhi"}],[{w:"xue"}]] },
+      { name:"階段二 · 詞語", intro:"關於未來的詞語。",
+        challenges:[[{w:"mengxiang"}],[{w:"weilai"}],[{w:"xiwang"}],[{w:"mubiao"}],[{w:"nuli"}]] },
+      { name:"階段三 · 短句", intro:"說說我的夢想。",
+        challenges:[[{w:"wo"},"有一個",{w:"mengxiang"},"。"],
+                    [{w:"nuli"},"就有",{w:"xiwang"},"。"],
+                    [{w:"weilai"},"會更",{w:"hao"},"。"]] },
+      { name:"階段四 · 完整句子（畢業）", intro:"最後的長句——全部自己打！",
+        challenges:[[{w:"wo"},{w:"xiwang"},{w:"weilai"},"能",{w:"du"},"很多",{w:"shu"},"，",{w:"xue"},"會",{w:"zhongwen"},"。"],
+                    ["只要",{w:"nuli"},"，",{w:"mengxiang"},"一定會成真。"],
+                    [{w:"xiexie"},{w:"laoshi"},{w:"he"},{w:"baba"},{w:"mama"},"，陪",{w:"wo"},"長",{w:"da"},"。"]] },
     ] },
 ];
 
@@ -280,68 +514,119 @@ CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.f
 })));
 const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
-/* ---- Stage / book end indices (for prize derivation) ---- */
 const STAGE_END={}, BOOK_END={};
 FLAT.forEach((it,i)=>{ STAGE_END[it.bookIdx+"-"+it.stageIdx]=i; BOOK_END[it.bookIdx]=i; });
 
 /* ---- Prize catalogue ---- */
-const STAGE_EMOJI=[["✏️","🧩","💬","📜"],["🌅","🏫","📕","🌳"],["🔖","😊","🐾","🖋️"],["🔁","🎒","🌙","📔"]];
-const BOOK_EMOJI=["🥉","🥈","🥇","🏆"];
+const STAGE_EMOJI=[
+  ["✏️","🧩","💬","📜"],["🌅","🏫","📕","🌳"],["🔖","😊","🐾","🖋️"],["🔁","🎒","🌙","📔"],
+  ["🌬️","🌸","🐦","🌧️"],["📓","👫","🔔","🖍️"],["🚗","🚂","🌊","⛵"],["🎉","🧧","🥮","🐉"],
+  ["❤️","😊","🦁","💪"],["💡","⭐","🌍","🐾"],["🏳️","🏛️","🏙️","📜"],["💭","🌠","🌈","🚀"]];
+const BOOK_EMOJI=["🥉","🥈","🥇","🏆","🌸","📚","🚂","🏮","💖","🔬","🌍","🎓"];
+const STREAK_MILES=[5,10,20,30,50], LEVEL_MILES=[3,5,8,12,16], DAILY_MILES=[3,7,14];
 const CATALOG=[];
 CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>CATALOG.push(
-  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si], zh:`${b.title}・${s.name.split("·")[1]?.trim()||s.name}`, hint:"完成這個階段"})));
-CURRICULUM.forEach((b,bi)=>CATALOG.push(
-  {id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
-[5,10,20].forEach(n=>CATALOG.push({id:`streak-${n}`, emoji:n===5?"🔥":n===10?"⚡":"🌈", zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
-[3,5,8].forEach(n=>CATALOG.push({id:`level-${n}`, emoji:n===3?"🎖️":n===5?"🏅":"👑", zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
+  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si], zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
+CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
+STREAK_MILES.forEach((n,i)=>CATALOG.push({id:`streak-${n}`, emoji:["🔥","⚡","🌈","💥","🏵️"][i], zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
+LEVEL_MILES.forEach((n,i)=>CATALOG.push({id:`level-${n}`, emoji:["🎖️","🏅","👑","💎","🌟"][i], zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
+DAILY_MILES.forEach((n,i)=>CATALOG.push({id:`daily-${n}`, emoji:["📅","🗓️","🔥"][i], zh:`連續練習 ${n} 天`, hint:`連續 ${n} 天來練習`}));
 const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 
 /* =========================================================================
    State (localStorage resume)
    ========================================================================= */
-const SAVE_KEY="xiaoming_typing_v2";
+const SAVE_KEY="xiaoming_typing_v3";
 let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
-let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set();
+let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDays=new Set();
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
-  mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned] })); }
+  mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
+  practiceDays:[...practiceDays] })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
   streak=d.streak||0; maxStreak=d.maxStreak||0;
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
-  prizesEarned=new Set(d.prizesEarned||[]);
-  // baseline so resuming doesn't re-celebrate already-earned prizes
-  deriveEarned().forEach(id=>prizesEarned.add(id));
+  prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
+  deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
 const card=document.getElementById("card");
+
+/* ---- Sound effects (Web Audio, self-contained, no files) ---- */
+let audioCtx=null;
+let soundOn=localStorage.getItem("xiaoming_sound")!=="off";
+function ac(){ if(!audioCtx){ try{ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return audioCtx; }
+function beep(freq,dur,type,vol,when){
+  if(!soundOn) return; const c=ac(); if(!c) return;
+  const t=c.currentTime+(when||0);
+  const o=c.createOscillator(), g=c.createGain();
+  o.type=type||"sine"; o.frequency.value=freq;
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol||0.14,t+0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g).connect(c.destination); o.start(t); o.stop(t+dur+0.03);
+}
+const sTick    =()=>beep(440,0.04,"square",0.04,0);
+const sWrong   =()=>beep(170,0.18,"square",0.07,0);
+const sCorrect =()=>{ beep(660,0.12,"sine",0.13,0); beep(990,0.14,"sine",0.13,0.09); };
+const sSentence=()=>[523,659,784,1046].forEach((f,i)=>beep(f,0.18,"triangle",0.12,i*0.08));
+const sLevel   =()=>[523,659,784,1046,1318].forEach((f,i)=>beep(f,0.16,"sine",0.13,i*0.07));
+const sPrize   =()=>[880,1175,1568].forEach((f,i)=>beep(f,0.16,"triangle",0.13,i*0.06));
+function setupSoundBtn(){
+  const b=document.getElementById("soundBtn");
+  b.textContent=soundOn?"🔊":"🔇";
+  b.onclick=()=>{ soundOn=!soundOn; localStorage.setItem("xiaoming_sound",soundOn?"on":"off");
+    b.textContent=soundOn?"🔊":"🔇"; if(soundOn){ ac()&&ac().resume(); sCorrect(); } };
+  ["click","keydown","touchstart"].forEach(ev=>window.addEventListener(ev,()=>{ const c=ac(); if(c&&c.state==="suspended") c.resume(); }));
+}
 
 /* ---- Levels ---- */
 function levelFromXP(xp){ let lvl=1, need=100, acc=0;
   while(xp>=acc+need){ acc+=need; lvl++; need=100+(lvl-1)*50; }
   return {level:lvl, into:xp-acc, need}; }
-
 function hintLevel(enc){ if(enc<=1)return 3; if(enc===2)return 2; return 1; }
+
+/* ---- Daily-streak calendar ---- */
+function dkey(dt){ return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0"); }
+function dailyStreak(){
+  let s=0; const d=new Date();
+  if(!practiceDays.has(dkey(d))) d.setDate(d.getDate()-1);
+  while(practiceDays.has(dkey(d))){ s++; d.setDate(d.getDate()-1); }
+  return s;
+}
+function renderCalendar(){
+  const now=new Date(), y=now.getFullYear(), m=now.getMonth();
+  const startDow=new Date(y,m,1).getDay(), dim=new Date(y,m+1,0).getDate(), todayK=dkey(now);
+  let cells=["日","一","二","三","四","五","六"].map(d=>`<div class="cal-h">${d}</div>`).join("");
+  for(let i=0;i<startDow;i++) cells+=`<div class="cal-d empty"></div>`;
+  for(let d=1;d<=dim;d++){ const k=dkey(new Date(y,m,d)); const done=practiceDays.has(k); const today=k===todayK;
+    cells+=`<div class="cal-d ${done?"done":""} ${today?"today":""}">${done?"🔥":d}</div>`; }
+  document.getElementById("calGrid").innerHTML=cells;
+  document.getElementById("calTitle").textContent=`${y} 年 ${m+1} 月`;
+  document.getElementById("dailyNum").textContent=dailyStreak();
+}
 
 /* ---- Prizes ---- */
 function deriveEarned(){
   const e=new Set();
   CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>{ if(pos>STAGE_END[bi+"-"+si]) e.add(`stage-${bi}-${si}`); }));
   CURRICULUM.forEach((b,bi)=>{ if(pos>BOOK_END[bi]) e.add(`book-${bi}`); });
-  [5,10,20].forEach(n=>{ if(maxStreak>=n) e.add(`streak-${n}`); });
-  const L=levelFromXP(points).level; [3,5,8].forEach(n=>{ if(L>=n) e.add(`level-${n}`); });
+  STREAK_MILES.forEach(n=>{ if(maxStreak>=n) e.add(`streak-${n}`); });
+  const L=levelFromXP(points).level; LEVEL_MILES.forEach(n=>{ if(L>=n) e.add(`level-${n}`); });
+  const ds=dailyStreak(); DAILY_MILES.forEach(n=>{ if(ds>=n) e.add(`daily-${n}`); });
   return e;
 }
 function syncPrizes(){
   const now=deriveEarned();
   const fresh=[...now].filter(id=>!prizesEarned.has(id));
   prizesEarned=now;
+  if(fresh.length) sPrize();
   fresh.forEach(id=>{ const p=CATALOG_BY_ID[id]; queueToast({e:p.emoji, zh:"獲得獎品！"+p.zh, en:"New prize unlocked!"}); });
 }
 
-/* ---- Celebration toast queue ---- */
+/* ---- Celebration toasts ---- */
 let tq=[], tBusy=false;
 function queueToast(t){ tq.push(t); if(!tBusy) playToast(); }
 function playToast(){ if(!tq.length){ tBusy=false; return; } tBusy=true;
@@ -393,7 +678,7 @@ function render(){
     html+=`<div class="typer">${panel}</div>`;
   }
   card.innerHTML=html;
-  updateHUD(); updateProgress(); renderPool(); renderCabinet();
+  updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar();
   const input=document.getElementById("typeInput");
   if(input){ input.addEventListener("input", onType); input.focus(); }
 }
@@ -405,7 +690,7 @@ function renderBookIntro(bi,book){
     <h2>第 ${bi+1} 冊：${book.title}</h2>
     <p class="intro" style="text-align:center">${book.blurb}</p>
     <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
-  updateHUD(); updateProgress(); renderCabinet();
+  updateHUD(); updateProgress(); renderCabinet(); renderCalendar();
   document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
 }
 
@@ -416,6 +701,7 @@ function onType(e){
   item.parts.forEach(p=>{ if(typeof p==="object"&&p.w){ wIdx++; if(wIdx===wordCursor) active=p; }});
   const target=VOCAB[active.w].key;
   let val=e.target.value.toLowerCase().replace(/[^a-z]/g,""); e.target.value=val;
+  const prevLen=+(e.target.dataset.len||0); e.target.dataset.len=val.length;
   const tiles=[...document.querySelectorAll("#tiles .tile")]; let allGood=true;
   tiles.forEach((t,i)=>{
     t.classList.remove("good","bad","cursor","filled");
@@ -423,17 +709,18 @@ function onType(e){
       if(val[i]===target[i]) t.classList.add("good"); else { t.classList.add("bad"); allGood=false; } }
     else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
   });
+  if(val.length>prevLen && val!==target){ const i=val.length-1; (val[i]===target[i]?sTick:sWrong)(); }
   const fb=document.getElementById("feedback");
-  if(val===target){ success(active); }
+  if(val===target){ sCorrect(); success(active); }
   else { fb.className="feedback"; fb.textContent = val.length&&!allGood ? "再看一次… try again…" : " "; }
 }
 
 function success(active){
   const oldLevel=levelFromXP(points).level;
   mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
+  practiceDays.add(dkey(new Date()));
   const lvl=hintLevel(active._enc);
-  const hintBonus = lvl===1?8 : lvl===2?4 : 0;     // more points for less scaffolding
-  const gained = 10 + hintBonus + Math.min(streak,10);
+  const gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
   fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
@@ -444,13 +731,13 @@ function success(active){
   setTimeout(()=>{
     wordCursor++;
     if(wordCursor>=wcount){
-      if(wcount>1){ points+=15; queueToast({e:"📝", zh:"句子完成！＋15", en:"Sentence complete! +15"}); }
+      if(wcount>1){ points+=15; sSentence(); queueToast({e:"📝", zh:"句子完成！＋15", en:"Sentence complete! +15"}); }
       wordCursor=0; pos++;
     }
     const newLevel=levelFromXP(points).level;
+    if(newLevel>oldLevel) sLevel();
     for(let L=oldLevel+1; L<=newLevel; L++) queueToast({e:"⬆️", zh:`升級！等級 ${L}`, en:`Level up! Lv.${L}`});
-    syncPrizes();
-    updateHUD();
+    syncPrizes(); updateHUD();
     if(pos>=FLAT.length){ save(); showFinish(); return; }
     save(); render();
   },600);
@@ -464,6 +751,7 @@ function updateHUD(){
   document.getElementById("ptsNum").textContent=points;
   document.getElementById("strkNum").textContent=streak;
   document.getElementById("przNum").textContent=prizesEarned.size+"/"+CATALOG.length;
+  document.getElementById("przFull").textContent=prizesEarned.size+" / "+CATALOG.length;
 }
 function updateProgress(){
   const pct=Math.round((typedWords/TOTAL_WORDS)*100);
@@ -490,24 +778,25 @@ function showFinish(){
   document.getElementById("crumb").innerHTML="全部完成 · All done";
   const li=levelFromXP(points);
   card.innerHTML=`<div class="interstitial">
-    <div class="big">🏆✏️🌟</div><h2>小明畢業了！</h2>
+    <div class="big">🎓✏️🌟</div><h2>小明畢業了！</h2>
     <p class="intro" style="text-align:center">
-      從一年級到二年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
+      從一年級到六年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
       拿到 <b>${points}</b> 點數、升到 <b>等級 ${li.level}</b>、收集 <b>${prizesEarned.size}</b> 個獎品！</p>
     <p class="intro" style="text-align:center">
-      <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes · from single words to full sentences!</p>
+      Grade 1 → 6 · <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes!</p>
     <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button></div>`;
-  updateHUD(); renderPool(); renderCabinet();
+  updateHUD(); renderPool(); renderCabinet(); renderCalendar();
   document.getElementById("againBtn").addEventListener("click", resetAll);
 }
 function resetAll(){
   localStorage.removeItem(SAVE_KEY);
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
-  mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set();
+  mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   render();
 }
-document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度。Restart and clear progress?")) resetAll(); });
+document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
 
+setupSoundBtn();
 load(); render();
 </script>
 </body>
