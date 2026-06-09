@@ -112,6 +112,38 @@
   .slot .pe{font-size:1.7rem;line-height:1.2}
   .slot .pn{font-size:.66rem;color:#8a7a66;margin-top:2px;line-height:1.25}
 
+  /* shop */
+  .shop-sec{margin-top:6px}
+  .shop-sec h4{margin:8px 0 6px;font-size:.74rem;color:#9b8a74}
+  .shop-row{display:flex;flex-wrap:wrap;gap:8px}
+  .buy{border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 10px;text-align:center;min-width:84px;cursor:pointer}
+  .buy:hover{border-color:var(--accent)}
+  .buy.owned{border-color:var(--good);background:#eefaf2;cursor:default}
+  .buy.using{border-color:var(--accent);background:#fff3e6}
+  .buy.cant{opacity:.45;cursor:not-allowed}
+  .buy .be{font-size:1.6rem;line-height:1.2}
+  .buy .bn{font-size:.66rem;color:#7a6a55;margin-top:1px}
+  .buy .bc{font-size:.68rem;color:var(--accent-dark);font-weight:700;margin-top:2px}
+  .pet-box{display:flex;align-items:center;gap:12px}
+  .pet-box .pe{font-size:3rem}
+  /* quest */
+  .quest{display:flex;align-items:center;gap:10px}
+  .quest .qbar{flex:1;height:10px;background:var(--soft);border-radius:99px;overflow:hidden}
+  .quest .qbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .3s}
+  .quest .qtxt{font-size:.8rem;color:#8a7a66;font-weight:700;white-space:nowrap}
+  .quest.done .qtxt{color:var(--good)}
+  /* question prompt + power-ups + say button */
+  .prompt{background:#eef4ff;border:1px solid #d4e3ff;border-radius:12px;padding:10px 12px;margin-bottom:10px;
+    color:#3b5b8c;font-size:1rem;text-align:center}
+  .prompt b{color:#234d8c}
+  .hanzi-row{display:flex;align-items:center;justify-content:center;gap:8px}
+  .say{border:1px solid var(--line);background:#fff;border-radius:99px;width:32px;height:32px;cursor:pointer;font-size:1rem}
+  .powerups{display:flex;gap:8px;justify-content:center;margin-top:8px}
+  .pu{border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;font-size:.8rem;cursor:pointer;color:#a9926f}
+  .pu:hover{border-color:var(--accent)}
+  .pu.cant{opacity:.4;cursor:not-allowed}
+  .boost-flag{display:inline-block;background:#fff0d6;color:var(--accent-dark);border-radius:8px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-top:6px}
+
   /* daily-streak calendar */
   .cal-title{font-size:.78rem;color:#8a7a66;font-weight:700;text-align:center;margin-bottom:4px}
   .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
@@ -156,12 +188,19 @@
         <div class="xpbar"><i id="xpFill"></i></div>
         <div class="xptxt" id="xpTxt">0 / 100 XP</div>
       </div>
-      <div class="stat" id="ptsStat"><div class="snum" id="ptsNum">0</div><div class="slab">⭐ 點數 Points</div></div>
+      <div class="stat" id="ptsStat"><div class="snum" id="ptsNum">0</div><div class="slab">🪙 金幣 Coins</div></div>
       <div class="stat"><div class="snum" id="strkNum">0</div><div class="slab">🔥 連勝 Streak</div></div>
       <div class="stat"><div class="snum" id="przNum">0</div><div class="slab">🎁 獎品 Prizes</div></div>
     </div>
 
     <div class="card" id="card"></div>
+
+    <div class="panel" id="questPanel"></div>
+
+    <div class="panel">
+      <h3>🛒 商店 · Shop — 用金幣換獎勵 spend your coins</h3>
+      <div id="shop"></div>
+    </div>
 
     <div class="panel">
       <h3>📅 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
@@ -336,6 +375,15 @@ const VOCAB = {
   xiwang:{hanzi:"希望",pinyin:"xīwàng",key:"xiwang",en:"hope",img:"🌈"},
   mubiao:{hanzi:"目標",pinyin:"mùbiāo",key:"mubiao",en:"goal",img:"🎯"},
   xue:{hanzi:"學",pinyin:"xué",key:"xue",en:"to learn",img:"🎓"},
+  /* ----- enrichment words ----- */
+  didi:{hanzi:"弟弟",pinyin:"dìdi",key:"didi",en:"little brother",img:"👦"},
+  meimei:{hanzi:"妹妹",pinyin:"mèimei",key:"meimei",en:"little sister",img:"👧"},
+  wanshang:{hanzi:"晚上",pinyin:"wǎnshàng",key:"wanshang",en:"evening",img:"🌙"},
+  gushi:{hanzi:"故事",pinyin:"gùshì",key:"gushi",en:"story",img:"📖"},
+  jijie:{hanzi:"季節",pinyin:"jìjié",key:"jijie",en:"season",img:"🍂"},
+  denglong:{hanzi:"燈籠",pinyin:"dēnglong",key:"denglong",en:"lantern",img:"🏮"},
+  tongle:{hanzi:"同樂",pinyin:"tónglè",key:"tongle",en:"have fun together",img:"🎊"},
+  meili:{hanzi:"美麗",pinyin:"měilì",key:"meili",en:"beautiful",img:"🌺"},
 };
 
 /* =========================================================================
@@ -516,11 +564,56 @@ const CURRICULUM = [
     ] },
 ];
 
-/* ---- Flatten + spiral encounter index ---- */
+/* =========================================================================
+   ENRICHMENT — extra 詞語 + 句子 per book, and a 問答 (Q&A) stage where the
+   game asks an open-ended question and you type a full-sentence answer.
+   Answers reuse known vocabulary, which also reinforces the spiral.
+   ========================================================================= */
+const ENRICH_CIYU=[ // extra 詞語 pushed onto each book's stage 2
+  [[{w:"didi"}],[{w:"meimei"}]], [[{w:"wanshang"}]], [[{w:"gushi"}]], [],
+  [[{w:"jijie"}]], [], [], [[{w:"denglong"}]], [], [], [], [],
+];
+const QA=[ // one Q&A challenge {q, parts} per book
+  {q:"老師對你說「早安」，你會怎麼回答？", parts:[{w:"laoshi"},{w:"zaoan"},"！"]},
+  {q:"早上你起床後，先做什麼？", parts:["我先",{w:"chi"},{w:"zaocan"},"。"]},
+  {q:"在家裡，你最喜歡做什麼？", parts:[{w:"wo"},"最喜歡",{w:"kan"},{w:"gushi"},{w:"shu"},"。"]},
+  {q:"今天過得開心嗎？說說看。", parts:["今天",{w:"wo"},"很",{w:"kaixin"},"！"]},
+  {q:"你最喜歡哪一個季節？為什麼？", parts:["我最喜歡",{w:"chuntian"},"，因為",{w:"hua"},"開了。"]},
+  {q:"下課的時候，你都做什麼？", parts:["下課我和",{w:"tongxue"},"一起",{w:"wan"},"。"]},
+  {q:"你最想去哪裡旅行？", parts:["我想坐",{w:"feiji"},{w:"qu"},{w:"hai"},"邊。"]},
+  {q:"中秋節到了，你會做什麼？", parts:[{w:"zhongqiu"},{w:"jie"},"，我和家人吃",{w:"yuebing"},"。"]},
+  {q:"遇到困難的時候，你會怎麼做？", parts:["我會",{w:"yonggan"},"，也會",{w:"nuli"},"。"]},
+  {q:"地球為什麼很重要？", parts:[{w:"diqiu"},{w:"shi_be"},{w:"women"},"的",{w:"jia"},"。"]},
+  {q:"你的國家是哪裡？", parts:["我的",{w:"guojia"},{w:"shi_be"},"台灣。"]},
+  {q:"你的夢想是什麼？", parts:[{w:"wo"},"的",{w:"mengxiang"},{w:"shi_be"},{w:"du"},"很多",{w:"shu"},"。"]},
+];
+const EXTRA_JUZI=[ // one extra 完整句子 per book (reuses known words)
+  [{w:"didi"},{w:"he"},{w:"meimei"},"都",{w:"ai"},{w:"mama"},"。"],
+  [{w:"wanshang"},"，",{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"],
+  [{w:"wo"},"在",{w:"jia"},{w:"du"},{w:"gushi"},"。"],
+  ["放假了，",{w:"wo"},"很",{w:"kaixin"},"，要去",{w:"wan"},"。"],
+  [{w:"chuntian"},"的",{w:"tianqi"},"很",{w:"hao"},"，",{w:"hua"},"也很",{w:"meili"},"。"],
+  ["上課了，",{w:"laoshi"},{w:"jiao"},{w:"women"},{w:"du"},{w:"shu"},"。"],
+  [{w:"wo"},{w:"he"},{w:"baba"},"坐",{w:"huoche"},{w:"qu"},{w:"jiaxiang"},"。"],
+  [{w:"guonian"},"的",{w:"wanshang"},"，到處都是",{w:"denglong"},"，大家",{w:"tongle"},"。"],
+  [{w:"wo"},"今天很",{w:"gaoxing"},"，因為我學會",{w:"yonggan"},"。"],
+  [{w:"taiyang"},"、",{w:"yueliang"},"和",{w:"xingxing"},"都在",{w:"tian"},{w:"shang"},"。"],
+  [{w:"shijie"},{w:"shang"},"有很多",{w:"meili"},"的",{w:"guojia"},"。"],
+  [{w:"wo"},{w:"xiwang"},{w:"weilai"},"能去",{w:"shijie"},"各地。"],
+];
+CURRICULUM.forEach((b,bi)=>{
+  (ENRICH_CIYU[bi]||[]).forEach(c=>b.stages[1].challenges.push(c));   // more phrases
+  if(EXTRA_JUZI[bi]) b.stages[3].challenges.push(EXTRA_JUZI[bi]);     // more sentences
+  if(QA[bi]) b.stages.push({ name:"階段五 · 問答 Q&A", intro:"老師問你一個問題，打出一個完整的句子來回答！", challenges:[QA[bi]] });
+});
+
+/* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
 const seenTotal={}; const FLAT=[];
-CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((parts,ci)=>{
+CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
+  const parts = Array.isArray(ch)? ch : ch.parts;
+  const prompt = Array.isArray(ch)? null : ch.q;
   parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
-  FLAT.push({ bookIdx:bi, stageIdx:si, parts, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
+  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
 })));
 const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
@@ -536,7 +629,7 @@ const BOOK_EMOJI=["🥉","🥈","🥇","🏆","🌸","📚","🚂","🏮","💖"
 const STREAK_MILES=[5,10,20,30,50], LEVEL_MILES=[3,5,8,12,16], DAILY_MILES=[3,7,14];
 const CATALOG=[];
 CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>CATALOG.push(
-  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si], zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
+  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si]||"🗣️", zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
 CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
 STREAK_MILES.forEach((n,i)=>CATALOG.push({id:`streak-${n}`, emoji:["🔥","⚡","🌈","💥","🏵️"][i], zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
 LEVEL_MILES.forEach((n,i)=>CATALOG.push({id:`level-${n}`, emoji:["🎖️","🏅","👑","💎","🌟"][i], zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
@@ -548,16 +641,23 @@ const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 /* =========================================================================
    State (localStorage resume)
    ========================================================================= */
-const SAVE_KEY="xiaoming_typing_v3";
+const SAVE_KEY="xiaoming_typing_v4";
 let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
 let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDays=new Set();
 let stats={}, reviewsDone=0;                 // per-word accuracy + review sessions
 let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
+/* economy + shop */
+let spent=0, boostLeft=0;                     // coins spent; 2x-points words remaining
+let ownedThemes=new Set(["classic"]), theme="classic";
+let ownedStickers=new Set(), pet=null, tokens={hint:0,skip:0}, quest=null;
+const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
   mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
-  practiceDays:[...practiceDays], stats, reviewsDone })); }
+  practiceDays:[...practiceDays], stats, reviewsDone,
+  spent, boostLeft, ownedThemes:[...ownedThemes], theme,
+  ownedStickers:[...ownedStickers], pet, tokens, quest })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -565,6 +665,10 @@ function load(){ try{
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
   stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
+  spent=d.spent||0; boostLeft=d.boostLeft||0;
+  ownedThemes=new Set(d.ownedThemes||["classic"]); theme=d.theme||"classic";
+  ownedStickers=new Set(d.ownedStickers||[]); pet=d.pet||null;
+  tokens=d.tokens||{hint:0,skip:0}; quest=d.quest||null;
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -575,6 +679,37 @@ function weakWords(n){
   return [...mastered].map(id=>({id, w:weaknessOf(id), e:(stats[id]||{}).errors||0, s:(stats[id]||{}).seen||0}))
     .sort((a,b)=> b.w-a.w || b.e-a.e || a.s-b.s).slice(0,n);
 }
+
+/* ---- Shop catalogue + purchases (spend coins; level uses lifetime points) ---- */
+const THEMES={
+  classic:{name:"經典橘 Classic",cost:0,vars:{}},
+  ocean:{name:"海洋藍 Ocean",cost:250,vars:{"--accent":"#3aa0ff","--accent-dark":"#1c7fe0","--soft":"#d6ecff","--line":"#c4e0fb","--bg":"#eef7ff","--gold":"#34c0d6"}},
+  forest:{name:"森林綠 Forest",cost:250,vars:{"--accent":"#3fbf6f","--accent-dark":"#2a9c55","--soft":"#d3f3df","--line":"#c2e9d2","--bg":"#eefaf1"}},
+  sakura:{name:"櫻花粉 Sakura",cost:250,vars:{"--accent":"#ff7aa8","--accent-dark":"#e85d8e","--soft":"#ffe0ec","--line":"#fbd0e0","--bg":"#fff0f5"}},
+  night:{name:"夜空 Night",cost:400,vars:{"--accent":"#9a7bff","--accent-dark":"#7d5bff","--ink":"#e9e6f5","--card":"#2a2740","--bg":"#1c1a2e","--soft":"#3a3658","--line":"#403c60","--lit":"#b9b3d6"}},
+};
+const STICKERS=[
+  {e:"🐉",n:"龍"},{e:"🦄",n:"獨角獸"},{e:"🚀",n:"火箭"},{e:"🌈",n:"彩虹"},
+  {e:"🍦",n:"冰淇淋"},{e:"🎈",n:"氣球"},{e:"🐼",n:"熊貓"},{e:"⭐",n:"星星"},
+  {e:"🍉",n:"西瓜"},{e:"🦖",n:"恐龍"},{e:"🎸",n:"吉他"},{e:"🏰",n:"城堡"}];
+const STICKER_COST=80, PET_COST=300, PET_FEED=60, BOOST_COST=120;
+const PET_STAGES=["🥚","🐣","🐤","🐥","🐔","🦚"];
+const TOKEN_SHOP={ hint:{e:"💡",n:"提示券 reveal pinyin",cost:40}, skip:{e:"⏭️",n:"跳過券 skip word",cost:60} };
+
+function applyTheme(t){
+  const r=document.documentElement;
+  ["--accent","--accent-dark","--soft","--line","--bg","--ink","--card","--lit","--gold"].forEach(k=>r.style.removeProperty(k));
+  Object.entries((THEMES[t]||THEMES.classic).vars).forEach(([k,v])=>r.style.setProperty(k,v));
+}
+function celebrateBuy(name){ sPrize(); queueToast({e:"🛒", zh:"買到了！"+name, en:"Purchased!"}); }
+function afterShop(){ save(); updateHUD(); renderShop(); }
+function buyTheme(t){ const th=THEMES[t]; if(!th||ownedThemes.has(t)||balance()<th.cost) return; spent+=th.cost; ownedThemes.add(t); useTheme(t); celebrateBuy(th.name); afterShop(); }
+function useTheme(t){ if(!ownedThemes.has(t)) return; theme=t; applyTheme(t); afterShop(); }
+function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STICKER_COST) return; spent+=STICKER_COST; ownedStickers.add(id); celebrateBuy(STICKERS[i].e+" "+STICKERS[i].n); afterShop(); }
+function buyPet(){ if(pet||balance()<PET_COST) return; spent+=PET_COST; pet={stage:0}; celebrateBuy("🥚 寵物 pet"); afterShop(); }
+function feedPet(){ if(!pet||balance()<PET_FEED||pet.stage>=PET_STAGES.length-1) return; spent+=PET_FEED; pet.stage++; celebrateBuy(PET_STAGES[pet.stage]+" 寵物長大了！"); afterShop(); }
+function buyToken(k){ const t=TOKEN_SHOP[k]; if(!t||balance()<t.cost) return; spent+=t.cost; tokens[k]=(tokens[k]||0)+1; afterShop(); }
+function buyBoost(){ if(balance()<BOOST_COST) return; spent+=BOOST_COST; boostLeft+=10; celebrateBuy("✨ 雙倍卡 2× ×10"); afterShop(); }
 
 const card=document.getElementById("card");
 
@@ -610,6 +745,23 @@ function levelFromXP(xp){ let lvl=1, need=100, acc=0;
   while(xp>=acc+need){ acc+=need; lvl++; need=100+(lvl-1)*50; }
   return {level:lvl, into:xp-acc, need}; }
 function hintLevel(enc){ if(enc<=1)return 3; if(enc===2)return 2; return 1; }
+
+/* ---- Hear-it (text-to-speech, best-effort) ---- */
+function speak(text){
+  try{ if(!("speechSynthesis" in window)) return;
+    const u=new SpeechSynthesisUtterance(text); u.lang="zh-TW"; u.rate=.85;
+    const v=speechSynthesis.getVoices().find(v=>/zh|cmn|Chinese/i.test(v.lang+v.name));
+    if(v) u.voice=v; speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---- Daily quest ---- */
+const QUEST_GOAL=10, QUEST_REWARD=50;
+function ensureQuest(){ const t=dkey(new Date());
+  if(!quest||quest.date!==t) quest={date:t, count:0, goal:QUEST_GOAL, claimed:false}; }
+function bumpQuest(){ ensureQuest(); quest.count++;
+  if(quest.count>=quest.goal && !quest.claimed){ quest.claimed=true; points+=QUEST_REWARD;
+    floatPoints("+"+QUEST_REWARD); sPrize(); queueToast({e:"🎯", zh:"每日任務完成！＋"+QUEST_REWARD+"🪙", en:"Daily quest done!"}); } }
 
 /* ---- Daily-streak calendar ---- */
 function dkey(dt){ return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0"); }
@@ -669,10 +821,22 @@ function floatPoints(txt){
 /* =========================================================================
    Render
    ========================================================================= */
+const warmedStages=new Set();   // adaptive warm-ups already shown this session
+let curInfo=null;               // {key,pinyin,id} of the active word, for power-ups
+
 function render(){
   const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
   if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
   const stage=book.stages[item.stageIdx];
+  // Adaptive story: warm up your weakest character before the full-sentence stage
+  if(item.stageFirst && item.stageIdx===3){
+    const key=item.bookIdx+"-"+item.stageIdx;
+    if(!warmedStages.has(key)){
+      const weak=weakWords(1)[0];
+      if(weak && weak.w>0){ warmedStages.add(key); renderAdaptive(weak.id); return; }
+      warmedStages.add(key);
+    }
+  }
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
 
   let sentence="", wIdx=-1, activeWord=null;
@@ -686,29 +850,72 @@ function render(){
 
   let html=`<span class="stage-tag">${stage.name}</span>`;
   if(item.stageFirst) html+=`<p class="intro">${stage.intro}</p>`;
+  if(item.prompt) html+=`<div class="prompt">🗣️ 老師問：<b>${item.prompt}</b><br><span style="font-size:.8rem">打出完整的答案 · type a full-sentence answer</span></div>`;
   html+=`<div class="sentence">${sentence}</div>`;
 
   if(activeWord){
     const v=VOCAB[activeWord.w], lvl=hintLevel(activeWord._enc);
-    let panel=`<div class="read-hint">👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin</div>`;
-    if(v.img) panel+=`<div class="pic">${v.img}</div>`;
-    panel+=`<div class="hint-hanzi">${v.hanzi}</div>`;
-    panel+=`<div class="hint-pinyin">${lvl>=2 ? v.pinyin : "&nbsp;"}</div>`;
-    if(lvl>=3) panel+=`<div class="hint-en">${v.en}</div>`;
-    panel+=`<div class="hint-level">${lvl>=3?"新字 · new":lvl===2?"複習 · review":"靠記憶打字 · from memory 💪"}</div>`;
-    panel+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
-    panel+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
-    panel+=`<div class="feedback" id="feedback">&nbsp;</div>`;
-    html+=`<div class="typer">${panel}</div>`;
+    html+=`<div class="typer">${typerPanel(v, lvl)}</div>`;
   }
   card.innerHTML=html;
   refreshSide();
   if(activeWord){
-    const pinyinEl=null;
-    wireInput(VOCAB[activeWord.w].key,
-      (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); },
-      null);
+    const v=VOCAB[activeWord.w];
+    curInfo={key:v.key, pinyin:v.pinyin, id:activeWord.w, hanzi:v.hanzi};
+    wireSayAndPowerups();
+    wireInput(v.key, (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); }, null);
   }
+}
+
+/* Build the typing panel (shared shape for story / quiz / adaptive) */
+function typerPanel(v, lvl, opts){
+  opts=opts||{};
+  let p=`<div class="read-hint">${opts.head||"👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin"}</div>`;
+  if(v.img) p+=`<div class="pic">${v.img}</div>`;
+  p+=`<div class="hanzi-row"><div class="hint-hanzi">${v.hanzi}</div><button class="say" id="sayBtn" title="聽發音 hear it">🔊</button></div>`;
+  const showPy = opts.pinyinAlways!==undefined ? opts.pinyinAlways : (lvl>=2);
+  p+=`<div class="hint-pinyin" id="revealPinyin">${showPy ? v.pinyin : "&nbsp;"}</div>`;
+  if(opts.en || lvl>=3) p+=`<div class="hint-en">${v.en}</div>`;
+  if(opts.levelTag!==false) p+=`<div class="hint-level">${lvl>=3?"新字 · new":lvl===2?"複習 · review":"靠記憶打字 · from memory 💪"}</div>`;
+  p+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
+  p+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
+  p+=`<div class="feedback" id="feedback">&nbsp;</div>`;
+  p+=`<div class="powerups" id="powerups"></div>`;
+  if(boostLeft>0) p+=`<div class="boost-flag">✨ 雙倍點數！剩 ${boostLeft} 題 · 2× points</div>`;
+  return p;
+}
+
+/* Hear-it button + power-up buttons for the current typing card */
+function wireSayAndPowerups(){
+  const say=document.getElementById("sayBtn");
+  if(say) say.onclick=()=>{ if(curInfo) speak(curInfo.hanzi); };
+  const pu=document.getElementById("powerups"); if(!pu) return;
+  let h="";
+  h+=`<button class="pu ${tokens.hint>0?"":"cant"}" id="puHint">💡 提示 hint (${tokens.hint||0})</button>`;
+  h+=`<button class="pu ${tokens.skip>0?"":"cant"}" id="puSkip">⏭️ 跳過 skip (${tokens.skip||0})</button>`;
+  pu.innerHTML=h;
+  const bH=document.getElementById("puHint"); if(bH) bH.onclick=useHintToken;
+  const bS=document.getElementById("puSkip"); if(bS) bS.onclick=useSkipToken;
+}
+function useHintToken(){ if((tokens.hint||0)<=0||!curInfo) return; tokens.hint--; const r=document.getElementById("revealPinyin");
+  if(r) r.innerHTML=`<b>${curInfo.pinyin}</b>`; save(); wireSayAndPowerups(); updateHUD(); }
+function useSkipToken(){ if((tokens.skip||0)<=0||!curInfo) return; tokens.skip--; save();
+  const inp=document.getElementById("typeInput"); if(!inp) return;
+  inp.value=curInfo.key; inp.dispatchEvent(new Event("input")); }
+
+/* Adaptive warm-up: a quick single-word review of your weakest character */
+function renderAdaptive(id){
+  const v=VOCAB[id];
+  document.getElementById("crumb").innerHTML=`⚡ 快速複習 · quick review`;
+  let html=`<span class="stage-tag" style="background:#ffe9e0;color:var(--bad)">⚡ 快速複習 Warm-up</span>`;
+  html+=`<p class="intro">先複習一個你比較弱的字，再開始下一關。<br>A quick warm-up of a shaky character before the next stage.</p>`;
+  html+=`<div class="typer">${typerPanel(v, hintLevel(99), {head:"⚡ 你還記得這個字嗎？ remember this one?", en:true})}</div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  wireInput(v.key, (errs)=>{ recordStat(id, errs); bumpQuest();
+    const g=8; points+=g; floatPoints("+"+g); sCorrect(); updateHUD(); save();
+    setTimeout(render, 550); }, null);
 }
 
 /* Shared typing widget: colours tiles, plays sounds, counts wrong keystrokes.
@@ -736,7 +943,7 @@ function wireInput(target, onCorrect, onWrong){
   input.focus();
 }
 
-function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); }
+function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); }
 
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
@@ -745,7 +952,7 @@ function renderBookIntro(bi,book){
     <h2>第 ${bi+1} 冊：${book.title}</h2>
     <p class="intro" style="text-align:center">${book.blurb}</p>
     <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
-  updateHUD(); updateProgress(); renderCabinet(); renderCalendar();
+  refreshSide();
   document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
 }
 
@@ -754,9 +961,10 @@ const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correc
 function success(active){
   const oldLevel=levelFromXP(points).level;
   mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
-  practiceDays.add(dkey(new Date()));
+  practiceDays.add(dkey(new Date())); bumpQuest();
   const lvl=hintLevel(active._enc);
-  const gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
+  let gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
+  if(boostLeft>0){ gained*=2; boostLeft--; }   // ✨ 雙倍卡
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
   fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
@@ -784,7 +992,7 @@ function updateHUD(){
   document.getElementById("lvlNum").textContent=li.level;
   document.getElementById("xpFill").style.width=Math.round(li.into/li.need*100)+"%";
   document.getElementById("xpTxt").textContent=li.into+" / "+li.need+" XP";
-  document.getElementById("ptsNum").textContent=points;
+  document.getElementById("ptsNum").textContent=balance();
   document.getElementById("strkNum").textContent=streak;
   document.getElementById("przNum").textContent=prizesEarned.size+"/"+CATALOG.length;
   document.getElementById("przFull").textContent=prizesEarned.size+" / "+CATALOG.length;
@@ -810,6 +1018,51 @@ function renderCabinet(){
     const got=prizesEarned.has(p.id);
     return `<div class="slot ${got?"earned":"locked"}"><div class="pe">${got?p.emoji:"🔒"}</div><div class="pn">${got?p.zh:p.hint}</div></div>`;
   }).join("");
+}
+
+function renderQuest(){
+  ensureQuest();
+  const el=document.getElementById("questPanel"); if(!el) return;
+  const pct=Math.min(100, Math.round(quest.count/quest.goal*100));
+  const done=quest.claimed;
+  el.innerHTML=`<h3>🎯 每日任務 · Daily Quest</h3>
+    <div class="quest ${done?"done":""}">
+      <div class="qbar"><i style="width:${pct}%"></i></div>
+      <div class="qtxt">${done?`✓ 完成！＋${QUEST_REWARD}🪙`:`今天練習 ${quest.count}/${quest.goal} 題 → ＋${QUEST_REWARD}🪙`}</div>
+    </div>`;
+}
+
+function renderShop(){
+  const el=document.getElementById("shop"); if(!el) return;
+  const coin=balance();
+  const aff=c=>coin>=c?"":"cant";
+  // themes
+  let html=`<div class="shop-sec"><h4>🎨 主題 Themes</h4><div class="shop-row">`;
+  html+=Object.entries(THEMES).map(([k,t])=>{
+    if(ownedThemes.has(k)) return `<div class="buy ${theme===k?"using":"owned"}" onclick="useTheme('${k}')"><div class="be">🎨</div><div class="bn">${t.name}</div><div class="bc">${theme===k?"使用中 in use":"已擁有 owned"}</div></div>`;
+    return `<div class="buy ${aff(t.cost)}" onclick="buyTheme('${k}')"><div class="be">🎨</div><div class="bn">${t.name}</div><div class="bc">🪙 ${t.cost}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
+  // power-ups
+  html+=`<div class="shop-sec"><h4>⚡ 道具 Power-ups</h4><div class="shop-row">`;
+  html+=Object.entries(TOKEN_SHOP).map(([k,t])=>`<div class="buy ${aff(t.cost)}" onclick="buyToken('${k}')"><div class="be">${t.e}</div><div class="bn">${t.n}<br>×${tokens[k]||0}</div><div class="bc">🪙 ${t.cost}</div></div>`).join("");
+  html+=`<div class="buy ${aff(BOOST_COST)}" onclick="buyBoost()"><div class="be">✨</div><div class="bn">雙倍卡 2×<br>剩 ${boostLeft}</div><div class="bc">🪙 ${BOOST_COST}</div></div>`;
+  html+=`</div></div>`;
+  // pet
+  html+=`<div class="shop-sec"><h4>🐾 寵物 Pet</h4>`;
+  if(!pet){ html+=`<div class="shop-row"><div class="buy ${aff(PET_COST)}" onclick="buyPet()"><div class="be">🥚</div><div class="bn">領養寵物 adopt</div><div class="bc">🪙 ${PET_COST}</div></div></div>`; }
+  else { const max=pet.stage>=PET_STAGES.length-1;
+    html+=`<div class="pet-box"><div class="pe">${PET_STAGES[pet.stage]}</div>
+      <div><div class="bn" style="font-size:.78rem">小明的寵物 · 第 ${pet.stage+1}/${PET_STAGES.length} 階段</div>
+      ${max?`<div class="bc">已長到最大！🎉</div>`:`<div class="buy ${aff(PET_FEED)}" style="display:inline-block;margin-top:4px" onclick="feedPet()"><div class="be">🍖</div><div class="bn">餵食 feed</div><div class="bc">🪙 ${PET_FEED}</div></div>`}</div></div>`; }
+  html+=`</div>`;
+  // stickers
+  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length}</h4><div class="shop-row">`;
+  html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i);
+    return owned ? `<div class="buy owned"><div class="be">${s.e}</div><div class="bn">${s.n}</div><div class="bc">✓</div></div>`
+      : `<div class="buy ${aff(STICKER_COST)}" onclick="buySticker(${i})"><div class="be">❔</div><div class="bn">${s.n}</div><div class="bc">🪙 ${STICKER_COST}</div></div>`; }).join("");
+  html+=`</div></div>`;
+  el.innerHTML=html;
 }
 
 /* =========================================================================
@@ -851,22 +1104,15 @@ function renderQuizItem(){
   document.getElementById("crumb").innerHTML=`🧠 複習 Review · ${quizIdx+1} / ${quizList.length}`;
   let html=`<div class="quiz-head"><span class="quiz-tag">複習 ${quizIdx+1}/${quizList.length}</span>
     <span class="ct" style="color:#9b8a74">✓ ${quizCorrect}</span></div>`;
-  html+=`<div class="typer">
-    <div class="read-hint">🧠 靠記憶打出拼音 · type the pinyin from memory</div>
-    ${v.img?`<div class="pic">${v.img}</div>`:""}
-    <div class="hint-hanzi">${v.hanzi}</div>
-    <div class="hint-en">${v.en}</div>
-    <div class="hint-pinyin" id="revealPinyin">&nbsp;</div>
-    <div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>
-    <input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />
-    <div class="feedback" id="feedback">&nbsp;</div>
-    <button class="btn ghost" id="backBtn">結束複習 · End review</button>
-  </div>`;
+  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧠 靠記憶打出拼音 · type the pinyin from memory", en:true, pinyinAlways:false, levelTag:false})}
+    <button class="btn ghost" id="backBtn">結束複習 · End review</button></div>`;
   card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
   document.getElementById("backBtn").onclick=()=>{ finishReview(); };
   wireInput(v.key,
     (errs)=>{ recordStat(id, errs); if(errs===0) quizCorrect++;
-      points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
+      bumpQuest(); points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
       const fb=document.getElementById("feedback"); fb.className="feedback good";
       fb.textContent= errs===0 ? "✓ 答對了！ Nailed it!" : "✓ 對了！(再記一下) Got it!";
       setTimeout(()=>{ quizIdx++; renderQuizItem(); }, 650); },
@@ -910,7 +1156,7 @@ function showFinish(){
     <p class="intro" style="text-align:center">
       Grade 1 → 6 · <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes!</p>
     <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button></div>`;
-  updateHUD(); renderPool(); renderCabinet(); renderCalendar();
+  refreshSide();
   document.getElementById("againBtn").addEventListener("click", resetAll);
 }
 function resetAll(){
@@ -918,6 +1164,9 @@ function resetAll(){
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   stats={}; reviewsDone=0; mode="story";
+  spent=0; boostLeft=0; ownedThemes=new Set(["classic"]); theme="classic";
+  ownedStickers=new Set(); pet=null; tokens={hint:0,skip:0}; quest=null;
+  warmedStages.clear(); applyTheme("classic");
   render();
 }
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
@@ -925,7 +1174,9 @@ document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm(
 document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
 
 setupSoundBtn();
-load(); render();
+load(); applyTheme(theme); ensureQuest();
+if("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>{}; }
+render();
 </script>
 </body>
 </html>
