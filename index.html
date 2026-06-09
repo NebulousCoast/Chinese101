@@ -116,6 +116,8 @@
   .shop-sec{margin-top:6px}
   .shop-sec h4{margin:8px 0 6px;font-size:.74rem;color:#9b8a74}
   .shop-row{display:flex;flex-wrap:wrap;gap:8px}
+  .shop-row.scrollrow{max-height:178px;overflow:auto;padding:2px 4px 2px 0;align-content:flex-start}
+  .shop-row.scrollrow.tall{max-height:250px}
   .buy{border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 10px;text-align:center;min-width:84px;cursor:pointer}
   .buy:hover{border-color:var(--accent)}
   .buy.owned{border-color:var(--good);background:#eefaf2;cursor:default}
@@ -647,17 +649,24 @@ let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDa
 let stats={}, reviewsDone=0;                 // per-word accuracy + review sessions
 let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
 /* economy + shop */
-let spent=0, boostLeft=0;                     // coins spent; 2x-points words remaining
+let spent=0;
+let boostLeft=0, boostMult=2;                 // 2x/3x points for N words
+let luckyLeft=0, luckyBonus=0;                // flat bonus per word for N words
+let autoHintLeft=0;                           // auto-reveal pinyin for N words
 let ownedThemes=new Set(["classic"]), theme="classic";
-let ownedStickers=new Set(), pet=null, tokens={hint:0,skip:0}, quest=null;
+let ownedStickers=new Set();
+let pets={};                                  // petId -> stage index (multiple species)
+let tokens={hint:0,skip:0,first:0};
+let quest=null;
 const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
   mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
   practiceDays:[...practiceDays], stats, reviewsDone,
-  spent, boostLeft, ownedThemes:[...ownedThemes], theme,
-  ownedStickers:[...ownedStickers], pet, tokens, quest })); }
+  spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
+  ownedThemes:[...ownedThemes], theme,
+  ownedStickers:[...ownedStickers], pets, tokens, quest })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -665,10 +674,12 @@ function load(){ try{
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
   stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
-  spent=d.spent||0; boostLeft=d.boostLeft||0;
+  spent=d.spent||0; boostLeft=d.boostLeft||0; boostMult=d.boostMult||2;
+  luckyLeft=d.luckyLeft||0; luckyBonus=d.luckyBonus||0; autoHintLeft=d.autoHintLeft||0;
   ownedThemes=new Set(d.ownedThemes||["classic"]); theme=d.theme||"classic";
-  ownedStickers=new Set(d.ownedStickers||[]); pet=d.pet||null;
-  tokens=d.tokens||{hint:0,skip:0}; quest=d.quest||null;
+  ownedStickers=new Set(d.ownedStickers||[]);
+  pets=d.pets|| (d.pet?{bird:d.pet.stage||0}:{});   // migrate old single pet
+  tokens=Object.assign({hint:0,skip:0,first:0}, d.tokens||{}); quest=d.quest||null;
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -681,35 +692,101 @@ function weakWords(n){
 }
 
 /* ---- Shop catalogue + purchases (spend coins; level uses lifetime points) ---- */
+function tint(hex,f){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
+  r=Math.round(r+(255-r)*f);g=Math.round(g+(255-g)*f);b=Math.round(b+(255-b)*f);
+  return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+function shade(hex,f){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
+  r=Math.round(r*(1-f));g=Math.round(g*(1-f));b=Math.round(b*(1-f));
+  return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+// Light themes: just give an accent; tints are generated. Dark themes: full vars.
 const THEMES={
-  classic:{name:"經典橘 Classic",cost:0,vars:{}},
-  ocean:{name:"海洋藍 Ocean",cost:250,vars:{"--accent":"#3aa0ff","--accent-dark":"#1c7fe0","--soft":"#d6ecff","--line":"#c4e0fb","--bg":"#eef7ff","--gold":"#34c0d6"}},
-  forest:{name:"森林綠 Forest",cost:250,vars:{"--accent":"#3fbf6f","--accent-dark":"#2a9c55","--soft":"#d3f3df","--line":"#c2e9d2","--bg":"#eefaf1"}},
-  sakura:{name:"櫻花粉 Sakura",cost:250,vars:{"--accent":"#ff7aa8","--accent-dark":"#e85d8e","--soft":"#ffe0ec","--line":"#fbd0e0","--bg":"#fff0f5"}},
-  night:{name:"夜空 Night",cost:400,vars:{"--accent":"#9a7bff","--accent-dark":"#7d5bff","--ink":"#e9e6f5","--card":"#2a2740","--bg":"#1c1a2e","--soft":"#3a3658","--line":"#403c60","--lit":"#b9b3d6"}},
+  classic:{name:"經典橘 Classic",cost:0,accent:"#ff8a3d"},
+  ocean:{name:"海洋藍 Ocean",cost:200,accent:"#3aa0ff"},
+  forest:{name:"森林綠 Forest",cost:200,accent:"#3fbf6f"},
+  sakura:{name:"櫻花粉 Sakura",cost:200,accent:"#ff7aa8"},
+  grape:{name:"葡萄紫 Grape",cost:200,accent:"#9b6dff"},
+  lemon:{name:"檸檬黃 Lemon",cost:200,accent:"#f0ad00"},
+  mint:{name:"薄荷綠 Mint",cost:200,accent:"#2bc4b4"},
+  coral:{name:"珊瑚紅 Coral",cost:200,accent:"#ff6f61"},
+  sky:{name:"天空藍 Sky",cost:200,accent:"#4ec3ff"},
+  lavender:{name:"薰衣草 Lavender",cost:200,accent:"#b08be8"},
+  peach:{name:"蜜桃 Peach",cost:200,accent:"#ff9e7a"},
+  ruby:{name:"寶石紅 Ruby",cost:250,accent:"#e63b5e"},
+  emerald:{name:"翡翠 Emerald",cost:250,accent:"#10b486"},
+  sunset:{name:"夕陽 Sunset",cost:250,accent:"#ff7a3c"},
+  berry:{name:"莓果 Berry",cost:250,accent:"#d6469b"},
+  cocoa:{name:"可可 Cocoa",cost:250,accent:"#a9744f"},
+  rose:{name:"玫瑰金 Rose",cost:250,accent:"#e08aa0"},
+  lime:{name:"青檸 Lime",cost:250,accent:"#8bc34a"},
+  indigo:{name:"靛藍 Indigo",cost:250,accent:"#5c6bc0"},
+  bubblegum:{name:"泡泡糖 Bubblegum",cost:300,accent:"#ff5fa2"},
+  aqua:{name:"水藍 Aqua",cost:300,accent:"#1fc7d6"},
+  marigold:{name:"金盞 Marigold",cost:300,accent:"#ffab00"},
+  night:{name:"夜空 Night",cost:450,vars:{"--accent":"#9a7bff","--accent-dark":"#7d5bff","--ink":"#e9e6f5","--card":"#2a2740","--bg":"#1c1a2e","--soft":"#3a3658","--line":"#403c60","--lit":"#b9b3d6"}},
+  sea:{name:"深海 Deep Sea",cost:450,vars:{"--accent":"#36c5d0","--accent-dark":"#1f9aa6","--ink":"#e6f4f6","--card":"#163243","--bg":"#0f2433","--soft":"#21465a","--line":"#27506a","--lit":"#a9c6d6"}},
+  galaxy:{name:"銀河 Galaxy",cost:500,vars:{"--accent":"#c46bff","--accent-dark":"#a13fff","--ink":"#efe9f7","--card":"#241b3a","--bg":"#160f29","--soft":"#352a52","--line":"#3d3060","--lit":"#c4b6e0"}},
 };
+function themeVars(t){ const e=THEMES[t]||THEMES.classic; if(e.vars) return e.vars;
+  const a=e.accent, ad=e.accentDark||shade(a,.18);
+  return {"--accent":a,"--accent-dark":ad,"--soft":tint(a,.80),"--line":tint(a,.70),"--bg":tint(a,.93),"--gold":"#f2b705"}; }
+
 const STICKERS=[
-  {e:"🐉",n:"龍"},{e:"🦄",n:"獨角獸"},{e:"🚀",n:"火箭"},{e:"🌈",n:"彩虹"},
-  {e:"🍦",n:"冰淇淋"},{e:"🎈",n:"氣球"},{e:"🐼",n:"熊貓"},{e:"⭐",n:"星星"},
-  {e:"🍉",n:"西瓜"},{e:"🦖",n:"恐龍"},{e:"🎸",n:"吉他"},{e:"🏰",n:"城堡"}];
-const STICKER_COST=80, PET_COST=300, PET_FEED=60, BOOST_COST=120;
-const PET_STAGES=["🥚","🐣","🐤","🐥","🐔","🦚"];
-const TOKEN_SHOP={ hint:{e:"💡",n:"提示券 reveal pinyin",cost:40}, skip:{e:"⏭️",n:"跳過券 skip word",cost:60} };
+  {e:"🐉",n:"龍"},{e:"🦄",n:"獨角獸"},{e:"🚀",n:"火箭"},{e:"🌈",n:"彩虹"},{e:"🍦",n:"冰淇淋"},
+  {e:"🎈",n:"氣球"},{e:"🐼",n:"熊貓"},{e:"⭐",n:"星星"},{e:"🍉",n:"西瓜"},{e:"🦖",n:"恐龍"},
+  {e:"🎸",n:"吉他"},{e:"🏰",n:"城堡"},{e:"🐱",n:"小貓"},{e:"🐶",n:"小狗"},{e:"🐢",n:"烏龜"},
+  {e:"🦋",n:"蝴蝶"},{e:"🐝",n:"蜜蜂"},{e:"🐬",n:"海豚"},{e:"🐙",n:"章魚"},{e:"🦊",n:"狐狸"},
+  {e:"🦁",n:"獅子"},{e:"🐯",n:"老虎"},{e:"🐧",n:"企鵝"},{e:"🦉",n:"貓頭鷹"},{e:"🦕",n:"長頸龍"},
+  {e:"🍓",n:"草莓"},{e:"🍌",n:"香蕉"},{e:"🍕",n:"披薩"},{e:"🍩",n:"甜甜圈"},{e:"🍪",n:"餅乾"},
+  {e:"🍭",n:"棒棒糖"},{e:"🧁",n:"杯子蛋糕"},{e:"🍿",n:"爆米花"},{e:"🍇",n:"葡萄"},{e:"🍑",n:"桃子"},
+  {e:"⚽",n:"足球"},{e:"🏀",n:"籃球"},{e:"🎾",n:"網球"},{e:"🏆",n:"獎盃"},{e:"🥇",n:"金牌"},
+  {e:"🎮",n:"電玩"},{e:"🎨",n:"畫畫"},{e:"🎺",n:"小號"},{e:"🥁",n:"鼓"},{e:"🎻",n:"小提琴"},
+  {e:"🚗",n:"汽車"},{e:"✈️",n:"飛機"},{e:"🚂",n:"火車"},{e:"🚁",n:"直升機"},{e:"⛵",n:"帆船"},
+  {e:"🌟",n:"閃星"},{e:"🌸",n:"櫻花"},{e:"🌻",n:"向日葵"},{e:"🌙",n:"月亮"},{e:"☀️",n:"太陽"},
+  {e:"❄️",n:"雪花"},{e:"🔥",n:"火焰"},{e:"💎",n:"鑽石"},{e:"👑",n:"皇冠"},{e:"🎁",n:"禮物"}];
+const STICKER_COST=80;
+
+const PETS={
+  bird:{name:"小鳥 Bird",cost:300,stages:["🥚","🐣","🐤","🐥","🐔","🦅"]},
+  cat:{name:"小貓 Cat",cost:300,stages:["🐾","🐱","😸","😻","🐈","🦁"]},
+  dog:{name:"小狗 Dog",cost:300,stages:["🐾","🐶","🐕","🦮","🐕‍🦺","🐺"]},
+  turtle:{name:"烏龜 Turtle",cost:350,stages:["🥚","🐢","🐢","🐊","🐉","🦕"]},
+  dragon:{name:"神龍 Dragon",cost:500,stages:["🥚","🦎","🐍","🐲","🐉","✨"]},
+};
+const PET_FEED=60;
+
+// Power-ups: tokens (used via buttons while typing) + instant cards
+const POWERUPS=[
+  {id:"t_hint",  e:"💡", n:"提示券 reveal pinyin",  cost:40,  act:()=>tokens.hint++},
+  {id:"t_skip",  e:"⏭️", n:"跳過券 skip word",       cost:60,  act:()=>tokens.skip++},
+  {id:"t_first", e:"🔤", n:"首字母 first letter",     cost:30,  act:()=>tokens.first++},
+  {id:"b_hint5", e:"💡", n:"提示包 hint ×5",          cost:160, act:()=>tokens.hint+=5},
+  {id:"b_skip3", e:"⏭️", n:"跳過包 skip ×3",          cost:150, act:()=>tokens.skip+=3},
+  {id:"b_first5",e:"🔤", n:"首字母包 ×5",             cost:120, act:()=>tokens.first+=5},
+  {id:"c_2x",    e:"✨", n:"雙倍卡 2× ×10",           cost:120, act:()=>{boostMult=2;boostLeft+=10;}},
+  {id:"c_3x",    e:"🌟", n:"三倍卡 3× ×5",            cost:180, act:()=>{boostMult=3;boostLeft=Math.max(boostLeft,0)+5;}},
+  {id:"c_master",e:"👑", n:"大師卡 2× ×20",           cost:220, act:()=>{boostMult=2;boostLeft+=20;}},
+  {id:"c_lucky", e:"🍀", n:"幸運卡 +5/題 ×10",        cost:100, act:()=>{luckyBonus=5;luckyLeft+=10;}},
+  {id:"c_lucky2",e:"🌈", n:"幸運大卡 +10/題 ×10",     cost:180, act:()=>{luckyBonus=10;luckyLeft+=10;}},
+  {id:"c_streak",e:"🔥", n:"連勝卡 streak +5",        cost:80,  act:()=>{streak+=5;if(streak>maxStreak)maxStreak=streak;}},
+  {id:"c_auto",  e:"🧠", n:"複習卡 auto-hint ×5",     cost:90,  act:()=>autoHintLeft+=5},
+  {id:"c_quest", e:"🎯", n:"任務卡 finish quest",     cost:70,  act:()=>{ensureQuest();if(!quest.claimed){quest.count=quest.goal;quest.claimed=true;points+=QUEST_REWARD;}}},
+  {id:"c_mystery",e:"🎁",n:"神秘盒 random sticker",   cost:90,  act:()=>{ const left=STICKERS.map((s,i)=>i).filter(i=>!ownedStickers.has("s"+i)); if(left.length){const i=left[Math.floor(Math.random()*left.length)]; ownedStickers.add("s"+i); queueToast({e:STICKERS[i].e,zh:"神秘盒開出 "+STICKERS[i].n+"！",en:"Mystery sticker!"});} }},
+];
+const POWER_BY_ID={}; POWERUPS.forEach(p=>POWER_BY_ID[p.id]=p);
 
 function applyTheme(t){
   const r=document.documentElement;
   ["--accent","--accent-dark","--soft","--line","--bg","--ink","--card","--lit","--gold"].forEach(k=>r.style.removeProperty(k));
-  Object.entries((THEMES[t]||THEMES.classic).vars).forEach(([k,v])=>r.style.setProperty(k,v));
+  Object.entries(themeVars(t)).forEach(([k,v])=>r.style.setProperty(k,v));
 }
 function celebrateBuy(name){ sPrize(); queueToast({e:"🛒", zh:"買到了！"+name, en:"Purchased!"}); }
 function afterShop(){ save(); updateHUD(); renderShop(); }
 function buyTheme(t){ const th=THEMES[t]; if(!th||ownedThemes.has(t)||balance()<th.cost) return; spent+=th.cost; ownedThemes.add(t); useTheme(t); celebrateBuy(th.name); afterShop(); }
 function useTheme(t){ if(!ownedThemes.has(t)) return; theme=t; applyTheme(t); afterShop(); }
 function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STICKER_COST) return; spent+=STICKER_COST; ownedStickers.add(id); celebrateBuy(STICKERS[i].e+" "+STICKERS[i].n); afterShop(); }
-function buyPet(){ if(pet||balance()<PET_COST) return; spent+=PET_COST; pet={stage:0}; celebrateBuy("🥚 寵物 pet"); afterShop(); }
-function feedPet(){ if(!pet||balance()<PET_FEED||pet.stage>=PET_STAGES.length-1) return; spent+=PET_FEED; pet.stage++; celebrateBuy(PET_STAGES[pet.stage]+" 寵物長大了！"); afterShop(); }
-function buyToken(k){ const t=TOKEN_SHOP[k]; if(!t||balance()<t.cost) return; spent+=t.cost; tokens[k]=(tokens[k]||0)+1; afterShop(); }
-function buyBoost(){ if(balance()<BOOST_COST) return; spent+=BOOST_COST; boostLeft+=10; celebrateBuy("✨ 雙倍卡 2× ×10"); afterShop(); }
+function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.stages[0]+" "+p.name); afterShop(); }
+function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=p.stages.length-1||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.stages[pets[k]]+" 長大了！"); afterShop(); }
+function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
 
 const card=document.getElementById("card");
 
@@ -855,7 +932,8 @@ function render(){
 
   if(activeWord){
     const v=VOCAB[activeWord.w], lvl=hintLevel(activeWord._enc);
-    html+=`<div class="typer">${typerPanel(v, lvl)}</div>`;
+    const opts = (lvl<2 && consumeAuto()) ? {pinyinAlways:true} : {};
+    html+=`<div class="typer">${typerPanel(v, lvl, opts)}</div>`;
   }
   card.innerHTML=html;
   refreshSide();
@@ -881,24 +959,31 @@ function typerPanel(v, lvl, opts){
   p+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
   p+=`<div class="feedback" id="feedback">&nbsp;</div>`;
   p+=`<div class="powerups" id="powerups"></div>`;
-  if(boostLeft>0) p+=`<div class="boost-flag">✨ 雙倍點數！剩 ${boostLeft} 題 · 2× points</div>`;
+  if(boostLeft>0) p+=`<div class="boost-flag">✨ ${boostMult}× 點數！剩 ${boostLeft} 題</div>`;
+  if(luckyLeft>0) p+=`<div class="boost-flag">🍀 +${luckyBonus}/題！剩 ${luckyLeft} 題</div>`;
   return p;
 }
 
 /* Hear-it button + power-up buttons for the current typing card */
+function consumeAuto(){ if(autoHintLeft>0){ autoHintLeft--; save(); return true; } return false; }
 function wireSayAndPowerups(){
   const say=document.getElementById("sayBtn");
   if(say) say.onclick=()=>{ if(curInfo) speak(curInfo.hanzi); };
   const pu=document.getElementById("powerups"); if(!pu) return;
-  let h="";
-  h+=`<button class="pu ${tokens.hint>0?"":"cant"}" id="puHint">💡 提示 hint (${tokens.hint||0})</button>`;
-  h+=`<button class="pu ${tokens.skip>0?"":"cant"}" id="puSkip">⏭️ 跳過 skip (${tokens.skip||0})</button>`;
-  pu.innerHTML=h;
+  pu.innerHTML=
+    `<button class="pu ${tokens.hint>0?"":"cant"}" id="puHint">💡 提示 (${tokens.hint||0})</button>`+
+    `<button class="pu ${tokens.first>0?"":"cant"}" id="puFirst">🔤 首字母 (${tokens.first||0})</button>`+
+    `<button class="pu ${tokens.skip>0?"":"cant"}" id="puSkip">⏭️ 跳過 (${tokens.skip||0})</button>`;
   const bH=document.getElementById("puHint"); if(bH) bH.onclick=useHintToken;
+  const bF=document.getElementById("puFirst"); if(bF) bF.onclick=useFirstToken;
   const bS=document.getElementById("puSkip"); if(bS) bS.onclick=useSkipToken;
 }
 function useHintToken(){ if((tokens.hint||0)<=0||!curInfo) return; tokens.hint--; const r=document.getElementById("revealPinyin");
   if(r) r.innerHTML=`<b>${curInfo.pinyin}</b>`; save(); wireSayAndPowerups(); updateHUD(); }
+function useFirstToken(){ if((tokens.first||0)<=0||!curInfo) return; tokens.first--; const r=document.getElementById("revealPinyin");
+  if(r) r.innerHTML=`首字母 first: <b>${curInfo.key[0]}…</b>`;
+  const t0=document.querySelector("#tiles .tile"); if(t0){ t0.classList.add("good"); t0.textContent=curInfo.key[0]; }
+  save(); wireSayAndPowerups(); updateHUD(); }
 function useSkipToken(){ if((tokens.skip||0)<=0||!curInfo) return; tokens.skip--; save();
   const inp=document.getElementById("typeInput"); if(!inp) return;
   inp.value=curInfo.key; inp.dispatchEvent(new Event("input")); }
@@ -964,7 +1049,8 @@ function success(active){
   practiceDays.add(dkey(new Date())); bumpQuest();
   const lvl=hintLevel(active._enc);
   let gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
-  if(boostLeft>0){ gained*=2; boostLeft--; }   // ✨ 雙倍卡
+  if(luckyLeft>0){ gained+=luckyBonus; luckyLeft--; }    // 🍀 幸運卡
+  if(boostLeft>0){ gained*=boostMult; boostLeft--; }     // ✨ 雙倍/三倍卡
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
   fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
@@ -1036,28 +1122,28 @@ function renderShop(){
   const el=document.getElementById("shop"); if(!el) return;
   const coin=balance();
   const aff=c=>coin>=c?"":"cant";
-  // themes
-  let html=`<div class="shop-sec"><h4>🎨 主題 Themes</h4><div class="shop-row">`;
+  // themes (25)
+  let html=`<div class="shop-sec"><h4>🎨 主題 Themes — ${ownedThemes.size}/${Object.keys(THEMES).length}</h4><div class="shop-row scrollrow">`;
   html+=Object.entries(THEMES).map(([k,t])=>{
-    if(ownedThemes.has(k)) return `<div class="buy ${theme===k?"using":"owned"}" onclick="useTheme('${k}')"><div class="be">🎨</div><div class="bn">${t.name}</div><div class="bc">${theme===k?"使用中 in use":"已擁有 owned"}</div></div>`;
-    return `<div class="buy ${aff(t.cost)}" onclick="buyTheme('${k}')"><div class="be">🎨</div><div class="bn">${t.name}</div><div class="bc">🪙 ${t.cost}</div></div>`;
+    const swatch=`<div class="be" style="font-size:1.2rem;width:30px;height:30px;border-radius:8px;margin:0 auto;background:${(t.vars?t.vars["--accent"]:t.accent)}"></div>`;
+    if(ownedThemes.has(k)) return `<div class="buy ${theme===k?"using":"owned"}" onclick="useTheme('${k}')">${swatch}<div class="bn">${t.name}</div><div class="bc">${theme===k?"使用中":"已擁有"}</div></div>`;
+    return `<div class="buy ${aff(t.cost)}" onclick="buyTheme('${k}')">${swatch}<div class="bn">${t.name}</div><div class="bc">🪙 ${t.cost}</div></div>`;
   }).join("");
   html+=`</div></div>`;
-  // power-ups
-  html+=`<div class="shop-sec"><h4>⚡ 道具 Power-ups</h4><div class="shop-row">`;
-  html+=Object.entries(TOKEN_SHOP).map(([k,t])=>`<div class="buy ${aff(t.cost)}" onclick="buyToken('${k}')"><div class="be">${t.e}</div><div class="bn">${t.n}<br>×${tokens[k]||0}</div><div class="bc">🪙 ${t.cost}</div></div>`).join("");
-  html+=`<div class="buy ${aff(BOOST_COST)}" onclick="buyBoost()"><div class="be">✨</div><div class="bn">雙倍卡 2×<br>剩 ${boostLeft}</div><div class="bc">🪙 ${BOOST_COST}</div></div>`;
+  // power-ups (15)
+  html+=`<div class="shop-sec"><h4>⚡ 道具 Power-ups <span style="color:#b9a78f">— 💡${tokens.hint||0} ⏭️${tokens.skip||0} 🔤${tokens.first||0}${boostLeft>0?` · ✨${boostMult}×剩${boostLeft}`:""}${luckyLeft>0?` · 🍀剩${luckyLeft}`:""}${autoHintLeft>0?` · 🧠剩${autoHintLeft}`:""}</span></h4><div class="shop-row scrollrow">`;
+  html+=POWERUPS.map(p=>`<div class="buy ${aff(p.cost)}" onclick="buyPower('${p.id}')"><div class="be">${p.e}</div><div class="bn">${p.n}</div><div class="bc">🪙 ${p.cost}</div></div>`).join("");
   html+=`</div></div>`;
-  // pet
-  html+=`<div class="shop-sec"><h4>🐾 寵物 Pet</h4>`;
-  if(!pet){ html+=`<div class="shop-row"><div class="buy ${aff(PET_COST)}" onclick="buyPet()"><div class="be">🥚</div><div class="bn">領養寵物 adopt</div><div class="bc">🪙 ${PET_COST}</div></div></div>`; }
-  else { const max=pet.stage>=PET_STAGES.length-1;
-    html+=`<div class="pet-box"><div class="pe">${PET_STAGES[pet.stage]}</div>
-      <div><div class="bn" style="font-size:.78rem">小明的寵物 · 第 ${pet.stage+1}/${PET_STAGES.length} 階段</div>
-      ${max?`<div class="bc">已長到最大！🎉</div>`:`<div class="buy ${aff(PET_FEED)}" style="display:inline-block;margin-top:4px" onclick="feedPet()"><div class="be">🍖</div><div class="bn">餵食 feed</div><div class="bc">🪙 ${PET_FEED}</div></div>`}</div></div>`; }
-  html+=`</div>`;
-  // stickers
-  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length}</h4><div class="shop-row">`;
+  // pets (5)
+  html+=`<div class="shop-sec"><h4>🐾 寵物 Pets — ${Object.keys(pets).length}/${Object.keys(PETS).length}</h4><div class="shop-row">`;
+  html+=Object.entries(PETS).map(([k,p])=>{
+    if(pets[k]==null) return `<div class="buy ${aff(p.cost)}" onclick="buyPet('${k}')"><div class="be">${p.stages[0]}</div><div class="bn">${p.name}<br>領養 adopt</div><div class="bc">🪙 ${p.cost}</div></div>`;
+    const st=pets[k], max=st>=p.stages.length-1;
+    return `<div class="buy ${max?"owned":aff(PET_FEED)}" ${max?"":`onclick="feedPet('${k}')"`}><div class="be">${p.stages[st]}</div><div class="bn">${p.name}<br>第 ${st+1}/${p.stages.length} 階段</div><div class="bc">${max?"已最大🎉":"🍖 餵食 🪙 "+PET_FEED}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
+  // stickers (60)
+  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length}</h4><div class="shop-row scrollrow tall">`;
   html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i);
     return owned ? `<div class="buy owned"><div class="be">${s.e}</div><div class="bn">${s.n}</div><div class="bc">✓</div></div>`
       : `<div class="buy ${aff(STICKER_COST)}" onclick="buySticker(${i})"><div class="be">❔</div><div class="bn">${s.n}</div><div class="bc">🪙 ${STICKER_COST}</div></div>`; }).join("");
@@ -1104,7 +1190,7 @@ function renderQuizItem(){
   document.getElementById("crumb").innerHTML=`🧠 複習 Review · ${quizIdx+1} / ${quizList.length}`;
   let html=`<div class="quiz-head"><span class="quiz-tag">複習 ${quizIdx+1}/${quizList.length}</span>
     <span class="ct" style="color:#9b8a74">✓ ${quizCorrect}</span></div>`;
-  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧠 靠記憶打出拼音 · type the pinyin from memory", en:true, pinyinAlways:false, levelTag:false})}
+  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧠 靠記憶打出拼音 · type the pinyin from memory", en:true, pinyinAlways:consumeAuto(), levelTag:false})}
     <button class="btn ghost" id="backBtn">結束複習 · End review</button></div>`;
   card.innerHTML=html; refreshSide();
   curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
@@ -1164,8 +1250,9 @@ function resetAll(){
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   stats={}; reviewsDone=0; mode="story";
-  spent=0; boostLeft=0; ownedThemes=new Set(["classic"]); theme="classic";
-  ownedStickers=new Set(); pet=null; tokens={hint:0,skip:0}; quest=null;
+  spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
+  ownedThemes=new Set(["classic"]); theme="classic";
+  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null;
   warmedStages.clear(); applyTheme("classic");
   render();
 }
