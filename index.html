@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>小明學打字 · Xiǎo Míng Learns to Type</title>
+<title>碩寬學打字 · Shuòkuān Learns to Type</title>
 <style>
   :root{
     --bg:#fff7ec; --card:#fff; --ink:#2d2a26;
@@ -17,6 +17,27 @@
   header{text-align:center;margin-bottom:6px}
   header h1{font-size:1.5rem;margin:0}
   header p{margin:3px 0 0;color:#8a7a66;font-size:.85rem}
+  .title-row{display:flex;align-items:center;justify-content:center;gap:12px}
+  .title-row>div{text-align:left}
+  .avatar{width:54px;height:54px;border-radius:50%;border:3px solid var(--accent);background:#fff;
+    font-size:1.9rem;line-height:1;cursor:pointer;box-shadow:0 6px 14px -8px var(--accent-dark);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .1s}
+  .avatar:hover{transform:scale(1.06)}
+  .buy.avatarpick{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+  /* avatar frames (unlocked by level) — apply to avatar + shop preview */
+  .f-bronze{border-color:#cd7f32 !important;box-shadow:0 0 0 2px #e8b894}
+  .f-silver{border-color:#9aa4af !important;box-shadow:0 0 0 2px #d7dde3}
+  .f-gold{border-color:#f2b705 !important;box-shadow:0 0 0 2px #ffe08a,0 0 12px 1px #ffd54a}
+  .f-rainbow{border:3px solid transparent !important;
+    background:linear-gradient(#fff,#fff) padding-box,
+      conic-gradient(from 0deg,#ff5f6d,#ffc371,#47e891,#4ea8ff,#a86bff,#ff5f6d) border-box !important}
+  .f-nebula{border:3px solid transparent !important;
+    background:radial-gradient(circle at 50% 50%,#fff 60%,#f3e9ff 100%) padding-box,
+      conic-gradient(from 0deg,#7d5bff,#c46bff,#4ea8ff,#7d5bff) border-box !important;
+    box-shadow:0 0 14px 2px #b98bff;animation:nebula 3s linear infinite}
+  @keyframes nebula{to{filter:hue-rotate(360deg)}}
+  .frame-prev{width:42px;height:42px;border-radius:50%;border:3px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 2px;background:#fff}
 
   .wrap{width:100%;max-width:640px}
   .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
@@ -112,6 +133,40 @@
   .slot .pe{font-size:1.7rem;line-height:1.2}
   .slot .pn{font-size:.66rem;color:#8a7a66;margin-top:2px;line-height:1.25}
 
+  /* shop */
+  .shop-sec{margin-top:6px}
+  .shop-sec h4{margin:8px 0 6px;font-size:.74rem;color:#9b8a74}
+  .shop-row{display:flex;flex-wrap:wrap;gap:8px}
+  .shop-row.scrollrow{max-height:178px;overflow:auto;padding:2px 4px 2px 0;align-content:flex-start}
+  .shop-row.scrollrow.tall{max-height:250px}
+  .buy{border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 10px;text-align:center;min-width:84px;cursor:pointer}
+  .buy:hover{border-color:var(--accent)}
+  .buy.owned{border-color:var(--good);background:#eefaf2;cursor:default}
+  .buy.using{border-color:var(--accent);background:#fff3e6}
+  .buy.cant{opacity:.45;cursor:not-allowed}
+  .buy .be{font-size:1.6rem;line-height:1.2}
+  .buy .bn{font-size:.66rem;color:#7a6a55;margin-top:1px}
+  .buy .bc{font-size:.68rem;color:var(--accent-dark);font-weight:700;margin-top:2px}
+  .pet-box{display:flex;align-items:center;gap:12px}
+  .pet-box .pe{font-size:3rem}
+  /* quest */
+  .quest{display:flex;align-items:center;gap:10px}
+  .quest .qbar{flex:1;height:10px;background:var(--soft);border-radius:99px;overflow:hidden}
+  .quest .qbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .3s}
+  .quest .qtxt{font-size:.8rem;color:#8a7a66;font-weight:700;white-space:nowrap}
+  .quest.done .qtxt{color:var(--good)}
+  /* question prompt + power-ups + say button */
+  .prompt{background:#eef4ff;border:1px solid #d4e3ff;border-radius:12px;padding:10px 12px;margin-bottom:10px;
+    color:#3b5b8c;font-size:1rem;text-align:center}
+  .prompt b{color:#234d8c}
+  .hanzi-row{display:flex;align-items:center;justify-content:center;gap:8px}
+  .say{border:1px solid var(--line);background:#fff;border-radius:99px;width:32px;height:32px;cursor:pointer;font-size:1rem}
+  .powerups{display:flex;gap:8px;justify-content:center;margin-top:8px}
+  .pu{border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;font-size:.8rem;cursor:pointer;color:#a9926f}
+  .pu:hover{border-color:var(--accent)}
+  .pu.cant{opacity:.4;cursor:not-allowed}
+  .boost-flag{display:inline-block;background:#fff0d6;color:var(--accent-dark);border-radius:8px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-top:6px}
+
   /* daily-streak calendar */
   .cal-title{font-size:.78rem;color:#8a7a66;font-weight:700;text-align:center;margin-bottom:4px}
   .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
@@ -134,8 +189,13 @@
 </head>
 <body>
   <header>
-    <h1>✏️ 小明學打字</h1>
-    <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
+    <div class="title-row">
+      <button class="avatar" id="avatar" title="點我換頭像 · tap to change avatar">🧒</button>
+      <div>
+        <h1>✏️ 碩寬學打字</h1>
+        <p>Shuòkuān Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
+      </div>
+    </div>
   </header>
 
   <div class="wrap">
@@ -156,15 +216,22 @@
         <div class="xpbar"><i id="xpFill"></i></div>
         <div class="xptxt" id="xpTxt">0 / 100 XP</div>
       </div>
-      <div class="stat" id="ptsStat"><div class="snum" id="ptsNum">0</div><div class="slab">⭐ 點數 Points</div></div>
+      <div class="stat" id="ptsStat"><div class="snum" id="ptsNum">0</div><div class="slab">🪙 金幣 Coins</div></div>
       <div class="stat"><div class="snum" id="strkNum">0</div><div class="slab">🔥 連勝 Streak</div></div>
       <div class="stat"><div class="snum" id="przNum">0</div><div class="slab">🎁 獎品 Prizes</div></div>
     </div>
 
     <div class="card" id="card"></div>
 
+    <div class="panel" id="questPanel"></div>
+
     <div class="panel">
-      <h3>📅 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
+      <h3>🛒 商店 · Shop — 用金幣換獎勵 spend your coins</h3>
+      <div id="shop"></div>
+    </div>
+
+    <div class="panel">
+      <h3><span id="dailyAvatar">🧒</span> 每日練習 · Daily Practice — 🔥 連續 <span id="dailyNum">0</span> 天 days</h3>
       <div class="cal-title" id="calTitle"></div>
       <div class="cal" id="calGrid"></div>
     </div>
@@ -182,7 +249,7 @@
 
 <script>
 /* =========================================================================
-   VOCABULARY — 小明 can already SAY each of these; he is learning to READ
+   VOCABULARY — 碩寬 can already SAY each of these; he is learning to READ
    and TYPE them. `key` = plain pinyin letters to type; `pinyin` = a hint
    that FADES on revisits; `en` = shown only first time; `img` = a picture
    (emoji) for concrete words. Homophones share a `key` but have unique ids.
@@ -336,6 +403,15 @@ const VOCAB = {
   xiwang:{hanzi:"希望",pinyin:"xīwàng",key:"xiwang",en:"hope",img:"🌈"},
   mubiao:{hanzi:"目標",pinyin:"mùbiāo",key:"mubiao",en:"goal",img:"🎯"},
   xue:{hanzi:"學",pinyin:"xué",key:"xue",en:"to learn",img:"🎓"},
+  /* ----- enrichment words ----- */
+  didi:{hanzi:"弟弟",pinyin:"dìdi",key:"didi",en:"little brother",img:"👦"},
+  meimei:{hanzi:"妹妹",pinyin:"mèimei",key:"meimei",en:"little sister",img:"👧"},
+  wanshang:{hanzi:"晚上",pinyin:"wǎnshàng",key:"wanshang",en:"evening",img:"🌙"},
+  gushi:{hanzi:"故事",pinyin:"gùshì",key:"gushi",en:"story",img:"📖"},
+  jijie:{hanzi:"季節",pinyin:"jìjié",key:"jijie",en:"season",img:"🍂"},
+  denglong:{hanzi:"燈籠",pinyin:"dēnglong",key:"denglong",en:"lantern",img:"🏮"},
+  tongle:{hanzi:"同樂",pinyin:"tónglè",key:"tongle",en:"have fun together",img:"🎊"},
+  meili:{hanzi:"美麗",pinyin:"měilì",key:"meili",en:"beautiful",img:"🌺"},
 };
 
 /* =========================================================================
@@ -346,19 +422,19 @@ const VOCAB = {
    ========================================================================= */
 const CURRICULUM = [
   { grade:"一年級 上學期 · Grade 1 (1st sem)", title:"我開始學寫字",
-    blurb:"小明上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
+    blurb:"碩寬上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
     stages:[
       { name:"階段一 · 單字", intro:"先從最簡單的字開始。讀出聲音，再打出拼音。",
         challenges:[[{w:"wo"}],[{w:"ni"}],[{w:"da"}],[{w:"xiao"}],[{w:"ren"}],[{w:"kou"}],[{w:"shou"}],[{w:"shan"}],[{w:"shui"}],[{w:"huo"}]] },
       { name:"階段二 · 詞語", intro:"兩個字合在一起，就變成詞語。",
         challenges:[[{w:"baba"}],[{w:"mama"}],[{w:"gege"}],[{w:"nihao"}],[{w:"dajia"}],[{w:"laoshi"}]] },
-      { name:"階段三 · 短句", intro:"小明會打出短短的句子了！",
+      { name:"階段三 · 短句", intro:"碩寬會打出短短的句子了！",
         challenges:[[{w:"nihao"},"，",{w:"laoshi"},"。"],[{w:"wo"},{w:"ai"},{w:"baba"},{w:"mama"},"。"],[{w:"dajia"},{w:"hao"},"！"]] },
       { name:"階段四 · 完整句子", intro:"把學過的字串成一個完整的句子。",
         challenges:[[{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"]] },
     ] },
   { grade:"一年級 下學期 · Grade 1 (2nd sem)", title:"我的一天",
-    blurb:"小明越來越會讀了。這學期，他要打出自己的一天。",
+    blurb:"碩寬越來越會讀了。這學期，他要打出自己的一天。",
     stages:[
       { name:"階段一 · 單字", intro:"再多認識一些每天會用到的字。",
         challenges:[[{w:"xia"}],[{w:"tian"}],[{w:"ri"}],[{w:"yue"}],[{w:"zhong"}],[{w:"wen"}],[{w:"mu"}],[{w:"qu"}],[{w:"lai"}]] },
@@ -366,11 +442,11 @@ const CURRICULUM = [
         challenges:[[{w:"zaocan"}],[{w:"xuexiao"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"pengyou"}]] },
       { name:"階段三 · 短句", intro:"用詞語和舊字組成短句。",
         challenges:[[{w:"zaoan"},"！",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],[{w:"wo"},{w:"chi"},{w:"zaocan"},"。"],["中午",{w:"wo"},{w:"huijia"},"。"]] },
-      { name:"階段四 · 完整句子", intro:"小明的一天，一句一句打出來。",
+      { name:"階段四 · 完整句子", intro:"碩寬的一天，一句一句打出來。",
         challenges:[["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"]] },
     ] },
   { grade:"二年級 上學期 · Grade 2 (1st sem)", title:"我會讀故事了",
-    blurb:"二年級的小明已經認識很多字，開始讀故事、寫日記。",
+    blurb:"二年級的碩寬已經認識很多字，開始讀故事、寫日記。",
     stages:[
       { name:"階段一 · 單字", intro:"讀和寫的字，要好好認識。",
         challenges:[[{w:"zi"}],[{w:"xie"}],[{w:"jia"}],[{w:"gou"}],[{w:"shu"}],[{w:"du"}]] },
@@ -382,7 +458,7 @@ const CURRICULUM = [
         challenges:[["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"]] },
     ] },
   { grade:"二年級 下學期 · Grade 2 (2nd sem)", title:"我的日記",
-    blurb:"現在小明每天寫日記，把生活記下來。最後，他要打出一整篇。",
+    blurb:"現在碩寬每天寫日記，把生活記下來。最後，他要打出一整篇。",
     stages:[
       { name:"階段一 · 單字", intro:"複習：這些字你都讀得出來了嗎？",
         challenges:[[{w:"kan"}],[{w:"lai"}],[{w:"qu"}],[{w:"tian"}],[{w:"yue"}]] },
@@ -390,13 +466,13 @@ const CURRICULUM = [
         challenges:[[{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}]] },
       { name:"階段三 · 短句", intro:"日記裡的小句子。",
         challenges:[["我每天",{w:"du"},{w:"zhongwen"},"。"],[{w:"yue"},"亮出",{w:"lai"},"了。"],[{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"]] },
-      { name:"階段四 · 完整句子（日記）", intro:"小明的日記——把一整天打出來！",
+      { name:"階段四 · 完整句子（日記）", intro:"碩寬的日記——把一整天打出來！",
         challenges:[["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
                     ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
                     ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"]] },
     ] },
   { grade:"三年級 上學期 · Grade 3 (1st sem)", title:"大自然",
-    blurb:"三年級了！小明開始觀察大自然，認識季節和天氣。",
+    blurb:"三年級了！碩寬開始觀察大自然，認識季節和天氣。",
     stages:[
       { name:"階段一 · 單字", intro:"大自然裡的字。",
         challenges:[[{w:"feng"}],[{w:"yu"}],[{w:"yun"}],[{w:"hua"}],[{w:"cao"}],[{w:"niao"}]] },
@@ -409,7 +485,7 @@ const CURRICULUM = [
                     [{w:"qiutian"},"的",{w:"feng"},"，吹過",{w:"cao"},"地。"]] },
     ] },
   { grade:"三年級 下學期 · Grade 3 (2nd sem)", title:"我的學校生活",
-    blurb:"小明的學校生活很豐富，有同學、有功課，也有下課的玩樂。",
+    blurb:"碩寬的學校生活很豐富，有同學、有功課，也有下課的玩樂。",
     stages:[
       { name:"階段一 · 單字", intro:"學校裡的字。",
         challenges:[[{w:"tong"}],[{w:"ban"}],[{w:"ke"}],[{w:"jiao"}],[{w:"bi"}],[{w:"zhi"}]] },
@@ -424,7 +500,7 @@ const CURRICULUM = [
                     ["寫完",{w:"gongke"},"，",{w:"wo"},"就",{w:"qu"},{w:"gongyuan"},"。"]] },
     ] },
   { grade:"四年級 上學期 · Grade 4 (1st sem)", title:"家鄉與旅行",
-    blurb:"四年級的小明喜歡旅行，認識家鄉、交通工具和不同的地方。",
+    blurb:"四年級的碩寬喜歡旅行，認識家鄉、交通工具和不同的地方。",
     stages:[
       { name:"階段一 · 單字", intro:"路上會看到的字。",
         challenges:[[{w:"che"}],[{w:"lu"}],[{w:"qiao"}],[{w:"heriver"}],[{w:"hai"}],[{w:"chuan"}]] },
@@ -439,7 +515,7 @@ const CURRICULUM = [
                     [{w:"hai"},"邊有很多",{w:"chuan"},"，真美。"]] },
     ] },
   { grade:"四年級 下學期 · Grade 4 (2nd sem)", title:"節日與文化",
-    blurb:"小明最喜歡過節了！過年、端午、中秋，每個節日都好熱鬧。",
+    blurb:"碩寬最喜歡過節了！過年、端午、中秋，每個節日都好熱鬧。",
     stages:[
       { name:"階段一 · 單字", intro:"節日裡的字。",
         challenges:[[{w:"jie"}],[{w:"long"}],[{w:"deng"}],[{w:"cha"}],[{w:"mi"}],[{w:"bing"}]] },
@@ -454,7 +530,7 @@ const CURRICULUM = [
                     [{w:"duanwu"},{w:"jie"},"，",{w:"dajia"},"一起",{w:"kan"},"划",{w:"long"},"舟。"]] },
     ] },
   { grade:"五年級 上學期 · Grade 5 (1st sem)", title:"情感與品格",
-    blurb:"五年級的小明開始懂得自己的心情，也學著勇敢和努力。",
+    blurb:"五年級的碩寬開始懂得自己的心情，也學著勇敢和努力。",
     stages:[
       { name:"階段一 · 單字", intro:"心情的字。",
         challenges:[[{w:"xin"}],[{w:"xiang"}],[{w:"xiao_laugh"}],[{w:"ku"}],[{w:"pa"}],[{w:"lei"}]] },
@@ -469,7 +545,7 @@ const CURRICULUM = [
                     ["看到",{w:"pengyou"},{w:"nanguo"},"，",{w:"wo"},"也",{w:"xiang"},"幫忙。"]] },
     ] },
   { grade:"五年級 下學期 · Grade 5 (2nd sem)", title:"科學與自然",
-    blurb:"小明愛上了科學，想知道太陽、月亮和星星的祕密。",
+    blurb:"碩寬愛上了科學，想知道太陽、月亮和星星的祕密。",
     stages:[
       { name:"階段一 · 單字", intro:"科學裡的字。",
         challenges:[[{w:"guang"}],[{w:"dian"}],[{w:"xing"}],[{w:"di"}],[{w:"qiu"}],[{w:"li"}]] },
@@ -484,7 +560,7 @@ const CURRICULUM = [
                     [{w:"dongwu"},{w:"he"},"植物都需要",{w:"shui"},"。"]] },
     ] },
   { grade:"六年級 上學期 · Grade 6 (1st sem)", title:"社會與世界",
-    blurb:"六年級的小明關心社會，認識國家、城市和世界文化。",
+    blurb:"六年級的碩寬關心社會，認識國家、城市和世界文化。",
     stages:[
       { name:"階段一 · 單字", intro:"社會裡的字。",
         challenges:[[{w:"guo"}],[{w:"min"}],[{w:"cheng"}],[{w:"jie_world"}],[{w:"shichar"}]] },
@@ -499,7 +575,7 @@ const CURRICULUM = [
                     [{w:"chengshi"},"裡有很多",{w:"ren"},{w:"he"},{w:"che"},"。"]] },
     ] },
   { grade:"六年級 下學期 · Grade 6 (2nd sem)", title:"夢想與未來",
-    blurb:"快畢業了。小明寫下他的夢想，謝謝一路上陪他長大的人。",
+    blurb:"快畢業了。碩寬寫下他的夢想，謝謝一路上陪他長大的人。",
     stages:[
       { name:"階段一 · 單字", intro:"夢想裡的字。",
         challenges:[[{w:"meng"}],[{w:"wei"}],[{w:"xi"}],[{w:"wang"}],[{w:"zhi"}],[{w:"xue"}]] },
@@ -516,11 +592,56 @@ const CURRICULUM = [
     ] },
 ];
 
-/* ---- Flatten + spiral encounter index ---- */
+/* =========================================================================
+   ENRICHMENT — extra 詞語 + 句子 per book, and a 問答 (Q&A) stage where the
+   game asks an open-ended question and you type a full-sentence answer.
+   Answers reuse known vocabulary, which also reinforces the spiral.
+   ========================================================================= */
+const ENRICH_CIYU=[ // extra 詞語 pushed onto each book's stage 2
+  [[{w:"didi"}],[{w:"meimei"}]], [[{w:"wanshang"}]], [[{w:"gushi"}]], [],
+  [[{w:"jijie"}]], [], [], [[{w:"denglong"}]], [], [], [], [],
+];
+const QA=[ // one Q&A challenge {q, parts} per book
+  {q:"老師對你說「早安」，你會怎麼回答？", parts:[{w:"laoshi"},{w:"zaoan"},"！"]},
+  {q:"早上你起床後，先做什麼？", parts:["我先",{w:"chi"},{w:"zaocan"},"。"]},
+  {q:"在家裡，你最喜歡做什麼？", parts:[{w:"wo"},"最喜歡",{w:"kan"},{w:"gushi"},{w:"shu"},"。"]},
+  {q:"今天過得開心嗎？說說看。", parts:["今天",{w:"wo"},"很",{w:"kaixin"},"！"]},
+  {q:"你最喜歡哪一個季節？為什麼？", parts:["我最喜歡",{w:"chuntian"},"，因為",{w:"hua"},"開了。"]},
+  {q:"下課的時候，你都做什麼？", parts:["下課我和",{w:"tongxue"},"一起",{w:"wan"},"。"]},
+  {q:"你最想去哪裡旅行？", parts:["我想坐",{w:"feiji"},{w:"qu"},{w:"hai"},"邊。"]},
+  {q:"中秋節到了，你會做什麼？", parts:[{w:"zhongqiu"},{w:"jie"},"，我和家人吃",{w:"yuebing"},"。"]},
+  {q:"遇到困難的時候，你會怎麼做？", parts:["我會",{w:"yonggan"},"，也會",{w:"nuli"},"。"]},
+  {q:"地球為什麼很重要？", parts:[{w:"diqiu"},{w:"shi_be"},{w:"women"},"的",{w:"jia"},"。"]},
+  {q:"你的國家是哪裡？", parts:["我的",{w:"guojia"},{w:"shi_be"},"台灣。"]},
+  {q:"你的夢想是什麼？", parts:[{w:"wo"},"的",{w:"mengxiang"},{w:"shi_be"},{w:"du"},"很多",{w:"shu"},"。"]},
+];
+const EXTRA_JUZI=[ // one extra 完整句子 per book (reuses known words)
+  [{w:"didi"},{w:"he"},{w:"meimei"},"都",{w:"ai"},{w:"mama"},"。"],
+  [{w:"wanshang"},"，",{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"],
+  [{w:"wo"},"在",{w:"jia"},{w:"du"},{w:"gushi"},"。"],
+  ["放假了，",{w:"wo"},"很",{w:"kaixin"},"，要去",{w:"wan"},"。"],
+  [{w:"chuntian"},"的",{w:"tianqi"},"很",{w:"hao"},"，",{w:"hua"},"也很",{w:"meili"},"。"],
+  ["上課了，",{w:"laoshi"},{w:"jiao"},{w:"women"},{w:"du"},{w:"shu"},"。"],
+  [{w:"wo"},{w:"he"},{w:"baba"},"坐",{w:"huoche"},{w:"qu"},{w:"jiaxiang"},"。"],
+  [{w:"guonian"},"的",{w:"wanshang"},"，到處都是",{w:"denglong"},"，大家",{w:"tongle"},"。"],
+  [{w:"wo"},"今天很",{w:"gaoxing"},"，因為我學會",{w:"yonggan"},"。"],
+  [{w:"taiyang"},"、",{w:"yueliang"},"和",{w:"xingxing"},"都在",{w:"tian"},{w:"shang"},"。"],
+  [{w:"shijie"},{w:"shang"},"有很多",{w:"meili"},"的",{w:"guojia"},"。"],
+  [{w:"wo"},{w:"xiwang"},{w:"weilai"},"能去",{w:"shijie"},"各地。"],
+];
+CURRICULUM.forEach((b,bi)=>{
+  (ENRICH_CIYU[bi]||[]).forEach(c=>b.stages[1].challenges.push(c));   // more phrases
+  if(EXTRA_JUZI[bi]) b.stages[3].challenges.push(EXTRA_JUZI[bi]);     // more sentences
+  if(QA[bi]) b.stages.push({ name:"階段五 · 問答 Q&A", intro:"老師問你一個問題，打出一個完整的句子來回答！", challenges:[QA[bi]] });
+});
+
+/* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
 const seenTotal={}; const FLAT=[];
-CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((parts,ci)=>{
+CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
+  const parts = Array.isArray(ch)? ch : ch.parts;
+  const prompt = Array.isArray(ch)? null : ch.q;
   parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
-  FLAT.push({ bookIdx:bi, stageIdx:si, parts, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
+  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
 })));
 const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
@@ -536,7 +657,7 @@ const BOOK_EMOJI=["🥉","🥈","🥇","🏆","🌸","📚","🚂","🏮","💖"
 const STREAK_MILES=[5,10,20,30,50], LEVEL_MILES=[3,5,8,12,16], DAILY_MILES=[3,7,14];
 const CATALOG=[];
 CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>CATALOG.push(
-  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si], zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
+  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si]||"🗣️", zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
 CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
 STREAK_MILES.forEach((n,i)=>CATALOG.push({id:`streak-${n}`, emoji:["🔥","⚡","🌈","💥","🏵️"][i], zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
 LEVEL_MILES.forEach((n,i)=>CATALOG.push({id:`level-${n}`, emoji:["🎖️","🏅","👑","💎","🌟"][i], zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
@@ -548,16 +669,32 @@ const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 /* =========================================================================
    State (localStorage resume)
    ========================================================================= */
-const SAVE_KEY="xiaoming_typing_v3";
+const SAVE_KEY="xiaoming_typing_v4";
 let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
 let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDays=new Set();
 let stats={}, reviewsDone=0;                 // per-word accuracy + review sessions
 let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
+/* economy + shop */
+let spent=0;
+let boostLeft=0, boostMult=2;                 // 2x/3x points for N words
+let luckyLeft=0, luckyBonus=0;                // flat bonus per word for N words
+let autoHintLeft=0;                           // auto-reveal pinyin for N words
+let ownedThemes=new Set(["classic"]), theme="classic";
+let ownedStickers=new Set();
+let pets={};                                  // petId -> stage index (multiple species)
+let tokens={hint:0,skip:0,first:0};
+let quest=null;
+let avatar=null;                              // chosen sticker id, e.g. "s12"
+let frame="none";                             // avatar frame, unlocked by level
+const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
   mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
-  practiceDays:[...practiceDays], stats, reviewsDone })); }
+  practiceDays:[...practiceDays], stats, reviewsDone,
+  spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
+  ownedThemes:[...ownedThemes], theme,
+  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar, frame })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -565,6 +702,13 @@ function load(){ try{
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
   stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
+  spent=d.spent||0; boostLeft=d.boostLeft||0; boostMult=d.boostMult||2;
+  luckyLeft=d.luckyLeft||0; luckyBonus=d.luckyBonus||0; autoHintLeft=d.autoHintLeft||0;
+  ownedThemes=new Set(d.ownedThemes||["classic"]); theme=d.theme||"classic";
+  ownedStickers=new Set(d.ownedStickers||[]);
+  pets=d.pets|| (d.pet?{bird:d.pet.stage||0}:{});   // migrate old single pet
+  tokens=Object.assign({hint:0,skip:0,first:0}, d.tokens||{}); quest=d.quest||null;
+  avatar=d.avatar||null; frame=d.frame||"none";
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -575,6 +719,122 @@ function weakWords(n){
   return [...mastered].map(id=>({id, w:weaknessOf(id), e:(stats[id]||{}).errors||0, s:(stats[id]||{}).seen||0}))
     .sort((a,b)=> b.w-a.w || b.e-a.e || a.s-b.s).slice(0,n);
 }
+
+/* ---- Shop catalogue + purchases (spend coins; level uses lifetime points) ---- */
+function tint(hex,f){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
+  r=Math.round(r+(255-r)*f);g=Math.round(g+(255-g)*f);b=Math.round(b+(255-b)*f);
+  return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+function shade(hex,f){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
+  r=Math.round(r*(1-f));g=Math.round(g*(1-f));b=Math.round(b*(1-f));
+  return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+// Light themes: just give an accent; tints are generated. Dark themes: full vars.
+const THEMES={
+  classic:{name:"經典橘 Classic",cost:0,accent:"#ff8a3d"},
+  ocean:{name:"海洋藍 Ocean",cost:200,accent:"#3aa0ff"},
+  forest:{name:"森林綠 Forest",cost:200,accent:"#3fbf6f"},
+  sakura:{name:"櫻花粉 Sakura",cost:200,accent:"#ff7aa8"},
+  grape:{name:"葡萄紫 Grape",cost:200,accent:"#9b6dff"},
+  lemon:{name:"檸檬黃 Lemon",cost:200,accent:"#f0ad00"},
+  mint:{name:"薄荷綠 Mint",cost:200,accent:"#2bc4b4"},
+  coral:{name:"珊瑚紅 Coral",cost:200,accent:"#ff6f61"},
+  sky:{name:"天空藍 Sky",cost:200,accent:"#4ec3ff"},
+  lavender:{name:"薰衣草 Lavender",cost:200,accent:"#b08be8"},
+  peach:{name:"蜜桃 Peach",cost:200,accent:"#ff9e7a"},
+  ruby:{name:"寶石紅 Ruby",cost:250,accent:"#e63b5e"},
+  emerald:{name:"翡翠 Emerald",cost:250,accent:"#10b486"},
+  sunset:{name:"夕陽 Sunset",cost:250,accent:"#ff7a3c"},
+  berry:{name:"莓果 Berry",cost:250,accent:"#d6469b"},
+  cocoa:{name:"可可 Cocoa",cost:250,accent:"#a9744f"},
+  rose:{name:"玫瑰金 Rose",cost:250,accent:"#e08aa0"},
+  lime:{name:"青檸 Lime",cost:250,accent:"#8bc34a"},
+  indigo:{name:"靛藍 Indigo",cost:250,accent:"#5c6bc0"},
+  bubblegum:{name:"泡泡糖 Bubblegum",cost:300,accent:"#ff5fa2"},
+  aqua:{name:"水藍 Aqua",cost:300,accent:"#1fc7d6"},
+  marigold:{name:"金盞 Marigold",cost:300,accent:"#ffab00"},
+  night:{name:"夜空 Night",cost:450,vars:{"--accent":"#9a7bff","--accent-dark":"#7d5bff","--ink":"#e9e6f5","--card":"#2a2740","--bg":"#1c1a2e","--soft":"#3a3658","--line":"#403c60","--lit":"#b9b3d6"}},
+  sea:{name:"深海 Deep Sea",cost:450,vars:{"--accent":"#36c5d0","--accent-dark":"#1f9aa6","--ink":"#e6f4f6","--card":"#163243","--bg":"#0f2433","--soft":"#21465a","--line":"#27506a","--lit":"#a9c6d6"}},
+  galaxy:{name:"銀河 Galaxy",cost:500,vars:{"--accent":"#c46bff","--accent-dark":"#a13fff","--ink":"#efe9f7","--card":"#241b3a","--bg":"#160f29","--soft":"#352a52","--line":"#3d3060","--lit":"#c4b6e0"}},
+};
+function themeVars(t){ const e=THEMES[t]||THEMES.classic; if(e.vars) return e.vars;
+  const a=e.accent, ad=e.accentDark||shade(a,.18);
+  return {"--accent":a,"--accent-dark":ad,"--soft":tint(a,.80),"--line":tint(a,.70),"--bg":tint(a,.93),"--gold":"#f2b705"}; }
+
+const STICKERS=[
+  {e:"🐉",n:"龍"},{e:"🦄",n:"獨角獸"},{e:"🚀",n:"火箭"},{e:"🌈",n:"彩虹"},{e:"🍦",n:"冰淇淋"},
+  {e:"🎈",n:"氣球"},{e:"🐼",n:"熊貓"},{e:"⭐",n:"星星"},{e:"🍉",n:"西瓜"},{e:"🦖",n:"恐龍"},
+  {e:"🎸",n:"吉他"},{e:"🏰",n:"城堡"},{e:"🐱",n:"小貓"},{e:"🐶",n:"小狗"},{e:"🐢",n:"烏龜"},
+  {e:"🦋",n:"蝴蝶"},{e:"🐝",n:"蜜蜂"},{e:"🐬",n:"海豚"},{e:"🐙",n:"章魚"},{e:"🦊",n:"狐狸"},
+  {e:"🦁",n:"獅子"},{e:"🐯",n:"老虎"},{e:"🐧",n:"企鵝"},{e:"🦉",n:"貓頭鷹"},{e:"🦕",n:"長頸龍"},
+  {e:"🍓",n:"草莓"},{e:"🍌",n:"香蕉"},{e:"🍕",n:"披薩"},{e:"🍩",n:"甜甜圈"},{e:"🍪",n:"餅乾"},
+  {e:"🍭",n:"棒棒糖"},{e:"🧁",n:"杯子蛋糕"},{e:"🍿",n:"爆米花"},{e:"🍇",n:"葡萄"},{e:"🍑",n:"桃子"},
+  {e:"⚽",n:"足球"},{e:"🏀",n:"籃球"},{e:"🎾",n:"網球"},{e:"🏆",n:"獎盃"},{e:"🥇",n:"金牌"},
+  {e:"🎮",n:"電玩"},{e:"🎨",n:"畫畫"},{e:"🎺",n:"小號"},{e:"🥁",n:"鼓"},{e:"🎻",n:"小提琴"},
+  {e:"🚗",n:"汽車"},{e:"✈️",n:"飛機"},{e:"🚂",n:"火車"},{e:"🚁",n:"直升機"},{e:"⛵",n:"帆船"},
+  {e:"🌟",n:"閃星"},{e:"🌸",n:"櫻花"},{e:"🌻",n:"向日葵"},{e:"🌙",n:"月亮"},{e:"☀️",n:"太陽"},
+  {e:"❄️",n:"雪花"},{e:"🔥",n:"火焰"},{e:"💎",n:"鑽石"},{e:"👑",n:"皇冠"},{e:"🎁",n:"禮物"}];
+const STICKER_COST=80;
+
+const PETS={
+  bird:{name:"小鳥 Bird",cost:300,stages:["🥚","🐣","🐤","🐥","🐔","🦅"]},
+  cat:{name:"小貓 Cat",cost:300,stages:["🐾","🐱","😸","😻","🐈","🦁"]},
+  dog:{name:"小狗 Dog",cost:300,stages:["🐾","🐶","🐕","🦮","🐕‍🦺","🐺"]},
+  turtle:{name:"烏龜 Turtle",cost:350,stages:["🥚","🐢","🐢","🐊","🐉","🦕"]},
+  dragon:{name:"神龍 Dragon",cost:500,stages:["🥚","🦎","🐍","🐲","🐉","✨"]},
+};
+const PET_FEED=60;
+
+// Power-ups: tokens (used via buttons while typing) + instant cards
+const POWERUPS=[
+  {id:"t_hint",  e:"💡", n:"提示券 reveal pinyin",  cost:40,  act:()=>tokens.hint++},
+  {id:"t_skip",  e:"⏭️", n:"跳過券 skip word",       cost:60,  act:()=>tokens.skip++},
+  {id:"t_first", e:"🔤", n:"首字母 first letter",     cost:30,  act:()=>tokens.first++},
+  {id:"b_hint5", e:"💡", n:"提示包 hint ×5",          cost:160, act:()=>tokens.hint+=5},
+  {id:"b_skip3", e:"⏭️", n:"跳過包 skip ×3",          cost:150, act:()=>tokens.skip+=3},
+  {id:"b_first5",e:"🔤", n:"首字母包 ×5",             cost:120, act:()=>tokens.first+=5},
+  {id:"c_2x",    e:"✨", n:"雙倍卡 2× ×10",           cost:120, act:()=>{boostMult=2;boostLeft+=10;}},
+  {id:"c_3x",    e:"🌟", n:"三倍卡 3× ×5",            cost:180, act:()=>{boostMult=3;boostLeft=Math.max(boostLeft,0)+5;}},
+  {id:"c_master",e:"👑", n:"大師卡 2× ×20",           cost:220, act:()=>{boostMult=2;boostLeft+=20;}},
+  {id:"c_lucky", e:"🍀", n:"幸運卡 +5/題 ×10",        cost:100, act:()=>{luckyBonus=5;luckyLeft+=10;}},
+  {id:"c_lucky2",e:"🌈", n:"幸運大卡 +10/題 ×10",     cost:180, act:()=>{luckyBonus=10;luckyLeft+=10;}},
+  {id:"c_streak",e:"🔥", n:"連勝卡 streak +5",        cost:80,  act:()=>{streak+=5;if(streak>maxStreak)maxStreak=streak;}},
+  {id:"c_auto",  e:"🧠", n:"複習卡 auto-hint ×5",     cost:90,  act:()=>autoHintLeft+=5},
+  {id:"c_quest", e:"🎯", n:"任務卡 finish quest",     cost:70,  act:()=>{ensureQuest();if(!quest.claimed){quest.count=quest.goal;quest.claimed=true;points+=QUEST_REWARD;}}},
+  {id:"c_mystery",e:"🎁",n:"神秘盒 random sticker",   cost:90,  act:()=>{ const left=STICKERS.map((s,i)=>i).filter(i=>!ownedStickers.has("s"+i)); if(left.length){const i=left[Math.floor(Math.random()*left.length)]; ownedStickers.add("s"+i); queueToast({e:STICKERS[i].e,zh:"神秘盒開出 "+STICKERS[i].n+"！",en:"Mystery sticker!"});} }},
+];
+const POWER_BY_ID={}; POWERUPS.forEach(p=>POWER_BY_ID[p.id]=p);
+
+function applyTheme(t){
+  const r=document.documentElement;
+  ["--accent","--accent-dark","--soft","--line","--bg","--ink","--card","--lit","--gold"].forEach(k=>r.style.removeProperty(k));
+  Object.entries(themeVars(t)).forEach(([k,v])=>r.style.setProperty(k,v));
+}
+function celebrateBuy(name){ sPrize(); queueToast({e:"🛒", zh:"買到了！"+name, en:"Purchased!"}); }
+function afterShop(){ save(); updateHUD(); renderShop(); }
+function buyTheme(t){ const th=THEMES[t]; if(!th||ownedThemes.has(t)||balance()<th.cost) return; spent+=th.cost; ownedThemes.add(t); useTheme(t); celebrateBuy(th.name); afterShop(); }
+function useTheme(t){ if(!ownedThemes.has(t)) return; theme=t; applyTheme(t); afterShop(); }
+function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STICKER_COST) return; spent+=STICKER_COST; ownedStickers.add(id); celebrateBuy(STICKERS[i].e+" "+STICKERS[i].n); afterShop(); }
+function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.stages[0]+" "+p.name); afterShop(); }
+function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=p.stages.length-1||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.stages[pets[k]]+" 長大了！"); afterShop(); }
+function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
+function avatarEmoji(){ if(avatar!=null){ const i=+avatar.slice(1); if(ownedStickers.has(avatar) && STICKERS[i]) return STICKERS[i].e; } return "🧒"; }
+function updateAvatar(){ const a=document.getElementById("avatar"); if(!a) return;
+  a.textContent=avatarEmoji(); a.className="avatar"+(frame&&frame!=="none"?" f-"+frame:""); }
+function setAvatar(i){ if(!ownedStickers.has("s"+i)) return; avatar="s"+i; save(); updateAvatar(); renderShop();
+  queueToast({e:STICKERS[i].e, zh:"換上新頭像！"+STICKERS[i].n, en:"Avatar set!"}); }
+
+/* ---- Avatar frames (unlocked by level, not bought) ---- */
+const FRAMES=[
+  {id:"none",   name:"無 None",       lvl:1},
+  {id:"bronze", name:"青銅 Bronze",   lvl:3},
+  {id:"silver", name:"白銀 Silver",   lvl:6},
+  {id:"gold",   name:"黃金 Gold",     lvl:10},
+  {id:"rainbow",name:"彩虹 Rainbow",  lvl:15},
+  {id:"nebula", name:"星雲 Nebula",   lvl:20},
+];
+function selectFrame(id){ const f=FRAMES.find(x=>x.id===id); if(!f) return;
+  if(levelFromXP(points).level < f.lvl){ queueToast({e:"🔒", zh:`需要等級 ${f.lvl}`, en:`Reach Lv.${f.lvl} first`}); return; }
+  frame=id; save(); updateAvatar(); renderShop();
+  if(id!=="none") queueToast({e:"🖼️", zh:"換上新頭像框！"+f.name, en:"Frame equipped!"}); }
 
 const card=document.getElementById("card");
 
@@ -611,6 +871,23 @@ function levelFromXP(xp){ let lvl=1, need=100, acc=0;
   return {level:lvl, into:xp-acc, need}; }
 function hintLevel(enc){ if(enc<=1)return 3; if(enc===2)return 2; return 1; }
 
+/* ---- Hear-it (text-to-speech, best-effort) ---- */
+function speak(text){
+  try{ if(!("speechSynthesis" in window)) return;
+    const u=new SpeechSynthesisUtterance(text); u.lang="zh-TW"; u.rate=.85;
+    const v=speechSynthesis.getVoices().find(v=>/zh|cmn|Chinese/i.test(v.lang+v.name));
+    if(v) u.voice=v; speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---- Daily quest ---- */
+const QUEST_GOAL=10, QUEST_REWARD=50;
+function ensureQuest(){ const t=dkey(new Date());
+  if(!quest||quest.date!==t) quest={date:t, count:0, goal:QUEST_GOAL, claimed:false}; }
+function bumpQuest(){ ensureQuest(); quest.count++;
+  if(quest.count>=quest.goal && !quest.claimed){ quest.claimed=true; points+=QUEST_REWARD;
+    floatPoints("+"+QUEST_REWARD); sPrize(); queueToast({e:"🎯", zh:"每日任務完成！＋"+QUEST_REWARD+"🪙", en:"Daily quest done!"}); } }
+
 /* ---- Daily-streak calendar ---- */
 function dkey(dt){ return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0"); }
 function dailyStreak(){
@@ -629,6 +906,7 @@ function renderCalendar(){
   document.getElementById("calGrid").innerHTML=cells;
   document.getElementById("calTitle").textContent=`${y} 年 ${m+1} 月`;
   document.getElementById("dailyNum").textContent=dailyStreak();
+  const da=document.getElementById("dailyAvatar"); if(da) da.textContent=avatarEmoji();
 }
 
 /* ---- Prizes ---- */
@@ -669,10 +947,22 @@ function floatPoints(txt){
 /* =========================================================================
    Render
    ========================================================================= */
+const warmedStages=new Set();   // adaptive warm-ups already shown this session
+let curInfo=null;               // {key,pinyin,id} of the active word, for power-ups
+
 function render(){
   const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
   if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
   const stage=book.stages[item.stageIdx];
+  // Adaptive story: warm up your weakest character before the full-sentence stage
+  if(item.stageFirst && item.stageIdx===3){
+    const key=item.bookIdx+"-"+item.stageIdx;
+    if(!warmedStages.has(key)){
+      const weak=weakWords(1)[0];
+      if(weak && weak.w>0){ warmedStages.add(key); renderAdaptive(weak.id); return; }
+      warmedStages.add(key);
+    }
+  }
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
 
   let sentence="", wIdx=-1, activeWord=null;
@@ -686,29 +976,80 @@ function render(){
 
   let html=`<span class="stage-tag">${stage.name}</span>`;
   if(item.stageFirst) html+=`<p class="intro">${stage.intro}</p>`;
+  if(item.prompt) html+=`<div class="prompt">🗣️ 老師問：<b>${item.prompt}</b><br><span style="font-size:.8rem">打出完整的答案 · type a full-sentence answer</span></div>`;
   html+=`<div class="sentence">${sentence}</div>`;
 
   if(activeWord){
     const v=VOCAB[activeWord.w], lvl=hintLevel(activeWord._enc);
-    let panel=`<div class="read-hint">👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin</div>`;
-    if(v.img) panel+=`<div class="pic">${v.img}</div>`;
-    panel+=`<div class="hint-hanzi">${v.hanzi}</div>`;
-    panel+=`<div class="hint-pinyin">${lvl>=2 ? v.pinyin : "&nbsp;"}</div>`;
-    if(lvl>=3) panel+=`<div class="hint-en">${v.en}</div>`;
-    panel+=`<div class="hint-level">${lvl>=3?"新字 · new":lvl===2?"複習 · review":"靠記憶打字 · from memory 💪"}</div>`;
-    panel+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
-    panel+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
-    panel+=`<div class="feedback" id="feedback">&nbsp;</div>`;
-    html+=`<div class="typer">${panel}</div>`;
+    const opts = (lvl<2 && consumeAuto()) ? {pinyinAlways:true} : {};
+    html+=`<div class="typer">${typerPanel(v, lvl, opts)}</div>`;
   }
   card.innerHTML=html;
   refreshSide();
   if(activeWord){
-    const pinyinEl=null;
-    wireInput(VOCAB[activeWord.w].key,
-      (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); },
-      null);
+    const v=VOCAB[activeWord.w];
+    curInfo={key:v.key, pinyin:v.pinyin, id:activeWord.w, hanzi:v.hanzi};
+    wireSayAndPowerups();
+    wireInput(v.key, (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); }, null);
   }
+}
+
+/* Build the typing panel (shared shape for story / quiz / adaptive) */
+function typerPanel(v, lvl, opts){
+  opts=opts||{};
+  let p=`<div class="read-hint">${opts.head||"👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin"}</div>`;
+  if(v.img) p+=`<div class="pic">${v.img}</div>`;
+  p+=`<div class="hanzi-row"><div class="hint-hanzi">${v.hanzi}</div><button class="say" id="sayBtn" title="聽發音 hear it">🔊</button></div>`;
+  const showPy = opts.pinyinAlways!==undefined ? opts.pinyinAlways : (lvl>=2);
+  p+=`<div class="hint-pinyin" id="revealPinyin">${showPy ? v.pinyin : "&nbsp;"}</div>`;
+  if(opts.en || lvl>=3) p+=`<div class="hint-en">${v.en}</div>`;
+  if(opts.levelTag!==false) p+=`<div class="hint-level">${lvl>=3?"新字 · new":lvl===2?"複習 · review":"靠記憶打字 · from memory 💪"}</div>`;
+  p+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
+  p+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
+  p+=`<div class="feedback" id="feedback">&nbsp;</div>`;
+  p+=`<div class="powerups" id="powerups"></div>`;
+  if(boostLeft>0) p+=`<div class="boost-flag">✨ ${boostMult}× 點數！剩 ${boostLeft} 題</div>`;
+  if(luckyLeft>0) p+=`<div class="boost-flag">🍀 +${luckyBonus}/題！剩 ${luckyLeft} 題</div>`;
+  return p;
+}
+
+/* Hear-it button + power-up buttons for the current typing card */
+function consumeAuto(){ if(autoHintLeft>0){ autoHintLeft--; save(); return true; } return false; }
+function wireSayAndPowerups(){
+  const say=document.getElementById("sayBtn");
+  if(say) say.onclick=()=>{ if(curInfo) speak(curInfo.hanzi); };
+  const pu=document.getElementById("powerups"); if(!pu) return;
+  pu.innerHTML=
+    `<button class="pu ${tokens.hint>0?"":"cant"}" id="puHint">💡 提示 (${tokens.hint||0})</button>`+
+    `<button class="pu ${tokens.first>0?"":"cant"}" id="puFirst">🔤 首字母 (${tokens.first||0})</button>`+
+    `<button class="pu ${tokens.skip>0?"":"cant"}" id="puSkip">⏭️ 跳過 (${tokens.skip||0})</button>`;
+  const bH=document.getElementById("puHint"); if(bH) bH.onclick=useHintToken;
+  const bF=document.getElementById("puFirst"); if(bF) bF.onclick=useFirstToken;
+  const bS=document.getElementById("puSkip"); if(bS) bS.onclick=useSkipToken;
+}
+function useHintToken(){ if((tokens.hint||0)<=0||!curInfo) return; tokens.hint--; const r=document.getElementById("revealPinyin");
+  if(r) r.innerHTML=`<b>${curInfo.pinyin}</b>`; save(); wireSayAndPowerups(); updateHUD(); }
+function useFirstToken(){ if((tokens.first||0)<=0||!curInfo) return; tokens.first--; const r=document.getElementById("revealPinyin");
+  if(r) r.innerHTML=`首字母 first: <b>${curInfo.key[0]}…</b>`;
+  const t0=document.querySelector("#tiles .tile"); if(t0){ t0.classList.add("good"); t0.textContent=curInfo.key[0]; }
+  save(); wireSayAndPowerups(); updateHUD(); }
+function useSkipToken(){ if((tokens.skip||0)<=0||!curInfo) return; tokens.skip--; save();
+  const inp=document.getElementById("typeInput"); if(!inp) return;
+  inp.value=curInfo.key; inp.dispatchEvent(new Event("input")); }
+
+/* Adaptive warm-up: a quick single-word review of your weakest character */
+function renderAdaptive(id){
+  const v=VOCAB[id];
+  document.getElementById("crumb").innerHTML=`⚡ 快速複習 · quick review`;
+  let html=`<span class="stage-tag" style="background:#ffe9e0;color:var(--bad)">⚡ 快速複習 Warm-up</span>`;
+  html+=`<p class="intro">先複習一個你比較弱的字，再開始下一關。<br>A quick warm-up of a shaky character before the next stage.</p>`;
+  html+=`<div class="typer">${typerPanel(v, hintLevel(99), {head:"⚡ 你還記得這個字嗎？ remember this one?", en:true})}</div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  wireInput(v.key, (errs)=>{ recordStat(id, errs); bumpQuest();
+    const g=8; points+=g; floatPoints("+"+g); sCorrect(); updateHUD(); save();
+    setTimeout(render, 550); }, null);
 }
 
 /* Shared typing widget: colours tiles, plays sounds, counts wrong keystrokes.
@@ -736,7 +1077,7 @@ function wireInput(target, onCorrect, onWrong){
   input.focus();
 }
 
-function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); }
+function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); updateAvatar(); }
 
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
@@ -745,7 +1086,7 @@ function renderBookIntro(bi,book){
     <h2>第 ${bi+1} 冊：${book.title}</h2>
     <p class="intro" style="text-align:center">${book.blurb}</p>
     <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
-  updateHUD(); updateProgress(); renderCabinet(); renderCalendar();
+  refreshSide();
   document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
 }
 
@@ -754,12 +1095,14 @@ const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correc
 function success(active){
   const oldLevel=levelFromXP(points).level;
   mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
-  practiceDays.add(dkey(new Date()));
+  practiceDays.add(dkey(new Date())); bumpQuest();
   const lvl=hintLevel(active._enc);
-  const gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
+  let gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
+  if(luckyLeft>0){ gained+=luckyBonus; luckyLeft--; }    // 🍀 幸運卡
+  if(boostLeft>0){ gained*=boostMult; boostLeft--; }     // ✨ 雙倍/三倍卡
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
-  fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
+  fb.textContent=avatarEmoji()+" ✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
 
   const item=FLAT[pos];
   const wcount=item.parts.filter(p=>typeof p==="object"&&p.w).length;
@@ -784,7 +1127,7 @@ function updateHUD(){
   document.getElementById("lvlNum").textContent=li.level;
   document.getElementById("xpFill").style.width=Math.round(li.into/li.need*100)+"%";
   document.getElementById("xpTxt").textContent=li.into+" / "+li.need+" XP";
-  document.getElementById("ptsNum").textContent=points;
+  document.getElementById("ptsNum").textContent=balance();
   document.getElementById("strkNum").textContent=streak;
   document.getElementById("przNum").textContent=prizesEarned.size+"/"+CATALOG.length;
   document.getElementById("przFull").textContent=prizesEarned.size+" / "+CATALOG.length;
@@ -810,6 +1153,60 @@ function renderCabinet(){
     const got=prizesEarned.has(p.id);
     return `<div class="slot ${got?"earned":"locked"}"><div class="pe">${got?p.emoji:"🔒"}</div><div class="pn">${got?p.zh:p.hint}</div></div>`;
   }).join("");
+}
+
+function renderQuest(){
+  ensureQuest();
+  const el=document.getElementById("questPanel"); if(!el) return;
+  const pct=Math.min(100, Math.round(quest.count/quest.goal*100));
+  const done=quest.claimed;
+  el.innerHTML=`<h3>🎯 每日任務 · Daily Quest</h3>
+    <div class="quest ${done?"done":""}">
+      <div class="qbar"><i style="width:${pct}%"></i></div>
+      <div class="qtxt">${done?`✓ 完成！＋${QUEST_REWARD}🪙`:`今天練習 ${quest.count}/${quest.goal} 題 → ＋${QUEST_REWARD}🪙`}</div>
+    </div>`;
+}
+
+function renderShop(){
+  const el=document.getElementById("shop"); if(!el) return;
+  const coin=balance();
+  const aff=c=>coin>=c?"":"cant";
+  // themes (25)
+  let html=`<div class="shop-sec"><h4>🎨 主題 Themes — ${ownedThemes.size}/${Object.keys(THEMES).length}</h4><div class="shop-row scrollrow">`;
+  html+=Object.entries(THEMES).map(([k,t])=>{
+    const swatch=`<div class="be" style="font-size:1.2rem;width:30px;height:30px;border-radius:8px;margin:0 auto;background:${(t.vars?t.vars["--accent"]:t.accent)}"></div>`;
+    if(ownedThemes.has(k)) return `<div class="buy ${theme===k?"using":"owned"}" onclick="useTheme('${k}')">${swatch}<div class="bn">${t.name}</div><div class="bc">${theme===k?"使用中":"已擁有"}</div></div>`;
+    return `<div class="buy ${aff(t.cost)}" onclick="buyTheme('${k}')">${swatch}<div class="bn">${t.name}</div><div class="bc">🪙 ${t.cost}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
+  // power-ups (15)
+  html+=`<div class="shop-sec"><h4>⚡ 道具 Power-ups <span style="color:#b9a78f">— 💡${tokens.hint||0} ⏭️${tokens.skip||0} 🔤${tokens.first||0}${boostLeft>0?` · ✨${boostMult}×剩${boostLeft}`:""}${luckyLeft>0?` · 🍀剩${luckyLeft}`:""}${autoHintLeft>0?` · 🧠剩${autoHintLeft}`:""}</span></h4><div class="shop-row scrollrow">`;
+  html+=POWERUPS.map(p=>`<div class="buy ${aff(p.cost)}" onclick="buyPower('${p.id}')"><div class="be">${p.e}</div><div class="bn">${p.n}</div><div class="bc">🪙 ${p.cost}</div></div>`).join("");
+  html+=`</div></div>`;
+  // pets (5)
+  html+=`<div class="shop-sec"><h4>🐾 寵物 Pets — ${Object.keys(pets).length}/${Object.keys(PETS).length}</h4><div class="shop-row">`;
+  html+=Object.entries(PETS).map(([k,p])=>{
+    if(pets[k]==null) return `<div class="buy ${aff(p.cost)}" onclick="buyPet('${k}')"><div class="be">${p.stages[0]}</div><div class="bn">${p.name}<br>領養 adopt</div><div class="bc">🪙 ${p.cost}</div></div>`;
+    const st=pets[k], max=st>=p.stages.length-1;
+    return `<div class="buy ${max?"owned":aff(PET_FEED)}" ${max?"":`onclick="feedPet('${k}')"`}><div class="be">${p.stages[st]}</div><div class="bn">${p.name}<br>第 ${st+1}/${p.stages.length} 階段</div><div class="bc">${max?"已最大🎉":"🍖 餵食 🪙 "+PET_FEED}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
+  // avatar frames (unlocked by level)
+  const myLvl=levelFromXP(points).level;
+  html+=`<div class="shop-sec"><h4>🖼️ 頭像框 Avatar Frames <span style="color:#b9a78f;font-weight:400">— 升級解鎖 unlocked by level</span></h4><div class="shop-row">`;
+  html+=FRAMES.map(f=>{ const unlocked=myLvl>=f.lvl; const using=frame===f.id;
+    const prev=`<div class="frame-prev ${f.id!=="none"?"f-"+f.id:""}">${avatarEmoji()}</div>`;
+    if(!unlocked) return `<div class="buy cant">${prev}<div class="bn">${f.name}</div><div class="bc">🔒 Lv.${f.lvl}</div></div>`;
+    return `<div class="buy ${using?"using":""}" onclick="selectFrame('${f.id}')">${prev}<div class="bn">${f.name}</div><div class="bc">${using?"使用中 in use":"使用 use"}</div></div>`;
+  }).join("");
+  html+=`</div></div>`;
+  // stickers (60) — owned ones can be set as your avatar
+  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length} <span style="color:#b9a78f;font-weight:400">· 點已擁有的貼紙設為頭像 tap an owned sticker to use as avatar</span></h4><div class="shop-row scrollrow tall">`;
+  html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i); const isAv=avatar==="s"+i;
+    return owned ? `<div class="buy owned ${isAv?"avatarpick":""}" onclick="setAvatar(${i})"><div class="be">${s.e}</div><div class="bn">${s.n}</div><div class="bc">${isAv?"頭像 avatar ✓":"設頭像 set"}</div></div>`
+      : `<div class="buy ${aff(STICKER_COST)}" onclick="buySticker(${i})"><div class="be">❔</div><div class="bn">${s.n}</div><div class="bc">🪙 ${STICKER_COST}</div></div>`; }).join("");
+  html+=`</div></div>`;
+  el.innerHTML=html;
 }
 
 /* =========================================================================
@@ -851,24 +1248,17 @@ function renderQuizItem(){
   document.getElementById("crumb").innerHTML=`🧠 複習 Review · ${quizIdx+1} / ${quizList.length}`;
   let html=`<div class="quiz-head"><span class="quiz-tag">複習 ${quizIdx+1}/${quizList.length}</span>
     <span class="ct" style="color:#9b8a74">✓ ${quizCorrect}</span></div>`;
-  html+=`<div class="typer">
-    <div class="read-hint">🧠 靠記憶打出拼音 · type the pinyin from memory</div>
-    ${v.img?`<div class="pic">${v.img}</div>`:""}
-    <div class="hint-hanzi">${v.hanzi}</div>
-    <div class="hint-en">${v.en}</div>
-    <div class="hint-pinyin" id="revealPinyin">&nbsp;</div>
-    <div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>
-    <input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />
-    <div class="feedback" id="feedback">&nbsp;</div>
-    <button class="btn ghost" id="backBtn">結束複習 · End review</button>
-  </div>`;
+  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧠 靠記憶打出拼音 · type the pinyin from memory", en:true, pinyinAlways:consumeAuto(), levelTag:false})}
+    <button class="btn ghost" id="backBtn">結束複習 · End review</button></div>`;
   card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
   document.getElementById("backBtn").onclick=()=>{ finishReview(); };
   wireInput(v.key,
     (errs)=>{ recordStat(id, errs); if(errs===0) quizCorrect++;
-      points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
+      bumpQuest(); points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
       const fb=document.getElementById("feedback"); fb.className="feedback good";
-      fb.textContent= errs===0 ? "✓ 答對了！ Nailed it!" : "✓ 對了！(再記一下) Got it!";
+      fb.textContent= avatarEmoji()+(errs===0 ? " ✓ 答對了！ Nailed it!" : " ✓ 對了！(再記一下) Got it!");
       setTimeout(()=>{ quizIdx++; renderQuizItem(); }, 650); },
     (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${VOCAB[id].pinyin}</b>`; } });
 }
@@ -903,14 +1293,14 @@ function showFinish(){
   document.getElementById("crumb").innerHTML="全部完成 · All done";
   const li=levelFromXP(points);
   card.innerHTML=`<div class="interstitial">
-    <div class="big">🎓✏️🌟</div><h2>小明畢業了！</h2>
+    <div class="big">${avatarEmoji()}🎓🌟</div><h2>碩寬畢業了！</h2>
     <p class="intro" style="text-align:center">
-      從一年級到六年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
+      從一年級到六年級，碩寬學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
       拿到 <b>${points}</b> 點數、升到 <b>等級 ${li.level}</b>、收集 <b>${prizesEarned.size}</b> 個獎品！</p>
     <p class="intro" style="text-align:center">
       Grade 1 → 6 · <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes!</p>
     <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button></div>`;
-  updateHUD(); renderPool(); renderCabinet(); renderCalendar();
+  refreshSide();
   document.getElementById("againBtn").addEventListener("click", resetAll);
 }
 function resetAll(){
@@ -918,14 +1308,25 @@ function resetAll(){
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   stats={}; reviewsDone=0; mode="story";
+  spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
+  ownedThemes=new Set(["classic"]); theme="classic";
+  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null; frame="none";
+  warmedStages.clear(); applyTheme("classic"); updateAvatar();
   render();
 }
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
 
 document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
 
+document.getElementById("avatar").addEventListener("click",()=>{
+  const sec=[...document.querySelectorAll(".shop-sec")].find(s=>/貼紙簿/.test(s.textContent));
+  (sec||document.getElementById("shop")).scrollIntoView({behavior:"smooth",block:"center"});
+});
+
 setupSoundBtn();
-load(); render();
+load(); applyTheme(theme); ensureQuest(); updateAvatar();
+if("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>{}; }
+render();
 </script>
 </body>
 </html>
