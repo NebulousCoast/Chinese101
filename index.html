@@ -6,9 +6,9 @@
 <title>小明學打字 · Xiǎo Míng Learns to Type</title>
 <style>
   :root{
-    --bg:#fff7ec; --card:#fff; --ink:#2d2a26; --muted:#b6a punc;
+    --bg:#fff7ec; --card:#fff; --ink:#2d2a26;
     --accent:#ff8a3d; --accent-dark:#e96f1f; --good:#36b37e; --bad:#ef5b5b;
-    --soft:#ffe3c7; --line:#f0d9bf; --lit:#7a6a55;
+    --soft:#ffe3c7; --line:#f0d9bf; --lit:#7a6a55; --gold:#f2b705;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;
@@ -18,16 +18,31 @@
   header h1{font-size:1.5rem;margin:0}
   header p{margin:3px 0 0;color:#8a7a66;font-size:.85rem}
 
-  .topbar{width:100%;max-width:640px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+  .wrap{width:100%;max-width:640px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
   .crumb{font-size:.85rem;color:#9b8a74;font-weight:700}
   .crumb b{color:var(--accent-dark)}
-  .mini{font-size:.78rem;color:#bda;background:none;border:1px solid var(--line);color:#a9926f;
+  .mini{font-size:.78rem;border:1px solid var(--line);color:#a9926f;background:#fff;
     border-radius:99px;padding:3px 10px;cursor:pointer}
-  .progress-wrap{width:100%;max-width:640px;height:11px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+  .progress-wrap{height:11px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}
   .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .4s}
-  .meta{width:100%;max-width:640px;display:flex;justify-content:space-between;font-size:.82rem;color:#9b8a74;margin-bottom:12px}
+  .progress-text{font-size:.78rem;color:#9b8a74;margin-bottom:10px}
 
-  .card{background:var(--card);width:100%;max-width:640px;border-radius:22px;padding:24px 24px 28px;
+  /* ---- HUD: level / points / streak / prizes ---- */
+  .hud{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center;position:relative}
+  .lvlbadge{font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),#ffb066);
+    border-radius:8px;display:inline-block;padding:1px 9px;font-size:.95rem;box-shadow:0 4px 10px -4px var(--accent-dark)}
+  .xpbar{height:7px;background:var(--soft);border-radius:99px;overflow:hidden;margin:6px 0 3px}
+  .xpbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#ffd84d);transition:width .4s}
+  .xptxt{font-size:.66rem;color:#b9a78f}
+  .snum{font-size:1.3rem;font-weight:800;color:var(--accent-dark);line-height:1.2}
+  .slab{font-size:.66rem;color:#9b8a74;margin-top:1px}
+  .float{position:absolute;left:50%;top:2px;transform:translateX(-50%);color:var(--good);
+    font-weight:800;font-size:1rem;animation:floatup .9s forwards;pointer-events:none}
+  @keyframes floatup{from{transform:translate(-50%,0);opacity:1}to{transform:translate(-50%,-26px);opacity:0}}
+
+  .card{background:var(--card);border-radius:22px;padding:24px 24px 28px;
     box-shadow:0 18px 40px -22px rgba(150,90,20,.5);border:1px solid var(--line)}
   .stage-tag{display:inline-block;background:var(--soft);color:var(--accent-dark);font-weight:700;
     font-size:.8rem;border-radius:8px;padding:2px 10px;margin-bottom:8px}
@@ -42,7 +57,8 @@
   @keyframes pulse{0%,100%{background:#fff3e6}50%{background:#ffe6cd}}
 
   .typer{margin-top:18px;background:#fffaf3;border:1.5px dashed var(--line);border-radius:16px;padding:16px;text-align:center}
-  .read-hint{font-size:.8rem;color:#b9a78f;margin-bottom:8px}
+  .read-hint{font-size:.8rem;color:#b9a78f;margin-bottom:6px}
+  .pic{font-size:3rem;line-height:1;margin:2px 0 4px}
   .hint-hanzi{font-size:2rem;font-weight:700;letter-spacing:4px}
   .hint-pinyin{font-size:1.25rem;color:var(--accent-dark);margin-top:2px;letter-spacing:1px;min-height:1.4em}
   .hint-en{color:#9b8a74;font-size:.9rem;margin-top:1px;font-style:italic}
@@ -58,27 +74,45 @@
   @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 
   #typeInput{width:100%;max-width:320px;margin-top:10px;font-size:1.15rem;padding:11px 14px;border-radius:12px;
-    border:2px solid var(--line);text-align:center;letter-spacing:3px;outline:none;font-family:inherit}
+    border:2px solid var(--line);text-align:center;letter-spacing:2px;outline:none;font-family:inherit}
   #typeInput:focus{border-color:var(--accent)}
+  #typeInput::placeholder{letter-spacing:0;color:#cdbba2;font-size:.95rem}
   .feedback{min-height:1.4em;margin-top:9px;font-weight:700}
   .feedback.good{color:var(--good)} .feedback.bad{color:var(--bad)}
 
   .btn{margin-top:14px;background:var(--accent);color:#fff;border:none;border-radius:99px;padding:11px 26px;
     font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 8px 18px -8px var(--accent-dark);transition:transform .1s}
   .btn:hover{transform:translateY(-2px)} .btn:active{transform:translateY(0)}
-  .center{text-align:center}
 
   .interstitial{text-align:center;padding:14px 0}
   .interstitial .big{font-size:2.6rem}
   .interstitial h2{color:var(--accent-dark);margin:8px 0 4px}
   .interstitial .grade{color:#9b8a74;font-weight:700;margin-bottom:10px}
 
-  .pool{width:100%;max-width:640px;margin-top:16px;background:#fffaf3;border-radius:16px;padding:12px 16px;border:1px solid var(--line)}
-  .pool h3{margin:0 0 8px;font-size:.82rem;color:#9b8a74;font-weight:700}
+  .panel{margin-top:16px;background:#fffaf3;border-radius:16px;padding:12px 16px;border:1px solid var(--line)}
+  .panel h3{margin:0 0 8px;font-size:.82rem;color:#9b8a74;font-weight:700}
   .chips{display:flex;flex-wrap:wrap;gap:7px}
   .chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 11px;font-size:.88rem;display:flex;gap:5px;align-items:baseline}
   .chip .py{color:var(--accent-dark);font-size:.74rem}
   .chip .ct{color:#c0ad94;font-size:.7rem}
+
+  /* ---- prize cabinet ---- */
+  .cabinet{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+  .slot{border-radius:12px;padding:8px 6px;text-align:center;border:1px solid var(--line);background:#fff}
+  .slot.earned{border-color:var(--gold);background:linear-gradient(180deg,#fffdf2,#fff7df);box-shadow:0 6px 14px -10px var(--gold)}
+  .slot.locked{opacity:.7;filter:grayscale(.4)}
+  .slot .pe{font-size:1.7rem;line-height:1.2}
+  .slot .pn{font-size:.66rem;color:#8a7a66;margin-top:2px;line-height:1.25}
+
+  /* ---- celebration toast ---- */
+  .toast-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:50}
+  .toast{background:#fff;border:2px solid var(--gold);border-radius:20px;padding:18px 28px;text-align:center;
+    box-shadow:0 22px 55px -16px rgba(150,90,20,.6);animation:pop .28s ease-out, fadeout .3s 1s forwards}
+  .toast .e{font-size:3rem;line-height:1}
+  .toast .tz{font-weight:800;color:var(--accent-dark);margin-top:4px}
+  .toast .ten{font-size:.82rem;color:#9b8a74}
+  @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes fadeout{to{opacity:0;transform:scale(.92)}}
 </style>
 </head>
 <body>
@@ -87,424 +121,394 @@
     <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
   </header>
 
-  <div class="topbar">
-    <span class="crumb" id="crumb"></span>
-    <button class="mini" id="restartBtn">重新開始 · Restart</button>
-  </div>
-  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
-  <div class="meta">
-    <span id="progressText"></span>
-    <span id="streakText">🔥 連續答對 Streak: 0</span>
-  </div>
+  <div class="wrap">
+    <div class="topbar">
+      <span class="crumb" id="crumb"></span>
+      <button class="mini" id="restartBtn">重新開始 · Restart</button>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText"></div>
 
-  <div class="card" id="card"></div>
+    <div class="hud">
+      <div class="stat">
+        <span class="lvlbadge">Lv.<span id="lvlNum">1</span></span>
+        <div class="xpbar"><i id="xpFill"></i></div>
+        <div class="xptxt" id="xpTxt">0 / 100 XP</div>
+      </div>
+      <div class="stat" id="ptsStat"><div class="snum" id="ptsNum">0</div><div class="slab">⭐ 點數 Points</div></div>
+      <div class="stat"><div class="snum" id="strkNum">0</div><div class="slab">🔥 連勝 Streak</div></div>
+      <div class="stat"><div class="snum" id="przNum">0</div><div class="slab">🎁 獎品 Prizes</div></div>
+    </div>
 
-  <div class="pool" id="poolBox">
-    <h3>📚 學會讀＋打的字 · Characters you can now read &amp; type</h3>
-    <div class="chips" id="chips"></div>
+    <div class="card" id="card"></div>
+
+    <div class="panel">
+      <h3>📚 學會讀＋打的字 · Characters you can now read &amp; type</h3>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="panel">
+      <h3>🎁 獎品櫃 · Prize Cabinet</h3>
+      <div class="cabinet" id="cabinet"></div>
+    </div>
   </div>
 
 <script>
 /* =========================================================================
-   VOCABULARY
-   小明 can already SAY every one of these. What he is learning here is to
-   READ the 漢字 and TYPE it. So `key` (plain pinyin letters, no tones) is
-   what the learner types; `pinyin` (with tones) is a hint that FADES as the
-   word is revisited; `gloss` is shown only on the very first encounter.
-   Add words freely — the curriculum below just references these by id.
+   VOCABULARY — 小明 can already SAY each of these; he is learning to READ
+   and TYPE them. `key` = plain pinyin letters to type; `pinyin` = hint that
+   FADES on revisits; `en` = shown only first time; `img` = a picture (emoji)
+   shown for concrete words ("when appropriate" — abstract words have none).
    ========================================================================= */
 const VOCAB = {
-  // Book 1 · 單字
   wo:{hanzi:"我",pinyin:"wǒ",key:"wo",en:"I / me"},
   ni:{hanzi:"你",pinyin:"nǐ",key:"ni",en:"you"},
   da:{hanzi:"大",pinyin:"dà",key:"da",en:"big"},
   xiao:{hanzi:"小",pinyin:"xiǎo",key:"xiao",en:"small"},
-  ren:{hanzi:"人",pinyin:"rén",key:"ren",en:"person"},
-  kou:{hanzi:"口",pinyin:"kǒu",key:"kou",en:"mouth"},
-  shou:{hanzi:"手",pinyin:"shǒu",key:"shou",en:"hand"},
-  shan:{hanzi:"山",pinyin:"shān",key:"shan",en:"mountain"},
-  shui:{hanzi:"水",pinyin:"shuǐ",key:"shui",en:"water"},
-  huo:{hanzi:"火",pinyin:"huǒ",key:"huo",en:"fire"},
-  // Book 1 · 詞語
-  baba:{hanzi:"爸爸",pinyin:"bàba",key:"baba",en:"dad"},
-  mama:{hanzi:"媽媽",pinyin:"māma",key:"mama",en:"mom"},
-  gege:{hanzi:"哥哥",pinyin:"gēge",key:"gege",en:"big brother"},
-  nihao:{hanzi:"你好",pinyin:"nǐhǎo",key:"nihao",en:"hello"},
-  dajia:{hanzi:"大家",pinyin:"dàjiā",key:"dajia",en:"everyone"},
-  laoshi:{hanzi:"老師",pinyin:"lǎoshī",key:"laoshi",en:"teacher"},
-  // Book 1 · 句子 (new words)
-  ai:{hanzi:"愛",pinyin:"ài",key:"ai",en:"to love"},
-  hao:{hanzi:"好",pinyin:"hǎo",key:"hao",en:"good"},
+  ren:{hanzi:"人",pinyin:"rén",key:"ren",en:"person",img:"🧑"},
+  kou:{hanzi:"口",pinyin:"kǒu",key:"kou",en:"mouth",img:"👄"},
+  shou:{hanzi:"手",pinyin:"shǒu",key:"shou",en:"hand",img:"✋"},
+  shan:{hanzi:"山",pinyin:"shān",key:"shan",en:"mountain",img:"⛰️"},
+  shui:{hanzi:"水",pinyin:"shuǐ",key:"shui",en:"water",img:"💧"},
+  huo:{hanzi:"火",pinyin:"huǒ",key:"huo",en:"fire",img:"🔥"},
+  baba:{hanzi:"爸爸",pinyin:"bàba",key:"baba",en:"dad",img:"👨"},
+  mama:{hanzi:"媽媽",pinyin:"māma",key:"mama",en:"mom",img:"👩"},
+  gege:{hanzi:"哥哥",pinyin:"gēge",key:"gege",en:"big brother",img:"👦"},
+  nihao:{hanzi:"你好",pinyin:"nǐhǎo",key:"nihao",en:"hello",img:"👋"},
+  dajia:{hanzi:"大家",pinyin:"dàjiā",key:"dajia",en:"everyone",img:"👨‍👩‍👧‍👦"},
+  laoshi:{hanzi:"老師",pinyin:"lǎoshī",key:"laoshi",en:"teacher",img:"👩‍🏫"},
+  ai:{hanzi:"愛",pinyin:"ài",key:"ai",en:"to love",img:"❤️"},
+  hao:{hanzi:"好",pinyin:"hǎo",key:"hao",en:"good",img:"👍"},
   he:{hanzi:"和",pinyin:"hé",key:"he",en:"and"},
-  shang:{hanzi:"上",pinyin:"shàng",key:"shang",en:"up / to go up"},
-  shuo:{hanzi:"說",pinyin:"shuō",key:"shuo",en:"to say"},
-  zaoan:{hanzi:"早安",pinyin:"zǎo'ān",key:"zaoan",en:"good morning"},
-  kan:{hanzi:"看",pinyin:"kàn",key:"kan",en:"to look / read"},
-  // Book 2 · 單字
-  xia:{hanzi:"下",pinyin:"xià",key:"xia",en:"down"},
-  tian:{hanzi:"天",pinyin:"tiān",key:"tian",en:"sky / day"},
-  ri:{hanzi:"日",pinyin:"rì",key:"ri",en:"sun / day"},
-  yue:{hanzi:"月",pinyin:"yuè",key:"yue",en:"moon"},
+  shang:{hanzi:"上",pinyin:"shàng",key:"shang",en:"up / go up",img:"⬆️"},
+  shuo:{hanzi:"說",pinyin:"shuō",key:"shuo",en:"to say",img:"💬"},
+  zaoan:{hanzi:"早安",pinyin:"zǎo'ān",key:"zaoan",en:"good morning",img:"🌅"},
+  kan:{hanzi:"看",pinyin:"kàn",key:"kan",en:"to look / read",img:"👀"},
+  xia:{hanzi:"下",pinyin:"xià",key:"xia",en:"down",img:"⬇️"},
+  tian:{hanzi:"天",pinyin:"tiān",key:"tian",en:"sky / day",img:"☁️"},
+  ri:{hanzi:"日",pinyin:"rì",key:"ri",en:"sun / day",img:"☀️"},
+  yue:{hanzi:"月",pinyin:"yuè",key:"yue",en:"moon",img:"🌙"},
   zhong:{hanzi:"中",pinyin:"zhōng",key:"zhong",en:"middle"},
-  wen:{hanzi:"文",pinyin:"wén",key:"wen",en:"writing / language"},
-  mu:{hanzi:"木",pinyin:"mù",key:"mu",en:"wood / tree"},
-  qu:{hanzi:"去",pinyin:"qù",key:"qu",en:"to go"},
+  wen:{hanzi:"文",pinyin:"wén",key:"wen",en:"writing / language",img:"📝"},
+  mu:{hanzi:"木",pinyin:"mù",key:"mu",en:"wood / tree",img:"🌳"},
+  qu:{hanzi:"去",pinyin:"qù",key:"qu",en:"to go",img:"🚶"},
   lai:{hanzi:"來",pinyin:"lái",key:"lai",en:"to come"},
-  // Book 2 · 詞語
-  zaocan:{hanzi:"早餐",pinyin:"zǎocān",key:"zaocan",en:"breakfast"},
-  xuexiao:{hanzi:"學校",pinyin:"xuéxiào",key:"xuexiao",en:"school"},
-  huijia:{hanzi:"回家",pinyin:"huíjiā",key:"huijia",en:"to go home"},
-  zhongwen:{hanzi:"中文",pinyin:"zhōngwén",key:"zhongwen",en:"Chinese (language)"},
-  pengyou:{hanzi:"朋友",pinyin:"péngyǒu",key:"pengyou",en:"friend"},
-  // Book 2 · 句子
-  chi:{hanzi:"吃",pinyin:"chī",key:"chi",en:"to eat"},
-  gongyuan:{hanzi:"公園",pinyin:"gōngyuán",key:"gongyuan",en:"park"},
-  wan:{hanzi:"玩",pinyin:"wán",key:"wan",en:"to play"},
-  women:{hanzi:"我們",pinyin:"wǒmen",key:"women",en:"we / us"},
-  du:{hanzi:"讀",pinyin:"dú",key:"du",en:"to read"},
-  shu:{hanzi:"書",pinyin:"shū",key:"shu",en:"book"},
-  // Book 3
-  zi:{hanzi:"字",pinyin:"zì",key:"zi",en:"character / word"},
-  xie:{hanzi:"寫",pinyin:"xiě",key:"xie",en:"to write"},
-  jia:{hanzi:"家",pinyin:"jiā",key:"jia",en:"home / family"},
-  gou:{hanzi:"狗",pinyin:"gǒu",key:"gou",en:"dog"},
-  kaixin:{hanzi:"開心",pinyin:"kāixīn",key:"kaixin",en:"happy"},
-  xiexie:{hanzi:"謝謝",pinyin:"xièxie",key:"xiexie",en:"thank you"},
-  xiezi:{hanzi:"寫字",pinyin:"xiězì",key:"xiezi",en:"to write characters"},
+  zaocan:{hanzi:"早餐",pinyin:"zǎocān",key:"zaocan",en:"breakfast",img:"🍳"},
+  xuexiao:{hanzi:"學校",pinyin:"xuéxiào",key:"xuexiao",en:"school",img:"🏫"},
+  huijia:{hanzi:"回家",pinyin:"huíjiā",key:"huijia",en:"to go home",img:"🏠"},
+  zhongwen:{hanzi:"中文",pinyin:"zhōngwén",key:"zhongwen",en:"Chinese (language)",img:"📖"},
+  pengyou:{hanzi:"朋友",pinyin:"péngyǒu",key:"pengyou",en:"friend",img:"👫"},
+  chi:{hanzi:"吃",pinyin:"chī",key:"chi",en:"to eat",img:"🍚"},
+  gongyuan:{hanzi:"公園",pinyin:"gōngyuán",key:"gongyuan",en:"park",img:"🏞️"},
+  wan:{hanzi:"玩",pinyin:"wán",key:"wan",en:"to play",img:"⚽"},
+  women:{hanzi:"我們",pinyin:"wǒmen",key:"women",en:"we / us",img:"👨‍👩‍👧"},
+  du:{hanzi:"讀",pinyin:"dú",key:"du",en:"to read",img:"📖"},
+  shu:{hanzi:"書",pinyin:"shū",key:"shu",en:"book",img:"📚"},
+  zi:{hanzi:"字",pinyin:"zì",key:"zi",en:"character / word",img:"🔤"},
+  xie:{hanzi:"寫",pinyin:"xiě",key:"xie",en:"to write",img:"✍️"},
+  jia:{hanzi:"家",pinyin:"jiā",key:"jia",en:"home / family",img:"🏠"},
+  gou:{hanzi:"狗",pinyin:"gǒu",key:"gou",en:"dog",img:"🐶"},
+  kaixin:{hanzi:"開心",pinyin:"kāixīn",key:"kaixin",en:"happy",img:"😄"},
+  xiexie:{hanzi:"謝謝",pinyin:"xièxie",key:"xiexie",en:"thank you",img:"🙏"},
+  xiezi:{hanzi:"寫字",pinyin:"xiězì",key:"xiezi",en:"to write characters",img:"📝"},
 };
 
 /* =========================================================================
-   CURRICULUM — a SERIES of Books (冊) mapped to Taiwan 國小 grade/semester.
-   Inside each book the typing unit grows:
-     單字 (single word) → 詞語 (2-char word) → 短句 → 完整句子
-   Each "challenge" is an array of parts: a plain string is shown but NOT
-   typed (punctuation, function words 的/了/在…), while { w:"id" } is a word
-   the learner must read and type. Words RECYCLE across books inside ever
-   longer sentences — that is the spiral (Bruner).
+   CURRICULUM — series of Books (冊) → Taiwan 國小 Grade/semester.
+   Inside each book: 單字 → 詞語 → 短句 → 完整句子. Strings are shown (not
+   typed); { w:"id" } must be read + typed. Words recycle across books in
+   ever-longer sentences (Bruner spiral).
    ========================================================================= */
 const CURRICULUM = [
-  {
-    grade:"一年級 上學期 · Grade 1, 1st semester",
-    title:"我開始學寫字",
+  { grade:"一年級 上學期 · Grade 1, 1st semester", title:"我開始學寫字",
     blurb:"小明上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
     stages:[
       { name:"階段一 · 單字", intro:"先從最簡單的字開始。讀出聲音，再打出拼音。",
-        challenges:[ [{w:"wo"}],[{w:"ni"}],[{w:"da"}],[{w:"xiao"}],[{w:"ren"}],
-                     [{w:"kou"}],[{w:"shou"}],[{w:"shan"}],[{w:"shui"}],[{w:"huo"}] ] },
+        challenges:[[{w:"wo"}],[{w:"ni"}],[{w:"da"}],[{w:"xiao"}],[{w:"ren"}],[{w:"kou"}],[{w:"shou"}],[{w:"shan"}],[{w:"shui"}],[{w:"huo"}]] },
       { name:"階段二 · 詞語", intro:"兩個字合在一起，就變成詞語。",
-        challenges:[ [{w:"baba"}],[{w:"mama"}],[{w:"gege"}],[{w:"nihao"}],[{w:"dajia"}],[{w:"laoshi"}] ] },
+        challenges:[[{w:"baba"}],[{w:"mama"}],[{w:"gege"}],[{w:"nihao"}],[{w:"dajia"}],[{w:"laoshi"}]] },
       { name:"階段三 · 短句", intro:"小明會打出短短的句子了！",
-        challenges:[
-          [{w:"nihao"},"，",{w:"laoshi"},"。"],
-          [{w:"wo"},{w:"ai"},{w:"baba"},{w:"mama"},"。"],
-          [{w:"dajia"},{w:"hao"},"！"],
-        ] },
+        challenges:[[{w:"nihao"},"，",{w:"laoshi"},"。"],[{w:"wo"},{w:"ai"},{w:"baba"},{w:"mama"},"。"],[{w:"dajia"},{w:"hao"},"！"]] },
       { name:"階段四 · 完整句子", intro:"把學過的字串成一個完整的句子。",
-        challenges:[
-          [{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],
-          [{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"],
-        ] },
-    ]
-  },
-  {
-    grade:"一年級 下學期 · Grade 1, 2nd semester",
-    title:"我的一天",
+        challenges:[[{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"]] },
+    ] },
+  { grade:"一年級 下學期 · Grade 1, 2nd semester", title:"我的一天",
     blurb:"小明越來越會讀了。這學期，他要打出自己的一天。",
     stages:[
       { name:"階段一 · 單字", intro:"再多認識一些每天會用到的字。",
-        challenges:[ [{w:"xia"}],[{w:"tian"}],[{w:"ri"}],[{w:"yue"}],[{w:"zhong"}],
-                     [{w:"wen"}],[{w:"mu"}],[{w:"qu"}],[{w:"lai"}] ] },
+        challenges:[[{w:"xia"}],[{w:"tian"}],[{w:"ri"}],[{w:"yue"}],[{w:"zhong"}],[{w:"wen"}],[{w:"mu"}],[{w:"qu"}],[{w:"lai"}]] },
       { name:"階段二 · 詞語", intro:"上學的一天會用到這些詞語。",
-        challenges:[ [{w:"zaocan"}],[{w:"xuexiao"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"pengyou"}] ] },
+        challenges:[[{w:"zaocan"}],[{w:"xuexiao"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"pengyou"}]] },
       { name:"階段三 · 短句", intro:"用詞語和舊字組成短句。",
-        challenges:[
-          [{w:"zaoan"},"！",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],
-          [{w:"wo"},{w:"chi"},{w:"zaocan"},"。"],
-          ["中午",{w:"wo"},{w:"huijia"},"。"],
-        ] },
+        challenges:[[{w:"zaoan"},"！",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],[{w:"wo"},{w:"chi"},{w:"zaocan"},"。"],["中午",{w:"wo"},{w:"huijia"},"。"]] },
       { name:"階段四 · 完整句子", intro:"小明的一天，一句一句打出來。",
-        challenges:[
-          ["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],
-          ["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"],
-        ] },
-    ]
-  },
-  {
-    grade:"二年級 上學期 · Grade 2, 1st semester",
-    title:"我會讀故事了",
+        challenges:[["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"]] },
+    ] },
+  { grade:"二年級 上學期 · Grade 2, 1st semester", title:"我會讀故事了",
     blurb:"二年級的小明已經認識很多字，開始讀故事、寫日記。",
     stages:[
       { name:"階段一 · 單字", intro:"讀和寫的字，要好好認識。",
-        challenges:[ [{w:"zi"}],[{w:"xie"}],[{w:"jia"}],[{w:"gou"}],[{w:"shu"}],[{w:"du"}] ] },
+        challenges:[[{w:"zi"}],[{w:"xie"}],[{w:"jia"}],[{w:"gou"}],[{w:"shu"}],[{w:"du"}]] },
       { name:"階段二 · 詞語", intro:"心情和動作的詞語。",
-        challenges:[ [{w:"kaixin"}],[{w:"xiexie"}],[{w:"xiezi"}],[{w:"pengyou"}],[{w:"xuexiao"}] ] },
+        challenges:[[{w:"kaixin"}],[{w:"xiexie"}],[{w:"xiezi"}],[{w:"pengyou"}],[{w:"xuexiao"}]] },
       { name:"階段三 · 短句", intro:"用新詞語說說自己的事。",
-        challenges:[
-          [{w:"wo"},"會",{w:"xie"},{w:"zi"},"了！"],
-          ["小",{w:"gou"},"在",{w:"wo"},{w:"jia"},"。"],
-          [{w:"xiexie"},{w:"ni"},"，",{w:"pengyou"},"。"],
-        ] },
+        challenges:[[{w:"wo"},"會",{w:"xie"},{w:"zi"},"了！"],["小",{w:"gou"},"在",{w:"wo"},{w:"jia"},"。"],[{w:"xiexie"},{w:"ni"},"，",{w:"pengyou"},"。"]] },
       { name:"階段四 · 完整句子", intro:"把心情寫進長句子裡。",
-        challenges:[
-          ["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],
-          [{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"],
-        ] },
-    ]
-  },
-  {
-    grade:"二年級 下學期 · Grade 2, 2nd semester",
-    title:"我的日記",
+        challenges:[["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],[{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"]] },
+    ] },
+  { grade:"二年級 下學期 · Grade 2, 2nd semester", title:"我的日記",
     blurb:"現在小明每天寫日記，把生活記下來。最後，他要打出一整篇。",
     stages:[
       { name:"階段一 · 單字", intro:"複習：這些字你都讀得出來了嗎？",
-        challenges:[ [{w:"kan"}],[{w:"lai"}],[{w:"qu"}],[{w:"tian"}],[{w:"yue"}] ] },
+        challenges:[[{w:"kan"}],[{w:"lai"}],[{w:"qu"}],[{w:"tian"}],[{w:"yue"}]] },
       { name:"階段二 · 詞語", intro:"複習常用的詞語。",
-        challenges:[ [{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}] ] },
+        challenges:[[{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}]] },
       { name:"階段三 · 短句", intro:"日記裡的小句子。",
-        challenges:[
-          ["我每天",{w:"du"},{w:"zhongwen"},"。"],
-          [{w:"yue"},"亮出",{w:"lai"},"了。"],
-          [{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"],
-        ] },
+        challenges:[["我每天",{w:"du"},{w:"zhongwen"},"。"],[{w:"yue"},"亮出",{w:"lai"},"了。"],[{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"]] },
       { name:"階段四 · 完整句子（日記）", intro:"小明的日記——最長的句子，全部自己打！",
-        challenges:[
-          ["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
-          ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
-          ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"],
-        ] },
-    ]
-  },
+        challenges:[["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
+                    ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
+                    ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"]] },
+    ] },
 ];
 
-/* =========================================================================
-   Flatten into a linear list of challenges + compute spiral encounter index
-   ========================================================================= */
-const seenTotal = {};
-const FLAT = [];   // { bookIdx, stageIdx, parts, bookFirst, stageFirst }
-CURRICULUM.forEach((book, bi) => {
-  book.stages.forEach((stage, si) => {
-    stage.challenges.forEach((parts, ci) => {
-      parts.forEach(p => {
-        if (typeof p === "object" && p.w) {
-          seenTotal[p.w] = (seenTotal[p.w] || 0) + 1;
-          p._enc = seenTotal[p.w];
-        }
-      });
-      FLAT.push({
-        bookIdx: bi, stageIdx: si, parts,
-        bookFirst: si === 0 && ci === 0,
-        stageFirst: ci === 0,
-      });
-    });
-  });
-});
-const TOTAL_WORDS = Object.values(seenTotal).reduce((a,b)=>a+b,0);
+/* ---- Flatten + spiral encounter index ---- */
+const seenTotal={}; const FLAT=[];
+CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((parts,ci)=>{
+  parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
+  FLAT.push({ bookIdx:bi, stageIdx:si, parts, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
+})));
+const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
+
+/* ---- Stage / book end indices (for prize derivation) ---- */
+const STAGE_END={}, BOOK_END={};
+FLAT.forEach((it,i)=>{ STAGE_END[it.bookIdx+"-"+it.stageIdx]=i; BOOK_END[it.bookIdx]=i; });
+
+/* ---- Prize catalogue ---- */
+const STAGE_EMOJI=[["✏️","🧩","💬","📜"],["🌅","🏫","📕","🌳"],["🔖","😊","🐾","🖋️"],["🔁","🎒","🌙","📔"]];
+const BOOK_EMOJI=["🥉","🥈","🥇","🏆"];
+const CATALOG=[];
+CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>CATALOG.push(
+  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si], zh:`${b.title}・${s.name.split("·")[1]?.trim()||s.name}`, hint:"完成這個階段"})));
+CURRICULUM.forEach((b,bi)=>CATALOG.push(
+  {id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
+[5,10,20].forEach(n=>CATALOG.push({id:`streak-${n}`, emoji:n===5?"🔥":n===10?"⚡":"🌈", zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
+[3,5,8].forEach(n=>CATALOG.push({id:`level-${n}`, emoji:n===3?"🎖️":n===5?"🏅":"👑", zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
+const CATALOG_BY_ID={}; CATALOG.forEach(p=>CATALOG_BY_ID[p.id]=p);
 
 /* =========================================================================
-   State (with localStorage resume)
+   State (localStorage resume)
    ========================================================================= */
-const SAVE_KEY = "xiaoming_typing_v1";
-let pos = 0;          // index into FLAT
-let wordCursor = 0;   // which {w} within the current challenge
-let typedWords = 0;   // for progress bar
-let streak = 0;
-let mastered = new Set();
-let shownBooks = new Set();
+const SAVE_KEY="xiaoming_typing_v2";
+let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
+let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set();
 
-function save(){
-  localStorage.setItem(SAVE_KEY, JSON.stringify({
-    pos, typedWords, streak, mastered:[...mastered], shownBooks:[...shownBooks]
-  }));
+function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
+  pos, typedWords, points, streak, maxStreak,
+  mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned] })); }
+function load(){ try{
+  const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
+  pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
+  streak=d.streak||0; maxStreak=d.maxStreak||0;
+  mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
+  prizesEarned=new Set(d.prizesEarned||[]);
+  // baseline so resuming doesn't re-celebrate already-earned prizes
+  deriveEarned().forEach(id=>prizesEarned.add(id));
+}catch(e){} }
+
+const card=document.getElementById("card");
+
+/* ---- Levels ---- */
+function levelFromXP(xp){ let lvl=1, need=100, acc=0;
+  while(xp>=acc+need){ acc+=need; lvl++; need=100+(lvl-1)*50; }
+  return {level:lvl, into:xp-acc, need}; }
+
+function hintLevel(enc){ if(enc<=1)return 3; if(enc===2)return 2; return 1; }
+
+/* ---- Prizes ---- */
+function deriveEarned(){
+  const e=new Set();
+  CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>{ if(pos>STAGE_END[bi+"-"+si]) e.add(`stage-${bi}-${si}`); }));
+  CURRICULUM.forEach((b,bi)=>{ if(pos>BOOK_END[bi]) e.add(`book-${bi}`); });
+  [5,10,20].forEach(n=>{ if(maxStreak>=n) e.add(`streak-${n}`); });
+  const L=levelFromXP(points).level; [3,5,8].forEach(n=>{ if(L>=n) e.add(`level-${n}`); });
+  return e;
 }
-function load(){
-  try{
-    const d = JSON.parse(localStorage.getItem(SAVE_KEY));
-    if(!d) return;
-    pos = Math.min(d.pos||0, FLAT.length-1);
-    typedWords = d.typedWords||0; streak = d.streak||0;
-    mastered = new Set(d.mastered||[]);
-    shownBooks = new Set(d.shownBooks||[]);
-  }catch(e){}
+function syncPrizes(){
+  const now=deriveEarned();
+  const fresh=[...now].filter(id=>!prizesEarned.has(id));
+  prizesEarned=now;
+  fresh.forEach(id=>{ const p=CATALOG_BY_ID[id]; queueToast({e:p.emoji, zh:"獲得獎品！"+p.zh, en:"New prize unlocked!"}); });
 }
 
-const card = document.getElementById("card");
-
-function hintLevel(enc){
-  // Reading-focused spiral: the 漢字 is ALWAYS shown (you must read it);
-  // the pinyin crutch fades, until the learner types from memory.
-  if (enc <= 1) return 3;   // pinyin + English
-  if (enc === 2) return 2;  // pinyin only
-  return 1;                 // no pinyin — read it yourself
+/* ---- Celebration toast queue ---- */
+let tq=[], tBusy=false;
+function queueToast(t){ tq.push(t); if(!tBusy) playToast(); }
+function playToast(){ if(!tq.length){ tBusy=false; return; } tBusy=true;
+  const t=tq.shift();
+  const w=document.createElement("div"); w.className="toast-wrap";
+  w.innerHTML=`<div class="toast"><div class="e">${t.e}</div><div class="tz">${t.zh}</div><div class="ten">${t.en}</div></div>`;
+  document.body.appendChild(w);
+  setTimeout(()=>{ w.remove(); playToast(); }, 1250);
+}
+function floatPoints(txt){
+  const host=document.getElementById("ptsStat"); if(!host) return;
+  const f=document.createElement("span"); f.className="float"; f.textContent=txt;
+  host.appendChild(f); setTimeout(()=>f.remove(),900);
 }
 
+/* =========================================================================
+   Render
+   ========================================================================= */
 function render(){
-  const item = FLAT[pos];
-  const book = CURRICULUM[item.bookIdx];
+  const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
+  if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
+  const stage=book.stages[item.stageIdx];
+  document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
 
-  // Book interstitial (once per book)
-  if (item.bookFirst && !shownBooks.has(item.bookIdx)) {
-    renderBookIntro(item.bookIdx, book);
-    return;
-  }
-
-  const stage = book.stages[item.stageIdx];
-  document.getElementById("crumb").innerHTML =
-    `第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
-
-  // sentence line
-  let sentence = "", wIdx = -1, activeWord = null;
-  item.parts.forEach(p => {
-    if (typeof p === "string") { sentence += `<span class="lit">${p}</span>`; return; }
-    wIdx++;
-    const v = VOCAB[p.w];
-    if (wIdx < wordCursor) sentence += `<span class="w-done">${v.hanzi}</span>`;
-    else if (wIdx === wordCursor){ sentence += `<span class="w-active">${v.hanzi}</span>`; activeWord = p; }
-    else sentence += `<span class="w-future">${v.hanzi}</span>`;
+  let sentence="", wIdx=-1, activeWord=null;
+  item.parts.forEach(p=>{
+    if(typeof p==="string"){ sentence+=`<span class="lit">${p}</span>`; return; }
+    wIdx++; const v=VOCAB[p.w];
+    if(wIdx<wordCursor) sentence+=`<span class="w-done">${v.hanzi}</span>`;
+    else if(wIdx===wordCursor){ sentence+=`<span class="w-active">${v.hanzi}</span>`; activeWord=p; }
+    else sentence+=`<span class="w-future">${v.hanzi}</span>`;
   });
 
-  let html = `<span class="stage-tag">${stage.name}</span>`;
-  if (item.stageFirst) html += `<p class="intro">${stage.intro}</p>`;
-  html += `<div class="sentence">${sentence}</div>`;
+  let html=`<span class="stage-tag">${stage.name}</span>`;
+  if(item.stageFirst) html+=`<p class="intro">${stage.intro}</p>`;
+  html+=`<div class="sentence">${sentence}</div>`;
 
-  if (activeWord){
-    const v = VOCAB[activeWord.w];
-    const lvl = hintLevel(activeWord._enc);
-    let panel = `<div class="read-hint">👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin</div>`;
-    panel += `<div class="hint-hanzi">${v.hanzi}</div>`;
-    panel += `<div class="hint-pinyin">${lvl>=2 ? v.pinyin : "&nbsp;"}</div>`;
-    if (lvl>=3) panel += `<div class="hint-en">${v.en}</div>`;
-    const lab = lvl>=3 ? "新字 · new" : lvl===2 ? "複習 · review" : "靠記憶打字 · from memory 💪";
-    panel += `<div class="hint-level">${lab}</div>`;
-    const tiles = v.key.split("").map(()=>`<div class="tile">·</div>`).join("");
-    panel += `<div class="tiles" id="tiles">${tiles}</div>`;
-    panel += `<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false"
-                placeholder="在這裡打拼音… type the pinyin" />`;
-    panel += `<div class="feedback" id="feedback">&nbsp;</div>`;
-    html += `<div class="typer">${panel}</div>`;
+  if(activeWord){
+    const v=VOCAB[activeWord.w], lvl=hintLevel(activeWord._enc);
+    let panel=`<div class="read-hint">👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin</div>`;
+    if(v.img) panel+=`<div class="pic">${v.img}</div>`;
+    panel+=`<div class="hint-hanzi">${v.hanzi}</div>`;
+    panel+=`<div class="hint-pinyin">${lvl>=2 ? v.pinyin : "&nbsp;"}</div>`;
+    if(lvl>=3) panel+=`<div class="hint-en">${v.en}</div>`;
+    panel+=`<div class="hint-level">${lvl>=3?"新字 · new":lvl===2?"複習 · review":"靠記憶打字 · from memory 💪"}</div>`;
+    panel+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
+    panel+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
+    panel+=`<div class="feedback" id="feedback">&nbsp;</div>`;
+    html+=`<div class="typer">${panel}</div>`;
   }
-
-  card.innerHTML = html;
-  updateProgress();
-  renderPool();
-
-  const input = document.getElementById("typeInput");
-  if (input){ input.addEventListener("input", onType); input.focus(); }
+  card.innerHTML=html;
+  updateHUD(); updateProgress(); renderPool(); renderCabinet();
+  const input=document.getElementById("typeInput");
+  if(input){ input.addEventListener("input", onType); input.focus(); }
 }
 
-function renderBookIntro(bi, book){
-  document.getElementById("crumb").innerHTML = `第 ${bi+1} 冊`;
-  card.innerHTML = `
-    <div class="interstitial">
-      <div class="big">📖</div>
-      <div class="grade">${book.grade}</div>
-      <h2>第 ${bi+1} 冊：${book.title}</h2>
-      <p class="intro" style="text-align:center">${book.blurb}</p>
-      <button class="btn" id="startBook">開始 · Start ➜</button>
-    </div>`;
-  updateProgress();
-  document.getElementById("startBook").addEventListener("click", ()=>{
-    shownBooks.add(bi); save(); render();
-  });
+function renderBookIntro(bi,book){
+  document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">📖</div><div class="grade">${book.grade}</div>
+    <h2>第 ${bi+1} 冊：${book.title}</h2>
+    <p class="intro" style="text-align:center">${book.blurb}</p>
+    <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
+  updateHUD(); updateProgress(); renderCabinet();
+  document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
 }
 
-const PRAISE = ["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!",
-  "你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
+const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!","你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
 
 function onType(e){
-  const item = FLAT[pos];
-  let wIdx=-1, active=null;
+  const item=FLAT[pos]; let wIdx=-1, active=null;
   item.parts.forEach(p=>{ if(typeof p==="object"&&p.w){ wIdx++; if(wIdx===wordCursor) active=p; }});
-  const target = VOCAB[active.w].key;
-
-  let val = e.target.value.toLowerCase().replace(/[^a-z]/g,"");
-  e.target.value = val;
-
-  const tiles=[...document.querySelectorAll("#tiles .tile")];
-  let allGood=true;
+  const target=VOCAB[active.w].key;
+  let val=e.target.value.toLowerCase().replace(/[^a-z]/g,""); e.target.value=val;
+  const tiles=[...document.querySelectorAll("#tiles .tile")]; let allGood=true;
   tiles.forEach((t,i)=>{
     t.classList.remove("good","bad","cursor","filled");
-    if(i<val.length){
-      t.classList.add("filled"); t.textContent=val[i];
-      if(val[i]===target[i]) t.classList.add("good");
-      else { t.classList.add("bad"); allGood=false; }
-    } else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
+    if(i<val.length){ t.classList.add("filled"); t.textContent=val[i];
+      if(val[i]===target[i]) t.classList.add("good"); else { t.classList.add("bad"); allGood=false; } }
+    else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
   });
-
   const fb=document.getElementById("feedback");
   if(val===target){ success(active); }
-  else { fb.className="feedback"; fb.textContent = val.length && !allGood ? "再看一次… try again…" : " "; }
+  else { fb.className="feedback"; fb.textContent = val.length&&!allGood ? "再看一次… try again…" : " "; }
 }
 
 function success(active){
-  mastered.add(active.w);
-  typedWords++; streak++;
-  document.getElementById("streakText").textContent = "🔥 連續答對 Streak: "+streak;
-  const fb=document.getElementById("feedback");
-  fb.className="feedback good";
-  fb.textContent = "✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
+  const oldLevel=levelFromXP(points).level;
+  mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
+  const lvl=hintLevel(active._enc);
+  const hintBonus = lvl===1?8 : lvl===2?4 : 0;     // more points for less scaffolding
+  const gained = 10 + hintBonus + Math.min(streak,10);
+  points+=gained; floatPoints("+"+gained); updateHUD();
+  const fb=document.getElementById("feedback"); fb.className="feedback good";
+  fb.textContent="✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
 
-  const item = FLAT[pos];
-  const wordsInChallenge = item.parts.filter(p=>typeof p==="object"&&p.w).length;
+  const item=FLAT[pos];
+  const wcount=item.parts.filter(p=>typeof p==="object"&&p.w).length;
 
   setTimeout(()=>{
     wordCursor++;
-    if(wordCursor >= wordsInChallenge){
+    if(wordCursor>=wcount){
+      if(wcount>1){ points+=15; queueToast({e:"📝", zh:"句子完成！＋15", en:"Sentence complete! +15"}); }
       wordCursor=0; pos++;
-      if(pos>=FLAT.length){ save(); showFinish(); return; }
     }
+    const newLevel=levelFromXP(points).level;
+    for(let L=oldLevel+1; L<=newLevel; L++) queueToast({e:"⬆️", zh:`升級！等級 ${L}`, en:`Level up! Lv.${L}`});
+    syncPrizes();
+    updateHUD();
+    if(pos>=FLAT.length){ save(); showFinish(); return; }
     save(); render();
-  }, 600);
+  },600);
 }
 
+function updateHUD(){
+  const li=levelFromXP(points);
+  document.getElementById("lvlNum").textContent=li.level;
+  document.getElementById("xpFill").style.width=Math.round(li.into/li.need*100)+"%";
+  document.getElementById("xpTxt").textContent=li.into+" / "+li.need+" XP";
+  document.getElementById("ptsNum").textContent=points;
+  document.getElementById("strkNum").textContent=streak;
+  document.getElementById("przNum").textContent=prizesEarned.size+"/"+CATALOG.length;
+}
 function updateProgress(){
-  const pct = Math.round((typedWords/TOTAL_WORDS)*100);
-  document.getElementById("progressBar").style.width = pct+"%";
-  const bi = Math.min(pos,FLAT.length-1)!==undefined ? FLAT[Math.min(pos,FLAT.length-1)].bookIdx : 0;
-  document.getElementById("progressText").textContent =
-    `進度 ${pct}% · ${typedWords}/${TOTAL_WORDS} 字 · 第 ${bi+1}/${CURRICULUM.length} 冊`;
+  const pct=Math.round((typedWords/TOTAL_WORDS)*100);
+  document.getElementById("progressBar").style.width=pct+"%";
+  const bi=FLAT[Math.min(pos,FLAT.length-1)].bookIdx;
+  document.getElementById("progressText").textContent=`進度 ${pct}% · ${typedWords}/${TOTAL_WORDS} 字 · 第 ${bi+1}/${CURRICULUM.length} 冊`;
 }
-
 function renderPool(){
   const chips=document.getElementById("chips");
   if(mastered.size===0){ chips.innerHTML=`<span class="ct">還沒有 · none yet — 開始打字吧！</span>`; return; }
-  chips.innerHTML=[...mastered].map(k=>{
-    const v=VOCAB[k];
-    return `<span class="chip"><b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${seenTotal[k]}</span></span>`;
+  chips.innerHTML=[...mastered].map(k=>{ const v=VOCAB[k];
+    return `<span class="chip">${v.img?v.img+" ":""}<b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${seenTotal[k]}</span></span>`;
+  }).join("");
+}
+function renderCabinet(){
+  document.getElementById("cabinet").innerHTML=CATALOG.map(p=>{
+    const got=prizesEarned.has(p.id);
+    return `<div class="slot ${got?"earned":"locked"}"><div class="pe">${got?p.emoji:"🔒"}</div><div class="pn">${got?p.zh:p.hint}</div></div>`;
   }).join("");
 }
 
 function showFinish(){
   document.getElementById("progressBar").style.width="100%";
-  document.getElementById("crumb").innerHTML = "全部完成 · All done";
-  card.innerHTML=`
-    <div class="interstitial">
-      <div class="big">🏆✏️🌟</div>
-      <h2>小明畢業了！</h2>
-      <p class="intro" style="text-align:center">
-        從一年級到二年級，小明學會了讀和打 <b>${mastered.size}</b> 個字／詞，<br>
-        一共完成了 <b>${TOTAL_WORDS}</b> 次拼音打字，從單字一路打到完整的句子！</p>
-      <p class="intro" style="text-align:center">
-        He went from single characters all the way to full sentences —
-        <b>${mastered.size}</b> words, <b>${TOTAL_WORDS}</b> typed blanks!</p>
-      <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button>
-    </div>`;
-  renderPool();
+  document.getElementById("crumb").innerHTML="全部完成 · All done";
+  const li=levelFromXP(points);
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">🏆✏️🌟</div><h2>小明畢業了！</h2>
+    <p class="intro" style="text-align:center">
+      從一年級到二年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
+      拿到 <b>${points}</b> 點數、升到 <b>等級 ${li.level}</b>、收集 <b>${prizesEarned.size}</b> 個獎品！</p>
+    <p class="intro" style="text-align:center">
+      <b>${points}</b> points · <b>Level ${li.level}</b> · <b>${prizesEarned.size}</b> prizes · from single words to full sentences!</p>
+    <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button></div>`;
+  updateHUD(); renderPool(); renderCabinet();
   document.getElementById("againBtn").addEventListener("click", resetAll);
 }
-
 function resetAll(){
   localStorage.removeItem(SAVE_KEY);
-  pos=0; wordCursor=0; typedWords=0; streak=0; mastered=new Set(); shownBooks=new Set();
-  document.getElementById("streakText").textContent="🔥 連續答對 Streak: 0";
+  pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
+  mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set();
   render();
 }
+document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度。Restart and clear progress?")) resetAll(); });
 
-document.getElementById("restartBtn").addEventListener("click", ()=>{
-  if(confirm("重新開始？會清除進度。Restart and clear progress?")) resetAll();
-});
-
-load();
-render();
+load(); render();
 </script>
 </body>
 </html>
