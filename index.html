@@ -3,396 +3,384 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>小明的暑假日記 · Xiǎo Míng's Summer Diary</title>
+<title>小明學打字 · Xiǎo Míng Learns to Type</title>
 <style>
-  :root {
-    --bg: #fff7ec;
-    --card: #ffffff;
-    --ink: #2d2a26;
-    --accent: #ff8a3d;
-    --accent-dark: #e96f1f;
-    --good: #36b37e;
-    --bad: #ef5b5b;
-    --soft: #ffe3c7;
-    --line: #f0d9bf;
+  :root{
+    --bg:#fff7ec; --card:#fff; --ink:#2d2a26; --muted:#b6a punc;
+    --accent:#ff8a3d; --accent-dark:#e96f1f; --good:#36b37e; --bad:#ef5b5b;
+    --soft:#ffe3c7; --line:#f0d9bf; --lit:#7a6a55;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
-    background: radial-gradient(circle at 20% -10%, #ffe9d2, var(--bg));
-    color: var(--ink);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 18px;
-  }
-  header {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  header h1 { font-size: 1.6rem; margin: 0; }
-  header p { margin: 4px 0 0; color: #8a7a66; font-size: .9rem; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;
+    background:radial-gradient(circle at 20% -10%,#ffe9d2,var(--bg));color:var(--ink);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px}
+  header{text-align:center;margin-bottom:6px}
+  header h1{font-size:1.5rem;margin:0}
+  header p{margin:3px 0 0;color:#8a7a66;font-size:.85rem}
 
-  .progress-wrap {
-    width: 100%;
-    max-width: 620px;
-    height: 12px;
-    background: var(--soft);
-    border-radius: 99px;
-    overflow: hidden;
-    margin: 10px 0 4px;
-  }
-  .progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--accent), #ffb066);
-    transition: width .4s ease;
-  }
-  .meta {
-    width: 100%;
-    max-width: 620px;
-    display: flex;
-    justify-content: space-between;
-    font-size: .85rem;
-    color: #9b8a74;
-    margin-bottom: 12px;
-  }
+  .topbar{width:100%;max-width:640px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+  .crumb{font-size:.85rem;color:#9b8a74;font-weight:700}
+  .crumb b{color:var(--accent-dark)}
+  .mini{font-size:.78rem;color:#bda;background:none;border:1px solid var(--line);color:#a9926f;
+    border-radius:99px;padding:3px 10px;cursor:pointer}
+  .progress-wrap{width:100%;max-width:640px;height:11px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+  .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .4s}
+  .meta{width:100%;max-width:640px;display:flex;justify-content:space-between;font-size:.82rem;color:#9b8a74;margin-bottom:12px}
 
-  .card {
-    background: var(--card);
-    width: 100%;
-    max-width: 620px;
-    border-radius: 22px;
-    padding: 26px 26px 30px;
-    box-shadow: 0 18px 40px -22px rgba(150, 90, 20, .5);
-    border: 1px solid var(--line);
-  }
-  .scene-title {
-    font-size: 1.05rem;
-    color: var(--accent-dark);
-    font-weight: 700;
-    margin: 0 0 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .scene-title .num {
-    background: var(--soft);
-    color: var(--accent-dark);
-    border-radius: 8px;
-    padding: 1px 9px;
-    font-size: .85rem;
-  }
+  .card{background:var(--card);width:100%;max-width:640px;border-radius:22px;padding:24px 24px 28px;
+    box-shadow:0 18px 40px -22px rgba(150,90,20,.5);border:1px solid var(--line)}
+  .stage-tag{display:inline-block;background:var(--soft);color:var(--accent-dark);font-weight:700;
+    font-size:.8rem;border-radius:8px;padding:2px 10px;margin-bottom:8px}
+  .intro{color:#8a7a66;font-size:.92rem;margin:0 0 16px;line-height:1.6}
 
-  .story {
-    font-size: 1.5rem;
-    line-height: 2.6;
-    letter-spacing: 1px;
-  }
-  .word-done { color: var(--good); font-weight: 700; }
-  .blank {
-    display: inline-block;
-    min-width: 2.2em;
-    border-bottom: 3px solid var(--line);
-    text-align: center;
-    color: #c9b69d;
-  }
-  .blank.active {
-    border-bottom-color: var(--accent);
-    background: #fff3e6;
-    border-radius: 6px 6px 0 0;
-    color: var(--accent-dark);
-    font-weight: 700;
-    animation: pulse 1.4s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { background: #fff3e6; }
-    50% { background: #ffe6cd; }
-  }
+  .sentence{font-size:1.7rem;line-height:2.5;letter-spacing:1px;text-align:center;margin:6px 0 4px}
+  .sentence .lit{color:var(--lit)}
+  .sentence .w-future{color:#cdbba2}
+  .sentence .w-active{color:var(--accent-dark);font-weight:700;border-bottom:3px solid var(--accent);
+    background:#fff3e6;border-radius:6px 6px 0 0;padding:0 2px;animation:pulse 1.4s infinite}
+  .sentence .w-done{color:var(--good);font-weight:700}
+  @keyframes pulse{0%,100%{background:#fff3e6}50%{background:#ffe6cd}}
 
-  /* hint + input */
-  .typer {
-    margin-top: 22px;
-    background: #fffaf3;
-    border: 1.5px dashed var(--line);
-    border-radius: 16px;
-    padding: 18px;
-    text-align: center;
-  }
-  .hint-hanzi { font-size: 2.1rem; font-weight: 700; letter-spacing: 4px; }
-  .hint-pinyin { font-size: 1.3rem; color: var(--accent-dark); margin-top: 2px; letter-spacing: 1px; }
-  .hint-en { color: #9b8a74; font-size: .95rem; margin-top: 2px; font-style: italic; }
-  .hint-level { font-size: .75rem; color: #b9a78f; margin-top: 6px; }
+  .typer{margin-top:18px;background:#fffaf3;border:1.5px dashed var(--line);border-radius:16px;padding:16px;text-align:center}
+  .read-hint{font-size:.8rem;color:#b9a78f;margin-bottom:8px}
+  .hint-hanzi{font-size:2rem;font-weight:700;letter-spacing:4px}
+  .hint-pinyin{font-size:1.25rem;color:var(--accent-dark);margin-top:2px;letter-spacing:1px;min-height:1.4em}
+  .hint-en{color:#9b8a74;font-size:.9rem;margin-top:1px;font-style:italic}
+  .hint-level{font-size:.72rem;color:#b9a78f;margin-top:6px}
 
-  .tiles { display: flex; justify-content: center; gap: 7px; margin: 16px 0 4px; flex-wrap: wrap; }
-  .tile {
-    width: 40px; height: 48px;
-    border-radius: 10px;
-    background: #fff;
-    border: 2px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem; font-weight: 700;
-    color: #cdbba2;
-    transition: all .12s ease;
-  }
-  .tile.filled { color: var(--ink); }
-  .tile.good { border-color: var(--good); background: #e9faf2; color: var(--good); }
-  .tile.bad { border-color: var(--bad); background: #fdeaea; color: var(--bad); animation: shake .25s; }
-  .tile.cursor { border-color: var(--accent); box-shadow: 0 0 0 3px #ffe3c7; }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+  .tiles{display:flex;justify-content:center;gap:6px;margin:14px 0 4px;flex-wrap:wrap}
+  .tile{width:38px;height:46px;border-radius:10px;background:#fff;border:2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;color:#cdbba2;transition:all .12s}
+  .tile.filled{color:var(--ink)}
+  .tile.good{border-color:var(--good);background:#e9faf2;color:var(--good)}
+  .tile.bad{border-color:var(--bad);background:#fdeaea;color:var(--bad);animation:shake .25s}
+  .tile.cursor{border-color:var(--accent);box-shadow:0 0 0 3px #ffe3c7}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 
-  #typeInput {
-    width: 100%; max-width: 320px;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 2px solid var(--line);
-    text-align: center;
-    letter-spacing: 3px;
-    outline: none;
-    font-family: inherit;
-  }
-  #typeInput:focus { border-color: var(--accent); }
-  .feedback { min-height: 1.4em; margin-top: 10px; font-weight: 700; }
-  .feedback.good { color: var(--good); }
-  .feedback.bad { color: var(--bad); }
+  #typeInput{width:100%;max-width:320px;margin-top:10px;font-size:1.15rem;padding:11px 14px;border-radius:12px;
+    border:2px solid var(--line);text-align:center;letter-spacing:3px;outline:none;font-family:inherit}
+  #typeInput:focus{border-color:var(--accent)}
+  .feedback{min-height:1.4em;margin-top:9px;font-weight:700}
+  .feedback.good{color:var(--good)} .feedback.bad{color:var(--bad)}
 
-  .btn {
-    margin-top: 16px;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 99px;
-    padding: 12px 26px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 8px 18px -8px var(--accent-dark);
-    transition: transform .1s ease;
-  }
-  .btn:hover { transform: translateY(-2px); }
-  .btn:active { transform: translateY(0); }
-  .center { text-align: center; }
+  .btn{margin-top:14px;background:var(--accent);color:#fff;border:none;border-radius:99px;padding:11px 26px;
+    font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 8px 18px -8px var(--accent-dark);transition:transform .1s}
+  .btn:hover{transform:translateY(-2px)} .btn:active{transform:translateY(0)}
+  .center{text-align:center}
 
-  .pool {
-    width: 100%; max-width: 620px;
-    margin-top: 18px;
-    background: #fffaf3;
-    border-radius: 16px;
-    padding: 12px 16px;
-    border: 1px solid var(--line);
-  }
-  .pool h3 { margin: 0 0 8px; font-size: .85rem; color: #9b8a74; font-weight: 700; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    background: #fff; border: 1px solid var(--line);
-    border-radius: 99px; padding: 4px 12px; font-size: .9rem;
-    display: flex; gap: 6px; align-items: baseline;
-  }
-  .chip .py { color: var(--accent-dark); font-size: .78rem; }
-  .chip .ct { color: #c0ad94; font-size: .72rem; }
-  .hidden { display: none !important; }
+  .interstitial{text-align:center;padding:14px 0}
+  .interstitial .big{font-size:2.6rem}
+  .interstitial h2{color:var(--accent-dark);margin:8px 0 4px}
+  .interstitial .grade{color:#9b8a74;font-weight:700;margin-bottom:10px}
 
-  .finish { text-align: center; padding: 20px 0; }
-  .finish .big { font-size: 3rem; }
-  .finish h2 { color: var(--accent-dark); margin: 8px 0; }
+  .pool{width:100%;max-width:640px;margin-top:16px;background:#fffaf3;border-radius:16px;padding:12px 16px;border:1px solid var(--line)}
+  .pool h3{margin:0 0 8px;font-size:.82rem;color:#9b8a74;font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 11px;font-size:.88rem;display:flex;gap:5px;align-items:baseline}
+  .chip .py{color:var(--accent-dark);font-size:.74rem}
+  .chip .ct{color:#c0ad94;font-size:.7rem}
 </style>
 </head>
 <body>
   <header>
-    <h1>📔 小明的暑假日記</h1>
-    <p>Xiǎo Míng's Summer Diary — 拼音打字遊戲 · Pinyin Typing Game</p>
+    <h1>✏️ 小明學打字</h1>
+    <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
   </header>
 
+  <div class="topbar">
+    <span class="crumb" id="crumb"></span>
+    <button class="mini" id="restartBtn">重新開始 · Restart</button>
+  </div>
   <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
   <div class="meta">
-    <span id="progressText">第 1 / 6 頁 · Page 1 / 6</span>
+    <span id="progressText"></span>
     <span id="streakText">🔥 連續答對 Streak: 0</span>
   </div>
 
-  <div class="card" id="card"><!-- scene rendered here --></div>
+  <div class="card" id="card"></div>
 
   <div class="pool" id="poolBox">
-    <h3>📚 學過的字 · Words you've learned</h3>
+    <h3>📚 學會讀＋打的字 · Characters you can now read &amp; type</h3>
     <div class="chips" id="chips"></div>
   </div>
 
 <script>
 /* =========================================================================
-   VOCABULARY POOL
-   `key` = what the learner TYPES (plain pinyin letters, no tones).
-   `pinyin` = displayed hint WITH tone marks (for exposure).
-   Edit / add words here freely — game logic below is data-driven.
+   VOCABULARY
+   小明 can already SAY every one of these. What he is learning here is to
+   READ the 漢字 and TYPE it. So `key` (plain pinyin letters, no tones) is
+   what the learner types; `pinyin` (with tones) is a hint that FADES as the
+   word is revisited; `gloss` is shown only on the very first encounter.
+   Add words freely — the curriculum below just references these by id.
    ========================================================================= */
 const VOCAB = {
-  mama:     { hanzi: "媽媽", pinyin: "māma",     key: "mama",     en: "mom" },
-  zaocan:   { hanzi: "早餐", pinyin: "zǎocān",   key: "zaocan",   en: "breakfast" },
-  chi:      { hanzi: "吃",   pinyin: "chī",      key: "chi",      en: "to eat" },
-  gongyuan: { hanzi: "公園", pinyin: "gōngyuán", key: "gongyuan", en: "park" },
-  wan:      { hanzi: "玩",   pinyin: "wán",      key: "wan",      en: "to play" },
-  pengyou:  { hanzi: "朋友", pinyin: "péngyǒu",  key: "pengyou",  en: "friend" },
-  gou:      { hanzi: "狗",   pinyin: "gǒu",      key: "gou",      en: "dog" },
-  kaixin:   { hanzi: "開心", pinyin: "kāixīn",   key: "kaixin",   en: "happy" },
-  huijia:   { hanzi: "回家", pinyin: "huíjiā",   key: "huijia",   en: "to go home" },
-  kan:      { hanzi: "看",   pinyin: "kàn",      key: "kan",      en: "to read / look" },
-  xuexiao:  { hanzi: "學校", pinyin: "xuéxiào",  key: "xuexiao",  en: "school" },
-  laoshi:   { hanzi: "老師", pinyin: "lǎoshī",   key: "laoshi",   en: "teacher" },
+  // Book 1 · 單字
+  wo:{hanzi:"我",pinyin:"wǒ",key:"wo",en:"I / me"},
+  ni:{hanzi:"你",pinyin:"nǐ",key:"ni",en:"you"},
+  da:{hanzi:"大",pinyin:"dà",key:"da",en:"big"},
+  xiao:{hanzi:"小",pinyin:"xiǎo",key:"xiao",en:"small"},
+  ren:{hanzi:"人",pinyin:"rén",key:"ren",en:"person"},
+  kou:{hanzi:"口",pinyin:"kǒu",key:"kou",en:"mouth"},
+  shou:{hanzi:"手",pinyin:"shǒu",key:"shou",en:"hand"},
+  shan:{hanzi:"山",pinyin:"shān",key:"shan",en:"mountain"},
+  shui:{hanzi:"水",pinyin:"shuǐ",key:"shui",en:"water"},
+  huo:{hanzi:"火",pinyin:"huǒ",key:"huo",en:"fire"},
+  // Book 1 · 詞語
+  baba:{hanzi:"爸爸",pinyin:"bàba",key:"baba",en:"dad"},
+  mama:{hanzi:"媽媽",pinyin:"māma",key:"mama",en:"mom"},
+  gege:{hanzi:"哥哥",pinyin:"gēge",key:"gege",en:"big brother"},
+  nihao:{hanzi:"你好",pinyin:"nǐhǎo",key:"nihao",en:"hello"},
+  dajia:{hanzi:"大家",pinyin:"dàjiā",key:"dajia",en:"everyone"},
+  laoshi:{hanzi:"老師",pinyin:"lǎoshī",key:"laoshi",en:"teacher"},
+  // Book 1 · 句子 (new words)
+  ai:{hanzi:"愛",pinyin:"ài",key:"ai",en:"to love"},
+  hao:{hanzi:"好",pinyin:"hǎo",key:"hao",en:"good"},
+  he:{hanzi:"和",pinyin:"hé",key:"he",en:"and"},
+  shang:{hanzi:"上",pinyin:"shàng",key:"shang",en:"up / to go up"},
+  shuo:{hanzi:"說",pinyin:"shuō",key:"shuo",en:"to say"},
+  zaoan:{hanzi:"早安",pinyin:"zǎo'ān",key:"zaoan",en:"good morning"},
+  kan:{hanzi:"看",pinyin:"kàn",key:"kan",en:"to look / read"},
+  // Book 2 · 單字
+  xia:{hanzi:"下",pinyin:"xià",key:"xia",en:"down"},
+  tian:{hanzi:"天",pinyin:"tiān",key:"tian",en:"sky / day"},
+  ri:{hanzi:"日",pinyin:"rì",key:"ri",en:"sun / day"},
+  yue:{hanzi:"月",pinyin:"yuè",key:"yue",en:"moon"},
+  zhong:{hanzi:"中",pinyin:"zhōng",key:"zhong",en:"middle"},
+  wen:{hanzi:"文",pinyin:"wén",key:"wen",en:"writing / language"},
+  mu:{hanzi:"木",pinyin:"mù",key:"mu",en:"wood / tree"},
+  qu:{hanzi:"去",pinyin:"qù",key:"qu",en:"to go"},
+  lai:{hanzi:"來",pinyin:"lái",key:"lai",en:"to come"},
+  // Book 2 · 詞語
+  zaocan:{hanzi:"早餐",pinyin:"zǎocān",key:"zaocan",en:"breakfast"},
+  xuexiao:{hanzi:"學校",pinyin:"xuéxiào",key:"xuexiao",en:"school"},
+  huijia:{hanzi:"回家",pinyin:"huíjiā",key:"huijia",en:"to go home"},
+  zhongwen:{hanzi:"中文",pinyin:"zhōngwén",key:"zhongwen",en:"Chinese (language)"},
+  pengyou:{hanzi:"朋友",pinyin:"péngyǒu",key:"pengyou",en:"friend"},
+  // Book 2 · 句子
+  chi:{hanzi:"吃",pinyin:"chī",key:"chi",en:"to eat"},
+  gongyuan:{hanzi:"公園",pinyin:"gōngyuán",key:"gongyuan",en:"park"},
+  wan:{hanzi:"玩",pinyin:"wán",key:"wan",en:"to play"},
+  women:{hanzi:"我們",pinyin:"wǒmen",key:"women",en:"we / us"},
+  du:{hanzi:"讀",pinyin:"dú",key:"du",en:"to read"},
+  shu:{hanzi:"書",pinyin:"shū",key:"shu",en:"book"},
+  // Book 3
+  zi:{hanzi:"字",pinyin:"zì",key:"zi",en:"character / word"},
+  xie:{hanzi:"寫",pinyin:"xiě",key:"xie",en:"to write"},
+  jia:{hanzi:"家",pinyin:"jiā",key:"jia",en:"home / family"},
+  gou:{hanzi:"狗",pinyin:"gǒu",key:"gou",en:"dog"},
+  kaixin:{hanzi:"開心",pinyin:"kāixīn",key:"kaixin",en:"happy"},
+  xiexie:{hanzi:"謝謝",pinyin:"xièxie",key:"xiexie",en:"thank you"},
+  xiezi:{hanzi:"寫字",pinyin:"xiězì",key:"xiezi",en:"to write characters"},
 };
 
 /* =========================================================================
-   STORY SCENES
-   Each part is either a plain string, or { w: "<vocabKey>" } meaning the
-   learner must TYPE that word to complete the sentence.
-
-   Words are deliberately RECYCLED across scenes. The Nth time a word
-   appears in the whole game, its hint is scaffolded LESS — that is the
-   spiral (Bruner): revisit the same idea in richer contexts, each time
-   with a little less support.
-     1st encounter -> 漢字 + 拼音 + English
-     2nd encounter -> 漢字 + 拼音
-     3rd+ encounter -> 拼音 only (recall the meaning yourself)
+   CURRICULUM — a SERIES of Books (冊) mapped to Taiwan 國小 grade/semester.
+   Inside each book the typing unit grows:
+     單字 (single word) → 詞語 (2-char word) → 短句 → 完整句子
+   Each "challenge" is an array of parts: a plain string is shown but NOT
+   typed (punctuation, function words 的/了/在…), while { w:"id" } is a word
+   the learner must read and type. Words RECYCLE across books inside ever
+   longer sentences — that is the spiral (Bruner).
    ========================================================================= */
-const SCENES = [
+const CURRICULUM = [
   {
-    title: "第一天的早上 · The first morning",
-    parts: [
-      "今天是暑假的第一天！早上，", {w:"mama"}, "叫我起床，",
-      "還煮了我最愛的", {w:"zaocan"}, "。我", {w:"chi"}, "得好飽，好開心。"
+    grade:"一年級 上學期 · Grade 1, 1st semester",
+    title:"我開始學寫字",
+    blurb:"小明上小學了。他會說好多話，可是還不會讀和打字。我們一起幫他！",
+    stages:[
+      { name:"階段一 · 單字", intro:"先從最簡單的字開始。讀出聲音，再打出拼音。",
+        challenges:[ [{w:"wo"}],[{w:"ni"}],[{w:"da"}],[{w:"xiao"}],[{w:"ren"}],
+                     [{w:"kou"}],[{w:"shou"}],[{w:"shan"}],[{w:"shui"}],[{w:"huo"}] ] },
+      { name:"階段二 · 詞語", intro:"兩個字合在一起，就變成詞語。",
+        challenges:[ [{w:"baba"}],[{w:"mama"}],[{w:"gege"}],[{w:"nihao"}],[{w:"dajia"}],[{w:"laoshi"}] ] },
+      { name:"階段三 · 短句", intro:"小明會打出短短的句子了！",
+        challenges:[
+          [{w:"nihao"},"，",{w:"laoshi"},"。"],
+          [{w:"wo"},{w:"ai"},{w:"baba"},{w:"mama"},"。"],
+          [{w:"dajia"},{w:"hao"},"！"],
+        ] },
+      { name:"階段四 · 完整句子", intro:"把學過的字串成一個完整的句子。",
+        challenges:[
+          [{w:"wo"},{w:"he"},{w:"gege"},{w:"shang"},{w:"shan"},{w:"kan"},{w:"shui"},"。"],
+          [{w:"laoshi"},{w:"shuo"},"：「",{w:"dajia"},{w:"zaoan"},"！」"],
+        ] },
     ]
   },
   {
-    title: "去公園玩 · Off to the park",
-    parts: [
-      {w:"chi"}, "完", {w:"zaocan"}, "，", {w:"mama"}, "帶我去",
-      {w:"gongyuan"}, "。我最喜歡在那裡", {w:"wan"}, "了。"
+    grade:"一年級 下學期 · Grade 1, 2nd semester",
+    title:"我的一天",
+    blurb:"小明越來越會讀了。這學期，他要打出自己的一天。",
+    stages:[
+      { name:"階段一 · 單字", intro:"再多認識一些每天會用到的字。",
+        challenges:[ [{w:"xia"}],[{w:"tian"}],[{w:"ri"}],[{w:"yue"}],[{w:"zhong"}],
+                     [{w:"wen"}],[{w:"mu"}],[{w:"qu"}],[{w:"lai"}] ] },
+      { name:"階段二 · 詞語", intro:"上學的一天會用到這些詞語。",
+        challenges:[ [{w:"zaocan"}],[{w:"xuexiao"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"pengyou"}] ] },
+      { name:"階段三 · 短句", intro:"用詞語和舊字組成短句。",
+        challenges:[
+          [{w:"zaoan"},"！",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],
+          [{w:"wo"},{w:"chi"},{w:"zaocan"},"。"],
+          ["中午",{w:"wo"},{w:"huijia"},"。"],
+        ] },
+      { name:"階段四 · 完整句子", intro:"小明的一天，一句一句打出來。",
+        challenges:[
+          ["今天",{w:"wo"},{w:"he"},{w:"pengyou"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"。"],
+          ["下午，",{w:"women"},{w:"du"},{w:"zhongwen"},{w:"shu"},"。"],
+        ] },
     ]
   },
   {
-    title: "好朋友和小狗 · A friend and a puppy",
-    parts: [
-      "在", {w:"gongyuan"}, "裡，我遇到了好", {w:"pengyou"}, "小華。",
-      "他帶著一隻可愛的", {w:"gou"}, "。我們一起", {w:"wan"},
-      "，真是太", {w:"kaixin"}, "了！"
+    grade:"二年級 上學期 · Grade 2, 1st semester",
+    title:"我會讀故事了",
+    blurb:"二年級的小明已經認識很多字，開始讀故事、寫日記。",
+    stages:[
+      { name:"階段一 · 單字", intro:"讀和寫的字，要好好認識。",
+        challenges:[ [{w:"zi"}],[{w:"xie"}],[{w:"jia"}],[{w:"gou"}],[{w:"shu"}],[{w:"du"}] ] },
+      { name:"階段二 · 詞語", intro:"心情和動作的詞語。",
+        challenges:[ [{w:"kaixin"}],[{w:"xiexie"}],[{w:"xiezi"}],[{w:"pengyou"}],[{w:"xuexiao"}] ] },
+      { name:"階段三 · 短句", intro:"用新詞語說說自己的事。",
+        challenges:[
+          [{w:"wo"},"會",{w:"xie"},{w:"zi"},"了！"],
+          ["小",{w:"gou"},"在",{w:"wo"},{w:"jia"},"。"],
+          [{w:"xiexie"},{w:"ni"},"，",{w:"pengyou"},"。"],
+        ] },
+      { name:"階段四 · 完整句子", intro:"把心情寫進長句子裡。",
+        challenges:[
+          ["今天很",{w:"kaixin"},"，",{w:"wo"},{w:"he"},{w:"gou"},"在",{w:"gongyuan"},{w:"wan"},"。"],
+          [{w:"laoshi"},{w:"shuo"},"：「",{w:"ni"},"的",{w:"zhongwen"},{w:"xie"},"得很",{w:"hao"},"。」"],
+        ] },
     ]
   },
   {
-    title: "回家看書 · Reading at home",
-    parts: [
-      {w:"huijia"}, "以後，我安靜地", {w:"kan"}, "了一本書。",
-      {w:"mama"}, "說，", {w:"xuexiao"}, "的", {w:"laoshi"},
-      "也很喜歡這本書呢。"
-    ]
-  },
-  {
-    title: "我想念學校 · I miss school",
-    parts: [
-      "暑假很好玩，但我有點想念", {w:"xuexiao"}, "。",
-      "我想念", {w:"laoshi"}, "，也想念我的", {w:"pengyou"}, "。",
-      "開學的時候，我一定會很", {w:"kaixin"}, "。"
-    ]
-  },
-  {
-    title: "日記的結尾 · The end of the diary",
-    parts: [
-      "今天真是", {w:"kaixin"}, "的一天：", {w:"chi"}, "了好吃的",
-      {w:"zaocan"}, "，去", {w:"gongyuan"}, "", {w:"kan"}, "小",
-      {w:"gou"}, "，和", {w:"pengyou"}, "一起", {w:"wan"}, "。",
-      "晚上", {w:"huijia"}, "，我把這些都寫進日記。謝謝", {w:"mama"}, "！"
+    grade:"二年級 下學期 · Grade 2, 2nd semester",
+    title:"我的日記",
+    blurb:"現在小明每天寫日記，把生活記下來。最後，他要打出一整篇。",
+    stages:[
+      { name:"階段一 · 單字", intro:"複習：這些字你都讀得出來了嗎？",
+        challenges:[ [{w:"kan"}],[{w:"lai"}],[{w:"qu"}],[{w:"tian"}],[{w:"yue"}] ] },
+      { name:"階段二 · 詞語", intro:"複習常用的詞語。",
+        challenges:[ [{w:"zaocan"}],[{w:"gongyuan"}],[{w:"kaixin"}],[{w:"huijia"}],[{w:"zhongwen"}],[{w:"laoshi"}] ] },
+      { name:"階段三 · 短句", intro:"日記裡的小句子。",
+        challenges:[
+          ["我每天",{w:"du"},{w:"zhongwen"},"。"],
+          [{w:"yue"},"亮出",{w:"lai"},"了。"],
+          [{w:"wo"},{w:"kan"},{w:"shu"},"，也",{w:"xie"},{w:"zi"},"。"],
+        ] },
+      { name:"階段四 · 完整句子（日記）", intro:"小明的日記——最長的句子，全部自己打！",
+        challenges:[
+          ["今天早上，",{w:"wo"},{w:"chi"},"了",{w:"zaocan"},"，就和",{w:"gege"},{w:"qu"},{w:"xuexiao"},"。"],
+          ["放學",{w:"huijia"},"後，",{w:"wo"},{w:"he"},{w:"pengyou"},"在",{w:"gongyuan"},{w:"wan"},"得很",{w:"kaixin"},"。"],
+          ["晚上，",{w:"wo"},{w:"xie"},"日記，",{w:"xiexie"},{w:"baba"},{w:"mama"},{w:"he"},{w:"laoshi"},"。"],
+        ] },
     ]
   },
 ];
 
 /* =========================================================================
-   Pre-compute each blank's encounter index (for spiral hint level)
+   Flatten into a linear list of challenges + compute spiral encounter index
    ========================================================================= */
-const seen = {};
-SCENES.forEach((sc, si) => {
-  sc.blanks = [];
-  sc.parts.forEach((p, pi) => {
-    if (typeof p === "object" && p.w) {
-      seen[p.w] = (seen[p.w] || 0) + 1;
-      p._enc = seen[p.w];          // 1st, 2nd, 3rd... encounter overall
-      p._partIndex = pi;
-      sc.blanks.push(p);
-    }
+const seenTotal = {};
+const FLAT = [];   // { bookIdx, stageIdx, parts, bookFirst, stageFirst }
+CURRICULUM.forEach((book, bi) => {
+  book.stages.forEach((stage, si) => {
+    stage.challenges.forEach((parts, ci) => {
+      parts.forEach(p => {
+        if (typeof p === "object" && p.w) {
+          seenTotal[p.w] = (seenTotal[p.w] || 0) + 1;
+          p._enc = seenTotal[p.w];
+        }
+      });
+      FLAT.push({
+        bookIdx: bi, stageIdx: si, parts,
+        bookFirst: si === 0 && ci === 0,
+        stageFirst: ci === 0,
+      });
+    });
   });
 });
-const TOTAL_BLANKS = Object.values(seen).reduce((a, b) => a + b, 0);
+const TOTAL_WORDS = Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
 /* =========================================================================
-   Game state
+   State (with localStorage resume)
    ========================================================================= */
-let sceneIndex = 0;
-let blankCursor = 0;     // which blank in the current scene is active
-let completedBlanks = 0; // overall, for progress bar
+const SAVE_KEY = "xiaoming_typing_v1";
+let pos = 0;          // index into FLAT
+let wordCursor = 0;   // which {w} within the current challenge
+let typedWords = 0;   // for progress bar
 let streak = 0;
-let mastered = new Set(); // vocab keys the learner has typed at least once
+let mastered = new Set();
+let shownBooks = new Set();
+
+function save(){
+  localStorage.setItem(SAVE_KEY, JSON.stringify({
+    pos, typedWords, streak, mastered:[...mastered], shownBooks:[...shownBooks]
+  }));
+}
+function load(){
+  try{
+    const d = JSON.parse(localStorage.getItem(SAVE_KEY));
+    if(!d) return;
+    pos = Math.min(d.pos||0, FLAT.length-1);
+    typedWords = d.typedWords||0; streak = d.streak||0;
+    mastered = new Set(d.mastered||[]);
+    shownBooks = new Set(d.shownBooks||[]);
+  }catch(e){}
+}
 
 const card = document.getElementById("card");
 
-function hintLevel(enc) {
-  if (enc <= 1) return 3;   // full scaffold
-  if (enc === 2) return 2;
-  return 1;                 // pinyin only
+function hintLevel(enc){
+  // Reading-focused spiral: the 漢字 is ALWAYS shown (you must read it);
+  // the pinyin crutch fades, until the learner types from memory.
+  if (enc <= 1) return 3;   // pinyin + English
+  if (enc === 2) return 2;  // pinyin only
+  return 1;                 // no pinyin — read it yourself
 }
 
-function renderScene() {
-  const sc = SCENES[sceneIndex];
-  let html = `<div class="scene-title"><span class="num">第 ${sceneIndex+1} 頁</span> ${sc.title}</div>`;
-  html += `<div class="story">`;
-  let blankCount = -1;
-  sc.parts.forEach(p => {
-    if (typeof p === "string") {
-      html += p;
-    } else {
-      blankCount++;
-      const v = VOCAB[p.w];
-      if (p._filled) {
-        html += `<span class="word-done">${v.hanzi}</span>`;
-      } else if (blankCount === blankCursor) {
-        html += `<span class="blank active" id="activeBlank">？</span>`;
-      } else {
-        html += `<span class="blank">＿</span>`;
-      }
-    }
+function render(){
+  const item = FLAT[pos];
+  const book = CURRICULUM[item.bookIdx];
+
+  // Book interstitial (once per book)
+  if (item.bookFirst && !shownBooks.has(item.bookIdx)) {
+    renderBookIntro(item.bookIdx, book);
+    return;
+  }
+
+  const stage = book.stages[item.stageIdx];
+  document.getElementById("crumb").innerHTML =
+    `第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
+
+  // sentence line
+  let sentence = "", wIdx = -1, activeWord = null;
+  item.parts.forEach(p => {
+    if (typeof p === "string") { sentence += `<span class="lit">${p}</span>`; return; }
+    wIdx++;
+    const v = VOCAB[p.w];
+    if (wIdx < wordCursor) sentence += `<span class="w-done">${v.hanzi}</span>`;
+    else if (wIdx === wordCursor){ sentence += `<span class="w-active">${v.hanzi}</span>`; activeWord = p; }
+    else sentence += `<span class="w-future">${v.hanzi}</span>`;
   });
-  html += `</div>`;
 
-  // Typing area for the active blank
-  const active = sc.blanks[blankCursor];
-  if (active) {
-    const v = VOCAB[active.w];
-    const lvl = hintLevel(active._enc);
-    let hint = "";
-    if (lvl >= 2) hint += `<div class="hint-hanzi">${v.hanzi}</div>`;
-    hint += `<div class="hint-pinyin">${v.pinyin}</div>`;
-    if (lvl >= 3) hint += `<div class="hint-en">${v.en}</div>`;
-    const lvlLabel = lvl >= 3 ? "新字 · new word"
-                  : lvl === 2 ? "複習 · review"
-                  : "挑戰：你記得意思嗎？ · challenge: recall the meaning!";
-    hint += `<div class="hint-level">${lvlLabel}</div>`;
+  let html = `<span class="stage-tag">${stage.name}</span>`;
+  if (item.stageFirst) html += `<p class="intro">${stage.intro}</p>`;
+  html += `<div class="sentence">${sentence}</div>`;
 
-    const tiles = v.key.split("").map(ch =>
-      `<div class="tile" data-ch="${ch}">${"·"}</div>`).join("");
-
-    html += `
-      <div class="typer">
-        ${hint}
-        <div class="tiles" id="tiles">${tiles}</div>
-        <input id="typeInput" autocomplete="off" autocapitalize="off"
-               spellcheck="false" placeholder="在這裡打拼音… type the pinyin" />
-        <div class="feedback" id="feedback">輸入拼音來完成句子 · Type the pinyin to fill the blank</div>
-      </div>`;
-  } else {
-    // scene complete
-    const last = sceneIndex === SCENES.length - 1;
-    html += `<div class="center">
-      <div class="feedback good">🎉 這一頁完成了！ Page complete!</div>
-      <button class="btn" id="nextBtn">${last ? "看結果 · See results 🏆" : "下一頁 · Next page ➜"}</button>
-    </div>`;
+  if (activeWord){
+    const v = VOCAB[activeWord.w];
+    const lvl = hintLevel(activeWord._enc);
+    let panel = `<div class="read-hint">👀 讀出這個字，再打出它的拼音 · read it, then type its pinyin</div>`;
+    panel += `<div class="hint-hanzi">${v.hanzi}</div>`;
+    panel += `<div class="hint-pinyin">${lvl>=2 ? v.pinyin : "&nbsp;"}</div>`;
+    if (lvl>=3) panel += `<div class="hint-en">${v.en}</div>`;
+    const lab = lvl>=3 ? "新字 · new" : lvl===2 ? "複習 · review" : "靠記憶打字 · from memory 💪";
+    panel += `<div class="hint-level">${lab}</div>`;
+    const tiles = v.key.split("").map(()=>`<div class="tile">·</div>`).join("");
+    panel += `<div class="tiles" id="tiles">${tiles}</div>`;
+    panel += `<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false"
+                placeholder="在這裡打拼音… type the pinyin" />`;
+    panel += `<div class="feedback" id="feedback">&nbsp;</div>`;
+    html += `<div class="typer">${panel}</div>`;
   }
 
   card.innerHTML = html;
@@ -400,132 +388,123 @@ function renderScene() {
   renderPool();
 
   const input = document.getElementById("typeInput");
-  if (input) {
-    input.addEventListener("input", onType);
-    input.focus();
-  }
-  const nextBtn = document.getElementById("nextBtn");
-  if (nextBtn) nextBtn.addEventListener("click", nextScene);
+  if (input){ input.addEventListener("input", onType); input.focus(); }
 }
 
-function onType(e) {
-  const sc = SCENES[sceneIndex];
-  const active = sc.blanks[blankCursor];
-  const v = VOCAB[active.w];
-  const target = v.key;
-  let val = e.target.value.toLowerCase().replace(/[^a-z]/g, "");
+function renderBookIntro(bi, book){
+  document.getElementById("crumb").innerHTML = `第 ${bi+1} 冊`;
+  card.innerHTML = `
+    <div class="interstitial">
+      <div class="big">📖</div>
+      <div class="grade">${book.grade}</div>
+      <h2>第 ${bi+1} 冊：${book.title}</h2>
+      <p class="intro" style="text-align:center">${book.blurb}</p>
+      <button class="btn" id="startBook">開始 · Start ➜</button>
+    </div>`;
+  updateProgress();
+  document.getElementById("startBook").addEventListener("click", ()=>{
+    shownBooks.add(bi); save(); render();
+  });
+}
+
+const PRAISE = ["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!",
+  "你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
+
+function onType(e){
+  const item = FLAT[pos];
+  let wIdx=-1, active=null;
+  item.parts.forEach(p=>{ if(typeof p==="object"&&p.w){ wIdx++; if(wIdx===wordCursor) active=p; }});
+  const target = VOCAB[active.w].key;
+
+  let val = e.target.value.toLowerCase().replace(/[^a-z]/g,"");
   e.target.value = val;
 
-  const tiles = [...document.querySelectorAll("#tiles .tile")];
-  let allGood = true;
-  tiles.forEach((t, i) => {
-    t.classList.remove("good", "bad", "cursor", "filled");
-    const expected = target[i];
-    if (i < val.length) {
-      t.classList.add("filled");
-      t.textContent = val[i];
-      if (val[i] === expected) {
-        t.classList.add("good");
-      } else {
-        t.classList.add("bad");
-        allGood = false;
-      }
-    } else {
-      t.textContent = "·";
-      if (i === val.length) t.classList.add("cursor");
-    }
+  const tiles=[...document.querySelectorAll("#tiles .tile")];
+  let allGood=true;
+  tiles.forEach((t,i)=>{
+    t.classList.remove("good","bad","cursor","filled");
+    if(i<val.length){
+      t.classList.add("filled"); t.textContent=val[i];
+      if(val[i]===target[i]) t.classList.add("good");
+      else { t.classList.add("bad"); allGood=false; }
+    } else { t.textContent="·"; if(i===val.length) t.classList.add("cursor"); }
   });
 
-  const fb = document.getElementById("feedback");
-  if (val.length < target.length || !allGood) {
-    fb.className = "feedback";
-    fb.textContent = "繼續加油… keep going…";
-  }
-
-  if (val === target) {
-    success();
-  }
+  const fb=document.getElementById("feedback");
+  if(val===target){ success(active); }
+  else { fb.className="feedback"; fb.textContent = val.length && !allGood ? "再看一次… try again…" : " "; }
 }
 
-const PRAISE = [
-  "太棒了！ Great!", "好厲害！ Awesome!", "答對了！ Correct!",
-  "你真聰明！ So smart!", "繼續加油！ Keep it up!", "完美！ Perfect!"
-];
-
-function success() {
-  const sc = SCENES[sceneIndex];
-  const active = sc.blanks[blankCursor];
-  active._filled = true;
+function success(active){
   mastered.add(active.w);
-  completedBlanks++;
-  streak++;
-  document.getElementById("streakText").textContent = "🔥 連續答對 Streak: " + streak;
+  typedWords++; streak++;
+  document.getElementById("streakText").textContent = "🔥 連續答對 Streak: "+streak;
+  const fb=document.getElementById("feedback");
+  fb.className="feedback good";
+  fb.textContent = "✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
 
-  const fb = document.getElementById("feedback");
-  fb.className = "feedback good";
-  fb.textContent = "✓ " + PRAISE[Math.floor(Math.random() * PRAISE.length)];
+  const item = FLAT[pos];
+  const wordsInChallenge = item.parts.filter(p=>typeof p==="object"&&p.w).length;
 
-  // advance after a short beat
-  setTimeout(() => {
-    blankCursor++;
-    if (blankCursor >= sc.blanks.length) {
-      // scene done — show next button (renderScene handles it)
-      renderScene();
-    } else {
-      renderScene();
+  setTimeout(()=>{
+    wordCursor++;
+    if(wordCursor >= wordsInChallenge){
+      wordCursor=0; pos++;
+      if(pos>=FLAT.length){ save(); showFinish(); return; }
     }
-  }, 650);
+    save(); render();
+  }, 600);
 }
 
-function nextScene() {
-  if (sceneIndex < SCENES.length - 1) {
-    sceneIndex++;
-    blankCursor = 0;
-    renderScene();
-  } else {
-    showFinish();
-  }
-}
-
-function updateProgress() {
-  const pct = Math.round((completedBlanks / TOTAL_BLANKS) * 100);
-  document.getElementById("progressBar").style.width = pct + "%";
+function updateProgress(){
+  const pct = Math.round((typedWords/TOTAL_WORDS)*100);
+  document.getElementById("progressBar").style.width = pct+"%";
+  const bi = Math.min(pos,FLAT.length-1)!==undefined ? FLAT[Math.min(pos,FLAT.length-1)].bookIdx : 0;
   document.getElementById("progressText").textContent =
-    `第 ${sceneIndex+1} / ${SCENES.length} 頁 · Page ${sceneIndex+1} / ${SCENES.length}`;
+    `進度 ${pct}% · ${typedWords}/${TOTAL_WORDS} 字 · 第 ${bi+1}/${CURRICULUM.length} 冊`;
 }
 
-function renderPool() {
-  const chips = document.getElementById("chips");
-  if (!chips) return;
-  if (mastered.size === 0) {
-    chips.innerHTML = `<span class="ct" style="color:#c0ad94">還沒有 · none yet — 開始打字吧！</span>`;
-    return;
-  }
-  chips.innerHTML = [...mastered].map(k => {
-    const v = VOCAB[k];
-    const count = seen[k];
-    return `<span class="chip"><b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${count}</span></span>`;
+function renderPool(){
+  const chips=document.getElementById("chips");
+  if(mastered.size===0){ chips.innerHTML=`<span class="ct">還沒有 · none yet — 開始打字吧！</span>`; return; }
+  chips.innerHTML=[...mastered].map(k=>{
+    const v=VOCAB[k];
+    return `<span class="chip"><b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${seenTotal[k]}</span></span>`;
   }).join("");
 }
 
-function showFinish() {
-  document.getElementById("progressBar").style.width = "100%";
-  document.getElementById("poolBox").classList.remove("hidden");
-  card.innerHTML = `
-    <div class="finish">
-      <div class="big">🏆📔🌟</div>
-      <h2>暑假日記完成了！</h2>
-      <p>You finished Xiǎo Míng's summer diary!</p>
-      <p>你學會並打出了 <b>${mastered.size}</b> 個生字，<br>
-         一共完成了 <b>${TOTAL_BLANKS}</b> 次拼音打字。</p>
-      <p>You learned <b>${mastered.size}</b> words and typed <b>${TOTAL_BLANKS}</b> pinyin blanks!</p>
+function showFinish(){
+  document.getElementById("progressBar").style.width="100%";
+  document.getElementById("crumb").innerHTML = "全部完成 · All done";
+  card.innerHTML=`
+    <div class="interstitial">
+      <div class="big">🏆✏️🌟</div>
+      <h2>小明畢業了！</h2>
+      <p class="intro" style="text-align:center">
+        從一年級到二年級，小明學會了讀和打 <b>${mastered.size}</b> 個字／詞，<br>
+        一共完成了 <b>${TOTAL_WORDS}</b> 次拼音打字，從單字一路打到完整的句子！</p>
+      <p class="intro" style="text-align:center">
+        He went from single characters all the way to full sentences —
+        <b>${mastered.size}</b> words, <b>${TOTAL_WORDS}</b> typed blanks!</p>
       <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button>
     </div>`;
   renderPool();
-  document.getElementById("againBtn").addEventListener("click", () => location.reload());
+  document.getElementById("againBtn").addEventListener("click", resetAll);
 }
 
-renderScene();
+function resetAll(){
+  localStorage.removeItem(SAVE_KEY);
+  pos=0; wordCursor=0; typedWords=0; streak=0; mastered=new Set(); shownBooks=new Set();
+  document.getElementById("streakText").textContent="🔥 連續答對 Streak: 0";
+  render();
+}
+
+document.getElementById("restartBtn").addEventListener("click", ()=>{
+  if(confirm("重新開始？會清除進度。Restart and clear progress?")) resetAll();
+});
+
+load();
+render();
 </script>
 </body>
 </html>
