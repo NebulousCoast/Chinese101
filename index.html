@@ -17,6 +17,13 @@
   header{text-align:center;margin-bottom:6px}
   header h1{font-size:1.5rem;margin:0}
   header p{margin:3px 0 0;color:#8a7a66;font-size:.85rem}
+  .title-row{display:flex;align-items:center;justify-content:center;gap:12px}
+  .title-row>div{text-align:left}
+  .avatar{width:54px;height:54px;border-radius:50%;border:3px solid var(--accent);background:#fff;
+    font-size:1.9rem;line-height:1;cursor:pointer;box-shadow:0 6px 14px -8px var(--accent-dark);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .1s}
+  .avatar:hover{transform:scale(1.06)}
+  .buy.avatarpick{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 
   .wrap{width:100%;max-width:640px}
   .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
@@ -168,8 +175,13 @@
 </head>
 <body>
   <header>
-    <h1>✏️ 小明學打字</h1>
-    <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
+    <div class="title-row">
+      <button class="avatar" id="avatar" title="點我換頭像 · tap to change avatar">🧒</button>
+      <div>
+        <h1>✏️ 小明學打字</h1>
+        <p>Xiǎo Míng Learns to Type — 從單字到句子的拼音打字 · From words to sentences</p>
+      </div>
+    </div>
   </header>
 
   <div class="wrap">
@@ -658,6 +670,7 @@ let ownedStickers=new Set();
 let pets={};                                  // petId -> stage index (multiple species)
 let tokens={hint:0,skip:0,first:0};
 let quest=null;
+let avatar=null;                              // chosen sticker id, e.g. "s12"
 const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
@@ -666,7 +679,7 @@ function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   practiceDays:[...practiceDays], stats, reviewsDone,
   spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
   ownedThemes:[...ownedThemes], theme,
-  ownedStickers:[...ownedStickers], pets, tokens, quest })); }
+  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -680,6 +693,7 @@ function load(){ try{
   ownedStickers=new Set(d.ownedStickers||[]);
   pets=d.pets|| (d.pet?{bird:d.pet.stage||0}:{});   // migrate old single pet
   tokens=Object.assign({hint:0,skip:0,first:0}, d.tokens||{}); quest=d.quest||null;
+  avatar=d.avatar||null;
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -787,6 +801,10 @@ function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STIC
 function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.stages[0]+" "+p.name); afterShop(); }
 function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=p.stages.length-1||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.stages[pets[k]]+" 長大了！"); afterShop(); }
 function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
+function avatarEmoji(){ if(avatar!=null){ const i=+avatar.slice(1); if(ownedStickers.has(avatar) && STICKERS[i]) return STICKERS[i].e; } return "🧒"; }
+function updateAvatar(){ const a=document.getElementById("avatar"); if(a) a.textContent=avatarEmoji(); }
+function setAvatar(i){ if(!ownedStickers.has("s"+i)) return; avatar="s"+i; save(); updateAvatar(); renderShop();
+  queueToast({e:STICKERS[i].e, zh:"換上新頭像！"+STICKERS[i].n, en:"Avatar set!"}); }
 
 const card=document.getElementById("card");
 
@@ -1028,7 +1046,7 @@ function wireInput(target, onCorrect, onWrong){
   input.focus();
 }
 
-function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); }
+function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); updateAvatar(); }
 
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
@@ -1142,10 +1160,10 @@ function renderShop(){
     return `<div class="buy ${max?"owned":aff(PET_FEED)}" ${max?"":`onclick="feedPet('${k}')"`}><div class="be">${p.stages[st]}</div><div class="bn">${p.name}<br>第 ${st+1}/${p.stages.length} 階段</div><div class="bc">${max?"已最大🎉":"🍖 餵食 🪙 "+PET_FEED}</div></div>`;
   }).join("");
   html+=`</div></div>`;
-  // stickers (60)
-  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length}</h4><div class="shop-row scrollrow tall">`;
-  html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i);
-    return owned ? `<div class="buy owned"><div class="be">${s.e}</div><div class="bn">${s.n}</div><div class="bc">✓</div></div>`
+  // stickers (60) — owned ones can be set as your avatar
+  html+=`<div class="shop-sec"><h4>✨ 貼紙簿 Sticker Book — ${ownedStickers.size}/${STICKERS.length} <span style="color:#b9a78f;font-weight:400">· 點已擁有的貼紙設為頭像 tap an owned sticker to use as avatar</span></h4><div class="shop-row scrollrow tall">`;
+  html+=STICKERS.map((s,i)=>{ const owned=ownedStickers.has("s"+i); const isAv=avatar==="s"+i;
+    return owned ? `<div class="buy owned ${isAv?"avatarpick":""}" onclick="setAvatar(${i})"><div class="be">${s.e}</div><div class="bn">${s.n}</div><div class="bc">${isAv?"頭像 avatar ✓":"設頭像 set"}</div></div>`
       : `<div class="buy ${aff(STICKER_COST)}" onclick="buySticker(${i})"><div class="be">❔</div><div class="bn">${s.n}</div><div class="bc">🪙 ${STICKER_COST}</div></div>`; }).join("");
   html+=`</div></div>`;
   el.innerHTML=html;
@@ -1235,7 +1253,7 @@ function showFinish(){
   document.getElementById("crumb").innerHTML="全部完成 · All done";
   const li=levelFromXP(points);
   card.innerHTML=`<div class="interstitial">
-    <div class="big">🎓✏️🌟</div><h2>小明畢業了！</h2>
+    <div class="big">${avatarEmoji()}🎓🌟</div><h2>小明畢業了！</h2>
     <p class="intro" style="text-align:center">
       從一年級到六年級，小明學會讀和打 <b>${mastered.size}</b> 個字／詞，<br>
       拿到 <b>${points}</b> 點數、升到 <b>等級 ${li.level}</b>、收集 <b>${prizesEarned.size}</b> 個獎品！</p>
@@ -1252,16 +1270,21 @@ function resetAll(){
   stats={}; reviewsDone=0; mode="story";
   spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
   ownedThemes=new Set(["classic"]); theme="classic";
-  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null;
-  warmedStages.clear(); applyTheme("classic");
+  ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null;
+  warmedStages.clear(); applyTheme("classic"); updateAvatar();
   render();
 }
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
 
 document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
 
+document.getElementById("avatar").addEventListener("click",()=>{
+  const sec=[...document.querySelectorAll(".shop-sec")].find(s=>/貼紙簿/.test(s.textContent));
+  (sec||document.getElementById("shop")).scrollIntoView({behavior:"smooth",block:"center"});
+});
+
 setupSoundBtn();
-load(); applyTheme(theme); ensureQuest();
+load(); applyTheme(theme); ensureQuest(); updateAvatar();
 if("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>{}; }
 render();
 </script>
