@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>小明的暑假日記 · Xiǎo Míng's Summer Diary</title>
+<style>
+  :root {
+    --bg: #fff7ec;
+    --card: #ffffff;
+    --ink: #2d2a26;
+    --accent: #ff8a3d;
+    --accent-dark: #e96f1f;
+    --good: #36b37e;
+    --bad: #ef5b5b;
+    --soft: #ffe3c7;
+    --line: #f0d9bf;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+    background: radial-gradient(circle at 20% -10%, #ffe9d2, var(--bg));
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  header h1 { font-size: 1.6rem; margin: 0; }
+  header p { margin: 4px 0 0; color: #8a7a66; font-size: .9rem; }
+
+  .progress-wrap {
+    width: 100%;
+    max-width: 620px;
+    height: 12px;
+    background: var(--soft);
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 10px 0 4px;
+  }
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), #ffb066);
+    transition: width .4s ease;
+  }
+  .meta {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    justify-content: space-between;
+    font-size: .85rem;
+    color: #9b8a74;
+    margin-bottom: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    width: 100%;
+    max-width: 620px;
+    border-radius: 22px;
+    padding: 26px 26px 30px;
+    box-shadow: 0 18px 40px -22px rgba(150, 90, 20, .5);
+    border: 1px solid var(--line);
+  }
+  .scene-title {
+    font-size: 1.05rem;
+    color: var(--accent-dark);
+    font-weight: 700;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .scene-title .num {
+    background: var(--soft);
+    color: var(--accent-dark);
+    border-radius: 8px;
+    padding: 1px 9px;
+    font-size: .85rem;
+  }
+
+  .story {
+    font-size: 1.5rem;
+    line-height: 2.6;
+    letter-spacing: 1px;
+  }
+  .word-done { color: var(--good); font-weight: 700; }
+  .blank {
+    display: inline-block;
+    min-width: 2.2em;
+    border-bottom: 3px solid var(--line);
+    text-align: center;
+    color: #c9b69d;
+  }
+  .blank.active {
+    border-bottom-color: var(--accent);
+    background: #fff3e6;
+    border-radius: 6px 6px 0 0;
+    color: var(--accent-dark);
+    font-weight: 700;
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { background: #fff3e6; }
+    50% { background: #ffe6cd; }
+  }
+
+  /* hint + input */
+  .typer {
+    margin-top: 22px;
+    background: #fffaf3;
+    border: 1.5px dashed var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+  }
+  .hint-hanzi { font-size: 2.1rem; font-weight: 700; letter-spacing: 4px; }
+  .hint-pinyin { font-size: 1.3rem; color: var(--accent-dark); margin-top: 2px; letter-spacing: 1px; }
+  .hint-en { color: #9b8a74; font-size: .95rem; margin-top: 2px; font-style: italic; }
+  .hint-level { font-size: .75rem; color: #b9a78f; margin-top: 6px; }
+
+  .tiles { display: flex; justify-content: center; gap: 7px; margin: 16px 0 4px; flex-wrap: wrap; }
+  .tile {
+    width: 40px; height: 48px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 700;
+    color: #cdbba2;
+    transition: all .12s ease;
+  }
+  .tile.filled { color: var(--ink); }
+  .tile.good { border-color: var(--good); background: #e9faf2; color: var(--good); }
+  .tile.bad { border-color: var(--bad); background: #fdeaea; color: var(--bad); animation: shake .25s; }
+  .tile.cursor { border-color: var(--accent); box-shadow: 0 0 0 3px #ffe3c7; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+
+  #typeInput {
+    width: 100%; max-width: 320px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid var(--line);
+    text-align: center;
+    letter-spacing: 3px;
+    outline: none;
+    font-family: inherit;
+  }
+  #typeInput:focus { border-color: var(--accent); }
+  .feedback { min-height: 1.4em; margin-top: 10px; font-weight: 700; }
+  .feedback.good { color: var(--good); }
+  .feedback.bad { color: var(--bad); }
+
+  .btn {
+    margin-top: 16px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 12px 26px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px -8px var(--accent-dark);
+    transition: transform .1s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+  .center { text-align: center; }
+
+  .pool {
+    width: 100%; max-width: 620px;
+    margin-top: 18px;
+    background: #fffaf3;
+    border-radius: 16px;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+  }
+  .pool h3 { margin: 0 0 8px; font-size: .85rem; color: #9b8a74; font-weight: 700; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 99px; padding: 4px 12px; font-size: .9rem;
+    display: flex; gap: 6px; align-items: baseline;
+  }
+  .chip .py { color: var(--accent-dark); font-size: .78rem; }
+  .chip .ct { color: #c0ad94; font-size: .72rem; }
+  .hidden { display: none !important; }
+
+  .finish { text-align: center; padding: 20px 0; }
+  .finish .big { font-size: 3rem; }
+  .finish h2 { color: var(--accent-dark); margin: 8px 0; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>📔 小明的暑假日記</h1>
+    <p>Xiǎo Míng's Summer Diary — 拼音打字遊戲 · Pinyin Typing Game</p>
+  </header>
+
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="meta">
+    <span id="progressText">第 1 / 6 頁 · Page 1 / 6</span>
+    <span id="streakText">🔥 連續答對 Streak: 0</span>
+  </div>
+
+  <div class="card" id="card"><!-- scene rendered here --></div>
+
+  <div class="pool" id="poolBox">
+    <h3>📚 學過的字 · Words you've learned</h3>
+    <div class="chips" id="chips"></div>
+  </div>
+
+<script>
+/* =========================================================================
+   VOCABULARY POOL
+   `key` = what the learner TYPES (plain pinyin letters, no tones).
+   `pinyin` = displayed hint WITH tone marks (for exposure).
+   Edit / add words here freely — game logic below is data-driven.
+   ========================================================================= */
+const VOCAB = {
+  mama:     { hanzi: "媽媽", pinyin: "māma",     key: "mama",     en: "mom" },
+  zaocan:   { hanzi: "早餐", pinyin: "zǎocān",   key: "zaocan",   en: "breakfast" },
+  chi:      { hanzi: "吃",   pinyin: "chī",      key: "chi",      en: "to eat" },
+  gongyuan: { hanzi: "公園", pinyin: "gōngyuán", key: "gongyuan", en: "park" },
+  wan:      { hanzi: "玩",   pinyin: "wán",      key: "wan",      en: "to play" },
+  pengyou:  { hanzi: "朋友", pinyin: "péngyǒu",  key: "pengyou",  en: "friend" },
+  gou:      { hanzi: "狗",   pinyin: "gǒu",      key: "gou",      en: "dog" },
+  kaixin:   { hanzi: "開心", pinyin: "kāixīn",   key: "kaixin",   en: "happy" },
+  huijia:   { hanzi: "回家", pinyin: "huíjiā",   key: "huijia",   en: "to go home" },
+  kan:      { hanzi: "看",   pinyin: "kàn",      key: "kan",      en: "to read / look" },
+  xuexiao:  { hanzi: "學校", pinyin: "xuéxiào",  key: "xuexiao",  en: "school" },
+  laoshi:   { hanzi: "老師", pinyin: "lǎoshī",   key: "laoshi",   en: "teacher" },
+};
+
+/* =========================================================================
+   STORY SCENES
+   Each part is either a plain string, or { w: "<vocabKey>" } meaning the
+   learner must TYPE that word to complete the sentence.
+
+   Words are deliberately RECYCLED across scenes. The Nth time a word
+   appears in the whole game, its hint is scaffolded LESS — that is the
+   spiral (Bruner): revisit the same idea in richer contexts, each time
+   with a little less support.
+     1st encounter -> 漢字 + 拼音 + English
+     2nd encounter -> 漢字 + 拼音
+     3rd+ encounter -> 拼音 only (recall the meaning yourself)
+   ========================================================================= */
+const SCENES = [
+  {
+    title: "第一天的早上 · The first morning",
+    parts: [
+      "今天是暑假的第一天！早上，", {w:"mama"}, "叫我起床，",
+      "還煮了我最愛的", {w:"zaocan"}, "。我", {w:"chi"}, "得好飽，好開心。"
+    ]
+  },
+  {
+    title: "去公園玩 · Off to the park",
+    parts: [
+      {w:"chi"}, "完", {w:"zaocan"}, "，", {w:"mama"}, "帶我去",
+      {w:"gongyuan"}, "。我最喜歡在那裡", {w:"wan"}, "了。"
+    ]
+  },
+  {
+    title: "好朋友和小狗 · A friend and a puppy",
+    parts: [
+      "在", {w:"gongyuan"}, "裡，我遇到了好", {w:"pengyou"}, "小華。",
+      "他帶著一隻可愛的", {w:"gou"}, "。我們一起", {w:"wan"},
+      "，真是太", {w:"kaixin"}, "了！"
+    ]
+  },
+  {
+    title: "回家看書 · Reading at home",
+    parts: [
+      {w:"huijia"}, "以後，我安靜地", {w:"kan"}, "了一本書。",
+      {w:"mama"}, "說，", {w:"xuexiao"}, "的", {w:"laoshi"},
+      "也很喜歡這本書呢。"
+    ]
+  },
+  {
+    title: "我想念學校 · I miss school",
+    parts: [
+      "暑假很好玩，但我有點想念", {w:"xuexiao"}, "。",
+      "我想念", {w:"laoshi"}, "，也想念我的", {w:"pengyou"}, "。",
+      "開學的時候，我一定會很", {w:"kaixin"}, "。"
+    ]
+  },
+  {
+    title: "日記的結尾 · The end of the diary",
+    parts: [
+      "今天真是", {w:"kaixin"}, "的一天：", {w:"chi"}, "了好吃的",
+      {w:"zaocan"}, "，去", {w:"gongyuan"}, "", {w:"kan"}, "小",
+      {w:"gou"}, "，和", {w:"pengyou"}, "一起", {w:"wan"}, "。",
+      "晚上", {w:"huijia"}, "，我把這些都寫進日記。謝謝", {w:"mama"}, "！"
+    ]
+  },
+];
+
+/* =========================================================================
+   Pre-compute each blank's encounter index (for spiral hint level)
+   ========================================================================= */
+const seen = {};
+SCENES.forEach((sc, si) => {
+  sc.blanks = [];
+  sc.parts.forEach((p, pi) => {
+    if (typeof p === "object" && p.w) {
+      seen[p.w] = (seen[p.w] || 0) + 1;
+      p._enc = seen[p.w];          // 1st, 2nd, 3rd... encounter overall
+      p._partIndex = pi;
+      sc.blanks.push(p);
+    }
+  });
+});
+const TOTAL_BLANKS = Object.values(seen).reduce((a, b) => a + b, 0);
+
+/* =========================================================================
+   Game state
+   ========================================================================= */
+let sceneIndex = 0;
+let blankCursor = 0;     // which blank in the current scene is active
+let completedBlanks = 0; // overall, for progress bar
+let streak = 0;
+let mastered = new Set(); // vocab keys the learner has typed at least once
+
+const card = document.getElementById("card");
+
+function hintLevel(enc) {
+  if (enc <= 1) return 3;   // full scaffold
+  if (enc === 2) return 2;
+  return 1;                 // pinyin only
+}
+
+function renderScene() {
+  const sc = SCENES[sceneIndex];
+  let html = `<div class="scene-title"><span class="num">第 ${sceneIndex+1} 頁</span> ${sc.title}</div>`;
+  html += `<div class="story">`;
+  let blankCount = -1;
+  sc.parts.forEach(p => {
+    if (typeof p === "string") {
+      html += p;
+    } else {
+      blankCount++;
+      const v = VOCAB[p.w];
+      if (p._filled) {
+        html += `<span class="word-done">${v.hanzi}</span>`;
+      } else if (blankCount === blankCursor) {
+        html += `<span class="blank active" id="activeBlank">？</span>`;
+      } else {
+        html += `<span class="blank">＿</span>`;
+      }
+    }
+  });
+  html += `</div>`;
+
+  // Typing area for the active blank
+  const active = sc.blanks[blankCursor];
+  if (active) {
+    const v = VOCAB[active.w];
+    const lvl = hintLevel(active._enc);
+    let hint = "";
+    if (lvl >= 2) hint += `<div class="hint-hanzi">${v.hanzi}</div>`;
+    hint += `<div class="hint-pinyin">${v.pinyin}</div>`;
+    if (lvl >= 3) hint += `<div class="hint-en">${v.en}</div>`;
+    const lvlLabel = lvl >= 3 ? "新字 · new word"
+                  : lvl === 2 ? "複習 · review"
+                  : "挑戰：你記得意思嗎？ · challenge: recall the meaning!";
+    hint += `<div class="hint-level">${lvlLabel}</div>`;
+
+    const tiles = v.key.split("").map(ch =>
+      `<div class="tile" data-ch="${ch}">${"·"}</div>`).join("");
+
+    html += `
+      <div class="typer">
+        ${hint}
+        <div class="tiles" id="tiles">${tiles}</div>
+        <input id="typeInput" autocomplete="off" autocapitalize="off"
+               spellcheck="false" placeholder="在這裡打拼音… type the pinyin" />
+        <div class="feedback" id="feedback">輸入拼音來完成句子 · Type the pinyin to fill the blank</div>
+      </div>`;
+  } else {
+    // scene complete
+    const last = sceneIndex === SCENES.length - 1;
+    html += `<div class="center">
+      <div class="feedback good">🎉 這一頁完成了！ Page complete!</div>
+      <button class="btn" id="nextBtn">${last ? "看結果 · See results 🏆" : "下一頁 · Next page ➜"}</button>
+    </div>`;
+  }
+
+  card.innerHTML = html;
+  updateProgress();
+  renderPool();
+
+  const input = document.getElementById("typeInput");
+  if (input) {
+    input.addEventListener("input", onType);
+    input.focus();
+  }
+  const nextBtn = document.getElementById("nextBtn");
+  if (nextBtn) nextBtn.addEventListener("click", nextScene);
+}
+
+function onType(e) {
+  const sc = SCENES[sceneIndex];
+  const active = sc.blanks[blankCursor];
+  const v = VOCAB[active.w];
+  const target = v.key;
+  let val = e.target.value.toLowerCase().replace(/[^a-z]/g, "");
+  e.target.value = val;
+
+  const tiles = [...document.querySelectorAll("#tiles .tile")];
+  let allGood = true;
+  tiles.forEach((t, i) => {
+    t.classList.remove("good", "bad", "cursor", "filled");
+    const expected = target[i];
+    if (i < val.length) {
+      t.classList.add("filled");
+      t.textContent = val[i];
+      if (val[i] === expected) {
+        t.classList.add("good");
+      } else {
+        t.classList.add("bad");
+        allGood = false;
+      }
+    } else {
+      t.textContent = "·";
+      if (i === val.length) t.classList.add("cursor");
+    }
+  });
+
+  const fb = document.getElementById("feedback");
+  if (val.length < target.length || !allGood) {
+    fb.className = "feedback";
+    fb.textContent = "繼續加油… keep going…";
+  }
+
+  if (val === target) {
+    success();
+  }
+}
+
+const PRAISE = [
+  "太棒了！ Great!", "好厲害！ Awesome!", "答對了！ Correct!",
+  "你真聰明！ So smart!", "繼續加油！ Keep it up!", "完美！ Perfect!"
+];
+
+function success() {
+  const sc = SCENES[sceneIndex];
+  const active = sc.blanks[blankCursor];
+  active._filled = true;
+  mastered.add(active.w);
+  completedBlanks++;
+  streak++;
+  document.getElementById("streakText").textContent = "🔥 連續答對 Streak: " + streak;
+
+  const fb = document.getElementById("feedback");
+  fb.className = "feedback good";
+  fb.textContent = "✓ " + PRAISE[Math.floor(Math.random() * PRAISE.length)];
+
+  // advance after a short beat
+  setTimeout(() => {
+    blankCursor++;
+    if (blankCursor >= sc.blanks.length) {
+      // scene done — show next button (renderScene handles it)
+      renderScene();
+    } else {
+      renderScene();
+    }
+  }, 650);
+}
+
+function nextScene() {
+  if (sceneIndex < SCENES.length - 1) {
+    sceneIndex++;
+    blankCursor = 0;
+    renderScene();
+  } else {
+    showFinish();
+  }
+}
+
+function updateProgress() {
+  const pct = Math.round((completedBlanks / TOTAL_BLANKS) * 100);
+  document.getElementById("progressBar").style.width = pct + "%";
+  document.getElementById("progressText").textContent =
+    `第 ${sceneIndex+1} / ${SCENES.length} 頁 · Page ${sceneIndex+1} / ${SCENES.length}`;
+}
+
+function renderPool() {
+  const chips = document.getElementById("chips");
+  if (!chips) return;
+  if (mastered.size === 0) {
+    chips.innerHTML = `<span class="ct" style="color:#c0ad94">還沒有 · none yet — 開始打字吧！</span>`;
+    return;
+  }
+  chips.innerHTML = [...mastered].map(k => {
+    const v = VOCAB[k];
+    const count = seen[k];
+    return `<span class="chip"><b>${v.hanzi}</b><span class="py">${v.pinyin}</span><span class="ct">×${count}</span></span>`;
+  }).join("");
+}
+
+function showFinish() {
+  document.getElementById("progressBar").style.width = "100%";
+  document.getElementById("poolBox").classList.remove("hidden");
+  card.innerHTML = `
+    <div class="finish">
+      <div class="big">🏆📔🌟</div>
+      <h2>暑假日記完成了！</h2>
+      <p>You finished Xiǎo Míng's summer diary!</p>
+      <p>你學會並打出了 <b>${mastered.size}</b> 個生字，<br>
+         一共完成了 <b>${TOTAL_BLANKS}</b> 次拼音打字。</p>
+      <p>You learned <b>${mastered.size}</b> words and typed <b>${TOTAL_BLANKS}</b> pinyin blanks!</p>
+      <button class="btn" id="againBtn">再玩一次 · Play again 🔁</button>
+    </div>`;
+  renderPool();
+  document.getElementById("againBtn").addEventListener("click", () => location.reload());
+}
+
+renderScene();
+</script>
+</body>
+</html>
