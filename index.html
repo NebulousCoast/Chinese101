@@ -79,6 +79,23 @@
   .stage-tag .en{color:#b98a5e;font-weight:800;margin-left:4px}
   .intro{color:#8a7a66;font-size:.92rem;margin:0 0 16px;line-height:1.6}
   .intro .en{display:block;color:#a8967e;font-size:.84rem;margin-top:2px}
+  /* discourse genre banner */
+  .genre{background:#fff7ef;border:1px dashed #e7c9a8;border-radius:12px;padding:8px 12px;margin:0 0 14px;text-align:center}
+  .genre .gi{font-size:1.3rem;margin-right:6px}
+  .genre .gz{font-size:1.05rem;color:var(--accent-dark)}
+  .genre .ge{color:#b98a5e;font-weight:700;margin-left:6px}
+  .genre .gf{font-size:.74rem;color:#a8967e;margin-top:3px}
+  /* open-ended free writing */
+  .open-box{margin-top:6px}
+  #openInput{width:100%;box-sizing:border-box;font-size:1.15rem;padding:12px 14px;border:2px solid var(--accent);
+    border-radius:14px;outline:none;font-family:inherit;letter-spacing:1px}
+  .open-preview{position:relative;min-height:54px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+    gap:2px;font-size:1.9rem;line-height:1.5;margin:12px 0;padding:10px 44px 10px 10px;background:var(--soft);border-radius:14px}
+  .open-preview .oh{color:var(--accent-dark);font-weight:700}
+  .open-preview .op{color:#c9b69d;font-size:1.1rem;align-self:center}
+  .open-preview .ph{color:#bcab94;font-size:.9rem;font-weight:400}
+  .open-preview .say{position:absolute;right:8px;top:50%;transform:translateY(-50%)}
+  .open-tips{font-size:.78rem;color:#a8967e;text-align:center;margin-bottom:12px}
   /* bilingual structure strip: 單字 ▸ 詞語 ▸ 句子 ▸ 問答 */
   .sstrip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;margin-bottom:12px}
   .sstep{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:4px 7px;border-radius:10px;min-width:52px}
@@ -882,10 +899,26 @@ const EXTRA_JUZI=[ // one extra 完整句子 per book (reuses known words)
   [{w:"shijie"},{w:"shang"},"有很多",{w:"meili"},"的",{w:"guojia"},"。"],
   [{w:"wo"},{w:"xiwang"},{w:"weilai"},"能去",{w:"shijie"},"各地。"],
 ];
+/* 篇章 · Discourse capstones — a real genre at the very end of a book, finishing with a
+   free-write the learner answers in pinyin (auto-converted to 漢字). Keyed by book index;
+   easy to extend to more books/genres (童詩, 日記, 新聞, 廣告 …). */
+const DISCOURSE={
+  1:{ name:"階段六 · 篇章", intro:"把學過的字寫成一則『公告』──最後再自己回答一個問題！",
+      genre:{icon:"📢", zh:"公告", en:"Announcement", fmt:"標題 ＋ 時間地點 ＋ 叮嚀 ＋ 署名 · title + when/where + reminder + sign-off"},
+      challenges:[
+        ["📢 ",{w:"xuexiao"},"公告"],
+        ["明天 ",{w:"women"},{w:"qu"},{w:"gongyuan"},"。"],
+        ["早上 ",{w:"women"},"在 ",{w:"xuexiao"},"。"],
+        ["請帶 ",{w:"shui"},{w:"he"},"點心。"],
+        ["王",{w:"laoshi"}," 敬上"],
+        {q:"公園裡，你最想玩什麼？用拼音寫一句話，我幫你變成中文字！", open:true}
+      ] }
+};
 CURRICULUM.forEach((b,bi)=>{
   (ENRICH_CIYU[bi]||[]).forEach(c=>b.stages[1].challenges.push(c));   // more phrases
   if(EXTRA_JUZI[bi]) b.stages[3].challenges.push(EXTRA_JUZI[bi]);     // more sentences
   if(QA[bi]) b.stages.push({ name:"階段五 · 問答 Q&A", intro:"老師問你一個問題，打出一個完整的句子來回答！", challenges:[QA[bi]] });
+  if(DISCOURSE[bi]) b.stages.push(DISCOURSE[bi]);                     // 篇章 capstone (final)
 });
 
 /* =========================================================================
@@ -987,10 +1020,11 @@ CURRICULUM.push({ grade:"數學/生活 · 時間與日期 · Time & dates", titl
 /* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
 const seenTotal={}; const FLAT=[];
 CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
-  const parts = Array.isArray(ch)? ch : ch.parts;
+  const open = (!Array.isArray(ch)) && !!ch.open;
+  const parts = Array.isArray(ch)? ch : (ch.parts||[]);
   const prompt = Array.isArray(ch)? null : ch.q;
   parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
-  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
+  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, open, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
 })));
 const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
@@ -1510,6 +1544,8 @@ function render(){
   const stage=book.stages[item.stageIdx]; const sm=stageMeta(stage.name);
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}${sm.en?` <span style="color:#b98a5e">${sm.en}</span>`:""}`;
 
+  if(item.open){ renderOpenItem(item, book, stage, sm); return; }
+
   let sentence="", wIdx=-1, activeWord=null;
   item.parts.forEach(p=>{
     if(typeof p==="string"){ sentence+=`<span class="lit">${p}</span>`; return; }
@@ -1522,6 +1558,7 @@ function render(){
   let html=stageStrip(book, item.stageIdx);
   html+=`<span class="stage-tag">${stage.name}<span class="en">${sm.en}</span></span>`;
   if(item.stageFirst) html+=`<p class="intro">${stage.intro}${sm.tipEn?`<span class="en">📖 ${sm.tipEn}</span>`:""}</p>`;
+  if(stage.genre) html+=genreBanner(stage.genre);
   if(item.prompt) html+=`<div class="prompt">🗣️ 老師問 Teacher asks：<b>${item.prompt}</b><br><span style="font-size:.8rem">打出完整的答案 · type a full-sentence answer</span></div>`;
   html+=`<div class="sentence">${sentence}</div>`;
 
@@ -1777,6 +1814,7 @@ function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabin
 
 /* ---- Bilingual stage structure: helps the learner see the 單字→詞語→句子→問答 path ---- */
 function stageMeta(name){ name=name||"";
+  if(/篇章/.test(name))      return {zh:"篇章", en:"Discourse",     si:"✍️", tipEn:"write a whole short piece in a real genre"};
   if(/問答|Q&A/.test(name))  return {zh:"問答", en:"Q&A",            si:"💬", tipEn:"answer the teacher in a full sentence"};
   if(/完整句子/.test(name))  return {zh:"完整句子", en:"Full Sentences", si:"📜", tipEn:"build one complete sentence"};
   if(/短句/.test(name))      return {zh:"短句", en:"Short Sentences", si:"🗨️", tipEn:"type short sentences"};
@@ -1807,6 +1845,87 @@ function renderBookIntro(bi,book){
     <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
   refreshSide();
   document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
+}
+
+/* ===== Open-ended writing: a tiny pinyin → 漢字 IME, built from the app's own vocab ===== */
+// High-frequency grammar/pronoun/particle syllables that aren't standalone vocab cards.
+const SUPP={ de:"的", le:"了", ma:"嗎", ne:"呢", ba:"吧", a:"啊", ye:"也", dou:"都",
+  bu:"不", mei:"沒", ta:"他", men:"們", hen:"很", xiang:"想", yao:"要", hui:"會",
+  neng:"能", jiu:"就", hai:"還", zui:"最", gen:"跟", ba_obj:"把", de2:"得", zhe:"這",
+  na:"那", shei:"誰", zenme:"怎麼", weishenme:"為什麼", yinwei:"因為", suoyi:"所以",
+  he:"和", you:"有", shi:"是", zai:"在", wo:"我", ni:"你", hao:"好", wan:"玩",
+  kan:"看", chi:"吃", qu:"去", lai:"來", pao:"跑", tiao:"跳", chang:"唱", xiao:"笑" };
+const PY2HAN={};
+Object.values(VOCAB).forEach(v=>{ if(v&&v.key&&!(v.key in PY2HAN)) PY2HAN[v.key]=v.hanzi; });
+Object.keys(SUPP).forEach(k=>{ const kk=k.replace(/[0-9_].*$/,""); if(!(kk in PY2HAN)) PY2HAN[kk]=SUPP[k]; });
+const MAXKEY=Math.max(8,...Object.keys(PY2HAN).filter(k=>/^[a-z]+$/.test(k)).map(k=>k.length));
+
+// Convert a romanized-pinyin string into 漢字 (greedy longest-match, multi-syllable aware).
+function pinyinToHanzi(raw){
+  const s=(raw||"").toLowerCase()
+    .replace(/[āáǎà]/g,"a").replace(/[ēéěè]/g,"e").replace(/[īíǐì]/g,"i")
+    .replace(/[ōóǒò]/g,"o").replace(/[ūúǔù]/g,"u").replace(/[üǖǘǚǜ]/g,"v")
+    .replace(/[0-9]/g,"");
+  let html="", text="", hanCount=0, i=0;
+  while(i<s.length){
+    const c=s[i];
+    if(!/[a-z]/.test(c)){ if(c===" "){ html+=" "; } else { html+=c; text+=c; } i++; continue; }
+    let j=i; while(j<s.length && /[a-z]/.test(s[j])) j++;
+    const tok=s.slice(i,j); i=j; let k=0;
+    while(k<tok.length){
+      let m=null;
+      for(let L=Math.min(MAXKEY,tok.length-k); L>=1; L--){ const sub=tok.slice(k,k+L); if(sub in PY2HAN){ m={h:PY2HAN[sub],l:L}; break; } }
+      if(m){ html+=`<span class="oh">${m.h}</span>`; text+=m.h; hanCount++; k+=m.l; }
+      else { html+=`<span class="op">${tok[k]}</span>`; text+=tok[k]; k++; }
+    }
+  }
+  return {html, text, hanCount};
+}
+
+function genreBanner(g){ if(!g) return "";
+  return `<div class="genre"><span class="gi">${g.icon}</span><b class="gz">${g.zh}</b><span class="ge">${g.en}</span><div class="gf">${g.fmt}</div></div>`; }
+
+// Render an open-ended free-writing item (no fixed answer — type pinyin, watch it become 中文).
+function renderOpenItem(item, book, stage, sm){
+  let html=stageStrip(book, item.stageIdx);
+  html+=`<span class="stage-tag">${stage.name}<span class="en">${sm.en}</span></span>`;
+  html+=genreBanner(stage.genre);
+  html+=`<div class="prompt">✍️ <b>${item.prompt}</b><br><span style="font-size:.8rem">用拼音打，會自動變成中文字 · type pinyin, it turns into Chinese</span></div>`;
+  html+=`<div class="open-box">
+    <input id="openInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="例如 wo xiang wan… type pinyin" />
+    <div class="open-preview" id="openPreview"><span class="ph">你的句子會出現在這裡 · your sentence appears here</span><button class="say" id="openSay" title="聽聽看 hear it">🔊</button></div>
+    <div class="open-tips">可以用 try：wo · ni · xihuan · wan · pao · tiao · gongyuan · pengyou · hao …</div>
+    <button class="btn" id="openDone" disabled>✓ 完成 Done</button>
+  </div>`;
+  card.innerHTML=html; refreshSide();
+  const inp=document.getElementById("openInput"), prev=document.getElementById("openPreview"),
+        done=document.getElementById("openDone"), say=document.getElementById("openSay");
+  let last="";
+  const upd=()=>{ const r=pinyinToHanzi(inp.value); last=r.text;
+    prev.innerHTML=(r.hanCount?r.html:`<span class="ph">你的句子會出現在這裡 · your sentence appears here</span>`)
+      +`<button class="say" id="openSay" title="聽聽看 hear it">🔊</button>`;
+    document.getElementById("openSay").onclick=()=>{ if(last) speak(last); };
+    done.disabled = r.hanCount===0; };
+  inp.addEventListener("input",upd);
+  inp.addEventListener("keydown",e=>{ if(e.key==="Enter" && !done.disabled){ e.preventDefault(); openDone(last); } });
+  if(say) say.onclick=()=>{ if(last) speak(last); };
+  done.onclick=()=>openDone(last);
+  setTimeout(()=>inp.focus(),30);
+}
+
+// Accept any free-written answer, celebrate, and advance (mirrors success()'s book-end checkpoint).
+function openDone(text){
+  const oldPos=pos;
+  typedWords++; practiceDays.add(dkey(new Date())); bumpQuest();
+  const gained=30; points+=gained; floatPoints("+"+gained); updateHUD();
+  sSentence(); petReact("party");
+  queueToast({e:"✍️", zh:"你自己寫出一句話！＋30", en:"You wrote your own sentence! +30"});
+  wordCursor=0; pos++;
+  const fb=FLAT[oldPos].bookIdx;
+  if(BOOK_END[fb]===oldPos && !checkpointsDone.has(fb) && pos<FLAT.length) pendingCheckpoint=fb;
+  syncPrizes(); updateHUD();
+  if(pos>=FLAT.length){ save(); showFinish(); return; }
+  save(); render();
 }
 
 const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!","你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
