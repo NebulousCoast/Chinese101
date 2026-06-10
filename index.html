@@ -261,7 +261,7 @@
       <span class="crumb" id="crumb"></span>
       <div class="tbtns">
         <button class="mini review" id="reviewBtn">🧠 複習 Review</button>
-        <button class="mini" id="placeBtn">🧭 程度測驗 Placement</button>
+        <button class="mini" id="placeBtn">🧭 我會一些字 Find my level</button>
         <button class="mini" id="soundBtn">🔊</button>
         <button class="mini" id="restartBtn">重新開始 · Restart</button>
       </div>
@@ -1015,7 +1015,7 @@ let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
 let srs={};                 // id -> {box:0..5, due:tick, reps, lapses, intro}
 let srsTick=0;              // global SRS clock (advances on every typed word)
 let sinceReview=0;          // new words since last interleaved review
-let placed=false;           // has the learner taken the placement pre-test?
+let placed=true;            // placement is OPT-IN: new users start at Book 1 and learn
 let firstTry={};            // id -> true if first encounter was error-free (pre signal)
 let bookPre={}, bookPost={};// per-book pre/post accuracy (growth measurement)
 let checkpointsDone=new Set(); // book indices whose post-test has been passed
@@ -1061,7 +1061,7 @@ function load(){ try{
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
   stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
   srs=d.srs||{}; srsTick=d.srsTick||0; sinceReview=d.sinceReview||0;
-  placed=!!d.placed; firstTry=d.firstTry||{}; bookPre=d.bookPre||{}; bookPost=d.bookPost||{};
+  placed=d.placed===undefined ? true : !!d.placed; firstTry=d.firstTry||{}; bookPre=d.bookPre||{}; bookPost=d.bookPost||{};
   checkpointsDone=new Set(d.checkpointsDone||[]);
   if(d.placed===undefined && (d.pos||0)>0) placed=true;   // legacy saves: skip placement
   spent=d.spent||0; boostLeft=d.boostLeft||0; boostMult=d.boostMult||2;
@@ -1494,8 +1494,7 @@ function render(){
   if(mode==="story" && pendingCheckpoint!==null){ const bi=pendingCheckpoint; pendingCheckpoint=null; renderCheckpoint(bi); return; }
   const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
   if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
-  // Spaced-repetition: interleave a due review between new words (at item boundaries).
-  if(mode==="story" && wordCursor===0){ const rid=pickReview(); if(rid){ renderSRSReview(rid); return; } }
+  // Reviews are on-demand only (🧠 Review button) — no forced interleaving in the story.
   const stage=book.stages[item.stageIdx];
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
 
@@ -1619,12 +1618,12 @@ function renderPlacement(){
   if(!plState){
     document.getElementById("crumb").innerHTML=`🧭 程度測驗 · Placement`;
     card.innerHTML=`<div class="interstitial">
-      <div class="big">🧭</div><h2>先找到你的起點！</h2>
-      <p class="intro" style="text-align:center">做個小測驗，看看碩寬從哪一冊開始最剛好。<br>
-      打對 → 換更難的字；打錯或不會 → 換簡單一點。大約 7 題就好！<br>
-      An adaptive quiz finds the right starting book — right answers get harder, misses get easier.</p>
-      <button class="btn" id="plStart">開始測驗 · Start ➜</button>
-      <div><button class="btn ghost" id="plSkip">略過，從第一冊開始 · Skip</button></div></div>`;
+      <div class="big">🧭</div><h2>已經會一些字了嗎？</h2>
+      <p class="intro" style="text-align:center">如果碩寬已經認得一些字，可以做個小測驗，直接跳到適合的一冊。<br>
+      打對 → 換更難的字；打錯或不會 → 換簡單一點。大約 7 題，沒壓力！<br>
+      Optional: if you already know some characters, this quick quiz jumps you to the right book. Otherwise just start at Book 1.</p>
+      <button class="btn" id="plStart">開始測驗 · Start the quiz ➜</button>
+      <div><button class="btn ghost" id="plSkip">不用，從第一冊開始 · No thanks, start at Book 1</button></div></div>`;
     refreshSide();
     document.getElementById("plStart").onclick=()=>{ plState={lo:0,hi:PROBE.length-1,cur:Math.floor((PROBE.length-1)/2),n:0,max:7,right:0,seen:[]}; placementProbe(); };
     document.getElementById("plSkip").onclick=()=>placementDone(0);
@@ -1686,9 +1685,11 @@ function renderCheckpoint(bi){
     <p class="intro" style="text-align:center">考 ${list.length} 個這一冊的字——<b>靠記憶</b>打拼音。<br>
     答對 80% 就拿到「全破徽章」＋獎勵！<br>
     A ${list.length}-word post-test from this book. Hit 80% for the badge and a bonus.</p>
-    <button class="btn" id="cpStart">開始畢業考 · Start ➜</button></div>`;
+    <button class="btn" id="cpStart">開始畢業考 · Start ➜</button>
+    <div><button class="btn ghost" id="cpSkip">下次再考 · Maybe later</button></div></div>`;
   refreshSide();
   document.getElementById("cpStart").onclick=checkpointItem;
+  document.getElementById("cpSkip").onclick=()=>{ checkpointsDone.add(bi); cpState=null; save(); render(); };
 }
 function checkpointItem(){
   const st=cpState; if(!st) return render();
@@ -2008,7 +2009,7 @@ function resetAll(){
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   stats={}; reviewsDone=0; mode="story";
-  srs={}; srsTick=0; sinceReview=0; placed=false; firstTry={}; bookPre={}; bookPost={};
+  srs={}; srsTick=0; sinceReview=0; placed=true; firstTry={}; bookPre={}; bookPost={};
   checkpointsDone=new Set(); pendingCheckpoint=null;
   spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
   ownedThemes=new Set(["classic"]); theme="classic";
@@ -2020,7 +2021,7 @@ function resetAll(){
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
 
 document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
-document.getElementById("placeBtn").addEventListener("click",()=>{ if(confirm("重新做程度測驗，找新的起點？New placement test to re-find your starting book?")){ mode="story"; placed=false; plState=null; cpState=null; pendingCheckpoint=null; render(); } });
+document.getElementById("placeBtn").addEventListener("click",()=>{ if(confirm("已經會一些字了嗎？做個小測驗，幫你跳到適合的一冊。\nAlready know some characters? Take a quick quiz to jump ahead to the right book.")){ mode="story"; placed=false; plState=null; cpState=null; pendingCheckpoint=null; render(); } });
 
 document.getElementById("avatar").addEventListener("click",()=>{
   const sec=[...document.querySelectorAll(".shop-sec")].find(s=>/貼紙簿/.test(s.textContent));
