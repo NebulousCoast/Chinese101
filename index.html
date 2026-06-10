@@ -155,6 +155,64 @@
   .quest .qbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .3s}
   .quest .qtxt{font-size:.8rem;color:#8a7a66;font-weight:700;white-space:nowrap}
   .quest.done .qtxt{color:var(--good)}
+  /* quest board */
+  .qrow{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px dashed var(--line)}
+  .qrow:first-child{border-top:0}
+  .qrow .qe{font-size:1.3rem;width:30px;text-align:center}
+  .qrow .qmid{flex:1}
+  .qrow .qlab{font-size:.82rem;color:#7a6a55;font-weight:700;margin-bottom:3px}
+  .qrow .qbar{height:9px;background:var(--soft);border-radius:99px;overflow:hidden}
+  .qrow .qbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffb066);transition:width .35s}
+  .qrow .qclaim{border:0;border-radius:99px;padding:6px 12px;font-weight:800;cursor:pointer;font-size:.8rem;white-space:nowrap}
+  .qrow .qclaim.ready{background:var(--good);color:#fff;animation:wobble 1s ease-in-out infinite}
+  .qrow .qclaim.wait{background:var(--soft);color:#b3a890;cursor:default}
+  .qrow .qclaim.gotit{background:#eee;color:#9a8;cursor:default}
+  @keyframes wobble{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  /* combo flame */
+  .combo-flag{display:inline-block;margin-top:6px;font-weight:800;color:#ff6a3d;font-size:.95rem;animation:pop .3s ease}
+  /* journey map */
+  .journey{display:flex;gap:0;overflow-x:auto;padding:6px 2px}
+  .jnode{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;width:62px;position:relative}
+  .jnode .jdot{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;background:var(--soft);border:2px solid var(--line);position:relative;z-index:1}
+  .jnode.done .jdot{background:#e9f8ee;border-color:var(--good)}
+  .jnode.cur .jdot{background:#fff2e6;border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,138,61,.18)}
+  .jnode.lock .jdot{opacity:.45}
+  .jnode .jflag{position:absolute;top:-8px;right:8px;font-size:.85rem;z-index:2}
+  .jnode .jlab{font-size:.6rem;color:#9a8a74;margin-top:3px;text-align:center;line-height:1.1}
+  .jnode.cur .jlab{color:var(--accent);font-weight:800}
+  .jnode::before{content:"";position:absolute;top:21px;left:-50%;width:100%;height:3px;background:var(--line)}
+  .jnode:first-child::before{display:none}
+  .jnode.done::before,.jnode.cur::before{background:var(--accent)}
+  .java{position:absolute;top:-20px;font-size:1.1rem;z-index:3}
+  /* tap-to-open chest modal */
+  .modal-back{position:fixed;inset:0;background:rgba(40,28,16,.55);display:flex;align-items:center;justify-content:center;z-index:60;animation:fadein .2s ease}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .chest-card{background:#fff;border-radius:22px;padding:26px 30px;text-align:center;max-width:330px;box-shadow:0 16px 50px rgba(0,0,0,.3)}
+  .chest-emoji{font-size:4.5rem;cursor:pointer;transition:transform .2s;animation:chestbob 1.1s ease-in-out infinite}
+  .chest-emoji:hover{transform:scale(1.06)}
+  .chest-emoji.pop{animation:pop .5s ease;cursor:default}
+  @keyframes chestbob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+  @keyframes pop{0%{transform:scale(.4)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+  /* live pet companion */
+  #petBuddy{position:fixed;right:14px;bottom:14px;width:150px;background:#fff;border:2px solid var(--line);
+    border-radius:18px;padding:10px 10px 8px;box-shadow:0 8px 26px rgba(0,0,0,.16);z-index:40;text-align:center}
+  #petBuddy.hidden{display:none}
+  .pb-bubble{font-size:.72rem;background:var(--soft);border-radius:10px;padding:5px 7px;margin-bottom:5px;color:#6a5a45;font-weight:700;min-height:16px}
+  .pb-pet{font-size:2.7rem;line-height:1;cursor:pointer;transition:transform .15s}
+  .pb-pet.happy{animation:petjump .5s ease}
+  .pb-pet.sad{animation:petshake .4s ease}
+  .pb-pet.party{animation:petspin .7s ease}
+  @keyframes petjump{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px) scale(1.1)}}
+  @keyframes petshake{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+  @keyframes petspin{50%{transform:rotate(360deg) scale(1.15)}}
+  .pb-bar{height:8px;background:#f0e7da;border-radius:99px;overflow:hidden;margin:6px 4px 5px}
+  .pb-bar i{display:block;height:100%;background:linear-gradient(90deg,#ff8a3d,#ffd23d);transition:width .3s}
+  .pb-actions{display:flex;gap:5px;justify-content:center}
+  .pb-actions button{border:0;border-radius:99px;padding:5px 8px;font-size:.72rem;font-weight:800;cursor:pointer;background:var(--accent);color:#fff}
+  .pb-actions button.cant{background:#e7ded2;color:#a99;cursor:default}
+  .pb-actions button.cyc{background:var(--soft);color:#7a6a55}
+  @media(max-width:560px){ #petBuddy{width:118px;right:8px;bottom:8px} }
   /* question prompt + power-ups + say button */
   .prompt{background:#eef4ff;border:1px solid #d4e3ff;border-radius:12px;padding:10px 12px;margin-bottom:10px;
     color:#3b5b8c;font-size:1rem;text-align:center}
@@ -222,6 +280,11 @@
       <div class="stat"><div class="snum" id="przNum">0</div><div class="slab">🎁 獎品 Prizes</div></div>
     </div>
 
+    <div class="panel" id="journeyPanel">
+      <h3>🗺️ 學習地圖 · Journey — 走過 19 冊 across the books</h3>
+      <div class="journey" id="journey"></div>
+    </div>
+
     <div class="card" id="card"></div>
 
     <div class="panel" id="questPanel"></div>
@@ -245,6 +308,16 @@
     <div class="panel">
       <h3>🎁 獎品櫃 · Prize Cabinet — <span id="przFull">0</span></h3>
       <div class="cabinet" id="cabinet"></div>
+    </div>
+  </div>
+
+  <div id="petBuddy" class="hidden">
+    <div class="pb-bubble" id="pbBubble">嗨！一起學中文 🐾</div>
+    <div class="pb-pet" id="pbPet" title="點我 tap me">🐾</div>
+    <div class="pb-bar"><i id="pbFill" style="width:100%"></i></div>
+    <div class="pb-actions">
+      <button id="pbFeed">🍖 餵 15</button>
+      <button id="pbCycle" class="cyc" title="換夥伴 switch">🔁</button>
     </div>
   </div>
 
@@ -962,6 +1035,12 @@ let tokens={hint:0,skip:0,first:0};
 let quest=null;
 let avatar=null;                              // chosen sticker id, e.g. "s12"
 let frame="none";                             // avatar frame, unlocked by level
+/* ---- reward interactivity: companion pet, quest board, combo, chests ---- */
+let activePet=null;                           // companion pet id (from owned `pets`)
+let petHappy=100, petFedAt=Date.now();        // companion happiness + decay anchor
+let combo=0, maxCombo=0;                      // error-free consecutive answers
+let quests=[];                                // daily quest board (array)
+let chestQueue=[];                            // pending tap-to-open reward chests
 const balance=()=>points-spent;               // spendable coins (level uses total `points`)
 
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
@@ -972,7 +1051,8 @@ function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   checkpointsDone:[...checkpointsDone],
   spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
   ownedThemes:[...ownedThemes], theme,
-  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar, frame })); }
+  ownedStickers:[...ownedStickers], pets, tokens, quest, avatar, frame,
+  activePet, petHappy, petFedAt, maxCombo, quests, chestQueue })); }
 function load(){ try{
   const d=JSON.parse(localStorage.getItem(SAVE_KEY)); if(!d) return;
   pos=Math.min(d.pos||0,FLAT.length-1); typedWords=d.typedWords||0; points=d.points||0;
@@ -991,6 +1071,8 @@ function load(){ try{
   pets=d.pets|| (d.pet?{bird:d.pet.stage||0}:{});   // migrate old single pet
   tokens=Object.assign({hint:0,skip:0,first:0}, d.tokens||{}); quest=d.quest||null;
   avatar=d.avatar||null; frame=d.frame||"none";
+  activePet=d.activePet||null; petHappy=d.petHappy==null?100:d.petHappy; petFedAt=d.petFedAt||Date.now();
+  maxCombo=d.maxCombo||0; quests=d.quests||[]; chestQueue=d.chestQueue||[];
   deriveEarned().forEach(id=>prizesEarned.add(id)); // baseline: don't re-celebrate
 }catch(e){} }
 
@@ -1124,7 +1206,7 @@ const POWERUPS=[
   {id:"c_lucky2",e:"🌈", n:"幸運大卡 +10/題 ×10",     cost:180, act:()=>{luckyBonus=10;luckyLeft+=10;}},
   {id:"c_streak",e:"🔥", n:"連勝卡 streak +5",        cost:80,  act:()=>{streak+=5;if(streak>maxStreak)maxStreak=streak;}},
   {id:"c_auto",  e:"🧠", n:"複習卡 auto-hint ×5",     cost:90,  act:()=>autoHintLeft+=5},
-  {id:"c_quest", e:"🎯", n:"任務卡 finish quest",     cost:70,  act:()=>{ensureQuest();if(!quest.claimed){quest.count=quest.goal;quest.claimed=true;points+=QUEST_REWARD;}}},
+  {id:"c_quest", e:"🎯", n:"任務卡 finish a quest",   cost:70,  act:()=>{ensureQuests();const q=quests.find(x=>!x.claimed&&!x.ready);if(q){q.count=q.goal;q.ready=true;}}},
   {id:"c_mystery",e:"🎁",n:"神秘盒 random sticker",   cost:90,  act:()=>{ const left=STICKERS.map((s,i)=>i).filter(i=>!ownedStickers.has("s"+i)); if(left.length){const i=left[Math.floor(Math.random()*left.length)]; ownedStickers.add("s"+i); queueToast({e:STICKERS[i].e,zh:"神秘盒開出 "+STICKERS[i].n+"！",en:"Mystery sticker!"});} }},
   {id:"c_5x",     e:"💫", n:"五倍卡 5× ×3",            cost:250, act:()=>{boostMult=5;boostLeft+=3;}},
   {id:"c_lucky3", e:"🌠", n:"超級幸運 +15/題 ×10",     cost:240, act:()=>{luckyBonus=15;luckyLeft+=10;}},
@@ -1145,7 +1227,7 @@ function afterShop(){ save(); updateHUD(); renderShop(); }
 function buyTheme(t){ const th=THEMES[t]; if(!th||ownedThemes.has(t)||balance()<th.cost) return; spent+=th.cost; ownedThemes.add(t); useTheme(t); celebrateBuy(th.name); afterShop(); }
 function useTheme(t){ if(!ownedThemes.has(t)) return; theme=t; applyTheme(t); afterShop(); }
 function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STICKER_COST) return; spent+=STICKER_COST; ownedStickers.add(id); celebrateBuy(STICKERS[i].e+" "+STICKERS[i].n); afterShop(); }
-function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.e+" "+p.name); afterShop(); }
+function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; if(!activePet) activePet=k; celebrateBuy(p.e+" "+p.name); afterShop(); }
 function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=PET_MAX||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.e+" Lv."+pets[k]); afterShop(); }
 function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
 function avatarEmoji(){ if(avatar){
@@ -1218,12 +1300,132 @@ function speak(text){
 }
 
 /* ---- Daily quest ---- */
-const QUEST_GOAL=10, QUEST_REWARD=50;
-function ensureQuest(){ const t=dkey(new Date());
-  if(!quest||quest.date!==t) quest={date:t, count:0, goal:QUEST_GOAL, claimed:false}; }
-function bumpQuest(){ ensureQuest(); quest.count++;
-  if(quest.count>=quest.goal && !quest.claimed){ quest.claimed=true; points+=QUEST_REWARD;
-    floatPoints("+"+QUEST_REWARD); sPrize(); queueToast({e:"🎯", zh:"每日任務完成！＋"+QUEST_REWARD+"🪙", en:"Daily quest done!"}); } }
+const QUEST_REWARD=50;
+const QUEST_DEFS=[
+  {id:"words",  emoji:"⌨️", zh:"今天打 15 個字", en:"Type 15 words",  goal:15, ev:"word"},
+  {id:"combo",  emoji:"🔥", zh:"連續答對 6 題",   en:"Hit a 6-combo",  goal:6,  ev:"combo"},
+  {id:"review", emoji:"🧠", zh:"複習 5 個字",     en:"Review 5 words", goal:5,  ev:"review"},
+];
+function ensureQuests(){ const t=dkey(new Date());
+  if(!quests.length || quests[0].date!==t)
+    quests=QUEST_DEFS.map(q=>({date:t,id:q.id,count:0,goal:q.goal,ready:false,claimed:false})); }
+function ensureQuest(){ ensureQuests(); }            // back-compat alias
+function questEvent(ev, val){ ensureQuests();
+  quests.forEach((q,i)=>{ const def=QUEST_DEFS[i]; if(def.ev!==ev || q.claimed) return;
+    if(ev==="combo") q.count=Math.max(q.count, val||0); else q.count+=(val||1);
+    if(q.count>=q.goal && !q.ready){ q.ready=true; sPrize();
+      queueToast({e:def.emoji, zh:"任務完成！可以領寶箱 🎁", en:"Quest done — claim your chest!"}); } });
+  renderQuest();
+}
+function bumpQuest(){ questEvent("word",1); }        // every typed word counts
+function claimQuest(i){ ensureQuests(); const q=quests[i]; if(!q||!q.ready||q.claimed) return;
+  q.claimed=true; enqueueChest("quest"); renderQuest(); maybeShowChest(); save(); }
+
+/* ===== Tap-to-open reward chests ===== */
+function enqueueChest(tier){ chestQueue.push(tier); }
+function maybeShowChest(){ if(!chestQueue.length || document.getElementById("chestModal")) return; showChest(chestQueue.shift()); }
+function rollReward(tier){
+  const mul = tier==="book"?2 : tier==="streak"?1.4 : 1;
+  const r=Math.random();
+  // rare pet draw first (book chests luckier)
+  const petChance = tier==="book"?0.16:0.07;
+  const unowned=Object.keys(PETS).filter(k=>pets[k]==null);
+  if(r<petChance && unowned.length){ const k=unowned[Math.floor(Math.random()*unowned.length)];
+    return {kind:"pet", id:k, emoji:PETS[k].e, zh:`新夥伴！${PETS[k].name} 加入了 🎉`, en:`New pet: ${PETS[k].name}!`}; }
+  const stkLeft=STICKERS.map((s,i)=>i).filter(i=>!ownedStickers.has("s"+i));
+  if(r<petChance+0.30 && stkLeft.length){ const i=stkLeft[Math.floor(Math.random()*stkLeft.length)];
+    return {kind:"sticker", id:i, emoji:STICKERS[i].e, zh:`貼紙！${STICKERS[i].n}`, en:`Sticker: ${STICKERS[i].n}!`}; }
+  if(r<petChance+0.50){ const picks=[{k:"hint",e:"💡",n:"提示券"},{k:"first",e:"🔤",n:"首字母券"},{k:"skip",e:"⏭️",n:"跳過券"}];
+    const p=picks[Math.floor(Math.random()*picks.length)]; const amt=tier==="book"?3:1;
+    return {kind:"token", id:p.k, amt, emoji:p.e, zh:`${p.n} ×${amt}！`, en:`${p.n} ×${amt}!`}; }
+  const coins=Math.round((tier==="book"?60:tier==="streak"?40:25) * (0.8+Math.random()*0.8));
+  return {kind:"coins", amt:coins, emoji:"🪙", zh:`${coins} 金幣！`, en:`${coins} coins!`, mul};
+}
+function applyReward(rw){
+  if(rw.kind==="coins") points+=rw.amt;
+  else if(rw.kind==="token") tokens[rw.id]=(tokens[rw.id]||0)+rw.amt;
+  else if(rw.kind==="sticker") ownedStickers.add("s"+rw.id);
+  else if(rw.kind==="pet"){ pets[rw.id]=0; if(!activePet) activePet=rw.id; }
+}
+function showChest(tier){
+  const modal=document.createElement("div"); modal.id="chestModal"; modal.className="modal-back";
+  modal.innerHTML=`<div class="chest-card">
+    <div class="chest-emoji" id="chestEmoji">🎁</div>
+    <h2 id="chestTitle">點一下打開寶箱！</h2>
+    <p class="intro" id="chestSub" style="text-align:center">Tap the chest to open it!</p>
+    <button class="btn" id="chestOpen">打開 · Open</button></div>`;
+  document.body.appendChild(modal);
+  const open=()=>openChest(tier, modal);
+  document.getElementById("chestEmoji").onclick=open;
+  document.getElementById("chestOpen").onclick=open;
+}
+function openChest(tier, modal){
+  const rw=rollReward(tier); applyReward(rw);
+  const em=document.getElementById("chestEmoji"); em.textContent="✨"+rw.emoji+"✨"; em.classList.add("pop"); em.onclick=null;
+  document.getElementById("chestTitle").textContent=rw.zh;
+  document.getElementById("chestSub").textContent=rw.en;
+  const btn=document.getElementById("chestOpen"); btn.textContent="收下 · Collect 🎉";
+  sPrize(); floatPoints("🎁");
+  btn.onclick=()=>{ modal.remove(); refreshSide(); save(); maybeShowChest(); };
+}
+
+/* ===== Live pet companion (reacts, gets hungry, fed with coins) ===== */
+const PET_FEED_COST=15;
+function ownedPetIds(){ return Object.keys(pets).filter(k=>pets[k]!=null); }
+function curHappy(){ // happiness decays ~1 point / 18 min since last fed
+  const hrs=(Date.now()-petFedAt)/3.6e6; return Math.max(0, Math.min(100, Math.round(petHappy - hrs*3.2))); }
+function petStageEmoji(id){ return PETS[id]?PETS[id].e:"🐾"; }
+function renderPetBuddy(){
+  const el=document.getElementById("petBuddy"); if(!el) return;
+  const owned=ownedPetIds();
+  if(!owned.length){ el.classList.add("hidden"); return; }
+  el.classList.remove("hidden");
+  if(!activePet || pets[activePet]==null) activePet=owned[0];
+  const h=curHappy();
+  document.getElementById("pbPet").textContent=petStageEmoji(activePet);
+  document.getElementById("pbFill").style.width=h+"%";
+  const feed=document.getElementById("pbFeed");
+  const canFeed=balance()>=PET_FEED_COST && h<100;
+  feed.className=canFeed?"":"cant"; feed.textContent=`🍖 餵 ${PET_FEED_COST}`;
+  document.getElementById("pbCycle").style.display=owned.length>1?"":"none";
+  const bub=document.getElementById("pbBubble");
+  if(!bub.dataset.sticky){ bub.textContent = h<30?"我肚子餓了…🥺" : h<70?"再打幾個字吧！" : `${PETS[activePet].name} 很開心！`; }
+}
+function petReact(type){
+  const p=document.getElementById("pbPet"); if(!p || document.getElementById("petBuddy").classList.contains("hidden")) return;
+  p.classList.remove("happy","sad","party"); void p.offsetWidth;
+  const bub=document.getElementById("pbBubble");
+  if(type==="party"){ p.classList.add("party"); bub.textContent="升級啦！🎉"; }
+  else if(type==="wrong"){ p.classList.add("sad"); bub.textContent="沒關係，再試一次！"; }
+  else { p.classList.add("happy"); bub.textContent=["好棒！","加油！","你好厲害！","繼續！"][Math.floor(Math.random()*4)]; }
+  bub.dataset.sticky="1"; clearTimeout(petReact._t); petReact._t=setTimeout(()=>{ delete bub.dataset.sticky; renderPetBuddy(); }, 1400);
+}
+function feedBuddy(){ if(balance()<PET_FEED_COST || curHappy()>=100) return;
+  spent+=PET_FEED_COST; petHappy=100; petFedAt=Date.now();
+  const p=document.getElementById("pbPet"); if(p){ p.classList.remove("sad"); p.classList.add("happy"); }
+  const bub=document.getElementById("pbBubble"); bub.textContent="好好吃！謝謝你 😋"; bub.dataset.sticky="1";
+  clearTimeout(petReact._t); petReact._t=setTimeout(()=>{ delete bub.dataset.sticky; renderPetBuddy(); },1400);
+  sCorrect&&sCorrect(); updateHUD(); renderPetBuddy(); save();
+}
+function cycleBuddy(){ const o=ownedPetIds(); if(o.length<2) return;
+  const i=o.indexOf(activePet); activePet=o[(i+1)%o.length]; renderPetBuddy(); save(); }
+
+/* ===== Journey map (avatar walks the 19 books; badges plant flags) ===== */
+function renderJourney(){
+  const el=document.getElementById("journey"); if(!el) return;
+  const curBook = FLAT[Math.min(pos,FLAT.length-1)].bookIdx;
+  el.innerHTML=CURRICULUM.map((b,bi)=>{
+    const done = checkpointsDone.has(bi) || pos>BOOK_END[bi];
+    const cur = bi===curBook && !done;
+    const cls = done?"done":cur?"cur":(bi<=curBook?"":"lock");
+    const dot = (BOOK_EMOJI[bi]||"📘");
+    const flag = checkpointsDone.has(bi)?`<span class="jflag">🏅</span>`:(done?`<span class="jflag">🚩</span>`:"");
+    const av = cur?`<span class="java">${avatarEmoji()}</span>`:"";
+    return `<div class="jnode ${cls}" title="第 ${bi+1} 冊 ${b.title}">${av}${flag}
+      <div class="jdot">${dot}</div><div class="jlab">${bi+1}冊</div></div>`;
+  }).join("");
+  const cur=el.querySelector(".jnode.cur"); if(cur) cur.scrollIntoView({inline:"center",block:"nearest"});
+}
 
 /* ---- Daily-streak calendar ---- */
 function dkey(dt){ return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0"); }
@@ -1397,7 +1599,7 @@ function renderSRSReview(id){
   curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
   wireSayAndPowerups();
   wireInput(v.key, (errs)=>{ recordStat(id, errs); srsUpdate(id, errs); srsTick++; sinceReview=0;
-      bumpQuest(); practiceDays.add(dkey(new Date()));
+      bumpQuest(); questEvent("review",1); practiceDays.add(dkey(new Date())); petReact(errs===0?"correct":"wrong");
       const g=errs===0?10:6; points+=g; floatPoints("+"+g); sCorrect(); updateHUD();
       const fb=document.getElementById("feedback"); fb.className="feedback good";
       fb.textContent=avatarEmoji()+(errs===0?" ✓ 記得很牢！ locked in!":" ✓ 對了！再記一下");
@@ -1513,7 +1715,7 @@ function checkpointDone(){
   bookPre[bi]=Math.round(pre*100); bookPost[bi]=Math.round(post*100);
   const pass=post>=0.8; checkpointsDone.add(bi);
   const oldLevel=levelFromXP(points).level; let bonus=0;
-  if(pass){ bonus=40+bi*5; points+=bonus; prizesEarned.add("book-"+bi); sPrize(); }
+  if(pass){ bonus=40+bi*5; points+=bonus; prizesEarned.add("book-"+bi); sPrize(); enqueueChest("book"); }
   syncPrizes();
   const newLevel=levelFromXP(points).level;
   if(newLevel>oldLevel){ sLevel(); for(let L=oldLevel+1;L<=newLevel;L++) queueToast({e:"⬆️",zh:`升級！等級 ${L}`,en:`Level up! Lv.${L}`}); }
@@ -1557,7 +1759,7 @@ function wireInput(target, onCorrect, onWrong){
   input.focus();
 }
 
-function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); updateAvatar(); }
+function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); renderJourney(); renderPetBuddy(); updateAvatar(); maybeShowChest(); }
 
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
@@ -1575,15 +1777,20 @@ const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correc
 function success(active, errs){
   const oldLevel=levelFromXP(points).level; const oldPos=pos;
   mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
+  if(STREAK_MILES.includes(streak)) enqueueChest("streak");      // milestone → tap-to-open chest
+  if((errs||0)===0){ combo++; if(combo>maxCombo) maxCombo=combo; questEvent("combo",combo); } else combo=0;
   srsUpdate(active.w, errs||0); srsTick++; sinceReview++;
   practiceDays.add(dkey(new Date())); bumpQuest();
+  petReact((errs||0)===0?"correct":"wrong");
   const lvl=hintLevel(active._enc);
   let gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
+  if(combo>=5) gained += Math.min(combo,15);                     // 🔥 combo bonus
+  if(ownedPetIds().length && curHappy()>60) gained += 2;         // 🐾 happy pet cheers you on
   if(luckyLeft>0){ gained+=luckyBonus; luckyLeft--; }    // 🍀 幸運卡
   if(boostLeft>0){ gained*=boostMult; boostLeft--; }     // ✨ 雙倍/三倍卡
   points+=gained; floatPoints("+"+gained); updateHUD();
   const fb=document.getElementById("feedback"); fb.className="feedback good";
-  fb.textContent=avatarEmoji()+" ✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
+  fb.innerHTML=avatarEmoji()+" ✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)]+(combo>=3?` <span class="combo-flag">🔥 連對 ${combo}！</span>`:"");
 
   const item=FLAT[pos];
   const wcount=item.parts.filter(p=>typeof p==="object"&&p.w).length;
@@ -1598,7 +1805,7 @@ function success(active, errs){
       if(BOOK_END[fb]===oldPos && !checkpointsDone.has(fb) && pos<FLAT.length) pendingCheckpoint=fb;
     }
     const newLevel=levelFromXP(points).level;
-    if(newLevel>oldLevel) sLevel();
+    if(newLevel>oldLevel){ sLevel(); petReact("party"); }
     for(let L=oldLevel+1; L<=newLevel; L++) queueToast({e:"⬆️", zh:`升級！等級 ${L}`, en:`Level up! Lv.${L}`});
     syncPrizes(); updateHUD();
     if(pos>=FLAT.length){ save(); showFinish(); return; }
@@ -1640,15 +1847,20 @@ function renderCabinet(){
 }
 
 function renderQuest(){
-  ensureQuest();
+  ensureQuests();
   const el=document.getElementById("questPanel"); if(!el) return;
-  const pct=Math.min(100, Math.round(quest.count/quest.goal*100));
-  const done=quest.claimed;
-  el.innerHTML=`<h3>🎯 每日任務 · Daily Quest</h3>
-    <div class="quest ${done?"done":""}">
-      <div class="qbar"><i style="width:${pct}%"></i></div>
-      <div class="qtxt">${done?`✓ 完成！＋${QUEST_REWARD}🪙`:`今天練習 ${quest.count}/${quest.goal} 題 → ＋${QUEST_REWARD}🪙`}</div>
-    </div>`;
+  const claimable=quests.filter(q=>q.ready&&!q.claimed).length;
+  let html=`<h3>🎯 每日任務 · Daily Quests — 完成領寶箱 claim a chest!${claimable?` <span style="color:var(--good)">（${claimable} 個可領 🎁）</span>`:""}</h3>`;
+  html+=quests.map((q,i)=>{ const def=QUEST_DEFS[i];
+    const pct=Math.min(100, Math.round(q.count/q.goal*100));
+    const btn = q.claimed ? `<button class="qclaim gotit">已領 ✓</button>`
+      : q.ready ? `<button class="qclaim ready" onclick="claimQuest(${i})">領寶箱 🎁</button>`
+      : `<button class="qclaim wait">${q.count}/${q.goal}</button>`;
+    return `<div class="qrow"><div class="qe">${def.emoji}</div>
+      <div class="qmid"><div class="qlab">${def.zh} · ${def.en}</div>
+        <div class="qbar"><i style="width:${pct}%"></i></div></div>${btn}</div>`;
+  }).join("");
+  el.innerHTML=html;
 }
 
 function renderShop(){
@@ -1744,7 +1956,7 @@ function renderQuizItem(){
   document.getElementById("backBtn").onclick=()=>{ finishReview(); };
   wireInput(v.key,
     (errs)=>{ recordStat(id, errs); if(errs===0) quizCorrect++;
-      bumpQuest(); points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
+      bumpQuest(); questEvent("review",1); petReact(errs===0?"correct":"wrong"); points+=8; floatPoints("+8"); practiceDays.add(dkey(new Date())); updateHUD();
       const fb=document.getElementById("feedback"); fb.className="feedback good";
       fb.textContent= avatarEmoji()+(errs===0 ? " ✓ 答對了！ Nailed it!" : " ✓ 對了！(再記一下) Got it!");
       setTimeout(()=>{ quizIdx++; renderQuizItem(); }, 650); },
@@ -1801,6 +2013,7 @@ function resetAll(){
   spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
   ownedThemes=new Set(["classic"]); theme="classic";
   ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null; frame="none";
+  activePet=null; petHappy=100; petFedAt=Date.now(); combo=0; maxCombo=0; quests=[]; chestQueue=[];
   warmedStages.clear(); applyTheme("classic"); updateAvatar();
   render();
 }
@@ -1814,10 +2027,14 @@ document.getElementById("avatar").addEventListener("click",()=>{
   (sec||document.getElementById("shop")).scrollIntoView({behavior:"smooth",block:"center"});
 });
 
+document.getElementById("pbFeed").addEventListener("click", feedBuddy);
+document.getElementById("pbCycle").addEventListener("click", cycleBuddy);
+document.getElementById("pbPet").addEventListener("click", ()=>petReact("correct"));
+
 setupSoundBtn();
-load(); applyTheme(theme); ensureQuest(); updateAvatar();
+load(); applyTheme(theme); ensureQuests(); updateAvatar();
 if("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>{}; }
-render();
+render(); renderJourney(); renderPetBuddy();
 </script>
 </body>
 </html>
