@@ -550,6 +550,35 @@ const VOCAB = {
   cuowu:{hanzi:"錯誤",pinyin:"cuòwù",key:"cuowu",en:"mistake",img:"❌"},
   changshi:{hanzi:"嘗試",pinyin:"chángshì",key:"changshi",en:"to try",img:"🔁"},
   xuexi:{hanzi:"學習",pinyin:"xuéxí",key:"xuexi",en:"to learn",img:"🎓"},
+  /* ----- numbers ----- */
+  yi_one:{hanzi:"一",pinyin:"yī",key:"yi",en:"one",img:"1️⃣"},
+  er:{hanzi:"二",pinyin:"èr",key:"er",en:"two",img:"2️⃣"},
+  san:{hanzi:"三",pinyin:"sān",key:"san",en:"three",img:"3️⃣"},
+  si:{hanzi:"四",pinyin:"sì",key:"si",en:"four",img:"4️⃣"},
+  wu:{hanzi:"五",pinyin:"wǔ",key:"wu",en:"five",img:"5️⃣"},
+  liu:{hanzi:"六",pinyin:"liù",key:"liu",en:"six",img:"6️⃣"},
+  qi:{hanzi:"七",pinyin:"qī",key:"qi",en:"seven",img:"7️⃣"},
+  ba_eight:{hanzi:"八",pinyin:"bā",key:"ba",en:"eight",img:"8️⃣"},
+  jiu_nine:{hanzi:"九",pinyin:"jiǔ",key:"jiu",en:"nine",img:"9️⃣"},
+  shi_ten:{hanzi:"十",pinyin:"shí",key:"shi",en:"ten",img:"🔟"},
+  ling:{hanzi:"零",pinyin:"líng",key:"ling",en:"zero",img:"0️⃣"},
+  ban:{hanzi:"半",pinyin:"bàn",key:"ban",en:"half"},
+  /* ----- time · date · day ----- */
+  jintian:{hanzi:"今天",pinyin:"jīntiān",key:"jintian",en:"today",img:"📅"},
+  mingtian:{hanzi:"明天",pinyin:"míngtiān",key:"mingtian",en:"tomorrow",img:"🌅"},
+  zuotian:{hanzi:"昨天",pinyin:"zuótiān",key:"zuotian",en:"yesterday"},
+  zaoshang:{hanzi:"早上",pinyin:"zǎoshang",key:"zaoshang",en:"morning",img:"🌄"},
+  zhongwu:{hanzi:"中午",pinyin:"zhōngwǔ",key:"zhongwu",en:"noon",img:"🌞"},
+  xiawu:{hanzi:"下午",pinyin:"xiàwǔ",key:"xiawu",en:"afternoon",img:"🌇"},
+  xianzai:{hanzi:"現在",pinyin:"xiànzài",key:"xianzai",en:"now",img:"⏰"},
+  shijian:{hanzi:"時間",pinyin:"shíjiān",key:"shijian",en:"time",img:"⏳"},
+  dian_clock:{hanzi:"點",pinyin:"diǎn",key:"dian",en:"o'clock",img:"🕐"},
+  fen:{hanzi:"分",pinyin:"fēn",key:"fen",en:"minute"},
+  xiaoshi:{hanzi:"小時",pinyin:"xiǎoshí",key:"xiaoshi",en:"hour",img:"🕰️"},
+  xingqi:{hanzi:"星期",pinyin:"xīngqí",key:"xingqi",en:"week",img:"📆"},
+  zhoumo:{hanzi:"週末",pinyin:"zhōumò",key:"zhoumo",en:"weekend",img:"🎉"},
+  nian:{hanzi:"年",pinyin:"nián",key:"nian",en:"year",img:"🎍"},
+  hao_date:{hanzi:"號",pinyin:"hào",key:"hao",en:"date (number)"},
 };
 
 /* =========================================================================
@@ -855,6 +884,19 @@ CURRICULUM.push({ grade:"語文 · 閱讀與寫作 · Language arts", title:"愛
      [{w:"wo"},{w:"yong"},{w:"zidian"},"查生",{w:"zi"},"。"],
      [{w:"xie"},{w:"zuowen"},{w:"yao"},"有開頭",{w:"he"},{w:"duanluo"},"。"]],
     {q:"你最喜歡哪一本書？", parts:["我最喜歡的",{w:"shu"},{w:"shi_be"},{w:"gushi"},{w:"shu"},"，",{w:"yinwei"},{w:"zhujiao"},{w:"hen"},"棒。"]}) });
+
+CURRICULUM.push({ grade:"數學/生活 · 時間與日期 · Time & dates", title:"時間、日期、星期",
+  blurb:"碩寬學會看時鐘、說日期、講星期——還有從一到十的數字！",
+  stages:DISC_STAGES(
+    ["yi_one","er","san","si","wu","liu","qi","ba_eight","jiu_nine","shi_ten","ling","ban"],
+    ["jintian","mingtian","zuotian","zaoshang","zhongwu","xiawu","xianzai","shijian","xingqi","zhoumo","xiaoshi","fen","hao_date","nian"],
+    [[{w:"jintian"},{w:"shi_be"},{w:"xingqi"},{w:"wu"},"。"],
+     [{w:"xianzai"},{w:"shi_be"},{w:"xiawu"},{w:"san"},{w:"dian_clock"},"。"],
+     [{w:"mingtian"},{w:"zaoshang"},{w:"wo"},{w:"yao"},{w:"shang"},{w:"xue"},"。"],
+     [{w:"yi_one"},{w:"nian"},"有",{w:"shi_ten"},{w:"er"},"個",{w:"yue"},"。"],
+     [{w:"zuotian"},{w:"zhongwu"},{w:"wo"},{w:"chi"},"了飯。"],
+     [{w:"zhoumo"},{w:"wo"},{w:"he"},{w:"pengyou"},{w:"yiqi"},{w:"wan"},"。"]],
+    {q:"你幾點起床？", parts:[{w:"wo"},{w:"zaoshang"},{w:"qi"},{w:"dian_clock"},"起床。"]}) });
 
 /* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
 const seenTotal={}; const FLAT=[];
