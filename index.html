@@ -412,6 +412,173 @@ const VOCAB = {
   denglong:{hanzi:"燈籠",pinyin:"dēnglong",key:"denglong",en:"lantern",img:"🏮"},
   tongle:{hanzi:"同樂",pinyin:"tónglè",key:"tongle",en:"have fun together",img:"🎊"},
   meili:{hanzi:"美麗",pinyin:"měilì",key:"meili",en:"beautiful",img:"🌺"},
+  /* ----- connecting words · prepositions · adverbs · particles ----- */
+  de:{hanzi:"的",pinyin:"de",key:"de",en:"(possessive)"},
+  zai_at:{hanzi:"在",pinyin:"zài",key:"zai",en:"at / in"},
+  gen:{hanzi:"跟",pinyin:"gēn",key:"gen",en:"with"},
+  cong:{hanzi:"從",pinyin:"cóng",key:"cong",en:"from"},
+  dao:{hanzi:"到",pinyin:"dào",key:"dao",en:"to / arrive"},
+  gei:{hanzi:"給",pinyin:"gěi",key:"gei",en:"to give"},
+  ba_p:{hanzi:"把",pinyin:"bǎ",key:"ba",en:"(object marker)"},
+  bei:{hanzi:"被",pinyin:"bèi",key:"bei",en:"(passive marker)"},
+  xiang_to:{hanzi:"向",pinyin:"xiàng",key:"xiang",en:"toward"},
+  dui:{hanzi:"對",pinyin:"duì",key:"dui",en:"to / correct"},
+  wei_for:{hanzi:"為",pinyin:"wèi",key:"wei",en:"for"},
+  yinwei:{hanzi:"因為",pinyin:"yīnwèi",key:"yinwei",en:"because"},
+  suoyi:{hanzi:"所以",pinyin:"suǒyǐ",key:"suoyi",en:"so / therefore"},
+  danshi:{hanzi:"但是",pinyin:"dànshì",key:"danshi",en:"but"},
+  keshi:{hanzi:"可是",pinyin:"kěshì",key:"keshi",en:"but"},
+  erqie:{hanzi:"而且",pinyin:"érqiě",key:"erqie",en:"moreover"},
+  ranhou:{hanzi:"然後",pinyin:"ránhòu",key:"ranhou",en:"then"},
+  haiyou:{hanzi:"還有",pinyin:"háiyǒu",key:"haiyou",en:"also / and"},
+  suiran:{hanzi:"雖然",pinyin:"suīrán",key:"suiran",en:"although"},
+  ruguo:{hanzi:"如果",pinyin:"rúguǒ",key:"ruguo",en:"if"},
+  jiu:{hanzi:"就",pinyin:"jiù",key:"jiu",en:"then / just"},
+  dou:{hanzi:"都",pinyin:"dōu",key:"dou",en:"all"},
+  ye:{hanzi:"也",pinyin:"yě",key:"ye",en:"also"},
+  you_again:{hanzi:"又",pinyin:"yòu",key:"you",en:"again"},
+  zai_again:{hanzi:"再",pinyin:"zài",key:"zai",en:"again"},
+  cai:{hanzi:"才",pinyin:"cái",key:"cai",en:"only then"},
+  yijing:{hanzi:"已經",pinyin:"yǐjīng",key:"yijing",en:"already"},
+  zhengzai:{hanzi:"正在",pinyin:"zhèngzài",key:"zhengzai",en:"in the middle of"},
+  yiqi:{hanzi:"一起",pinyin:"yìqǐ",key:"yiqi",en:"together"},
+  bi:{hanzi:"比",pinyin:"bǐ",key:"bi",en:"compare / than"},
+  zui:{hanzi:"最",pinyin:"zuì",key:"zui",en:"most"},
+  hen:{hanzi:"很",pinyin:"hěn",key:"hen",en:"very"},
+  bu:{hanzi:"不",pinyin:"bù",key:"bu",en:"not"},
+  mei:{hanzi:"沒",pinyin:"méi",key:"mei",en:"not have"},
+  hui:{hanzi:"會",pinyin:"huì",key:"hui",en:"can / will"},
+  yao:{hanzi:"要",pinyin:"yào",key:"yao",en:"want / will"},
+  neng:{hanzi:"能",pinyin:"néng",key:"neng",en:"be able to"},
+  keyi:{hanzi:"可以",pinyin:"kěyǐ",key:"keyi",en:"may / can"},
+  /* ----- more verbs ----- */
+  pao:{hanzi:"跑",pinyin:"pǎo",key:"pao",en:"to run",img:"🏃"},
+  tiao:{hanzi:"跳",pinyin:"tiào",key:"tiao",en:"to jump",img:"🦘"},
+  zou:{hanzi:"走",pinyin:"zǒu",key:"zou",en:"to walk",img:"🚶"},
+  zhan:{hanzi:"站",pinyin:"zhàn",key:"zhan",en:"to stand"},
+  zuo_sit:{hanzi:"坐",pinyin:"zuò",key:"zuo",en:"to sit",img:"🪑"},
+  na:{hanzi:"拿",pinyin:"ná",key:"na",en:"to take"},
+  zuo_do:{hanzi:"做",pinyin:"zuò",key:"zuo",en:"to do / make",img:"🛠️"},
+  yong:{hanzi:"用",pinyin:"yòng",key:"yong",en:"to use"},
+  zhao:{hanzi:"找",pinyin:"zhǎo",key:"zhao",en:"to look for",img:"🔎"},
+  fang:{hanzi:"放",pinyin:"fàng",key:"fang",en:"to put"},
+  kaiv:{hanzi:"開",pinyin:"kāi",key:"kai",en:"to open",img:"🔓"},
+  guan:{hanzi:"關",pinyin:"guān",key:"guan",en:"to close"},
+  mai_buy:{hanzi:"買",pinyin:"mǎi",key:"mai",en:"to buy",img:"🛒"},
+  mai_sell:{hanzi:"賣",pinyin:"mài",key:"mai",en:"to sell"},
+  chang:{hanzi:"唱",pinyin:"chàng",key:"chang",en:"to sing",img:"🎤"},
+  tiaowu:{hanzi:"跳舞",pinyin:"tiàowǔ",key:"tiaowu",en:"to dance",img:"💃"},
+  hua_draw:{hanzi:"畫",pinyin:"huà",key:"hua",en:"to draw",img:"🎨"},
+  ting:{hanzi:"聽",pinyin:"tīng",key:"ting",en:"to listen",img:"👂"},
+  zhidao:{hanzi:"知道",pinyin:"zhīdào",key:"zhidao",en:"to know"},
+  renshi:{hanzi:"認識",pinyin:"rènshi",key:"renshi",en:"to know (sb)"},
+  bang:{hanzi:"幫",pinyin:"bāng",key:"bang",en:"to help",img:"🤝"},
+  wen_ask:{hanzi:"問",pinyin:"wèn",key:"wen",en:"to ask",img:"❓"},
+  da_answer:{hanzi:"答",pinyin:"dá",key:"da",en:"to answer"},
+  shui_sleep:{hanzi:"睡",pinyin:"shuì",key:"shui",en:"to sleep",img:"😴"},
+  xi_wash:{hanzi:"洗",pinyin:"xǐ",key:"xi",en:"to wash",img:"🧼"},
+  chuan_wear:{hanzi:"穿",pinyin:"chuān",key:"chuan",en:"to wear",img:"👕"},
+  dai_bring:{hanzi:"帶",pinyin:"dài",key:"dai",en:"to bring"},
+  deng_wait:{hanzi:"等",pinyin:"děng",key:"deng",en:"to wait",img:"⏳"},
+  song:{hanzi:"送",pinyin:"sòng",key:"song",en:"to give / send",img:"🎁"},
+  jie_borrow:{hanzi:"借",pinyin:"jiè",key:"jie",en:"to borrow"},
+  huan:{hanzi:"還",pinyin:"huán",key:"huan",en:"to return"},
+  pa_climb:{hanzi:"爬",pinyin:"pá",key:"pa",en:"to climb",img:"🧗"},
+  fei:{hanzi:"飛",pinyin:"fēi",key:"fei",en:"to fly",img:"🕊️"},
+  youyong:{hanzi:"游泳",pinyin:"yóuyǒng",key:"youyong",en:"to swim",img:"🏊"},
+  /* ----- science 科學 ----- */
+  kexue:{hanzi:"科學",pinyin:"kēxué",key:"kexue",en:"science",img:"🔬"},
+  shiyan:{hanzi:"實驗",pinyin:"shíyàn",key:"shiyan",en:"experiment",img:"🧪"},
+  guancha:{hanzi:"觀察",pinyin:"guānchá",key:"guancha",en:"to observe",img:"🔍"},
+  kongqi:{hanzi:"空氣",pinyin:"kōngqì",key:"kongqi",en:"air",img:"💨"},
+  wendu:{hanzi:"溫度",pinyin:"wēndù",key:"wendu",en:"temperature",img:"🌡️"},
+  zhongzi:{hanzi:"種子",pinyin:"zhǒngzi",key:"zhongzi",en:"seed",img:"🌱"},
+  kunchong:{hanzi:"昆蟲",pinyin:"kūnchóng",key:"kunchong",en:"insect",img:"🐛"},
+  citie:{hanzi:"磁鐵",pinyin:"cítiě",key:"citie",en:"magnet",img:"🧲"},
+  nengliang:{hanzi:"能量",pinyin:"néngliàng",key:"nengliang",en:"energy",img:"⚡"},
+  gen_root:{hanzi:"根",pinyin:"gēn",key:"gen",en:"root",img:"🌿"},
+  yezi:{hanzi:"葉子",pinyin:"yèzi",key:"yezi",en:"leaf",img:"🍃"},
+  zhiwu:{hanzi:"植物",pinyin:"zhíwù",key:"zhiwu",en:"plant",img:"🪴"},
+  /* ----- social studies 社會 ----- */
+  shehui:{hanzi:"社會",pinyin:"shèhuì",key:"shehui",en:"society",img:"🏙️"},
+  guize:{hanzi:"規則",pinyin:"guīzé",key:"guize",en:"rule",img:"📋"},
+  hezuo:{hanzi:"合作",pinyin:"hézuò",key:"hezuo",en:"cooperate",img:"🤝"},
+  linju:{hanzi:"鄰居",pinyin:"línjū",key:"linju",en:"neighbor",img:"🏡"},
+  shequ:{hanzi:"社區",pinyin:"shèqū",key:"shequ",en:"community",img:"🏘️"},
+  shichang:{hanzi:"市場",pinyin:"shìchǎng",key:"shichang",en:"market",img:"🏪"},
+  jingcha:{hanzi:"警察",pinyin:"jǐngchá",key:"jingcha",en:"police",img:"👮"},
+  yisheng:{hanzi:"醫生",pinyin:"yīshēng",key:"yisheng",en:"doctor",img:"🧑‍⚕️"},
+  gongping:{hanzi:"公平",pinyin:"gōngpíng",key:"gongping",en:"fair",img:"⚖️"},
+  zeren:{hanzi:"責任",pinyin:"zérèn",key:"zeren",en:"responsibility"},
+  ziyou:{hanzi:"自由",pinyin:"zìyóu",key:"ziyou",en:"freedom",img:"🕊️"},
+  /* ----- geography 地理 ----- */
+  dili:{hanzi:"地理",pinyin:"dìlǐ",key:"dili",en:"geography",img:"🗺️"},
+  ditu:{hanzi:"地圖",pinyin:"dìtú",key:"ditu",en:"map",img:"🗺️"},
+  fangxiang:{hanzi:"方向",pinyin:"fāngxiàng",key:"fangxiang",en:"direction",img:"🧭"},
+  dong:{hanzi:"東",pinyin:"dōng",key:"dong",en:"east",img:"➡️"},
+  nan:{hanzi:"南",pinyin:"nán",key:"nan",en:"south",img:"⬇️"},
+  xi_west:{hanzi:"西",pinyin:"xī",key:"xi",en:"west",img:"⬅️"},
+  bei_north:{hanzi:"北",pinyin:"běi",key:"bei",en:"north",img:"⬆️"},
+  dao_island:{hanzi:"島",pinyin:"dǎo",key:"dao",en:"island",img:"🏝️"},
+  shamo:{hanzi:"沙漠",pinyin:"shāmò",key:"shamo",en:"desert",img:"🏜️"},
+  senlin:{hanzi:"森林",pinyin:"sēnlín",key:"senlin",en:"forest",img:"🌲"},
+  xiangcun:{hanzi:"鄉村",pinyin:"xiāngcūn",key:"xiangcun",en:"countryside",img:"🌾"},
+  shoudu:{hanzi:"首都",pinyin:"shǒudū",key:"shoudu",en:"capital",img:"🏛️"},
+  qihou:{hanzi:"氣候",pinyin:"qìhòu",key:"qihou",en:"climate",img:"🌦️"},
+  haiyang:{hanzi:"海洋",pinyin:"hǎiyáng",key:"haiyang",en:"ocean",img:"🌊"},
+  /* ----- language arts 語文 ----- */
+  yuwen:{hanzi:"語文",pinyin:"yǔwén",key:"yuwen",en:"language arts",img:"📕"},
+  shi_poem:{hanzi:"詩",pinyin:"shī",key:"shi",en:"poem",img:"📜"},
+  juzi:{hanzi:"句子",pinyin:"jùzi",key:"juzi",en:"sentence",img:"📝"},
+  zuowen:{hanzi:"作文",pinyin:"zuòwén",key:"zuowen",en:"essay",img:"📄"},
+  chengyu:{hanzi:"成語",pinyin:"chéngyǔ",key:"chengyu",en:"idiom",img:"🀄"},
+  zidian:{hanzi:"字典",pinyin:"zìdiǎn",key:"zidian",en:"dictionary",img:"📔"},
+  yuedu:{hanzi:"閱讀",pinyin:"yuèdú",key:"yuedu",en:"reading",img:"📖"},
+  tushuguan:{hanzi:"圖書館",pinyin:"túshūguǎn",key:"tushuguan",en:"library",img:"📚"},
+  duanluo:{hanzi:"段落",pinyin:"duànluò",key:"duanluo",en:"paragraph"},
+  zhujiao:{hanzi:"主角",pinyin:"zhǔjiǎo",key:"zhujiao",en:"main character",img:"🦸"},
+  /* ----- growth mindset 成長 ----- */
+  lianxi:{hanzi:"練習",pinyin:"liànxí",key:"lianxi",en:"to practice",img:"📝"},
+  jinbu:{hanzi:"進步",pinyin:"jìnbù",key:"jinbu",en:"to improve",img:"📈"},
+  shibai:{hanzi:"失敗",pinyin:"shībài",key:"shibai",en:"failure"},
+  chenggong:{hanzi:"成功",pinyin:"chénggōng",key:"chenggong",en:"success",img:"🏆"},
+  jianchi:{hanzi:"堅持",pinyin:"jiānchí",key:"jianchi",en:"to persevere",img:"💪"},
+  naixin:{hanzi:"耐心",pinyin:"nàixīn",key:"naixin",en:"patience"},
+  xinxin:{hanzi:"信心",pinyin:"xìnxīn",key:"xinxin",en:"confidence",img:"😎"},
+  tiaozhan:{hanzi:"挑戰",pinyin:"tiǎozhàn",key:"tiaozhan",en:"challenge",img:"🎯"},
+  xiangxin:{hanzi:"相信",pinyin:"xiāngxìn",key:"xiangxin",en:"to believe"},
+  cuowu:{hanzi:"錯誤",pinyin:"cuòwù",key:"cuowu",en:"mistake",img:"❌"},
+  changshi:{hanzi:"嘗試",pinyin:"chángshì",key:"changshi",en:"to try",img:"🔁"},
+  xuexi:{hanzi:"學習",pinyin:"xuéxí",key:"xuexi",en:"to learn",img:"🎓"},
+  /* ----- numbers ----- */
+  yi_one:{hanzi:"一",pinyin:"yī",key:"yi",en:"one",img:"1️⃣"},
+  er:{hanzi:"二",pinyin:"èr",key:"er",en:"two",img:"2️⃣"},
+  san:{hanzi:"三",pinyin:"sān",key:"san",en:"three",img:"3️⃣"},
+  si:{hanzi:"四",pinyin:"sì",key:"si",en:"four",img:"4️⃣"},
+  wu:{hanzi:"五",pinyin:"wǔ",key:"wu",en:"five",img:"5️⃣"},
+  liu:{hanzi:"六",pinyin:"liù",key:"liu",en:"six",img:"6️⃣"},
+  qi:{hanzi:"七",pinyin:"qī",key:"qi",en:"seven",img:"7️⃣"},
+  ba_eight:{hanzi:"八",pinyin:"bā",key:"ba",en:"eight",img:"8️⃣"},
+  jiu_nine:{hanzi:"九",pinyin:"jiǔ",key:"jiu",en:"nine",img:"9️⃣"},
+  shi_ten:{hanzi:"十",pinyin:"shí",key:"shi",en:"ten",img:"🔟"},
+  ling:{hanzi:"零",pinyin:"líng",key:"ling",en:"zero",img:"0️⃣"},
+  ban:{hanzi:"半",pinyin:"bàn",key:"ban",en:"half"},
+  /* ----- time · date · day ----- */
+  jintian:{hanzi:"今天",pinyin:"jīntiān",key:"jintian",en:"today",img:"📅"},
+  mingtian:{hanzi:"明天",pinyin:"míngtiān",key:"mingtian",en:"tomorrow",img:"🌅"},
+  zuotian:{hanzi:"昨天",pinyin:"zuótiān",key:"zuotian",en:"yesterday"},
+  zaoshang:{hanzi:"早上",pinyin:"zǎoshang",key:"zaoshang",en:"morning",img:"🌄"},
+  zhongwu:{hanzi:"中午",pinyin:"zhōngwǔ",key:"zhongwu",en:"noon",img:"🌞"},
+  xiawu:{hanzi:"下午",pinyin:"xiàwǔ",key:"xiawu",en:"afternoon",img:"🌇"},
+  xianzai:{hanzi:"現在",pinyin:"xiànzài",key:"xianzai",en:"now",img:"⏰"},
+  shijian:{hanzi:"時間",pinyin:"shíjiān",key:"shijian",en:"time",img:"⏳"},
+  dian_clock:{hanzi:"點",pinyin:"diǎn",key:"dian",en:"o'clock",img:"🕐"},
+  fen:{hanzi:"分",pinyin:"fēn",key:"fen",en:"minute"},
+  xiaoshi:{hanzi:"小時",pinyin:"xiǎoshí",key:"xiaoshi",en:"hour",img:"🕰️"},
+  xingqi:{hanzi:"星期",pinyin:"xīngqí",key:"xingqi",en:"week",img:"📆"},
+  zhoumo:{hanzi:"週末",pinyin:"zhōumò",key:"zhoumo",en:"weekend",img:"🎉"},
+  nian:{hanzi:"年",pinyin:"nián",key:"nian",en:"year",img:"🎍"},
+  hao_date:{hanzi:"號",pinyin:"hào",key:"hao",en:"date (number)"},
 };
 
 /* =========================================================================
@@ -635,6 +802,102 @@ CURRICULUM.forEach((b,bi)=>{
   if(QA[bi]) b.stages.push({ name:"階段五 · 問答 Q&A", intro:"老師問你一個問題，打出一個完整的句子來回答！", challenges:[QA[bi]] });
 });
 
+/* =========================================================================
+   DISCIPLINARY BOOKS — beyond the diary: connectors/verbs, science, social
+   studies, geography, growth mindset. Same 單字→詞語→句子→問答 shape.
+   ========================================================================= */
+const DISC_STAGES=(s1,s2,s3,qa)=>[
+  {name:"階段一 · 單字", intro:"先認識這些字。", challenges:s1.map(w=>[{w}])},
+  {name:"階段二 · 詞語", intro:"重要的詞語。", challenges:s2.map(w=>[{w}])},
+  {name:"階段三 · 句子", intro:"把字詞連成句子。", challenges:s3},
+  {name:"階段四 · 問答 Q&A", intro:"用完整的句子回答問題！", challenges:[qa]},
+];
+const NEWBOOKS=[
+  { grade:"語文 · 連接詞與動詞 · Language: connectors & verbs", title:"把句子連起來",
+    blurb:"碩寬學會用「因為、所以、但是」把短句連成長句，也學了好多動作的字。",
+    stages:DISC_STAGES(
+      ["ye","dou","jiu","hen","bu","zai_at","he","gen"],
+      ["yinwei","suoyi","danshi","ranhou","yiqi","yijing"],
+      [["我喜歡",{w:"hua_draw"},"，",{w:"ye"},"喜歡",{w:"chang"},"歌。"],
+       [{w:"yinwei"},"下雨，",{w:"suoyi"},{w:"women"},{w:"zai_at"},{w:"jia"},"。"],
+       ["我先",{w:"xie"},{w:"gongke"},"，",{w:"ranhou"},{w:"zai_again"},{w:"wan"},"。"],
+       [{w:"suiran"},{w:"hen"},"難，",{w:"danshi"},{w:"wo"},{w:"bu"},"放棄。"]],
+      {q:"你週末喜歡做什麼？", parts:["我週末喜歡",{w:"pao"},"步，",{w:"haiyou"},{w:"youyong"},"。"]}) },
+  { grade:"科學 · 自然探索 · Science", title:"小小科學家",
+    blurb:"碩寬最愛問「為什麼」。這一冊，他做實驗、觀察大自然。",
+    stages:DISC_STAGES(
+      ["gen_root","guang","dian","li","shui","huo"],
+      ["kexue","shiyan","guancha","kongqi","wendu","zhiwu","kunchong"],
+      [[{w:"wo"},"喜歡",{w:"zuo_do"},{w:"kexue"},{w:"shiyan"},"。"],
+       [{w:"zhiwu"},"需要",{w:"kongqi"},"、",{w:"shui"},{w:"he"},"陽",{w:"guang"},"。"],
+       [{w:"wo"},{w:"yong"},{w:"citie"},{w:"guancha"},"。"]],
+      {q:"你想觀察什麼？", parts:["我想",{w:"guancha"},{w:"kunchong"},{w:"he"},{w:"zhiwu"},"。"]}) },
+  { grade:"社會 · 我們的生活 · Social studies", title:"生活裡的人",
+    blurb:"碩寬認識社區裡的人，學會合作、守規則，也懂得公平。",
+    stages:DISC_STAGES(
+      ["min","xin","li","ren"],
+      ["shehui","guize","hezuo","linju","jingcha","yisheng","gongping"],
+      [[{w:"women"},{w:"yao"},"遵守",{w:"guize"},"。"],
+       [{w:"linju"},"之間",{w:"yao"},"互相",{w:"bang"},"忙。"],
+       [{w:"jingcha"},{w:"he"},{w:"yisheng"},{w:"dou"},{w:"zai_at"},{w:"bang"},"助",{w:"dajia"},"。"]],
+      {q:"你長大想做什麼工作？", parts:["我想當",{w:"yisheng"},"，",{w:"bang"},"助別人。"]}) },
+  { grade:"地理 · 我們的世界 · Geography", title:"看地圖找方向",
+    blurb:"碩寬翻開地圖，認識東南西北、海洋與森林。",
+    stages:DISC_STAGES(
+      ["dong","nan","xi_west","bei_north","dao_island"],
+      ["dili","ditu","fangxiang","haiyang","senlin","shamo","qihou"],
+      [[{w:"wo"},{w:"yong"},{w:"ditu"},{w:"zhao"},{w:"fangxiang"},"。"],
+       ["台灣",{w:"shi_be"},"一個",{w:"dao_island"},"。"],
+       [{w:"haiyang"},{w:"bi"},{w:"shamo"},{w:"da"},"。"]],
+      {q:"你想去世界的哪裡？", parts:["我想去",{w:"haiyang"},"邊，",{w:"haiyou"},{w:"senlin"},"。"]}) },
+  { grade:"成長 · 我做得到 · Growth mindset", title:"我做得到",
+    blurb:"碩寬學到：失敗沒關係，只要練習、堅持，就會進步、成功。",
+    stages:DISC_STAGES(
+      ["pao","tiao","zou","pa_climb","fei"],
+      ["lianxi","jinbu","chenggong","jianchi","tiaozhan","xinxin","xuexi"],
+      [["多",{w:"lianxi"},{w:"jiu"},{w:"hui"},{w:"jinbu"},"。"],
+       [{w:"suiran"},{w:"shibai"},"，",{w:"danshi"},{w:"wo"},{w:"bu"},"放棄。"],
+       ["只要",{w:"jianchi"},"，",{w:"jiu"},{w:"hui"},{w:"chenggong"},"。"],
+       [{w:"wo"},{w:"xiangxin"},{w:"wo"},{w:"zuo_do"},"得",{w:"dao"},"。"]],
+      {q:"遇到挑戰時你會怎麼做？", parts:["遇到",{w:"tiaozhan"},"，我會",{w:"changshi"},"，",{w:"erqie"},{w:"jianchi"},"。"]}) },
+];
+CURRICULUM.push(...NEWBOOKS);
+
+/* Absorb the rest of the new vocab into drill stages + a language-arts book,
+   so every defined word is actually practiced. */
+const drills=(name,intro,ids)=>({name,intro,challenges:ids.map(w=>[{w}])});
+CURRICULUM[12].stages.push(drills("階段六 · 更多動作 More verbs","多學一些動作的字。",
+  ["zhan","zuo_sit","na","fang","kaiv","guan","mai_buy","mai_sell","tiaowu","ting","zhidao","renshi","wen_ask","da_answer","shui_sleep","xi_wash","chuan_wear","dai_bring","deng_wait","song","jie_borrow","huan"]));
+CURRICULUM[12].stages.push(drills("階段七 · 更多連接詞 More connectors","更多把句子連起來的字。",
+  ["de","cong","gei","ba_p","bei","xiang_to","dui","wei_for","keshi","ruguo","you_again","cai","zhengzai","zui","mei","neng","keyi"]));
+CURRICULUM[13].stages[1].challenges.push([{w:"zhongzi"}],[{w:"nengliang"}],[{w:"yezi"}]);
+CURRICULUM[14].stages[1].challenges.push([{w:"shequ"}],[{w:"shichang"}],[{w:"zeren"}],[{w:"ziyou"}]);
+CURRICULUM[15].stages[1].challenges.push([{w:"xiangcun"}],[{w:"shoudu"}]);
+CURRICULUM[16].stages[1].challenges.push([{w:"naixin"}],[{w:"cuowu"}]);
+CURRICULUM.push({ grade:"語文 · 閱讀與寫作 · Language arts", title:"愛上閱讀",
+  blurb:"碩寬愛上閱讀和寫作，認識成語、詩，還會用字典查生字。",
+  stages:DISC_STAGES(
+    ["shi_poem","zi","shu","du","xie"],
+    ["yuwen","juzi","zuowen","chengyu","zidian","yuedu","tushuguan","duanluo","zhujiao"],
+    [[{w:"wo"},"喜歡",{w:"zai_at"},{w:"tushuguan"},{w:"yuedu"},"。"],
+     ["這個",{w:"gushi"},{w:"de"},{w:"zhujiao"},{w:"hen"},{w:"yonggan"},"。"],
+     [{w:"wo"},{w:"yong"},{w:"zidian"},"查生",{w:"zi"},"。"],
+     [{w:"xie"},{w:"zuowen"},{w:"yao"},"有開頭",{w:"he"},{w:"duanluo"},"。"]],
+    {q:"你最喜歡哪一本書？", parts:["我最喜歡的",{w:"shu"},{w:"shi_be"},{w:"gushi"},{w:"shu"},"，",{w:"yinwei"},{w:"zhujiao"},{w:"hen"},"棒。"]}) });
+
+CURRICULUM.push({ grade:"數學/生活 · 時間與日期 · Time & dates", title:"時間、日期、星期",
+  blurb:"碩寬學會看時鐘、說日期、講星期——還有從一到十的數字！",
+  stages:DISC_STAGES(
+    ["yi_one","er","san","si","wu","liu","qi","ba_eight","jiu_nine","shi_ten","ling","ban"],
+    ["jintian","mingtian","zuotian","zaoshang","zhongwu","xiawu","xianzai","shijian","xingqi","zhoumo","xiaoshi","fen","hao_date","nian"],
+    [[{w:"jintian"},{w:"shi_be"},{w:"xingqi"},{w:"wu"},"。"],
+     [{w:"xianzai"},{w:"shi_be"},{w:"xiawu"},{w:"san"},{w:"dian_clock"},"。"],
+     [{w:"mingtian"},{w:"zaoshang"},{w:"wo"},{w:"yao"},{w:"shang"},{w:"xue"},"。"],
+     [{w:"yi_one"},{w:"nian"},"有",{w:"shi_ten"},{w:"er"},"個",{w:"yue"},"。"],
+     [{w:"zuotian"},{w:"zhongwu"},{w:"wo"},{w:"chi"},"了飯。"],
+     [{w:"zhoumo"},{w:"wo"},{w:"he"},{w:"pengyou"},{w:"yiqi"},{w:"wan"},"。"]],
+    {q:"你幾點起床？", parts:[{w:"wo"},{w:"zaoshang"},{w:"qi"},{w:"dian_clock"},"起床。"]}) });
+
 /* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
 const seenTotal={}; const FLAT=[];
 CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
@@ -657,8 +920,8 @@ const BOOK_EMOJI=["🥉","🥈","🥇","🏆","🌸","📚","🚂","🏮","💖"
 const STREAK_MILES=[5,10,20,30,50], LEVEL_MILES=[3,5,8,12,16], DAILY_MILES=[3,7,14];
 const CATALOG=[];
 CURRICULUM.forEach((b,bi)=>b.stages.forEach((s,si)=>CATALOG.push(
-  {id:`stage-${bi}-${si}`, emoji:STAGE_EMOJI[bi][si]||"🗣️", zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
-CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi], zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
+  {id:`stage-${bi}-${si}`, emoji:(STAGE_EMOJI[bi]||[])[si]||["📘","🔤","🔬","🏙️","🗺️","🌱"][si]||"📘", zh:`${b.title}・${(s.name.split("·")[1]||"").trim()}`, hint:"完成這個階段"})));
+CURRICULUM.forEach((b,bi)=>CATALOG.push({id:`book-${bi}`, emoji:BOOK_EMOJI[bi]||["📕","🔤","🔬","🏙️","🗺️","🌱"][bi-12]||"📘", zh:`第 ${bi+1} 冊 全破`, hint:"完成整本冊"}));
 STREAK_MILES.forEach((n,i)=>CATALOG.push({id:`streak-${n}`, emoji:["🔥","⚡","🌈","💥","🏵️"][i], zh:`連勝 ${n} 題`, hint:`連續答對 ${n} 題`}));
 LEVEL_MILES.forEach((n,i)=>CATALOG.push({id:`level-${n}`, emoji:["🎖️","🏅","👑","💎","🌟"][i], zh:`達到等級 ${n}`, hint:`升到等級 ${n}`}));
 DAILY_MILES.forEach((n,i)=>CATALOG.push({id:`daily-${n}`, emoji:["📅","🗓️","🔥"][i], zh:`連續練習 ${n} 天`, hint:`連續 ${n} 天來練習`}));
@@ -774,14 +1037,27 @@ const STICKERS=[
   {e:"❄️",n:"雪花"},{e:"🔥",n:"火焰"},{e:"💎",n:"鑽石"},{e:"👑",n:"皇冠"},{e:"🎁",n:"禮物"}];
 const STICKER_COST=80;
 
+// 30 collectible animals — adopt, then feed to raise its level (0→5)
 const PETS={
-  bird:{name:"小鳥 Bird",cost:300,stages:["🥚","🐣","🐤","🐥","🐔","🦅"]},
-  cat:{name:"小貓 Cat",cost:300,stages:["🐾","🐱","😸","😻","🐈","🦁"]},
-  dog:{name:"小狗 Dog",cost:300,stages:["🐾","🐶","🐕","🦮","🐕‍🦺","🐺"]},
-  turtle:{name:"烏龜 Turtle",cost:350,stages:["🥚","🐢","🐢","🐊","🐉","🦕"]},
-  dragon:{name:"神龍 Dragon",cost:500,stages:["🥚","🦎","🐍","🐲","🐉","✨"]},
+  dog:{name:"狗 Dog",e:"🐶",cost:250},      cat:{name:"貓 Cat",e:"🐱",cost:250},
+  rabbit:{name:"兔子 Rabbit",e:"🐰",cost:250}, hamster:{name:"倉鼠 Hamster",e:"🐹",cost:250},
+  bear:{name:"熊 Bear",e:"🐻",cost:300},      panda:{name:"熊貓 Panda",e:"🐼",cost:350},
+  koala:{name:"無尾熊 Koala",e:"🐨",cost:300}, tiger:{name:"老虎 Tiger",e:"🐯",cost:350},
+  lion:{name:"獅子 Lion",e:"🦁",cost:350},     cow:{name:"牛 Cow",e:"🐮",cost:250},
+  pig:{name:"豬 Pig",e:"🐷",cost:250},         frog:{name:"青蛙 Frog",e:"🐸",cost:250},
+  monkey:{name:"猴子 Monkey",e:"🐵",cost:300}, chick:{name:"小雞 Chick",e:"🐤",cost:200},
+  penguin:{name:"企鵝 Penguin",e:"🐧",cost:300}, bird:{name:"小鳥 Bird",e:"🐦",cost:200},
+  duck:{name:"鴨子 Duck",e:"🦆",cost:250},     owl:{name:"貓頭鷹 Owl",e:"🦉",cost:300},
+  horse:{name:"馬 Horse",e:"🐴",cost:300},     zebra:{name:"斑馬 Zebra",e:"🦓",cost:350},
+  giraffe:{name:"長頸鹿 Giraffe",e:"🦒",cost:400}, elephant:{name:"大象 Elephant",e:"🐘",cost:400},
+  turtle:{name:"烏龜 Turtle",e:"🐢",cost:300}, snake:{name:"蛇 Snake",e:"🐍",cost:300},
+  octopus:{name:"章魚 Octopus",e:"🐙",cost:350}, fish:{name:"魚 Fish",e:"🐠",cost:200},
+  dolphin:{name:"海豚 Dolphin",e:"🐬",cost:400}, whale:{name:"鯨魚 Whale",e:"🐳",cost:450},
+  fox:{name:"狐狸 Fox",e:"🦊",cost:300},        unicorn:{name:"獨角獸 Unicorn",e:"🦄",cost:500},
+  dragon:{name:"龍 Dragon",e:"🐉",cost:500},
 };
-const PET_FEED=60;
+const PET_FEED=60, PET_MAX=5;
+function petEmoji(id){ return (PETS[id]||{}).e||"🐾"; }
 
 // Power-ups: tokens (used via buttons while typing) + instant cards
 const POWERUPS=[
@@ -800,6 +1076,12 @@ const POWERUPS=[
   {id:"c_auto",  e:"🧠", n:"複習卡 auto-hint ×5",     cost:90,  act:()=>autoHintLeft+=5},
   {id:"c_quest", e:"🎯", n:"任務卡 finish quest",     cost:70,  act:()=>{ensureQuest();if(!quest.claimed){quest.count=quest.goal;quest.claimed=true;points+=QUEST_REWARD;}}},
   {id:"c_mystery",e:"🎁",n:"神秘盒 random sticker",   cost:90,  act:()=>{ const left=STICKERS.map((s,i)=>i).filter(i=>!ownedStickers.has("s"+i)); if(left.length){const i=left[Math.floor(Math.random()*left.length)]; ownedStickers.add("s"+i); queueToast({e:STICKERS[i].e,zh:"神秘盒開出 "+STICKERS[i].n+"！",en:"Mystery sticker!"});} }},
+  {id:"c_5x",     e:"💫", n:"五倍卡 5× ×3",            cost:250, act:()=>{boostMult=5;boostLeft+=3;}},
+  {id:"c_lucky3", e:"🌠", n:"超級幸運 +15/題 ×10",     cost:240, act:()=>{luckyBonus=15;luckyLeft+=10;}},
+  {id:"c_streak10",e:"🔥",n:"連勝大卡 streak +10",     cost:150, act:()=>{streak+=10;if(streak>maxStreak)maxStreak=streak;}},
+  {id:"c_bundle", e:"🧧", n:"大禮包 hint×3 skip×2 first×3",cost:200, act:()=>{tokens.hint+=3;tokens.skip+=2;tokens.first+=3;}},
+  {id:"c_petbag", e:"🃏", n:"寵物福袋 random pet",      cost:250, act:()=>{ const left=Object.keys(PETS).filter(k=>pets[k]==null); if(left.length){const k=left[Math.floor(Math.random()*left.length)]; pets[k]=0; queueToast({e:PETS[k].e,zh:"福袋抽到 "+PETS[k].name+"！",en:"Lucky pet!"});} }},
+  {id:"c_auto10", e:"🧠", n:"複習大卡 auto-hint ×10",  cost:160, act:()=>autoHintLeft+=10},
 ];
 const POWER_BY_ID={}; POWERUPS.forEach(p=>POWER_BY_ID[p.id]=p);
 
@@ -813,14 +1095,19 @@ function afterShop(){ save(); updateHUD(); renderShop(); }
 function buyTheme(t){ const th=THEMES[t]; if(!th||ownedThemes.has(t)||balance()<th.cost) return; spent+=th.cost; ownedThemes.add(t); useTheme(t); celebrateBuy(th.name); afterShop(); }
 function useTheme(t){ if(!ownedThemes.has(t)) return; theme=t; applyTheme(t); afterShop(); }
 function buySticker(i){ const id="s"+i; if(ownedStickers.has(id)||balance()<STICKER_COST) return; spent+=STICKER_COST; ownedStickers.add(id); celebrateBuy(STICKERS[i].e+" "+STICKERS[i].n); afterShop(); }
-function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.stages[0]+" "+p.name); afterShop(); }
-function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=p.stages.length-1||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.stages[pets[k]]+" 長大了！"); afterShop(); }
+function buyPet(k){ const p=PETS[k]; if(!p||pets[k]!=null||balance()<p.cost) return; spent+=p.cost; pets[k]=0; celebrateBuy(p.e+" "+p.name); afterShop(); }
+function feedPet(k){ const p=PETS[k]; if(!p||pets[k]==null||pets[k]>=PET_MAX||balance()<PET_FEED) return; spent+=PET_FEED; pets[k]++; celebrateBuy(p.e+" Lv."+pets[k]); afterShop(); }
 function buyPower(id){ const p=POWER_BY_ID[id]; if(!p||balance()<p.cost) return; spent+=p.cost; p.act(); if(!id.startsWith("c_mystery")) celebrateBuy(p.e+" "+p.n); afterShop(); }
-function avatarEmoji(){ if(avatar!=null){ const i=+avatar.slice(1); if(ownedStickers.has(avatar) && STICKERS[i]) return STICKERS[i].e; } return "🧒"; }
+function avatarEmoji(){ if(avatar){
+    if(avatar.startsWith("p_")){ const id=avatar.slice(2); if(pets[id]!=null) return petEmoji(id); }
+    else if(avatar[0]==="s"){ const i=+avatar.slice(1); if(ownedStickers.has(avatar) && STICKERS[i]) return STICKERS[i].e; }
+  } return "🧒"; }
 function updateAvatar(){ const a=document.getElementById("avatar"); if(!a) return;
   a.textContent=avatarEmoji(); a.className="avatar"+(frame&&frame!=="none"?" f-"+frame:""); }
 function setAvatar(i){ if(!ownedStickers.has("s"+i)) return; avatar="s"+i; save(); updateAvatar(); renderShop();
   queueToast({e:STICKERS[i].e, zh:"換上新頭像！"+STICKERS[i].n, en:"Avatar set!"}); }
+function setPetAvatar(id){ if(pets[id]==null) return; avatar="p_"+id; save(); updateAvatar(); renderShop();
+  queueToast({e:petEmoji(id), zh:"換上新頭像！"+PETS[id].name, en:"Avatar set!"}); }
 
 /* ---- Avatar frames (unlocked by level, not bought) ---- */
 const FRAMES=[
@@ -1183,12 +1470,16 @@ function renderShop(){
   html+=`<div class="shop-sec"><h4>⚡ 道具 Power-ups <span style="color:#b9a78f">— 💡${tokens.hint||0} ⏭️${tokens.skip||0} 🔤${tokens.first||0}${boostLeft>0?` · ✨${boostMult}×剩${boostLeft}`:""}${luckyLeft>0?` · 🍀剩${luckyLeft}`:""}${autoHintLeft>0?` · 🧠剩${autoHintLeft}`:""}</span></h4><div class="shop-row scrollrow">`;
   html+=POWERUPS.map(p=>`<div class="buy ${aff(p.cost)}" onclick="buyPower('${p.id}')"><div class="be">${p.e}</div><div class="bn">${p.n}</div><div class="bc">🪙 ${p.cost}</div></div>`).join("");
   html+=`</div></div>`;
-  // pets (5)
-  html+=`<div class="shop-sec"><h4>🐾 寵物 Pets — ${Object.keys(pets).length}/${Object.keys(PETS).length}</h4><div class="shop-row">`;
+  // pets (30) — collect, feed to level up, and use as avatar
+  const ownedPets=Object.keys(pets).length;
+  html+=`<div class="shop-sec"><h4>🐾 寵物圖鑑 Pet Collection — ${ownedPets}/${Object.keys(PETS).length} <span style="color:#b9a78f;font-weight:400">· 收集動物、餵食升級、設為頭像</span></h4><div class="shop-row scrollrow tall">`;
   html+=Object.entries(PETS).map(([k,p])=>{
-    if(pets[k]==null) return `<div class="buy ${aff(p.cost)}" onclick="buyPet('${k}')"><div class="be">${p.stages[0]}</div><div class="bn">${p.name}<br>領養 adopt</div><div class="bc">🪙 ${p.cost}</div></div>`;
-    const st=pets[k], max=st>=p.stages.length-1;
-    return `<div class="buy ${max?"owned":aff(PET_FEED)}" ${max?"":`onclick="feedPet('${k}')"`}><div class="be">${p.stages[st]}</div><div class="bn">${p.name}<br>第 ${st+1}/${p.stages.length} 階段</div><div class="bc">${max?"已最大🎉":"🍖 餵食 🪙 "+PET_FEED}</div></div>`;
+    if(pets[k]==null) return `<div class="buy ${aff(p.cost)}" onclick="buyPet('${k}')"><div class="be">${p.e}</div><div class="bn">${p.name}</div><div class="bc">🪙 ${p.cost}</div></div>`;
+    const lv=pets[k], max=lv>=PET_MAX, isAv=avatar==="p_"+k;
+    return `<div class="buy owned ${isAv?"avatarpick":""}"><div class="be">${p.e}</div><div class="bn">${p.name}<br>${"⭐".repeat(lv)||"Lv.0"}</div>`+
+      `<div style="display:flex;gap:4px;justify-content:center;margin-top:3px">`+
+      (max?`<span class="bc">滿級✨</span>`:`<button class="pu ${aff(PET_FEED)}" onclick="feedPet('${k}')">🍖${PET_FEED}</button>`)+
+      `<button class="pu" onclick="setPetAvatar('${k}')">${isAv?"頭像✓":"🖼️"}</button></div></div>`;
   }).join("");
   html+=`</div></div>`;
   // avatar frames (unlocked by level)
