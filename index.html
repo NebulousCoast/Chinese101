@@ -203,6 +203,7 @@
       <span class="crumb" id="crumb"></span>
       <div class="tbtns">
         <button class="mini review" id="reviewBtn">🧠 複習 Review</button>
+        <button class="mini" id="placeBtn">🧭 程度測驗 Placement</button>
         <button class="mini" id="soundBtn">🔊</button>
         <button class="mini" id="restartBtn">重新開始 · Restart</button>
       </div>
@@ -937,6 +938,18 @@ let pos=0, wordCursor=0, typedWords=0, points=0, streak=0, maxStreak=0;
 let mastered=new Set(), shownBooks=new Set(), prizesEarned=new Set(), practiceDays=new Set();
 let stats={}, reviewsDone=0;                 // per-word accuracy + review sessions
 let mode="story", quizList=[], quizIdx=0, quizCorrect=0;  // review-mode state
+/* ---- adaptive engine: spaced repetition + placement + checkpoints ---- */
+let srs={};                 // id -> {box:0..5, due:tick, reps, lapses, intro}
+let srsTick=0;              // global SRS clock (advances on every typed word)
+let sinceReview=0;          // new words since last interleaved review
+let placed=false;           // has the learner taken the placement pre-test?
+let firstTry={};            // id -> true if first encounter was error-free (pre signal)
+let bookPre={}, bookPost={};// per-book pre/post accuracy (growth measurement)
+let checkpointsDone=new Set(); // book indices whose post-test has been passed
+let pendingCheckpoint=null; // book index awaiting its post-test
+const SRS_IV=[1,3,8,20,45,100];   // review interval (in ticks) per box
+const NEW_PER_REVIEW=2;           // new words between interleaved due reviews
+const SRS_BACKLOG=8;              // force reviews when this many are overdue
 /* economy + shop */
 let spent=0;
 let boostLeft=0, boostMult=2;                 // 2x/3x points for N words
@@ -955,6 +968,8 @@ function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify({
   pos, typedWords, points, streak, maxStreak,
   mastered:[...mastered], shownBooks:[...shownBooks], prizesEarned:[...prizesEarned],
   practiceDays:[...practiceDays], stats, reviewsDone,
+  srs, srsTick, sinceReview, placed, firstTry, bookPre, bookPost,
+  checkpointsDone:[...checkpointsDone],
   spent, boostLeft, boostMult, luckyLeft, luckyBonus, autoHintLeft,
   ownedThemes:[...ownedThemes], theme,
   ownedStickers:[...ownedStickers], pets, tokens, quest, avatar, frame })); }
@@ -965,6 +980,10 @@ function load(){ try{
   mastered=new Set(d.mastered||[]); shownBooks=new Set(d.shownBooks||[]);
   prizesEarned=new Set(d.prizesEarned||[]); practiceDays=new Set(d.practiceDays||[]);
   stats=d.stats||{}; reviewsDone=d.reviewsDone||0;
+  srs=d.srs||{}; srsTick=d.srsTick||0; sinceReview=d.sinceReview||0;
+  placed=!!d.placed; firstTry=d.firstTry||{}; bookPre=d.bookPre||{}; bookPost=d.bookPost||{};
+  checkpointsDone=new Set(d.checkpointsDone||[]);
+  if(d.placed===undefined && (d.pos||0)>0) placed=true;   // legacy saves: skip placement
   spent=d.spent||0; boostLeft=d.boostLeft||0; boostMult=d.boostMult||2;
   luckyLeft=d.luckyLeft||0; luckyBonus=d.luckyBonus||0; autoHintLeft=d.autoHintLeft||0;
   ownedThemes=new Set(d.ownedThemes||["classic"]); theme=d.theme||"classic";
@@ -982,6 +1001,37 @@ function weakWords(n){
   return [...mastered].map(id=>({id, w:weaknessOf(id), e:(stats[id]||{}).errors||0, s:(stats[id]||{}).seen||0}))
     .sort((a,b)=> b.w-a.w || b.e-a.e || a.s-b.s).slice(0,n);
 }
+
+/* ---- Adaptive engine: spaced-repetition scheduler + placement ---- */
+// First-introduction order → maps each word to the book that teaches it.
+const WORD_BOOK={}, BOOK_WORDS={}, BOOK_START={};
+FLAT.forEach((it,i)=>{ if(BOOK_START[it.bookIdx]===undefined) BOOK_START[it.bookIdx]=i;
+  it.parts.forEach(p=>{ if(typeof p==="object"&&p.w && WORD_BOOK[p.w]===undefined){
+    WORD_BOOK[p.w]=it.bookIdx; (BOOK_WORDS[it.bookIdx]||(BOOK_WORDS[it.bookIdx]=[])).push(p.w); }}); });
+// One representative probe word per book (its first new word) for the placement staircase.
+const PROBE=CURRICULUM.map((_,bi)=>(BOOK_WORDS[bi]||[])[0]).filter(Boolean);
+
+function srsUpdate(id, errs){
+  const s=srs[id]||(srs[id]={box:0,reps:0,lapses:0,intro:true,due:0});
+  s.intro=true; s.reps++;
+  if(errs===0) s.box=Math.min(5,s.box+1);
+  else if(errs>=3){ s.box=Math.max(0,s.box-1); s.lapses++; }
+  s.due=srsTick+SRS_IV[s.box];
+  if(firstTry[id]===undefined) firstTry[id]=(errs===0);
+}
+function srsSeed(id, box){ if(srs[id]) return;
+  srs[id]={box, reps:0, lapses:0, intro:true, due:srsTick+Math.max(1,SRS_IV[box]-2)}; mastered.add(id); }
+function dueQueue(){ return Object.keys(srs).filter(id=>srs[id].intro && srs[id].due<=srsTick && VOCAB[id])
+  .sort((a,b)=> srs[a].due-srs[b].due); }
+// Decide whether the next turn is an interleaved review (and which word) or new material.
+function pickReview(){
+  const due=dueQueue(); if(!due.length) return null;
+  if(due.length>=SRS_BACKLOG) return due[0];          // clear a backlog aggressively
+  if(sinceReview>=NEW_PER_REVIEW) return due[0];        // otherwise space them out
+  return null;
+}
+function bookAccuracy(bi){ const ws=(BOOK_WORDS[bi]||[]); if(!ws.length) return 0;
+  const ok=ws.filter(id=>firstTry[id]).length; return ok/ws.length; }
 
 /* ---- Shop catalogue + purchases (spend coins; level uses lifetime points) ---- */
 function tint(hex,f){ const n=parseInt(hex.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;
@@ -1238,18 +1288,13 @@ const warmedStages=new Set();   // adaptive warm-ups already shown this session
 let curInfo=null;               // {key,pinyin,id} of the active word, for power-ups
 
 function render(){
+  if(mode==="story" && !placed){ renderPlacement(); return; }
+  if(mode==="story" && pendingCheckpoint!==null){ const bi=pendingCheckpoint; pendingCheckpoint=null; renderCheckpoint(bi); return; }
   const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
   if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
+  // Spaced-repetition: interleave a due review between new words (at item boundaries).
+  if(mode==="story" && wordCursor===0){ const rid=pickReview(); if(rid){ renderSRSReview(rid); return; } }
   const stage=book.stages[item.stageIdx];
-  // Adaptive story: warm up your weakest character before the full-sentence stage
-  if(item.stageFirst && item.stageIdx===3){
-    const key=item.bookIdx+"-"+item.stageIdx;
-    if(!warmedStages.has(key)){
-      const weak=weakWords(1)[0];
-      if(weak && weak.w>0){ warmedStages.add(key); renderAdaptive(weak.id); return; }
-      warmedStages.add(key);
-    }
-  }
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
 
   let sentence="", wIdx=-1, activeWord=null;
@@ -1277,7 +1322,7 @@ function render(){
     const v=VOCAB[activeWord.w];
     curInfo={key:v.key, pinyin:v.pinyin, id:activeWord.w, hanzi:v.hanzi};
     wireSayAndPowerups();
-    wireInput(v.key, (errs)=>{ recordStat(activeWord.w, errs); success(activeWord); }, null);
+    wireInput(v.key, (errs)=>{ recordStat(activeWord.w, errs); success(activeWord, errs); }, null);
   }
 }
 
@@ -1339,6 +1384,154 @@ function renderAdaptive(id){
     setTimeout(render, 550); }, null);
 }
 
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* ===== Adaptive: spaced-repetition due review (interleaved into the story) ===== */
+function renderSRSReview(id){
+  const v=VOCAB[id]; const box=(srs[id]||{box:0}).box;
+  document.getElementById("crumb").innerHTML=`🧠 間隔複習 · spaced review`;
+  let html=`<span class="stage-tag" style="background:#eaf3ff;color:#2f6bd6">🧠 間隔複習 Spaced review · 記憶第 ${box+1} 級</span>`;
+  html+=`<p class="intro">這個字到了該複習的時間，打對就把它記得更牢！<br>This word is due — nail it from memory to lock it in.</p>`;
+  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧠 靠記憶打出拼音 · type the pinyin from memory", levelTag:false})}</div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  wireInput(v.key, (errs)=>{ recordStat(id, errs); srsUpdate(id, errs); srsTick++; sinceReview=0;
+      bumpQuest(); practiceDays.add(dkey(new Date()));
+      const g=errs===0?10:6; points+=g; floatPoints("+"+g); sCorrect(); updateHUD();
+      const fb=document.getElementById("feedback"); fb.className="feedback good";
+      fb.textContent=avatarEmoji()+(errs===0?" ✓ 記得很牢！ locked in!":" ✓ 對了！再記一下");
+      save(); setTimeout(render, 600); },
+    (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${v.pinyin}</b>`; } });
+}
+
+/* ===== Adaptive: placement pre-test (binary-search staircase over books) ===== */
+let plState=null;
+function plMeter(cur){
+  let seg="";
+  for(let i=PROBE.length-1;i>=0;i--){ const on=i===cur;
+    seg+=`<div style="height:8px;margin:2px 0;border-radius:4px;background:${on?'var(--accent)':'#ececec'};${on?'box-shadow:0 0 0 3px rgba(255,138,61,.25)':''}"></div>`; }
+  return `<div style="max-width:130px;margin:6px auto"><div class="ct" style="text-align:center;margin-bottom:3px">難 ↑</div>${seg}<div class="ct" style="text-align:center">↓ 易 · 現在試第 ${cur+1} 冊</div></div>`;
+}
+function renderPlacement(){
+  if(!plState){
+    document.getElementById("crumb").innerHTML=`🧭 程度測驗 · Placement`;
+    card.innerHTML=`<div class="interstitial">
+      <div class="big">🧭</div><h2>先找到你的起點！</h2>
+      <p class="intro" style="text-align:center">做個小測驗，看看碩寬從哪一冊開始最剛好。<br>
+      打對 → 換更難的字；打錯或不會 → 換簡單一點。大約 7 題就好！<br>
+      An adaptive quiz finds the right starting book — right answers get harder, misses get easier.</p>
+      <button class="btn" id="plStart">開始測驗 · Start ➜</button>
+      <div><button class="btn ghost" id="plSkip">略過，從第一冊開始 · Skip</button></div></div>`;
+    refreshSide();
+    document.getElementById("plStart").onclick=()=>{ plState={lo:0,hi:PROBE.length-1,cur:Math.floor((PROBE.length-1)/2),n:0,max:7,right:0,seen:[]}; placementProbe(); };
+    document.getElementById("plSkip").onclick=()=>placementDone(0);
+    return;
+  }
+  placementProbe();
+}
+function placementProbe(){
+  const st=plState;
+  if(st.lo>st.hi || st.n>=st.max){ return placementDone(Math.min(st.lo, PROBE.length-1)); }
+  const id=PROBE[st.cur]; const v=VOCAB[id];
+  document.getElementById("crumb").innerHTML=`🧭 程度測驗 · ${st.n+1}/${st.max}`;
+  let html=`<span class="stage-tag" style="background:#eef9f0;color:var(--good)">🧭 程度測驗 Placement · 第 ${st.n+1} 題</span>`;
+  html+=plMeter(st.cur);
+  html+=`<div class="typer">${typerPanel(v, 1, {head:"🧭 你會打這個字的拼音嗎？ know this one?", levelTag:false})}
+    <div style="text-align:center;margin-top:8px"><button class="btn ghost" id="plDunno">🤔 不會這個字 · I don't know</button></div></div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  let answered=false;
+  const advance=(ok)=>{ if(answered) return; answered=true;
+    srsTick++; st.seen.push({id, ok}); if(ok) st.right++;
+    if(ok) st.lo=st.cur+1; else st.hi=st.cur-1;
+    st.cur=Math.max(0, Math.min(PROBE.length-1, Math.floor((st.lo+st.hi)/2))); st.n++;
+    const fb=document.getElementById("feedback"); fb.className="feedback good";
+    fb.textContent= ok?"✓ 太棒了！換難一點…":"沒關係，換簡單一點…";
+    setTimeout(placementProbe, ok?650:450); };
+  wireInput(v.key, ()=>advance(true), null);
+  document.getElementById("plDunno").onclick=()=>advance(false);
+}
+function placementDone(place){
+  place=Math.max(0, Math.min(place, CURRICULUM.length-1));
+  let seeded=0;
+  for(let bi=0; bi<place; bi++){ shownBooks.add(bi); checkpointsDone.add(bi);
+    (BOOK_WORDS[bi]||[]).forEach(id=>{ srsSeed(id,2); if(firstTry[id]===undefined) firstTry[id]=true; seeded++; }); }
+  if(plState) plState.seen.forEach(o=>{ if(o.ok) srsSeed(o.id,3); });
+  typedWords=Math.max(typedWords, seeded);
+  pos=BOOK_START[place]||0; wordCursor=0; placed=true; plState=null;
+  document.getElementById("crumb").innerHTML=`🧭 起點確定 · Placed`;
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">🧭✨</div><h2>找到起點了！</h2>
+    <p class="intro" style="text-align:center">碩寬從 <b>第 ${place+1} 冊</b>「${CURRICULUM[place].title}」開始最剛好！<br>
+    ${place>0?`前面 ${place} 冊的字會放進「間隔複習」，慢慢幫你複習。<br>`:""}
+    Starting at Book ${place+1}${place>0?` — earlier words go into your spaced-review queue.`:`.`}</p>
+    <button class="btn" id="plGo">開始學習 · Start ➜</button></div>`;
+  refreshSide(); save();
+  document.getElementById("plGo").onclick=render;
+}
+
+/* ===== Adaptive: per-book post-test checkpoint (measures pre→post growth) ===== */
+let cpState=null;
+function renderCheckpoint(bi){
+  const pool=(BOOK_WORDS[bi]||[]); const list=shuffle(pool).slice(0, Math.min(8, pool.length));
+  if(!list.length){ checkpointsDone.add(bi); return render(); }
+  cpState={bi, list, idx:0, correct:0, missed:[]};
+  document.getElementById("crumb").innerHTML=`🎓 畢業考 · Book ${bi+1} checkpoint`;
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">${BOOK_EMOJI[bi]||"🎓"}📝</div><h2>第 ${bi+1} 冊 畢業考！</h2>
+    <p class="intro" style="text-align:center">考 ${list.length} 個這一冊的字——<b>靠記憶</b>打拼音。<br>
+    答對 80% 就拿到「全破徽章」＋獎勵！<br>
+    A ${list.length}-word post-test from this book. Hit 80% for the badge and a bonus.</p>
+    <button class="btn" id="cpStart">開始畢業考 · Start ➜</button></div>`;
+  refreshSide();
+  document.getElementById("cpStart").onclick=checkpointItem;
+}
+function checkpointItem(){
+  const st=cpState; if(!st) return render();
+  if(st.idx>=st.list.length) return checkpointDone();
+  const id=st.list[st.idx]; const v=VOCAB[id];
+  document.getElementById("crumb").innerHTML=`🎓 畢業考 · ${st.idx+1}/${st.list.length}`;
+  let html=`<div class="quiz-head"><span class="quiz-tag" style="background:#fff0d6;color:#b06f00">🎓 畢業考 ${st.idx+1}/${st.list.length}</span><span class="ct" style="color:#9b8a74">✓ ${st.correct}</span></div>`;
+  html+=`<div class="typer">${typerPanel(v,1,{head:"🎓 靠記憶打出拼音 · from memory",levelTag:false})}
+    <div style="text-align:center;margin-top:8px"><button class="btn ghost" id="cpDunno">🤔 不會 · skip</button></div></div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  let done=false;
+  const adv=(ok)=>{ if(done) return; done=true; const e=ok?0:3;
+    recordStat(id, e); srsUpdate(id, e); srsTick++;
+    if(ok) st.correct++; else { st.missed.push(id); if(srs[id]){ srs[id].box=0; srs[id].due=srsTick; } }
+    st.idx++; setTimeout(checkpointItem, ok?550:350); };
+  wireInput(v.key, ()=>adv(true), (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${v.pinyin}</b>`; } });
+  document.getElementById("cpDunno").onclick=()=>adv(false);
+}
+function checkpointDone(){
+  const st=cpState; const bi=st.bi;
+  const post=st.list.length?st.correct/st.list.length:0; const pre=bookAccuracy(bi);
+  bookPre[bi]=Math.round(pre*100); bookPost[bi]=Math.round(post*100);
+  const pass=post>=0.8; checkpointsDone.add(bi);
+  const oldLevel=levelFromXP(points).level; let bonus=0;
+  if(pass){ bonus=40+bi*5; points+=bonus; prizesEarned.add("book-"+bi); sPrize(); }
+  syncPrizes();
+  const newLevel=levelFromXP(points).level;
+  if(newLevel>oldLevel){ sLevel(); for(let L=oldLevel+1;L<=newLevel;L++) queueToast({e:"⬆️",zh:`升級！等級 ${L}`,en:`Level up! Lv.${L}`}); }
+  const growth=bookPost[bi]-bookPre[bi];
+  document.getElementById("crumb").innerHTML=`🎓 畢業考完成 · checkpoint done`;
+  card.innerHTML=`<div class="interstitial">
+    <div class="big">${pass?(BOOK_EMOJI[bi]||"🎓")+"🏅":"💪"}</div>
+    <h2>${pass?`第 ${bi+1} 冊 全破！`:`差一點點！`}</h2>
+    <p class="intro" style="text-align:center">
+      畢業考答對 <b>${bookPost[bi]}%</b>（${st.correct}/${st.list.length}）。<br>
+      ${pre>0?`學的時候第一次就對 ${bookPre[bi]}% → 現在 ${bookPost[bi]}%${growth>0?`，進步了 <b>+${growth}%</b>！📈`:"，保持得很好！"}<br>`:""}
+      ${pass?`你拿到「全破徽章」${BOOK_EMOJI[bi]||"🎓"} ＋ <b>${bonus}</b> 🪙！`:`沒打對的字會放回複習裡，下次更強！`}</p>
+    <p class="intro" style="text-align:center">Post-test ${bookPost[bi]}%${pre>0?` · was ${bookPre[bi]}% while learning`:""}. ${pass?`Badge + ${bonus} coins!`:`Missed words re-queued.`}</p>
+    <button class="btn" id="cpGo">${pass?"前往下一冊 · Next book ➜":"繼續 · Keep going ➜"}</button></div>`;
+  refreshSide(); cpState=null; save();
+  document.getElementById("cpGo").onclick=render;
+}
+
 /* Shared typing widget: colours tiles, plays sounds, counts wrong keystrokes.
    onCorrect(errs) fires when the word is typed; onWrong(errs) fires per miss. */
 function wireInput(target, onCorrect, onWrong){
@@ -1379,9 +1572,10 @@ function renderBookIntro(bi,book){
 
 const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!","你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
 
-function success(active){
-  const oldLevel=levelFromXP(points).level;
+function success(active, errs){
+  const oldLevel=levelFromXP(points).level; const oldPos=pos;
   mastered.add(active.w); typedWords++; streak++; if(streak>maxStreak) maxStreak=streak;
+  srsUpdate(active.w, errs||0); srsTick++; sinceReview++;
   practiceDays.add(dkey(new Date())); bumpQuest();
   const lvl=hintLevel(active._enc);
   let gained = 10 + (lvl===1?8:lvl===2?4:0) + Math.min(streak,10);
@@ -1399,6 +1593,9 @@ function success(active){
     if(wordCursor>=wcount){
       if(wcount>1){ points+=15; sSentence(); queueToast({e:"📝", zh:"句子完成！＋15", en:"Sentence complete! +15"}); }
       wordCursor=0; pos++;
+      // Finished the last item of a book → schedule its post-test checkpoint.
+      const fb=item.bookIdx;
+      if(BOOK_END[fb]===oldPos && !checkpointsDone.has(fb) && pos<FLAT.length) pendingCheckpoint=fb;
     }
     const newLevel=levelFromXP(points).level;
     if(newLevel>oldLevel) sLevel();
@@ -1599,6 +1796,8 @@ function resetAll(){
   pos=0; wordCursor=0; typedWords=0; points=0; streak=0; maxStreak=0;
   mastered=new Set(); shownBooks=new Set(); prizesEarned=new Set(); practiceDays=new Set();
   stats={}; reviewsDone=0; mode="story";
+  srs={}; srsTick=0; sinceReview=0; placed=false; firstTry={}; bookPre={}; bookPost={};
+  checkpointsDone=new Set(); pendingCheckpoint=null;
   spent=0; boostLeft=0; boostMult=2; luckyLeft=0; luckyBonus=0; autoHintLeft=0;
   ownedThemes=new Set(["classic"]); theme="classic";
   ownedStickers=new Set(); pets={}; tokens={hint:0,skip:0,first:0}; quest=null; avatar=null; frame="none";
@@ -1608,6 +1807,7 @@ function resetAll(){
 document.getElementById("restartBtn").addEventListener("click",()=>{ if(confirm("重新開始？會清除進度（每日紀錄保留）。Restart and clear progress?")){ const pd=[...practiceDays]; resetAll(); practiceDays=new Set(pd); save(); renderCalendar(); } });
 
 document.getElementById("reviewBtn").addEventListener("click",()=>{ if(mode!=="quiz") startReview(); });
+document.getElementById("placeBtn").addEventListener("click",()=>{ if(confirm("重新做程度測驗，找新的起點？New placement test to re-find your starting book?")){ mode="story"; placed=false; plState=null; cpState=null; pendingCheckpoint=null; render(); } });
 
 document.getElementById("avatar").addEventListener("click",()=>{
   const sec=[...document.querySelectorAll(".shop-sec")].find(s=>/貼紙簿/.test(s.textContent));
