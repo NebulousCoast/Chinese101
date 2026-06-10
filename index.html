@@ -76,7 +76,19 @@
     box-shadow:0 18px 40px -22px rgba(150,90,20,.5);border:1px solid var(--line)}
   .stage-tag{display:inline-block;background:var(--soft);color:var(--accent-dark);font-weight:700;
     font-size:.8rem;border-radius:8px;padding:2px 10px;margin-bottom:8px}
+  .stage-tag .en{color:#b98a5e;font-weight:800;margin-left:4px}
   .intro{color:#8a7a66;font-size:.92rem;margin:0 0 16px;line-height:1.6}
+  .intro .en{display:block;color:#a8967e;font-size:.84rem;margin-top:2px}
+  /* bilingual structure strip: 單字 ▸ 詞語 ▸ 句子 ▸ 問答 */
+  .sstrip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;margin-bottom:12px}
+  .sstep{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:4px 7px;border-radius:10px;min-width:52px}
+  .sstep b{font-size:.82rem;color:#9a8a74;font-weight:800}
+  .sstep span{font-size:.6rem;color:#bcab94}
+  .sstep .si{font-size:1rem}
+  .sstep.on{background:var(--soft)}
+  .sstep.on b{color:var(--accent-dark)} .sstep.on span{color:var(--accent);font-weight:700}
+  .sstep.past b,.sstep.past .si{opacity:.5} .sstep.past span{opacity:.5}
+  .sar{color:#d8c8b2;font-weight:800;font-size:.8rem}
 
   .sentence{font-size:1.7rem;line-height:2.5;letter-spacing:1px;text-align:center;margin:6px 0 4px}
   .sentence .lit{color:var(--lit)}
@@ -1495,8 +1507,8 @@ function render(){
   const item=FLAT[pos]; const book=CURRICULUM[item.bookIdx];
   if(item.bookFirst && !shownBooks.has(item.bookIdx)){ renderBookIntro(item.bookIdx,book); return; }
   // Reviews are on-demand only (🧠 Review button) — no forced interleaving in the story.
-  const stage=book.stages[item.stageIdx];
-  document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}`;
+  const stage=book.stages[item.stageIdx]; const sm=stageMeta(stage.name);
+  document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}${sm.en?` <span style="color:#b98a5e">${sm.en}</span>`:""}`;
 
   let sentence="", wIdx=-1, activeWord=null;
   item.parts.forEach(p=>{
@@ -1507,9 +1519,10 @@ function render(){
     else sentence+=`<span class="w-future">${v.hanzi}</span>`;
   });
 
-  let html=`<span class="stage-tag">${stage.name}</span>`;
-  if(item.stageFirst) html+=`<p class="intro">${stage.intro}</p>`;
-  if(item.prompt) html+=`<div class="prompt">🗣️ 老師問：<b>${item.prompt}</b><br><span style="font-size:.8rem">打出完整的答案 · type a full-sentence answer</span></div>`;
+  let html=stageStrip(book, item.stageIdx);
+  html+=`<span class="stage-tag">${stage.name}<span class="en">${sm.en}</span></span>`;
+  if(item.stageFirst) html+=`<p class="intro">${stage.intro}${sm.tipEn?`<span class="en">📖 ${sm.tipEn}</span>`:""}</p>`;
+  if(item.prompt) html+=`<div class="prompt">🗣️ 老師問 Teacher asks：<b>${item.prompt}</b><br><span style="font-size:.8rem">打出完整的答案 · type a full-sentence answer</span></div>`;
   html+=`<div class="sentence">${sentence}</div>`;
 
   if(activeWord){
@@ -1762,12 +1775,35 @@ function wireInput(target, onCorrect, onWrong){
 
 function refreshSide(){ updateHUD(); updateProgress(); renderPool(); renderCabinet(); renderCalendar(); renderShop(); renderQuest(); renderJourney(); renderPetBuddy(); updateAvatar(); maybeShowChest(); }
 
+/* ---- Bilingual stage structure: helps the learner see the 單字→詞語→句子→問答 path ---- */
+function stageMeta(name){ name=name||"";
+  if(/問答|Q&A/.test(name))  return {zh:"問答", en:"Q&A",            si:"💬", tipEn:"answer the teacher in a full sentence"};
+  if(/完整句子/.test(name))  return {zh:"完整句子", en:"Full Sentences", si:"📜", tipEn:"build one complete sentence"};
+  if(/短句/.test(name))      return {zh:"短句", en:"Short Sentences", si:"🗨️", tipEn:"type short sentences"};
+  if(/句子/.test(name))      return {zh:"句子", en:"Sentences",      si:"💬", tipEn:"connect words into a sentence"};
+  if(/詞語/.test(name))      return {zh:"詞語", en:"Words",          si:"🧩", tipEn:"characters join into words"};
+  if(/單字/.test(name))      return {zh:"單字", en:"Characters",     si:"🔤", tipEn:"learn one character at a time"};
+  return {zh:name, en:"", si:"📘", tipEn:""};
+}
+function stageStrip(book, curIdx){
+  return `<div class="sstrip">`+book.stages.map((s,i)=>{ const m=stageMeta(s.name);
+    const cls=i===curIdx?"on":i<curIdx?"past":"";
+    return `<span class="sstep ${cls}"><span class="si">${m.si}</span><b>${m.zh}</b><span>${m.en}</span></span>`
+      +(i<book.stages.length-1?`<span class="sar">▸</span>`:"");
+  }).join("")+`</div>`;
+}
+
 function renderBookIntro(bi,book){
   document.getElementById("crumb").innerHTML=`第 ${bi+1} 冊`;
   card.innerHTML=`<div class="interstitial">
     <div class="big">📖</div><div class="grade">${book.grade}</div>
     <h2>第 ${bi+1} 冊：${book.title}</h2>
     <p class="intro" style="text-align:center">${book.blurb}</p>
+    <p class="intro" style="text-align:center;margin-bottom:6px"><b>這一冊怎麼學 · How this book works</b></p>
+    ${stageStrip(book, -1)}
+    <p class="intro" style="text-align:center;font-size:.82rem;color:#a8967e">
+      一關一關往前：先單字，再組成詞語、句子，最後回答問題。<br>
+      Step by step: characters → words → sentences → answering questions.</p>
     <button class="btn" id="startBook">開始 · Start ➜</button></div>`;
   refreshSide();
   document.getElementById("startBook").addEventListener("click",()=>{ shownBooks.add(bi); save(); render(); });
