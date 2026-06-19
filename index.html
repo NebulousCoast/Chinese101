@@ -96,6 +96,29 @@
   .open-preview .ph{color:#bcab94;font-size:.9rem;font-weight:400}
   .open-preview .say{position:absolute;right:8px;top:50%;transform:translateY(-50%)}
   .open-tips{font-size:.78rem;color:#a8967e;text-align:center;margin-bottom:12px}
+  /* reading passage */
+  .reading{background:var(--soft);border-radius:16px;padding:16px 18px;margin:4px 0 14px}
+  .read-title{font-weight:800;color:var(--accent-dark);text-align:center;margin-bottom:10px;font-size:1.05rem}
+  .read-line{text-align:center;margin:8px 0}
+  .read-line .rl-han{display:block;font-size:1.5rem;line-height:1.7;color:var(--ink)}
+  .read-line .rl-py{display:block;font-size:.8rem;color:#b08a5e;letter-spacing:.5px}
+  .blankslot{color:var(--accent);font-weight:800;border-bottom:3px solid var(--accent);padding:0 6px}
+  /* multiple choice */
+  .mcq-hanzi{font-size:2.2rem;text-align:center;margin:6px 0 12px;color:var(--ink)}
+  .mcq-opts{display:flex;flex-direction:column;gap:10px;margin:6px 0}
+  .mcq-opt{font-size:1.1rem;padding:14px 16px;border:2px solid #eaddca;border-radius:14px;background:#fff;cursor:pointer;font-family:inherit;transition:.15s;text-align:left}
+  .mcq-opt:hover:not(:disabled){border-color:var(--accent);background:var(--soft)}
+  .mcq-opt.ok{border-color:var(--good);background:#eaf9ee;font-weight:700}
+  .mcq-opt.no{border-color:var(--bad);background:#fdeceb;opacity:.65}
+  .mcq-opt:disabled{cursor:default}
+  /* match */
+  .match-grid{display:flex;gap:14px;justify-content:center;margin:8px 0}
+  .match-col{display:flex;flex-direction:column;gap:10px;flex:1;max-width:180px}
+  .match-cell{padding:14px;font-size:1.5rem;border:2px solid #eaddca;border-radius:14px;background:#fff;cursor:pointer;font-family:inherit;transition:.12s}
+  .match-cell.py{font-size:1.1rem;color:#b08a5e}
+  .match-cell.sel{border-color:var(--accent);background:var(--soft);transform:scale(1.03)}
+  .match-cell.ok,.match-cell.done{border-color:var(--good);background:#eaf9ee;cursor:default}
+  .match-cell.no{border-color:var(--bad);background:#fdeceb}
   /* bilingual structure strip: 單字 ▸ 詞語 ▸ 句子 ▸ 問答 */
   .sstrip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;margin-bottom:12px}
   .sstep{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:4px 7px;border-radius:10px;min-width:52px}
@@ -911,6 +934,39 @@ const DISCOURSE={
         ["請帶 ",{w:"shui"},{w:"he"},"點心。"],
         ["王",{w:"laoshi"}," 敬上"],
         {q:"公園裡，你最想玩什麼？用拼音寫一句話，我幫你變成中文字！", open:true}
+      ] },
+  // Diary: read a whole entry made of words from earlier books, then practise.
+  3:{ name:"階段六 · 篇章", intro:"讀碩寬的一篇日記，再玩幾個小遊戲！",
+      genre:{icon:"📔", zh:"日記", en:"Diary", fmt:"日期 ＋ 今天做了什麼 ＋ 心情 · date + what you did + how you felt"},
+      challenges:[
+        {type:"read", title:"碩寬的日記 · A diary page", lines:[
+          ["六月十六日 ☀️"],
+          ["今天，",{w:"wo"},{w:"qu"},{w:"xuexiao"},"。"],
+          [{w:"wo"},{w:"he"},{w:"pengyou"},{w:"yiqi"},{w:"wan"},"。"],
+          [{w:"huijia"},"以後，",{w:"wo"},{w:"xie"},"日記。"],
+          ["今天",{w:"hen"},{w:"kaixin"},"！"]
+        ]},
+        {type:"blank", parts:["今天，",{w:"wo"},{w:"qu"},{blank:"xuexiao"},"。"]},
+        {type:"mcq", q:"日記裡，碩寬今天心情怎麼樣？ How did he feel today?",
+          options:[{t:"😄 開心 happy", ok:true},{t:"😢 難過 sad"},{t:"😴 很累 tired"}]},
+        {q:"你今天做了什麼？寫一句日記！用拼音打。", open:true}
+      ] },
+  // Poem: a four-season 童詩 woven from nature words, then match / blank / choice.
+  4:{ name:"階段六 · 篇章", intro:"讀一首四季小詩，再玩幾個小遊戲！",
+      genre:{icon:"🍃", zh:"童詩", en:"Poem", fmt:"短短的句子，有畫面、有節奏 · short lines, imagery & rhythm"},
+      challenges:[
+        {type:"read", title:"四季 · The Four Seasons", lines:[
+          [{w:"chuntian"},"，",{w:"hua"},"開了。"],
+          [{w:"xiatian"},"，",{w:"yu"},"來了。"],
+          [{w:"qiutian"},"，",{w:"yue"},"圓了。"],
+          [{w:"dongtian"},"，",{w:"feng"},"冷了。"],
+          [{w:"niao"},"在",{w:"tian"},{w:"shang"},"飛。"]
+        ]},
+        {type:"match", ids:["chuntian","xiatian","qiutian","dongtian"]},
+        {type:"blank", parts:[{w:"chuntian"},"，",{blank:"hua"},"開了。"]},
+        {type:"mcq", q:"這首詩裡，鳥在哪裡飛？ Where do the birds fly?",
+          options:[{t:"🌤️ 天上 in the sky", ok:true},{t:"🌊 水裡 in the water"},{t:"🏠 家裡 at home"}]},
+        {q:"你最喜歡哪一個季節？用拼音寫一句！", open:true}
       ] }
 };
 CURRICULUM.forEach((b,bi)=>{
@@ -1016,14 +1072,24 @@ CURRICULUM.push({ grade:"數學/生活 · 時間與日期 · Time & dates", titl
      [{w:"zhoumo"},{w:"wo"},{w:"he"},{w:"pengyou"},{w:"yiqi"},{w:"wan"},"。"]],
     {q:"你幾點起床？", parts:[{w:"wo"},{w:"zaoshang"},{w:"qi"},{w:"dian_clock"},"起床。"]}) });
 
-/* ---- Flatten + spiral encounter index (challenge = [parts] OR {q,parts}) ---- */
+/* ---- Flatten + spiral encounter index. A challenge is one of:
+   [parts]              → type the sentence
+   {q, parts}           → Q&A (type a full-sentence answer)
+   {q, open:true}       → open-ended free writing (pinyin → 漢字)
+   {type:"read", ...}   → read a longer passage
+   {type:"mcq", ...}    → multiple choice
+   {type:"blank", ...}  → fill in the blank
+   {type:"match", ...}  → match hanzi ↔ pinyin                                   */
 const seenTotal={}; const FLAT=[];
 CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
-  const open = (!Array.isArray(ch)) && !!ch.open;
-  const parts = Array.isArray(ch)? ch : (ch.parts||[]);
-  const prompt = Array.isArray(ch)? null : ch.q;
-  parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
-  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, open, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
+  const isArr=Array.isArray(ch);
+  const type = isArr ? null : (ch.open ? "open" : (ch.type || null));
+  const typing = isArr || type===null;                       // plain sentence or {q,parts}
+  const parts = typing ? (isArr ? ch : (ch.parts||[])) : [];
+  const prompt = isArr ? null : ch.q;
+  if(typing) parts.forEach(p=>{ if(typeof p==="object"&&p.w){ seenTotal[p.w]=(seenTotal[p.w]||0)+1; p._enc=seenTotal[p.w]; }});
+  FLAT.push({ bookIdx:bi, stageIdx:si, parts, prompt, open:type==="open", type,
+              data: isArr ? null : ch, bookFirst:si===0&&ci===0, stageFirst:ci===0 });
 })));
 const TOTAL_WORDS=Object.values(seenTotal).reduce((a,b)=>a+b,0);
 
@@ -1492,6 +1558,10 @@ function render(){
   document.getElementById("crumb").innerHTML=`第 ${item.bookIdx+1} 冊 · <b>${book.title}</b> · ${stage.name}${sm.en?` <span style="color:#b98a5e">${sm.en}</span>`:""}`;
 
   if(item.open){ renderOpenItem(item, book, stage, sm); return; }
+  if(item.type==="read"){ renderRead(item, book, stage, sm); return; }
+  if(item.type==="mcq"){ renderMCQ(item, book, stage, sm); return; }
+  if(item.type==="blank"){ renderBlank(item, book, stage, sm); return; }
+  if(item.type==="match"){ renderMatch(item, book, stage, sm); return; }
 
   let sentence="", wIdx=-1, activeWord=null;
   item.parts.forEach(p=>{
@@ -1699,17 +1769,116 @@ function renderOpenItem(item, book, stage, sm){
   setTimeout(()=>inp.focus(),30);
 }
 
-// Accept any free-written answer, celebrate, and advance (mirrors success()'s book-end checkpoint).
-function openDone(text){
-  const oldPos=pos;
+// Shared header for the non-typing practice cards (strip + stage tag + intro + genre banner).
+function stageHead(item, book, stage, sm){
+  let h=stageStrip(book, item.stageIdx);
+  h+=`<span class="stage-tag">${stage.name}<span class="en">${sm.en}</span></span>`;
+  if(item.stageFirst && stage.intro) h+=`<p class="intro">${stage.intro}${sm.tipEn?`<span class="en">📖 ${sm.tipEn}</span>`:""}</p>`;
+  if(stage.genre) h+=genreBanner(stage.genre);
+  return h;
+}
+// Render a run of parts (strings + {w} words) as 漢字, optionally with a pinyin line.
+function partsHanzi(parts){ return (parts||[]).map(p=> typeof p==="string"?`<span class="lit">${p}</span>`
+  : (p.blank?`<span class="blankslot">＿＿</span>`:`<span>${(VOCAB[p.w]||{}).hanzi||""}</span>`)).join(""); }
+function partsPinyin(parts){ return (parts||[]).map(p=> typeof p==="string"?p
+  : (p.blank?"___":((VOCAB[p.w]||{}).pinyin||""))).join(" "); }
+function partsText(parts){ return (parts||[]).map(p=> typeof p==="string"?p:((VOCAB[p.w]||{}).hanzi||"")).join(""); }
+
+// Generic "this whole item is done" → award points and move on (no per-word cursor).
+function advanceItem(gain, toast){
   typedWords++; practiceDays.add(dkey(new Date())); bumpQuest();
-  const gained=30; points+=gained; floatPoints("+"+gained); updateHUD();
-  sSentence(); petReact("party");
-  queueToast({e:"✍️", zh:"你自己寫出一句話！＋30", en:"You wrote your own sentence! +30"});
-  wordCursor=0; pos++;
-  syncPrizes(); updateHUD();
+  if(gain){ points+=gain; floatPoints("+"+gain); }
+  if(toast) queueToast(toast);
+  petReact("party"); wordCursor=0; pos++; syncPrizes(); updateHUD();
   if(pos>=FLAT.length){ save(); showFinish(); return; }
   save(); render();
+}
+function openDone(text){ sSentence(); advanceItem(30, {e:"✍️", zh:"你自己寫出一句話！＋30", en:"You wrote your own sentence! +30"}); }
+
+/* ---- 閱讀 · read a longer passage (integrates previously-learned words) ---- */
+function renderRead(item, book, stage, sm){
+  const d=item.data; let html=stageHead(item, book, stage, sm);
+  html+=`<div class="reading">`;
+  if(d.title) html+=`<div class="read-title">${d.title}</div>`;
+  d.lines.forEach(line=>{ html+=`<div class="read-line"><span class="rl-han">${partsHanzi(line)}</span><span class="rl-py">${partsPinyin(line)}</span></div>`; });
+  html+=`</div>`;
+  html+=`<div style="text-align:center"><button class="mini" id="readSay">🔊 聽整篇 Hear it</button></div>`;
+  html+=`<button class="btn" id="readDone">讀完了 · Done reading ➜</button>`;
+  card.innerHTML=html; refreshSide();
+  const full=d.lines.map(partsText).join("，");
+  document.getElementById("readSay").onclick=()=>speak(full);
+  document.getElementById("readDone").onclick=()=>advanceItem(12, {e:"📖", zh:"讀完一篇！＋12", en:"Read a whole passage! +12"});
+}
+
+/* ---- 選擇題 · multiple choice ---- */
+function renderMCQ(item, book, stage, sm){
+  const d=item.data; let html=stageHead(item, book, stage, sm);
+  html+=`<div class="prompt">❓ <b>${d.q}</b></div>`;
+  if(d.hanzi) html+=`<div class="mcq-hanzi">${d.hanzi}</div>`;
+  html+=`<div class="mcq-opts">`+d.options.map((o,i)=>`<button class="mcq-opt" data-i="${i}" data-ok="${o.ok?1:0}">${o.t}</button>`).join("")+`</div>`;
+  html+=`<div class="feedback" id="feedback">&nbsp;</div>`;
+  card.innerHTML=html; refreshSide();
+  let done=false;
+  card.querySelectorAll(".mcq-opt").forEach(btn=>btn.onclick=()=>{
+    if(done) return;
+    const fb=document.getElementById("feedback");
+    if(btn.dataset.ok==="1"){ done=true; btn.classList.add("ok"); sCorrect();
+      fb.className="feedback good"; fb.textContent=avatarEmoji()+" ✓ "+PRAISE[Math.floor(Math.random()*PRAISE.length)];
+      card.querySelectorAll(".mcq-opt").forEach(b=>b.disabled=true);
+      setTimeout(()=>advanceItem(12), 800);
+    } else { btn.classList.add("no"); btn.disabled=true;
+      fb.className="feedback bad"; fb.textContent="再試一次 · try again"; petReact("wrong"); }
+  });
+}
+
+/* ---- 填空 · fill in the blank (type the missing word's pinyin) ---- */
+function renderBlank(item, book, stage, sm){
+  const d=item.data; const bi=d.parts.findIndex(p=>p&&p.blank); const key=d.parts[bi].blank; const v=VOCAB[key];
+  let html=stageHead(item, book, stage, sm);
+  html+=`<div class="prompt">🧩 把空格填起來 · fill in the blank</div>`;
+  html+=`<div class="sentence">${d.parts.map((p,i)=> i===bi?`<span class="w-active blankslot">＿＿</span>`
+        : (typeof p==="string"?`<span class="lit">${p}</span>`:`<span class="w-done">${(VOCAB[p.w]||{}).hanzi}</span>`)).join("")}</div>`;
+  let panel=`<div class="read-hint">🧩 這個格子要填哪個字？ which word fits the gap?</div>`;
+  if(v.img) panel+=`<div class="pic">${v.img}</div>`;
+  panel+=`<div class="hint-en">${v.en}</div>`;
+  panel+=`<div class="hint-pinyin" id="revealPinyin">&nbsp;</div>`;
+  panel+=`<div class="tiles" id="tiles">${v.key.split("").map(()=>`<div class="tile">·</div>`).join("")}</div>`;
+  panel+=`<input id="typeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="打拼音… type pinyin" />`;
+  panel+=`<div class="feedback" id="feedback">&nbsp;</div><div class="powerups" id="powerups"></div>`;
+  html+=`<div class="typer">${panel}</div>`;
+  card.innerHTML=html; refreshSide();
+  curInfo={key:v.key, pinyin:v.pinyin, id:key, hanzi:v.hanzi};
+  wireSayAndPowerups();
+  wireInput(v.key, (errs)=>{ recordStat(key, errs);
+      const fb=document.getElementById("feedback"); fb.className="feedback good";
+      fb.textContent=avatarEmoji()+" ✓ "+(errs===0?"答對了！ Correct!":"對了！ Got it!");
+      setTimeout(()=>advanceItem(errs===0?14:10), 700); },
+    (errs)=>{ if(errs>=3){ const r=document.getElementById("revealPinyin"); if(r) r.innerHTML=`提示 hint: <b>${v.pinyin}</b>`; } });
+}
+
+/* ---- 配對 · match hanzi ↔ pinyin (tap a 漢字, then its pinyin) ---- */
+function renderMatch(item, book, stage, sm){
+  const d=item.data; const ids=d.ids;
+  let html=stageHead(item, book, stage, sm);
+  html+=`<div class="prompt">🔗 把字和拼音連起來 · tap a character, then its pinyin</div>`;
+  const right=shuffle(ids);
+  html+=`<div class="match-grid"><div class="match-col" id="mLeft">`
+    + ids.map(id=>`<button class="match-cell" data-id="${id}">${VOCAB[id].hanzi}</button>`).join("")
+    + `</div><div class="match-col" id="mRight">`
+    + right.map(id=>`<button class="match-cell py" data-id="${id}">${VOCAB[id].pinyin}</button>`).join("")
+    + `</div></div><div class="feedback" id="feedback">&nbsp;</div>`;
+  card.innerHTML=html; refreshSide();
+  let selL=null, matched=0;
+  const cells=[...card.querySelectorAll(".match-cell")];
+  const pick=(btn,isLeft)=>{
+    if(btn.classList.contains("done")) return;
+    if(isLeft){ cells.filter(c=>!c.classList.contains("py")).forEach(c=>c.classList.remove("sel")); btn.classList.add("sel"); selL=btn; return; }
+    if(!selL){ return; }
+    if(btn.dataset.id===selL.dataset.id){ btn.classList.add("done","ok"); selL.classList.add("done","ok"); selL.classList.remove("sel"); selL=null; sCorrect(); matched++;
+      if(matched===ids.length){ const fb=document.getElementById("feedback"); fb.className="feedback good"; fb.textContent=avatarEmoji()+" ✓ 全部配對成功！ All matched!"; setTimeout(()=>advanceItem(15), 800); } }
+    else { btn.classList.add("no"); const bad=selL; setTimeout(()=>{ btn.classList.remove("no"); bad.classList.remove("sel"); },450); selL=null; petReact("wrong"); }
+  };
+  cells.forEach(c=>c.onclick=()=>pick(c, !c.classList.contains("py")));
 }
 
 const PRAISE=["太棒了！ Great!","好厲害！ Awesome!","答對了！ Correct!","你真聰明！ So smart!","讀對了！ You read it!","完美！ Perfect!"];
