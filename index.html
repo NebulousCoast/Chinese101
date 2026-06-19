@@ -967,13 +967,152 @@ const DISCOURSE={
         {type:"mcq", q:"這首詩裡，鳥在哪裡飛？ Where do the birds fly?",
           options:[{t:"🌤️ 天上 in the sky", ok:true},{t:"🌊 水裡 in the water"},{t:"🏠 家裡 at home"}]},
         {q:"你最喜歡哪一個季節？用拼音寫一句！", open:true}
+      ] },
+  // ✉️ Letter
+  2:{ name:"階段六 · 篇章", intro:"讀一封給朋友的信，再寫一句你的問候！",
+      genre:{icon:"✉️", zh:"書信", en:"Letter", fmt:"稱呼 ＋ 問候 ＋ 內容 ＋ 署名 · greeting + how-are-you + body + sign-off"},
+      challenges:[
+        {type:"read", title:"給朋友的信 · A letter to a friend", lines:[
+          ["親愛的",{w:"pengyou"},"："],
+          [{w:"ni"},{w:"hao"},"嗎？"],
+          ["我在",{w:"xuexiao"},"很",{w:"kaixin"},"，也學會",{w:"xie"},{w:"zi"},"了。"],
+          ["有空來我",{w:"jia"},"玩！"],
+          ["你的好",{w:"pengyou"},"　碩寬"]
+        ]},
+        {type:"blank", parts:["親愛的",{blank:"pengyou"},"："]},
+        {type:"mcq", q:"一封信通常怎麼開頭？ How does a letter begin?",
+          options:[{t:"📛 先寫稱呼問候 a greeting", ok:true},{t:"✍️ 先寫署名 your name"},{t:"🔢 先寫電話 a phone number"}]},
+        {q:"你想寫信給誰？寫一句問候！", open:true}
+      ] },
+  // 💬 Messages
+  5:{ name:"階段六 · 篇章", intro:"讀同學之間的訊息，再傳一則你的訊息！",
+      genre:{icon:"💬", zh:"訊息", en:"Messages", fmt:"短短的、一來一往 · short, back-and-forth chat"},
+      challenges:[
+        {type:"read", title:"同學的訊息 · A chat with a classmate", lines:[
+          ["💬 ",{w:"tongxue"},"：明天有",{w:"gongke"},"嗎？"],
+          ["💬 碩寬：有！",{w:"women"},"一起做。"],
+          ["💬 ",{w:"tongxue"},"：好！",{w:"xiexie"},{w:"ni"},"！"],
+          ["💬 碩寬：",{w:"xiake"},"見！"]
+        ]},
+        {type:"blank", parts:["明天有",{blank:"gongke"},"嗎？"]},
+        {type:"mcq", q:"他們在訊息裡聊什麼？ What are they chatting about?",
+          options:[{t:"📒 功課 homework", ok:true},{t:"🌧️ 天氣 the weather"},{t:"✈️ 旅行 a trip"}]},
+        {q:"傳一則訊息給你的朋友！用拼音打。", open:true}
+      ] },
+  // 📮 Postcard
+  6:{ name:"階段六 · 篇章", intro:"讀一張海邊的明信片，再寫一張你的！",
+      genre:{icon:"📮", zh:"明信片", en:"Postcard", fmt:"在哪裡 ＋ 看到什麼 ＋ 想念你 · where + what you saw + miss you"},
+      challenges:[
+        {type:"read", title:"海邊的明信片 · A postcard from the sea", lines:[
+          ["親愛的",{w:"mama"},"："],
+          ["我坐",{w:"feiji"},"來到",{w:"hai"},"邊。"],
+          ["這裡有好多",{w:"chuan"},"，真美！"],
+          ["想念你！　碩寬"]
+        ]},
+        {type:"match", ids:["huoche","feiji","chuan","hai"]},
+        {type:"blank", parts:["我坐",{blank:"feiji"},"來到海邊。"]},
+        {q:"你想寄明信片給誰？寫一句！", open:true}
+      ] },
+  // 🍜 Recipe
+  7:{ name:"階段六 · 篇章", intro:"讀一份月餅食譜，再說說你想做的食物！",
+      genre:{icon:"🍜", zh:"食譜", en:"Recipe", fmt:"材料 ＋ 一步一步的做法 · ingredients + numbered steps"},
+      challenges:[
+        {type:"read", title:"月餅食譜 · Mooncake recipe", lines:[
+          ["材料：麵粉、糖、",{w:"cha"},"。"],
+          ["一、準備",{w:"yuebing"},"的材料。"],
+          ["二、把材料",{w:"he"},"在一起。"],
+          ["三、放進烤箱。"],
+          ["四、",{w:"zhongqiu"},"節，一起",{w:"chi"},"！"]
+        ]},
+        {type:"mcq", q:"食譜是用來做什麼的？ What is a recipe for?",
+          options:[{t:"🍳 教你做食物 making food", ok:true},{t:"🗺️ 教你旅行 traveling"},{t:"✉️ 教你寫信 writing letters"}]},
+        {type:"blank", parts:[{blank:"zhongqiu"},"節，大家一起吃月餅。"]},
+        {q:"你想做什麼食物？寫一句！", open:true}
+      ] },
+  // 🎴 Greeting / gift card
+  8:{ name:"階段六 · 篇章", intro:"讀一張生日賀卡，再寫一句你的祝福！",
+      genre:{icon:"🎴", zh:"賀卡", en:"Greeting card", fmt:"祝福 ＋ 心意 · a wish + a warm thought"},
+      challenges:[
+        {type:"read", title:"生日賀卡 · A birthday card", lines:[
+          ["親愛的",{w:"pengyou"},"："],
+          ["祝你生日快樂！🎂"],
+          ["希望你天天",{w:"gaoxing"},"。"],
+          [{w:"xiexie"},"你一直陪著我。"]
+        ]},
+        {type:"blank", parts:["希望你天天",{blank:"gaoxing"},"。"]},
+        {type:"mcq", q:"賀卡通常什麼時候送？ When do you give a card?",
+          options:[{t:"🎉 生日或節日 birthdays & festivals", ok:true},{t:"📖 上課的時候 during class"},{t:"😴 睡覺以前 before sleep"}]},
+        {q:"你想對朋友說什麼祝福？寫一句！", open:true}
+      ] },
+  // ⚠️ Warning
+  9:{ name:"階段六 · 篇章", intro:"讀幾個安全警告，再提醒大家小心一件事！",
+      genre:{icon:"⚠️", zh:"警告", en:"Warning", fmt:"小心什麼 ＋ 為什麼 · what to watch out for + why"},
+      challenges:[
+        {type:"read", title:"小心！· Safety warnings", lines:[
+          ["⚠️ 小心",{w:"dian"},"！不要碰。"],
+          ["⚠️ 小心",{w:"huo"},"！很危險。"],
+          ["⚠️ 小心",{w:"shui"},"！地上很滑。"],
+          ["做實驗，要小心。"]
+        ]},
+        {type:"match", ids:["dian","huo","shui","guang"]},
+        {type:"blank", parts:["⚠️ 小心",{blank:"dian"},"！不要碰。"]},
+        {type:"mcq", q:"看到「⚠️ 小心電」，你應該…？ The sign says ‘danger: electricity’. You should…",
+          options:[{t:"✋ 不要碰 don’t touch", ok:true},{t:"🧸 拿來玩 play with it"},{t:"🍽️ 吃掉 eat it"}]},
+        {q:"你想提醒大家小心什麼？寫一句！", open:true}
+      ] },
+  // 🪧 Sign
+  10:{ name:"階段六 · 篇章", intro:"讀街上的標誌，再設計一個你的標誌！",
+      genre:{icon:"🪧", zh:"標誌", en:"Signs", fmt:"一個圖 ＋ 幾個字 · a picture + a few words", },
+      challenges:[
+        {type:"read", title:"街上的標誌 · Signs on the street", lines:[
+          ["🚻 洗手間　→"],
+          ["🚭 禁止吸菸"],
+          ["♻️ 請",{w:"ai"},"護",{w:"diqiu"},"。"],
+          ["🚸 小心！很多",{w:"ren"},"。"]
+        ]},
+        {type:"mcq", q:"標誌「🚭」是什麼意思？ What does 🚭 mean?",
+          options:[{t:"🚫🚬 禁止吸菸 no smoking", ok:true},{t:"🍱 可以吃飯 you may eat"},{t:"🤫 要安靜 be quiet"}]},
+        {type:"blank", parts:["♻️ 請",{blank:"ai"},"護地球。"]},
+        {q:"你想設計一個什麼標誌？寫一句！", open:true}
+      ] },
+  // 📧 Email
+  11:{ name:"階段六 · 篇章", intro:"讀一封電子郵件，再寫一封給老師的短信！",
+      genre:{icon:"📧", zh:"電子郵件", en:"Email", fmt:"收件人 ＋ 主旨 ＋ 內容 ＋ 署名 · to + subject + body + sign-off"},
+      challenges:[
+        {type:"read", title:"一封電子郵件 · An email", lines:[
+          ["收件人：",{w:"laoshi"}],
+          ["主旨：我的",{w:"mengxiang"}],
+          [{w:"laoshi"},"您好："],
+          ["我的",{w:"mengxiang"},"是",{w:"du"},"很多",{w:"shu"},"。"],
+          ["我會",{w:"nuli"},"！　碩寬"]
+        ]},
+        {type:"mcq", q:"電子郵件的「主旨」是說什麼？ The ‘subject’ line tells…",
+          options:[{t:"📌 這封信在講什麼 what it’s about", ok:true},{t:"🌦️ 今天的天氣 the weather"},{t:"📞 對方的電話 a phone number"}]},
+        {type:"blank", parts:["我的",{blank:"mengxiang"},"是讀很多書。"]},
+        {q:"寫一封短信給老師，說一個你的願望！", open:true}
+      ] },
+  // 🗓️ Itinerary
+  18:{ name:"階段五 · 篇章", intro:"讀一張週末行程表，再排一件你的行程！",
+      genre:{icon:"🗓️", zh:"行程表", en:"Itinerary", fmt:"時間 ＋ 要做的事 · times + what you’ll do"},
+      challenges:[
+        {type:"read", title:"週末行程表 · Weekend itinerary", lines:[
+          [{w:"zhoumo"},"行程："],
+          [{w:"zaoshang"},"八",{w:"dian_clock"},"：吃",{w:"zaocan"},"。"],
+          ["上午十",{w:"dian_clock"},"：坐",{w:"huoche"},"。"],
+          [{w:"xiawu"},"三",{w:"dian_clock"},"：去",{w:"hai"},"邊。"],
+          ["晚上：",{w:"huijia"},"。"]
+        ]},
+        {type:"match", ids:["zaoshang","zhongwu","xiawu","wanshang"]},
+        {type:"blank", parts:[{w:"xiawu"},"三",{blank:"dian_clock"},"：去海邊。"]},
+        {type:"mcq", q:"行程表是用來做什麼的？ What is an itinerary for?",
+          options:[{t:"🗓️ 安排時間 planning your time", ok:true},{t:"🎨 畫畫 drawing"},{t:"🎤 唱歌 singing"}]},
+        {q:"寫下你明天的一個行程！", open:true}
       ] }
 };
 CURRICULUM.forEach((b,bi)=>{
   (ENRICH_CIYU[bi]||[]).forEach(c=>b.stages[1].challenges.push(c));   // more phrases
   if(EXTRA_JUZI[bi]) b.stages[3].challenges.push(EXTRA_JUZI[bi]);     // more sentences
   if(QA[bi]) b.stages.push({ name:"階段五 · 問答 Q&A", intro:"老師問你一個問題，打出一個完整的句子來回答！", challenges:[QA[bi]] });
-  if(DISCOURSE[bi]) b.stages.push(DISCOURSE[bi]);                     // 篇章 capstone (final)
 });
 
 /* =========================================================================
@@ -1080,6 +1219,10 @@ CURRICULUM.push({ grade:"數學/生活 · 時間與日期 · Time & dates", titl
    {type:"mcq", ...}    → multiple choice
    {type:"blank", ...}  → fill in the blank
    {type:"match", ...}  → match hanzi ↔ pinyin                                   */
+// Apply discourse capstones now that every book (incl. the late DISC_STAGES books) exists,
+// so each 篇章 lands as the book's final stage.
+Object.keys(DISCOURSE).forEach(bi=>{ if(CURRICULUM[bi]) CURRICULUM[bi].stages.push(DISCOURSE[bi]); });
+
 const seenTotal={}; const FLAT=[];
 CURRICULUM.forEach((book,bi)=>book.stages.forEach((stage,si)=>stage.challenges.forEach((ch,ci)=>{
   const isArr=Array.isArray(ch);
