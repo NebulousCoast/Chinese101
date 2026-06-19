@@ -1107,6 +1107,116 @@ const DISCOURSE={
         {type:"mcq", q:"行程表是用來做什麼的？ What is an itinerary for?",
           options:[{t:"🗓️ 安排時間 planning your time", ok:true},{t:"🎨 畫畫 drawing"},{t:"🎤 唱歌 singing"}]},
         {q:"寫下你明天的一個行程！", open:true}
+      ] },
+  // 🎵 Nursery rhyme (earliest words)
+  0:{ name:"階段六 · 篇章", intro:"念一首小兒歌，再玩玩看！",
+      genre:{icon:"🎵", zh:"兒歌", en:"Nursery rhyme", fmt:"短短的、有押韻 · short lines that rhyme"},
+      challenges:[
+        {type:"read", title:"數一數 · A little rhyme", lines:[
+          ["一個",{w:"kou"},"，兩隻",{w:"shou"},"。"],
+          [{w:"da"},{w:"shan"},"高，",{w:"shui"},"兒流。"],
+          ["我",{w:"ai"},{w:"baba"},"，我",{w:"ai"},{w:"mama"},"。"]
+        ]},
+        {type:"match", ids:["kou","shou","shan","shui"]},
+        {type:"mcq", q:"兒歌裡，什麼是『高』的？ In the rhyme, what is tall?",
+          options:[{t:"⛰️ 大山 the mountain", ok:true},{t:"💧 水 the water"},{t:"✋ 手 the hand"}]},
+        {q:"念一句你自己的兒歌！", open:true}
+      ] },
+  // 📖 Story (connectors) — language: cause / effect
+  12:{ name:"階段八 · 篇章", intro:"讀一個用『因為、所以』串起來的小故事！",
+      genre:{icon:"📖", zh:"故事", en:"Story", fmt:"用 因為／所以／然後 把事情連起來 · linked with because / so / then"},
+      challenges:[
+        {type:"read", title:"下雨天 · A rainy day", lines:[
+          ["今天下雨，",{w:"suoyi"},{w:"women"},{w:"zai_at"},{w:"jia"},"。"],
+          [{w:"yinwei"},{w:"hen"},"冷，",{w:"women"},{w:"yiqi"},{w:"du"},{w:"shu"},"。"],
+          [{w:"ranhou"},"，雨停了。"],
+          [{w:"women"},{w:"jiu"},{w:"qu"},{w:"gongyuan"},{w:"wan"},"！"]
+        ]},
+        {type:"mcq", q:"哪一個詞用來說『原因』？ Which word gives the reason (cause)?",
+          options:[{t:"🔗 因為 because", ok:true},{t:"➡️ 然後 then"},{t:"🌳 公園 park"}]},
+        {type:"blank", parts:["今天下雨，",{blank:"suoyi"},"我們在家。"]},
+        {q:"用『因為……所以……』寫一句！", open:true}
+      ] },
+  // 🔬 Science explainer — disciplinary: what plants need
+  13:{ name:"階段五 · 篇章", intro:"讀一篇科學說明，認識植物怎麼長大！",
+      genre:{icon:"🔬", zh:"說明文", en:"Explainer", fmt:"說明一件事 ＋ 步驟 · explain how / why, step by step"},
+      challenges:[
+        {type:"read", title:"植物怎麼長大 · How plants grow", lines:[
+          ["植物",{w:"yao"},"長大，需要三樣東西："],
+          [{w:"shui"},"、",{w:"kongqi"},"、和陽",{w:"guang"},"。"],
+          ["我們做一個",{w:"shiyan"},"，"],
+          [{w:"guancha"},{w:"zhongzi"},"發芽。"],
+          [{w:"kexue"},"真有趣！"]
+        ]},
+        {type:"match", ids:["shui","kongqi","guang","zhiwu"]},
+        {type:"mcq", q:"植物長大需要什麼？ What do plants need to grow?",
+          options:[{t:"💧☀️🌬️ 水、陽光、空氣 water, sun, air", ok:true},{t:"🍬 糖果 candy"},{t:"📺 看電視 watching TV"}]},
+        {type:"blank", parts:["植物需要水、",{blank:"kongqi"},"和陽光。"]},
+        {q:"你想觀察什麼？寫一句！", open:true}
+      ] },
+  // 👥 Social studies — disciplinary: community helpers, cooperation, rules
+  14:{ name:"階段五 · 篇章", intro:"認識社區裡的人，他們怎麼幫助大家！",
+      genre:{icon:"👥", zh:"介紹文", en:"Introduction", fmt:"介紹人或地方 ＋ 他們做什麼 · who they are + what they do"},
+      challenges:[
+        {type:"read", title:"社區裡的人 · People in our community", lines:[
+          [{w:"shequ"},"裡有很多",{w:"ren"},"。"],
+          [{w:"yisheng"},{w:"bang"},"我們看病。"],
+          [{w:"jingcha"},"保護",{w:"dajia"},"。"],
+          [{w:"women"},{w:"yao"},"互相",{w:"hezuo"},"，遵守",{w:"guize"},"。"]
+        ]},
+        {type:"match", ids:["yisheng","jingcha","laoshi","linju"]},
+        {type:"mcq", q:"生病的時候，誰來幫你？ Who helps you when you're sick?",
+          options:[{t:"🩺 醫生 a doctor", ok:true},{t:"👮 警察 a police officer"},{t:"👩‍🏫 老師 a teacher"}]},
+        {type:"blank", parts:[{blank:"jingcha"},"保護大家。"]},
+        {q:"你長大想當什麼？寫一句！", open:true}
+      ] },
+  // 🧭 Geography — disciplinary: cardinal directions, oceans & forests
+  15:{ name:"階段五 · 篇章", intro:"學會看地圖、找方向！",
+      genre:{icon:"🧭", zh:"地圖指南", en:"Map guide", fmt:"方向 ＋ 怎麼看地圖 · directions + reading a map"},
+      challenges:[
+        {type:"read", title:"看地圖找方向 · Reading a map", lines:[
+          ["看",{w:"ditu"},"，先找",{w:"fangxiang"},"。"],
+          ["上面是",{w:"bei_north"},"，下面是",{w:"nan"},"。"],
+          ["右邊是",{w:"dong"},"，左邊是",{w:"xi_west"},"。"],
+          [{w:"ditu"},"上有",{w:"haiyang"},{w:"he"},{w:"senlin"},"。"]
+        ]},
+        {type:"match", ids:["dong","nan","xi_west","bei_north"]},
+        {type:"mcq", q:"地圖的上面，通常是哪個方向？ The top of a map is usually which direction?",
+          options:[{t:"⬆️ 北 north", ok:true},{t:"⬇️ 南 south"},{t:"🌊 海 the sea"}]},
+        {type:"blank", parts:[{w:"ditu"},"的上面是",{blank:"bei_north"},"。"]},
+        {q:"你想用地圖去哪裡？寫一句！", open:true}
+      ] },
+  // 📣 Growth mindset — disciplinary: SEL / perseverance
+  16:{ name:"階段五 · 篇章", intro:"讀幾句鼓勵的話，再寫一句給自己！",
+      genre:{icon:"📣", zh:"標語", en:"Motto", fmt:"一句句鼓勵的話 · short encouraging lines"},
+      challenges:[
+        {type:"read", title:"我做得到！· I can do it!", lines:[
+          ["遇到",{w:"tiaozhan"},"，不放棄。"],
+          ["做錯了，再",{w:"changshi"},"一次。"],
+          ["多",{w:"lianxi"},"，就會",{w:"jinbu"},"。"],
+          ["只要",{w:"jianchi"},"，就會",{w:"chenggong"},"！"]
+        ]},
+        {type:"match", ids:["lianxi","jinbu","jianchi","chenggong"]},
+        {type:"mcq", q:"做錯了，應該怎麼辦？ What should you do after a mistake?",
+          options:[{t:"🔁 再試一次 try again", ok:true},{t:"🛑 放棄 give up"},{t:"😠 生氣 get angry"}]},
+        {type:"blank", parts:["只要",{blank:"jianchi"},"，就會成功。"]},
+        {q:"寫一句鼓勵自己的話！", open:true}
+      ] },
+  // 📚 Book review — disciplinary: language arts (主角 / 成語 / 段落)
+  17:{ name:"階段五 · 篇章", intro:"寫一篇讀書心得，認識『主角』和『成語』！",
+      genre:{icon:"📚", zh:"讀書心得", en:"Book review", fmt:"讀了什麼 ＋ 主角 ＋ 我的想法 · what you read + the hero + your thoughts"},
+      challenges:[
+        {type:"read", title:"我的讀書心得 · My book review", lines:[
+          [{w:"wo"},{w:"du"},"了一本",{w:"gushi"},{w:"shu"},"。"],
+          ["這本書的",{w:"zhujiao"},{w:"hen"},{w:"yonggan"},"。"],
+          ["我學到一個",{w:"chengyu"},"。"],
+          [{w:"wo"},"愛上了",{w:"yuedu"},"！"]
+        ]},
+        {type:"match", ids:["yuwen","zuowen","chengyu","zidian"]},
+        {type:"mcq", q:"故事裡的『主角』是誰？ Who is the 主角 (main character)?",
+          options:[{t:"⭐ 故事裡最重要的人 the most important person", ok:true},{t:"✍️ 寫書的人 the author"},{t:"📕 書的封面 the cover"}]},
+        {type:"blank", parts:["這本書的",{blank:"zhujiao"},"很勇敢。"]},
+        {q:"介紹一本你喜歡的書！寫一句。", open:true}
       ] }
 };
 CURRICULUM.forEach((b,bi)=>{
