@@ -8,7 +8,7 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 
 | Field | Value |
 |---|---|
-| Recipient | sonya.fan@gmail.com |
+| Recipient | sonya.fan@gmail.com (HTML email; markdown archived in-repo) |
 | Delivery time | 08:00 Asia/Taipei (UTC+8, no DST) = `0 0 * * *` UTC |
 | Student location | Taiwan-based |
 | EdTech lens | Parent / homeschool |

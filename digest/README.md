@@ -10,43 +10,48 @@ A Claude Routine (scheduled trigger) fires **daily at `0 0 * * *` UTC**, which
 is 08:00 Asia/Taipei. Taiwan observes no DST, so this stays correct year-round
 with no seasonal adjustment.
 
-Each firing starts a **fresh session**, runs the searches, writes the digest to
-`archive/<date>.md`, appends to `ledger.md`, and pushes to this branch.
-
-Routine id: `trig_01JKnYU9dZM9qtivxGFwvWgJ`.
-
-**Fired sessions get no connectors.** Attaching connectors to a Routine is not
-available for this organization, so a firing has web search and git and nothing
-else. The digest therefore lives in this repo, which always works.
+Each firing resumes a bound session, runs the searches, emails the digest, then
+writes `archive/<date>.md`, appends to `ledger.md`, and pushes to this branch.
 
 ## Delivery
 
-Two channels, neither of which is the Gmail send originally asked for:
+The digest is **emailed to sonya.fan@gmail.com as formatted HTML** each morning
+by Routine `trig_01MSJN1vFHCLhPKNo1V1btEo`, with a markdown copy archived to
+`archive/<date>.md` on this branch.
 
-1. **The repo** — full digest at `archive/<date>.md`, pushed to this branch.
-   Authoritative and complete.
-2. **Routine completion email** — the Routine has push and email notifications
-   on, so the ~200-400 word closing summary reaches the account's inbox each
-   morning. A summary, not the whole digest, but it does arrive by email.
+### Why the Routine binds to a session
 
-Real Gmail delivery needs the Gmail connector enabled in the session that
-creates the Routine. As of setup it is installed on the account but not enabled
-in-session, and per-Routine connector grants are unavailable for this org
-anyway. The likely workaround is to create the Routine from the claude.ai
-Routines UI in a context where Gmail is live.
+Per-Routine connector grants are unavailable for this organization, so a
+Routine that starts a *fresh* session each fire gets web search and git and
+nothing else — no Gmail, no Drive. The working Routine therefore **fires into
+an existing session** (`persist_session: true`), which resumes that
+conversation with its connectors, Gmail included, still attached.
 
-## The ledger
+The cost of that design is a dependency on the bound session surviving. If it
+is archived or reclaimed, the digest stops. Two mitigations:
 
-`ledger.md` holds one line per book already covered
-(`YYYY-MM-DD — Title — Author — source`), to stop the rotation repeating
-itself. Kept in-repo because fired sessions have no other durable store.
+- `trig_01JKnYU9dZM9qtivxGFwvWgJ` is kept on **standby, disabled**, prefixed
+  `[STANDBY]`. It uses the fresh-session design: no Gmail, but it writes the
+  digest to this repo and its completion-notification email carries the closing
+  summary. Re-enable it if the bound Routine goes quiet.
+- Rebinding is cheap: create a new Routine from any session that holds Gmail,
+  reusing the prompt stored on the current one.
+
+### Google Drive
+
+Not used. The connector's token expired during setup, and it is unavailable to
+fired sessions for the same reason Gmail is. Email plus the repo archive covers
+the need; a Drive copy would add a third place to look.
 
 ## Editing the digest
 
 `spec.md` is the source of truth for content. It is **copied into the Routine
 prompt**, so editing the file alone changes nothing — after editing, ask Claude
-to update the Routine's prompt to match. The duplication is intentional: it
-means a firing never depends on this branch being present or current.
+to update the Routine's prompt to match. The duplication is intentional: a
+firing then never depends on this branch being present or current.
+
+The email's visual design is pinned by reference to `archive/2026-09-07.md`,
+the hand-built sample. Restyling means updating the Routine prompt's step 3.
 
 ## Source-pool sizes
 
