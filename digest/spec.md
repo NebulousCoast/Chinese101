@@ -67,13 +67,14 @@ Rotate by day so the sources stay balanced. Compute
 
 ### De-duplication
 
-Before choosing, read the ledger (see README.md) and **never repeat a title
-already listed**. After writing the digest, append the new title to the ledger.
-If the day's source is exhausted, move to the next index and note the shift.
+Before choosing, read `ledger.md` and **never repeat a title already listed**.
+After writing the digest, append the new title to it. If the day's source is
+exhausted, move to the next index and note the shift.
 
 ## Format
 
-Markdown. `# Daily Digest — <YYYY-MM-DD>`, then one `##` per section. Every
+Markdown, written to `archive/<YYYY-MM-DD>.md`. `# Daily Digest — <YYYY-MM-DD>`,
+then one `##` per section. Every
 factual claim carries a source link. Where a search turned up nothing solid,
 write "nothing new found today" — do not invent programs, deadlines, or
 prices. Fabricated application deadlines are the worst possible failure here.

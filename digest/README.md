@@ -10,34 +10,36 @@ A Claude Routine (scheduled trigger) fires **daily at `0 0 * * *` UTC**, which
 is 08:00 Asia/Taipei. Taiwan observes no DST, so this stays correct year-round
 with no seasonal adjustment.
 
-Each firing starts a **fresh session** with the Google Drive connector attached.
-It runs the searches, writes the digest, saves it to Drive, and updates the
-ledger.
+Each firing starts a **fresh session**, runs the searches, writes the digest to
+`archive/<date>.md`, appends to `ledger.md`, and pushes to this branch.
+
+Routine id: `trig_01JKnYU9dZM9qtivxGFwvWgJ`.
+
+**Fired sessions get no connectors.** Attaching connectors to a Routine is not
+available for this organization, so a firing has web search and git and nothing
+else. The digest therefore lives in this repo, which always works.
 
 ## Delivery
 
-Currently **Google Drive only**. Email was the original request, but the Gmail
-connector is installed on the account without being enabled in the session that
-created the Routine, and a Routine can only carry connectors its creating
-session already holds.
+Two channels, neither of which is the Gmail send originally asked for:
 
-To switch on email delivery:
+1. **The repo** — full digest at `archive/<date>.md`, pushed to this branch.
+   Authoritative and complete.
+2. **Routine completion email** — the Routine has push and email notifications
+   on, so the ~200-400 word closing summary reaches the account's inbox each
+   morning. A summary, not the whole digest, but it does arrive by email.
 
-1. Enable the Gmail connector in the Claude Code session/chat settings.
-2. In a session that has Gmail live, update the Routine to add a final step
-   sending the digest body to sonya.fan@gmail.com, and re-create it with
-   `connectors: ["Google Drive", "Gmail"]`.
-
-Until then the digest lands in Drive as `Daily Digest YYYY-MM-DD`.
+Real Gmail delivery needs the Gmail connector enabled in the session that
+creates the Routine. As of setup it is installed on the account but not enabled
+in-session, and per-Routine connector grants are unavailable for this org
+anyway. The likely workaround is to create the Routine from the claude.ai
+Routines UI in a context where Gmail is live.
 
 ## The ledger
 
-`Daily Digest Book Ledger` is a Google Drive document holding one line per book
-already covered (`YYYY-MM-DD — Title — Author — source`). It exists to stop the
-rotation repeating itself. The first firing creates it if absent.
-
-The ledger lives in Drive rather than in this repo deliberately: a daily commit
-purely to record a book title would bury the app's real history in noise.
+`ledger.md` holds one line per book already covered
+(`YYYY-MM-DD — Title — Author — source`), to stop the rotation repeating
+itself. Kept in-repo because fired sessions have no other durable store.
 
 ## Editing the digest
 
