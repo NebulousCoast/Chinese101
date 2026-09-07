@@ -10,9 +10,9 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 |---|---|
 | Recipient | sonya.fan@gmail.com (HTML email; markdown archived in-repo) |
 | Delivery time | 08:00 Asia/Taipei (UTC+8, no DST) = `0 0 * * *` UTC |
-| Student location | Taiwan-based |
+| Student location | Taiwan-based, Taiwanese passport |
 | EdTech lens | Parent / homeschool |
-| Local area | Greater Austin, Texas (section 3) |
+| Austin link | Summers only — mother is a UT Austin visiting scholar teaching a summer course. Non-residents, no family in Austin. |
 
 ## Section 1 — Interactive BYOD learning tools
 
@@ -32,10 +32,10 @@ features, funding rounds with no product change.
 
 Surface **2–3 programs**. Hard filters:
 
-- Applicant is **based in Taiwan** — only list programs that accept
-  international or Taiwan-resident applicants. Programs restricted to US
-  citizens/permanent residents (e.g. most federally funded ones) are out
-  unless they run a separate international track.
+- Applicant holds a **Taiwanese passport** — only list programs that accept
+  international applicants. Programs restricted to US citizens/permanent
+  residents (e.g. most federally funded ones) are out unless they run a
+  separate international track. RSI and SSP both do.
 - **Academically challenging** — research, selective seminar, or olympiad
   calibre. Not tourism, not general "summer camp".
 - **Generous stipend or full funding** — the program pays the student, or
@@ -48,41 +48,56 @@ descriptions — lead with them, and mark anything closing within 30 days.
 
 ## Section 3 — Summer camps and activities near UT Austin
 
-Surface **2–3 items**: summer camps, academies, research programs,
-competitions, and term-time enrichment for a high schooler in the greater
-Austin, Texas area.
+Surface **2–3 items**. **Summer only** — the family is in Austin solely while
+the mother teaches, so term-time Austin activities are useless to them.
+**Prefer in-person**: being physically on campus is the whole point, which
+makes a virtual-only program worth less here than it would be otherwise. Say
+which it is either way — several UT programs (SEE, the Summer STEM Learning
+Academy) are virtual.
 
-UT Austin's own offerings are the anchor:
+Sources: the [UT Youth Protection Program camps
+directory](https://youthprotectionprogram.utexas.edu/camps/) is the most
+complete index of UT camps. Also Women in STEM high school camps, UTeach
+Outreach, STEM Starts (SEE, SLA, CEO day camps, UT PREP), Cockrell School
+MITE, School of Design and Creative Technologies Summer Institutes, and
+College of Natural Sciences listings. Strong non-UT Austin-area options count
+too.
 
-- Women in STEM high school camps and academies
-- UTeach Outreach camps
-- STEM Starts — Summer Engineering Experience (SEE), Summer STEM Learning
-  Academy (SLA), Consider Every Option (CEO) day camps
-- Cockrell School — My Introduction to Engineering (MITE)
-- College of Natural Sciences STEM camp listings
+### Three filters specific to this section
 
-Strong non-UT options in the Austin area belong here too.
+**Not Texas-residency-restricted.** They are non-residents. Exclude
+resident-only programs; note out-of-state pricing where it applies.
 
-**This section deliberately does NOT inherit Section 2's funding bar.** Most of
-these charge money, and that is fine — the point is proximity and fit, not
-funding. Instead:
+**Visa-compatible.** Taiwan is a Visa Waiver Program country, so the family
+likely travels on ESTA or a B-2 visitor visa. B-2/ESTA permits short,
+part-time, **non-credit recreational** study — ordinary summer camps are fine
+— but **not** full-time or for-credit study. Flag any for-credit or full-time
+pre-college program as "check visa status before applying" rather than
+presenting it as available. Exception worth raising: if the mother holds J-1
+visiting scholar status and the student is her J-2 dependent, study
+restrictions are much looser, which would widen the options considerably.
 
-- **Always state the cost.** At setup, Women in STEM virtual academies and
-  1-day camps ran $200 and 2-day camps $350. Reverify every time; never quote
-  a stale figure.
-- Say whether it is **in-person or virtual** — several UT programs are
-  virtual, which changes the value of "near Austin" entirely.
-- Give **grade eligibility** (many are rising 10th–12th, MITE is current
-  juniors).
-- **Flag anything free or scholarship-supported.** Those are the most valuable
-  finds in this section.
+**Cost always stated.** This section does **not** inherit Section 2's funding
+bar — most of these charge, and that is fine. State the price every time (at
+setup: UT PREP around $2,700 with scholarships; Women in STEM virtual
+academies and 1-day camps $200, 2-day camps $350 — reverify, never quote
+stale figures), give grade eligibility, and flag anything free or
+scholarship-supported as the most valuable find.
 
-Registration and deadlines follow Section 2's verification discipline:
-"confirm on official site" when unverified. Summer 2027 registration was
-expected to open in January 2027, so outside that window most items are
-**"mark the date"** rather than "apply now" — say which, rather than implying
-a live application. Rotate the featured camps; do not repeat the same one
-daily.
+### The affiliation lead
+
+Whether UT programs discount or prioritise dependents of faculty, staff, or
+visiting scholars was **not confirmed during setup** — searches turned up
+nothing, so it must not be asserted. But the mother's own department is a
+direct route both to that question and to informal lab or research shadowing
+that is never advertised. Raise it as a lead when a program looks like a fit.
+
+### Timing
+
+Deadlines follow Section 2's verification discipline. Summer 2027
+registration was expected to open January 2027, so outside that window most
+items are **"mark the date"**, not "apply now" — say which. Rotate the
+featured camps.
 
 ## Section 4 — Book of the day
 
