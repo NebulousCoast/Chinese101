@@ -12,6 +12,7 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 | Delivery time | 08:00 Asia/Taipei (UTC+8, no DST) = `0 0 * * *` UTC |
 | Student location | Taiwan-based |
 | EdTech lens | Parent / homeschool |
+| Local area | Greater Austin, Texas (section 3) |
 
 ## Section 1 — Interactive BYOD learning tools
 
@@ -45,7 +46,45 @@ For each program give: name, host institution, eligibility, funding detail,
 **application deadline**, and the official URL. Deadlines matter more than
 descriptions — lead with them, and mark anything closing within 30 days.
 
-## Section 3 — Book of the day
+## Section 3 — Summer camps and activities near UT Austin
+
+Surface **2–3 items**: summer camps, academies, research programs,
+competitions, and term-time enrichment for a high schooler in the greater
+Austin, Texas area.
+
+UT Austin's own offerings are the anchor:
+
+- Women in STEM high school camps and academies
+- UTeach Outreach camps
+- STEM Starts — Summer Engineering Experience (SEE), Summer STEM Learning
+  Academy (SLA), Consider Every Option (CEO) day camps
+- Cockrell School — My Introduction to Engineering (MITE)
+- College of Natural Sciences STEM camp listings
+
+Strong non-UT options in the Austin area belong here too.
+
+**This section deliberately does NOT inherit Section 2's funding bar.** Most of
+these charge money, and that is fine — the point is proximity and fit, not
+funding. Instead:
+
+- **Always state the cost.** At setup, Women in STEM virtual academies and
+  1-day camps ran $200 and 2-day camps $350. Reverify every time; never quote
+  a stale figure.
+- Say whether it is **in-person or virtual** — several UT programs are
+  virtual, which changes the value of "near Austin" entirely.
+- Give **grade eligibility** (many are rising 10th–12th, MITE is current
+  juniors).
+- **Flag anything free or scholarship-supported.** Those are the most valuable
+  finds in this section.
+
+Registration and deadlines follow Section 2's verification discipline:
+"confirm on official site" when unverified. Summer 2027 registration was
+expected to open in January 2027, so outside that window most items are
+**"mark the date"** rather than "apply now" — say which, rather than implying
+a live application. Rotate the featured camps; do not repeat the same one
+daily.
+
+## Section 4 — Book of the day
 
 Pick **one** book and write a big-concepts summary (roughly 300–500 words):
 the central argument, 3–5 key ideas, and why it still matters. Not a plot
@@ -73,8 +112,8 @@ exhausted, move to the next index and note the shift.
 
 ## Format
 
-Markdown, written to `archive/<YYYY-MM-DD>.md`. `# Daily Digest — <YYYY-MM-DD>`,
-then one `##` per section. Every
+Markdown, written to `archive/<YYYY-MM-DD>.md`, and HTML for the email.
+`# Daily Digest — <YYYY-MM-DD>`, then one `##` per section (four of them). Every
 factual claim carries a source link. Where a search turned up nothing solid,
 write "nothing new found today" — do not invent programs, deadlines, or
 prices. Fabricated application deadlines are the worst possible failure here.

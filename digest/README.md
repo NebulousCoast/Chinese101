@@ -45,6 +45,10 @@ the need; a Drive copy would add a third place to look.
 
 ## Editing the digest
 
+The digest runs **four sections**: interactive BYOD learning tools, funded
+study-abroad programs, summer camps and activities near UT Austin, and the
+book of the day.
+
 `spec.md` is the source of truth for content. It is **copied into the Routine
 prompt**, so editing the file alone changes nothing — after editing, ask Claude
 to update the Routine's prompt to match. The duplication is intentional: a
