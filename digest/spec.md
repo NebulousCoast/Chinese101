@@ -14,19 +14,49 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 | EdTech lens | Parent / homeschool |
 | Austin link | Summers only — mother is a UT Austin visiting scholar teaching a summer course. Non-residents, no family in Austin. |
 
-## Section 1 — Interactive BYOD learning tools
+## Section 1 — Interactive learning platforms for BYOD
 
-Surface **2–3 items**, newest first. In scope:
+Surface **2–3 items**. **This section is not news-driven.** It was originally
+scoped to tools launched in the last 30 days, which is precisely the space SEO
+content farms and self-reviewing apps flood — it came up empty twice in three
+days. It now evaluates **substantial platforms the family could actually
+adopt**, rotating so a different couple gets covered each day. A genuinely
+notable new tool or piece of research is still welcome; novelty is not
+required.
 
-- Learning apps, educational games, and classroom-practice patterns designed
-  for BYOD (bring-your-own-device) settings, where interactivity is the point.
-- Bias hard toward things a **family can adopt directly**: name the cost, the
-  platform, and whether a child can use it independently or needs an adult.
-- Prefer items from the last 30 days. If nothing is genuinely new, say so
-  plainly and surface the best evergreen option instead of padding.
+### Rotation pool
 
-Out of scope: district procurement news, enterprise pricing, LMS admin
-features, funding rounds with no product change.
+Art of Problem Solving (AoPS Online, WOOT in math/CS/physics/chemistry, AoPS
+Academy Virtual); Omega Learn; Physoly and other olympiad resource hubs;
+Brilliant; Khan Academy; MIT OpenCourseWare; edX and Coursera audit tracks;
+CK-12; PhET; Desmos and Polypad; Outschool; Labster; Exercism and Codecademy;
+Wolfram; Anki and spaced repetition; Duolingo. Add others that clear the bar.
+
+For each item: what it actually is, **cost** (exact, reverified — never stale
+figures), **grade fit**, whether the student can use it **independently**, and
+how interactive it genuinely is versus video-with-quizzes.
+
+### Two standing judgements
+
+**BrainPOP is below level.** It tops out at 8th grade (Jr K–3, standard 3–8,
+Combo K–8); there is no high school tier. Do not recommend it for this student
+— mention it only if a younger sibling becomes relevant. Reference pricing: Jr
+$29.95/mo or $295/yr, standard $39.95/mo or $350/yr, Combo $49.95/mo or
+$430/yr.
+
+**AoPS is the strategic fit.** Grades 5–12, WASC-accredited, most subject
+classes NCAA-approved, from ~$31/week. WOOT courses are taught by former
+olympiad medalists; PhysicsWOOT was designed by former IPhO coach Mark
+Eichenlaub and preps F=ma, USAPhO and IPhO.
+
+### Connect this section to Section 2
+
+Selective programs like RSI select partly on competition credentials
+(AMC/AIME, F=ma/USAPhO), and AoPS and Omega Learn are the standard routes to
+them. Where a platform builds credentials that matter for Section 2, **say
+so** — the "learning app" question and the "funded program" question are the
+same question. Always flag free rigorous options (Omega Learn, Physoly, CK-12,
+PhET, MIT OCW, Khan) against paid ones; free rigour is the most valuable find.
 
 ## Section 2 — Study-abroad opportunities (high school)
 
