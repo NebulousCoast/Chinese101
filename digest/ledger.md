@@ -8,3 +8,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-09 — Midnight's Children — Salman Rushdie — Booker (Best of the Booker winner, 2008)
 2026-09-10 — 1929: Inside the Greatest Crash in Wall Street History — Andrew Ross Sorkin — GatesNotes
 2026-09-11 — The Warmth of Other Suns — Isabel Wilkerson — NYT 100 Best Books of the 21st Century
+2026-09-12 — L'Etranger (The Stranger) — Albert Camus — Le Monde 100 Books of the Century (#1)
