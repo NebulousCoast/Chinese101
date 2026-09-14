@@ -10,3 +10,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-11 — The Warmth of Other Suns — Isabel Wilkerson — NYT 100 Best Books of the 21st Century
 2026-09-12 — L'Etranger (The Stranger) — Albert Camus — Le Monde 100 Books of the Century (#1)
 2026-09-13 — The Alignment Problem: Machine Learning and Human Values — Brian Christian — Princeton/Harvard recommended reading
+2026-09-14 — Disgrace — J.M. Coetzee — Booker (advanced from Nature/Science slot)
