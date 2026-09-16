@@ -12,3 +12,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-13 — The Alignment Problem: Machine Learning and Human Values — Brian Christian — Princeton/Harvard recommended reading
 2026-09-14 — Disgrace — J.M. Coetzee — Booker (advanced from Nature/Science slot)
 2026-09-15 — Hidden Guests: Migrating Cells and the New Science of Microchimerism — Lise Barneoud — Royal Society Trivedi Science Book Prize 2026 shortlist
+2026-09-16 — Culpability — Bruce Holsinger — GatesNotes (summer 2026 fiction pick)
