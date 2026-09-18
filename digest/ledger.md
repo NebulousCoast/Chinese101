@@ -14,3 +14,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-15 — Hidden Guests: Migrating Cells and the New Science of Microchimerism — Lise Barneoud — Royal Society Trivedi Science Book Prize 2026 shortlist
 2026-09-16 — Culpability — Bruce Holsinger — GatesNotes (summer 2026 fiction pick)
 2026-09-17 — The New Jim Crow — Michelle Alexander — NYT 100 Best Books of the 21st Century
+2026-09-18 — The Trial (Der Prozess) — Franz Kafka — Le Monde 100 Books of the Century (#3)
