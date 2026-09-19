@@ -15,3 +15,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-16 — Culpability — Bruce Holsinger — GatesNotes (summer 2026 fiction pick)
 2026-09-17 — The New Jim Crow — Michelle Alexander — NYT 100 Best Books of the 21st Century
 2026-09-18 — The Trial (Der Prozess) — Franz Kafka — Le Monde 100 Books of the Century (#3)
+2026-09-19 — The Undoing Project — Michael Lewis — Princeton/Harvard recommended reading
