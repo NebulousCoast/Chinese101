@@ -19,3 +19,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-20 — Bad Influence: How the Internet Hijacked Our Health — Deborah Cohen — Royal Society Trivedi Science Book Prize 2026 shortlist
 2026-09-21 — The Ghost Road — Pat Barker — Booker (1995 winner, Best of the Booker finalist)
 2026-09-22 — Sapiens: A Brief History of Humankind — Yuval Noah Harari — GatesNotes
+2026-09-23 — Demon Copperhead — Barbara Kingsolver — NYT 100 Best Books of the 21st Century
