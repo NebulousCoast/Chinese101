@@ -20,3 +20,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-21 — The Ghost Road — Pat Barker — Booker (1995 winner, Best of the Booker finalist)
 2026-09-22 — Sapiens: A Brief History of Humankind — Yuval Noah Harari — GatesNotes
 2026-09-23 — Demon Copperhead — Barbara Kingsolver — NYT 100 Best Books of the 21st Century
+2026-09-24 — The Grapes of Wrath — John Steinbeck — Le Monde 100 Books of the Century (#7)
