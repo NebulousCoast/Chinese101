@@ -24,3 +24,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-25 — Parable of the Sower — Octavia E. Butler — Princeton/Harvard recommended reading
 2026-09-26 — The Age of Alchemy — Kit Chapman — Royal Society Trivedi Science Book Prize 2026 shortlist
 2026-09-27 — The Remains of the Day — Kazuo Ishiguro — Booker (1989 winner)
+2026-09-28 — The Better Angels of Our Nature — Steven Pinker — GatesNotes
