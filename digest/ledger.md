@@ -25,3 +25,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-26 — The Age of Alchemy — Kit Chapman — Royal Society Trivedi Science Book Prize 2026 shortlist
 2026-09-27 — The Remains of the Day — Kazuo Ishiguro — Booker (1989 winner)
 2026-09-28 — The Better Angels of Our Nature — Steven Pinker — GatesNotes
+2026-09-29 — My Brilliant Friend — Elena Ferrante — NYT 100 Best Books of the 21st Century (#1)
