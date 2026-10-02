@@ -28,3 +28,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-29 — My Brilliant Friend — Elena Ferrante — NYT 100 Best Books of the 21st Century (#1)
 2026-09-30 — Le Petit Prince (The Little Prince) — Antoine de Saint-Exupery — Le Monde 100 Books of the Century (#4)
 2026-10-01 — The Paranoid Style in American Politics — Richard Hofstadter — Princeton/Harvard recommended reading (Jill Abramson, Harvard)
+2026-10-02 — How to Change a Memory: One Neuroscientist's Quest to Alter the Past — Steve Ramirez — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot)
