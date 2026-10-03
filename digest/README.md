@@ -77,3 +77,27 @@ therefore broadened to Booker winners generally, with those six taken first.
 
 At one book per day the combined pool runs roughly two years before the finite
 lists are exhausted.
+
+## 2026-10-03 — Section 5 added (competitions for the 11-year-old)
+
+The family confirmed a **second child, aged 11**, and asked for "any kind of
+contest or competitions that a 11-year-old could apply for". Changes made:
+
+- `spec.md` gained a `Section 5` with four filters (age/grade, reachable from
+  Taiwan, entry route for a homeschooler, cost and deadline) and its standing
+  findings. The profile table now lists both children.
+- The Routine prompt (`trig_01MSJN1vFHCLhPKNo1V1btEo`) was updated in place via
+  `update_trigger` — not recreated, so run history is preserved. It now says FIVE
+  sections, carries the two-child profile, and seeds Section 5 with the verified
+  findings below so no firing re-derives them.
+- The email footer rule gained "· contests for the 11-year-old".
+- Section 3 now notes which child each camp fits; BrainPOP moved from "below
+  level" to "possibly relevant for the younger child".
+- First delivery went out the same day as a **supplement email**, archived at
+  `archive/2026-10-03-supplement-competitions.md`, rather than waiting for the
+  next 08:00 Taipei firing.
+
+**The one finding worth protecting:** Caribou Contests ceased operations on 11
+August 2025 after its founder's death, and is still recommended across
+unmaintained blogs and school lists. The Routine prompt now forbids recommending
+it.

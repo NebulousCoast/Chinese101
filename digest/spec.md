@@ -10,6 +10,8 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 |---|---|
 | Recipient | sonya.fan@gmail.com (HTML email; markdown archived in-repo) |
 | Delivery time | 08:00 Asia/Taipei (UTC+8, no DST) = `0 0 * * *` UTC |
+| Student (elder) | High school age, Taiwan-based, Taiwanese passport |
+| Student (younger) | **11 years old** (grade 5–6 equivalent), same household, same passport and residence |
 | Student location | Taiwan-based, Taiwanese passport |
 | EdTech lens | Parent / homeschool |
 | Austin link | Summers only — mother is a UT Austin visiting scholar teaching a summer course. Non-residents, no family in Austin. |
@@ -155,10 +157,55 @@ Before choosing, read `ledger.md` and **never repeat a title already listed**.
 After writing the digest, append the new title to it. If the day's source is
 exhausted, move to the next index and note the shift.
 
+## Section 5 — Competitions for the 11-year-old
+
+Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
+kind of contest or competitions that a 11-year-old could apply for."*
+
+The younger child is **11** and lives in **Taiwan**. Both facts are filters and
+they bite harder here than anywhere else in this digest, because most published
+"competitions for kids" lists are US-school-centric.
+
+### Four filters, all required
+
+1. **Age/grade** — an 11-year-old must be eligible *now*. Say which division or
+   level they enter (Math Kangaroo Level 3 / Benjamin, Bebras Benjamin, Bow Seat
+   Junior). A contest they age into in two years is a "mark the date", labelled
+   as such.
+2. **Reachable from Taiwan** — either run in Taiwan, run online with
+   international entry, or postal/submission-based. If entry runs through a
+   national organiser, **name the step** (find the Taiwan coordinator) rather
+   than implying the family can just sign up.
+3. **Entry route for a homeschooler** — the single most common blocker. Many
+   contests register *sites and schools*, not students. State plainly whether a
+   **parent can register the child directly**, whether a registered school or
+   test centre is required, or whether a team and coach are needed.
+4. **Cost and deadline** — exact, and never invented. Free rounds are the best
+   finds and should be led with.
+
+### Standing findings
+
+- **Caribou Contests is dead.** Operations ceased 11 August 2025 after the death
+  of founder Dr Thomas Wolf. It is still recommended all over the internet.
+  Never recommend it.
+- **MATHCOUNTS** is grades 6–8 through US schools — not a route from Taiwan.
+- **AMC 8** is eligible (grade 8 or below, under 15.5) but registers *sites*, not
+  students; from Taiwan it runs through AMC International, so the real task is
+  identifying a participating host.
+- **Bow Seat** needs only an adult sponsor, and a parent counts — which makes it
+  the most homeschool-compatible item found so far.
+
+### What this section is for
+
+It is not credential-farming for an 11-year-old. The point is a **deadline the
+child can aim at** and the experience of finishing something that is judged by
+strangers. Prefer contests that reward thinking over coaching, and say when an
+item is mostly a coached-team exercise.
+
 ## Format
 
 Markdown, written to `archive/<YYYY-MM-DD>.md`, and HTML for the email.
-`# Daily Digest — <YYYY-MM-DD>`, then one `##` per section (four of them). Every
+`# Daily Digest — <YYYY-MM-DD>`, then one `##` per section (five of them). Every
 factual claim carries a source link. Where a search turned up nothing solid,
 write "nothing new found today" — do not invent programs, deadlines, or
 prices. Fabricated application deadlines are the worst possible failure here.
