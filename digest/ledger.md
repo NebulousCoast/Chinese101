@@ -29,3 +29,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-09-30 — Le Petit Prince (The Little Prince) — Antoine de Saint-Exupery — Le Monde 100 Books of the Century (#4)
 2026-10-01 — The Paranoid Style in American Politics — Richard Hofstadter — Princeton/Harvard recommended reading (Jill Abramson, Harvard)
 2026-10-02 — How to Change a Memory: One Neuroscientist's Quest to Alter the Past — Steve Ramirez — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot)
+2026-10-03 — Moon Tiger — Penelope Lively — Booker (1987 winner, Best of the Booker finalist)
