@@ -31,3 +31,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-02 — How to Change a Memory: One Neuroscientist's Quest to Alter the Past — Steve Ramirez — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot)
 2026-10-03 — Moon Tiger — Penelope Lively — Booker (1987 winner, Best of the Booker finalist)
 2026-10-04 — Abundance — Ezra Klein and Derek Thompson — GatesNotes
+2026-10-05 — Evicted: Poverty and Profit in the American City — Matthew Desmond — NYT 100 Best Books of the 21st Century
