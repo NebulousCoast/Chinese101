@@ -33,3 +33,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-04 — Abundance — Ezra Klein and Derek Thompson — GatesNotes
 2026-10-05 — Evicted: Poverty and Profit in the American City — Matthew Desmond — NYT 100 Best Books of the 21st Century
 2026-10-06 — A la recherche du temps perdu (In Search of Lost Time) — Marcel Proust — Le Monde 100 Books of the Century (#2)
+2026-10-07 — On the Fringe: Where Science Meets Pseudoscience — Michael D. Gordin — Princeton Pre-read (Princeton/Harvard recommended reading)

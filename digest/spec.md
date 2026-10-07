@@ -78,6 +78,34 @@ For each program give: name, host institution, eligibility, funding detail,
 **application deadline**, and the official URL. Deadlines matter more than
 descriptions — lead with them, and mark anything closing within 30 days.
 
+### Standing findings — Section 2 (updated 2026-10-07)
+
+**TASS IS CANCELLED FOR 2027.** The Telluride Association announced it will not
+run TASS summer sessions in 2027, pausing for a full review after the 2026 Ithaca
+session ended three weeks early following staff departures. No return date given.
+**Never present TASS as available** until Telluride announces a return.
+<https://tellurideassociation.org/news/tass-pause-2027/>
+
+**Consequence, state it honestly:** with TASS gone there is no verified, fully
+funded, both-filters-pass programme for a student who is not a rising senior. RSI
+is rising-senior only; Clark is unresolved; ISSYP fails the funding filter;
+Weizmann is post-graduation.
+
+**The pivot: Taiwan's own olympiad selection pipeline.** Ministry of
+Education-run, free, competitive, residence-blind, and producing a credential that
+outranks most US summer programmes. The MOE also grants admissions preference for
+strong international olympiad and science-fair results. 2027 physics cycle:
+preliminary 7 Nov 2026 (registration closed 30 Sept 2026), second round 20 Feb
+2027, final training camp 15 Mar – 3 Apr 2027. Maths: 2027 training camps 17–18
+Oct, 21–22 Nov, 25–27 Dec 2026; first-stage exam 9–13 Mar 2027.
+
+**The homeschool registration rule, which answers a month-old question:**
+考生一律向所就讀學校報名，非學校型態實驗教育者，由各該直轄市、縣(市)主管機關報名，
+不接受學生個人報名 — school students register via their school; **非學校型態實驗教育
+(Taiwan's legal homeschooling category) students register via their municipal or
+county education authority**; individual registration is not accepted. Apply this
+pattern as a *hypothesis* to other Taiwanese competitions, flagged as inference.
+
 ## Section 3 — Summer camps and activities near UT Austin
 
 Surface **2–3 items**. **Summer only** — the family is in Austin solely while
