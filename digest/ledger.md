@@ -36,3 +36,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-07 — On the Fringe: Where Science Meets Pseudoscience — Michael D. Gordin — Princeton Pre-read (Princeton/Harvard recommended reading)
 2026-10-08 — Every Last Fish — Rose George — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot)
 2026-10-09 — Oscar and Lucinda — Peter Carey — Booker (1988 winner, Best of the Booker finalist)
+2026-10-10 — When Everyone Knows That Everyone Knows: Common Knowledge and the Mysteries of Money, Power, and Everyday Life — Steven Pinker — GatesNotes
