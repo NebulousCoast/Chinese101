@@ -101,3 +101,39 @@ contest or competitions that a 11-year-old could apply for". Changes made:
 August 2025 after its founder's death, and is still recommended across
 unmaintained blogs and school lists. The Routine prompt now forbids recommending
 it.
+
+## 2026-10-12 — Sections 6 and 7 added (collaboration, challenges)
+
+The family asked for "more international collaboration opportunities" and "some
+challenges". Both were posed back as questions ("what can be on the list?"), so
+candidates were researched first and then put to them via AskUserQuestion.
+
+**Their choices:** all three readings of "challenges" (team challenge with judges,
+a recurring problem to attempt, an honest obstacles audit); and alternating days
+rather than two daily sections or folding into existing ones.
+
+**Changes made:**
+- `spec.md` gained Section 6 (international collaboration, EVEN dates) and Section
+  7 (challenges, ODD dates), each with filters, a verified pool, and leads.
+- The Routine prompt (`trig_01MSJN1vFHCLhPKNo1V1btEo`) was updated in place —
+  not recreated, so run history survives. It now says SIX sections on any given
+  day (1–5 daily, plus 6 or 7 by date parity) and carries three numbered standing
+  rules.
+- **Standing Rule 3 is the alternation mitigation and is mandatory:** any dated
+  item from section 6 or 7 still appears in the daily deadline lead on EVERY day,
+  regardless of parity. The risk of a deadline landing on an off day was flagged
+  to the family, who chose alternation anyway; this removes the failure mode
+  rather than just accepting it. It is the mechanism that lost the September
+  physics-olympiad window.
+- Standing Rule 1 was widened: the residence filter applies to PLATFORMS too, not
+  only programmes (the Khanmigo lapse).
+- A new profile line: **neither child's gender has ever been stated — never
+  assume it.** Technovation has a gender-based eligibility condition, so the
+  condition is stated and the family decides.
+- Footer rule extended with "collaboration (even days) · challenges (odd days)".
+- First delivery went out same-day as a supplement, archived at
+  `archive/2026-10-12-supplement-sections-6-and-7.md`.
+
+**The framing worth keeping**, which emerged from building Part C: everything
+blocked is blocked by an institution; everything open can be started this
+afternoon.
