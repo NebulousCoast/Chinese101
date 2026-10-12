@@ -38,3 +38,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-09 — Oscar and Lucinda — Peter Carey — Booker (1988 winner, Best of the Booker finalist)
 2026-10-10 — When Everyone Knows That Everyone Knows: Common Knowledge and the Mysteries of Money, Power, and Everyday Life — Steven Pinker — GatesNotes
 2026-10-11 — Pachinko — Min Jin Lee — NYT 100 Best Books of the 21st Century
+2026-10-12 — Le Grand Meaulnes (The Lost Domain) — Alain-Fournier — Le Monde 100 Books of the Century

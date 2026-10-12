@@ -60,6 +60,22 @@ so** — the "learning app" question and the "funded program" question are the
 same question. Always flag free rigorous options (Omega Learn, Physoly, CK-12,
 PhET, MIT OCW, Khan) against paid ones; free rigour is the most valuable find.
 
+### Section 1 corrections logged 2026-10-12
+
+**Khanmigo may be US-only.** The digest quoted $4/mo / $44/yr for ten child
+accounts for five weeks without checking residence — the one filter it exists to
+check. One source says paid Khanmigo tiers are largely restricted to US users;
+unverified on Khan's own page. Khan Academy *core* and Official SAT Practice
+remain free worldwide. **Always apply the residence filter to platforms too, not
+just programmes.**
+
+**AoPS Online and AoPS Academy Virtual are different products with similar
+names.** AoPS Online: Intro to Algebra Part 1/Part 2 each $495, 16 weeks, grades
+5-10, rolling start dates July 2026 - June 2027 (no annual gate). AoPS Academy
+Virtual: Honors Math 7 $945 (~$53/wk, 18 wks) or $1,012 with books; Scholars Math
+7 $1,055 (~$59/wk); many sessions full or closed. The digest's standing
+"~$31/week" figure = AoPS Online ($495 / 16 weeks), NOT the Academy.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
