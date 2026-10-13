@@ -39,3 +39,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-10 — When Everyone Knows That Everyone Knows: Common Knowledge and the Mysteries of Money, Power, and Everyday Life — Steven Pinker — GatesNotes
 2026-10-11 — Pachinko — Min Jin Lee — NYT 100 Best Books of the 21st Century
 2026-10-12 — Le Grand Meaulnes (The Lost Domain) — Alain-Fournier — Le Monde 100 Books of the Century
+2026-10-13 — Moving Up Without Losing Your Way: The Ethical Costs of Upward Mobility — Jennifer M. Morton — Princeton/Harvard recommended reading

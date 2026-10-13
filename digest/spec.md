@@ -76,6 +76,25 @@ Virtual: Honors Math 7 $945 (~$53/wk, 18 wks) or $1,012 with books; Scholars Mat
 7 $1,055 (~$59/wk); many sessions full or closed. The digest's standing
 "~$31/week" figure = AoPS Online ($495 / 16 weeks), NOT the Academy.
 
+### Section 1 corrections logged 2026-10-13
+
+**Omega Learn is student-run.** Recommended in roughly a dozen emails as the free
+equivalent of what AoPS charges for, with no disclosure. Content is written and
+developed by students rather than seasoned experts; one third-party source names
+the operator as Sohil Rathi, himself a student and AIME qualifier (single source,
+so treat the name loosely). The material is good; the point is that **nobody is
+accountable for errors in it and there is no editorial process** — cite it as
+very strong student notes, never as a textbook. Free assets worth naming:
+*Mastering AMC 8*, *Mastering AMC 10/12*, *The Book of Mathematical Formulas and
+Strategies*, an AMC 10/12 YouTube lecture playlist, an AIME prep guide.
+
+**MIT OpenCourseWare: use MIT's own count, and state the credential gap.** MIT
+says 2,500+ courses; ~300 carry video as of October 2026. Class Central's 264 /
+491 figures are aggregator indexing counts, not reality — do not quote them. OCW
+**issues no credit and no certificate**; certificates come from the separate paid
+MITx Online. Standing pairing to repeat: OCW is depth without accountability,
+Exercism is accountability without depth.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
