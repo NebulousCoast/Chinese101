@@ -95,6 +95,42 @@ says 2,500+ courses; ~300 carry video as of October 2026. Class Central's 264 /
 MITx Online. Standing pairing to repeat: OCW is depth without accountability,
 Exercism is accountability without depth.
 
+### Section 1 findings logged 2026-10-14
+
+**edX audit track.** edX's own help centre: most courses auditable free, but
+audit access is **time-limited**, **graded assignments are excluded**, and **no
+certificate** is issued. Boot Camps and Executive Education have no audit option.
+Audit can be upgraded later if the upgrade deadline has not passed. Third-party
+claims of "4-12 weeks after an instructor-paced session ends, open-ended for
+self-paced archived courses" could NOT be confirmed against edX's documentation.
+Standing judgement: **audit gives the reading, not the work** — pair it with MIT
+OCW problem sets, which carry solutions and do not expire.
+
+**CS50x carries a FREE certificate.** CS50's own FAQ: a fee-based edX verified
+certificate *and* a free certificate issued as a unique URL without identity
+verification. Verified-certificate price conflicts three ways ($219 Class
+Central; $219-$299 edX's own CS50 page; $199 one third-party site). A claimed
+70%-on-every-problem-set-lab-and-final-project threshold for the free
+certificate is UNVERIFIED.
+
+**This revises the digest's month-old framing.** The standing line was that free
+platforms match paid ones on content but money buys a schedule, graded problems
+and someone noticing when the student stops, with Exercism and freeCodeCamp the
+only counterexamples. **CS50x is the third and strongest counterexample**:
+auto-graded problem sets, a required final project, a named institution, and a
+certificate, at zero cost, with no residence filter and no host. Say so rather
+than repeating the old framing.
+
+### STANDING RULE 4, learned 2026-10-14 (applies to every section)
+
+**An unresolved eligibility conflict older than two weeks is written down as
+BLOCKED, not CONTRADICTORY.** Reporting a conflict is correct; carrying one for
+six weeks is not. Clark Scholars survived six weeks on an undated third-party
+"international students are welcome" line while the organisation's own current
+eligibility page said US citizens or permanent residents. Every conflict gets a
+resolution attempt against the primary page each time it appears, and an
+undated or third-party claim never outweighs the organisation's own current page.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
@@ -123,8 +159,9 @@ session ended three weeks early following staff departures. No return date given
 
 **Consequence, state it honestly:** with TASS gone there is no verified, fully
 funded, both-filters-pass programme for a student who is not a rising senior. RSI
-is rising-senior only; Clark is unresolved; ISSYP fails the funding filter;
-Weizmann is post-graduation.
+is rising-senior only; Clark was RESOLVED OUT on 2026-10-14 (US citizens and
+permanent residents only — see the 10-14 block below); ISSYP fails the funding
+filter; Weizmann is post-graduation.
 
 **The pivot: Taiwan's own olympiad selection pipeline.** Ministry of
 Education-run, free, competitive, residence-blind, and producing a credential that
@@ -140,6 +177,29 @@ Oct, 21–22 Nov, 25–27 Dec 2026; first-stage exam 9–13 Mar 2027.
 (Taiwan's legal homeschooling category) students register via their municipal or
 county education authority**; individual registration is not accepted. Apply this
 pattern as a *hypothesis* to other Taiwanese competitions, flagged as inference.
+
+### Standing findings — Section 2 (updated 2026-10-14)
+
+**CLARK SCHOLARS IS OUT — RESOLVED, do not list it again.** Texas Tech's own
+current eligibility page requires applicants to be **US citizens or permanent
+residents** (plus at least 17 by the programme start date, graduating 2026 or
+2027). The "international students are eligible/welcome" line the digest carried
+for six weeks traces to an **outdated Honors College page from around 2023**.
+For the record: 2027 application opens 2 January 2027, deadline 15 February 2027
+11:59pm CT (two third-party sites say 16 February — the official date governs),
+$25 application fee, seven weeks, twelve students, meals and on-campus housing
+covered plus a $750 stipend on completion. ttu.edu is blocked from this
+container, so this was read through the search index.
+
+**THE CONSEQUENCE, to state plainly whenever section 2 runs.** TASS cancelled for
+2027; Clark citizenship-restricted; MITE residence-restricted. Exactly two things
+remain for the elder child: (1) **RSI** in the year they are a rising senior —
+the one fully funded both-filters-pass programme that exists; (2) **Taiwan's own
+MOE olympiad pipeline** — free, government-run, residence-blind, carrying MOE
+admissions preference, gated by one call to the local education bureau. The list
+is thin because American programmes in this category filter on residence, not
+because the search was thin. Stop hunting for a third American option; spend the
+effort on the education bureau and on section 6.
 
 ## Section 3 — Summer camps and activities near UT Austin
 
@@ -220,6 +280,15 @@ Before choosing, read `ledger.md` and **never repeat a title already listed**.
 After writing the digest, append the new title to it. If the day's source is
 exhausted, move to the next index and note the shift.
 
+### Index 4 (Nature/Science slot) — SOURCE EXHAUSTED as of 2026-10-14
+
+All six Royal Society Trivedi Science Book Prize 2026 shortlisted titles have now
+been used: Barneoud (09-15), Cohen (09-20), Chapman (09-26), Ramirez (10-02),
+George (10-08), Pearce (10-14). **From the next index-4 day (2026-10-20) the slot
+needs a new source** — candidates: Nature's own "best science books" round-ups,
+Science's editors' picks, the Royal Society longlist years prior, or the 2027
+prize cycle once announced. Advance the index and say so if nothing is sourced.
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -265,6 +334,23 @@ child can aim at** and the experience of finishing something that is judged by
 strangers. Prefer contests that reward thinking over coaching, and say when an
 item is mostly a coached-team exercise.
 
+### Standing findings — Section 5 (updated 2026-10-14)
+
+**BEBRAS TAIWAN — coordinator found, and individual entry is NOT accepted.** Run
+by **臺灣師範大學 資工系** (NTNU Computer Science), https://bebras.csie.ntnu.edu.tw/
+— 2026 cycle: registration 21 September to **22 October 2026**; practice 2-6
+November; challenge **9-20 November**, the teacher picking one class period in
+that window; results and participation certificates 4 December. Registration is
+open **only to a subject teacher registering a whole class** via 管理班級;
+students and parents are told to ask their teacher. Phone from the 2025
+announcement: (02) 7749-7975. The open ask (INFERENCE, not stated policy): can a
+自學 arrangement's 指導老師 or the municipal education bureau register a class of
+one — the same gatekeeper shape as the MOE olympiad route, probably the same
+office. **Conflict to report, never to follow:** a 翰林 cram-school marketing page
+advertises a 19 December Bebras with individual entry and an 8 December deadline,
+contradicting NTNU on every point. Trust NTNU; nobody should pay a third party
+for access to a free challenge.
+
 ## Section 6 — International collaboration (even-numbered dates)
 
 Added 2026-10-12 at the family's request ("add more international collaboration
@@ -306,6 +392,48 @@ plainly when a thing confers no credential.
   team organiser. Not an application but a national selection; the step is
   identifying **Taiwan's in-country partner**. FIRST's FAQ page is ~18 months old,
   so treat figures as probably-current. <https://first.global/faq/>
+
+### Section 6 additions verified 2026-10-14
+
+**GLOBE — Taiwan has been a member country since 2013.** AIT (for NASA) and
+TECRO (for the then National Science Council) signed the GLOBE agreement in
+Washington on 6 September 2013. National office: **國立中央大學 大氣科學系** (NCU
+Atmospheric Sciences), coordinator 林沛練, https://globe.ncu.edu.tw/ — school
+applications to **globe@pblap.tw** with a scanned chopped letter of intent,
+subject 「申請GLOBE Taiwan學校」. Those application details come from a 2021
+announcement with a February 2022 deadline, so current terms must come from the
+NCU office; the route is **school-based**, i.e. the usual gatekeeper. Contact
+listed then: 陳冠婷, (03) 422-2574 / (03) 422-7151 ext. 65539.
+**The ungated half:** the **GLOBE Observer** app is open to anyone in a GLOBE
+country — untrained users may submit **clouds, mosquito habitat, land cover and
+trees**; other protocols need certification. Some measurements are used as
+**ground truth for NASA satellite data products**. Limit: data contribution, not
+a credential, and not collaboration with named people.
+**DELETED LEAD:** the GLOBE **International Virtual Science Symposium** is NOT
+happening — GLOBE's own page says it is not planning a 2027 symposium at this
+time (2026 abbreviated, deadline 30 January 2026; 2025 deadline 5 March). Never
+pitch it on the annual pattern. This is Standing Rule 2 working as intended.
+
+**FOLDIT AND ETERNA — the citizen science that does confer publication credit.**
+Foldit: the 2019 *Nature* paper "De novo protein design by citizen scientists"
+lists **"Foldit Players" as an author**; players have also been credited
+individually on at least one paper and on four Protein Data Bank depositions, and
+in the Nature case the players who led the solve asked for team-name credit.
+Eterna: a 2014 PNAS paper listed roughly **37,000 players as co-authors**, and a
+2016 *Journal of Molecular Biology* paper was **led by Eterna players** with the
+lab giving guidance and independent testing. Both free.
+**The limit to state every time:** collective or 37,000-name authorship is NOT a
+personal credential an admissions officer can verify — Science reported that this
+kind of authorship creates an identity crisis for exactly that reason. The
+valuable version is being among the players who LED a solve: rare, months long,
+unbuyable. Minimum age and parental-consent terms UNVERIFIED (both sites blocked
+from this container).
+
+**FIRST GLOBAL — search term corrected.** Taiwan competes as **"Chinese Taipei"**
+on the official roster, which is why searches for "Taiwan" kept failing. 2026 was
+Incheon; **2027 is Madrid**. The in-country selecting partner is still
+unidentified; the ask now goes to FIRST Global directly for their national-team
+contact.
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program

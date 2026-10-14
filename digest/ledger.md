@@ -40,3 +40,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-11 — Pachinko — Min Jin Lee — NYT 100 Best Books of the 21st Century
 2026-10-12 — Le Grand Meaulnes (The Lost Domain) — Alain-Fournier — Le Monde 100 Books of the Century
 2026-10-13 — Moving Up Without Losing Your Way: The Ethical Costs of Upward Mobility — Jennifer M. Morton — Princeton/Harvard recommended reading
+2026-10-14 — Despite It All: A Handbook for Climate Hopefuls — Fred Pearce — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot; final title on that list)
