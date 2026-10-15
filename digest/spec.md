@@ -121,6 +121,49 @@ auto-graded problem sets, a required final project, a named institution, and a
 certificate, at zero cost, with no residence filter and no host. Say so rather
 than repeating the old framing.
 
+### Section 1 findings logged 2026-10-15
+
+**KHANMIGO RESOLVED: paid tiers are US-ONLY.** Khan Academy's own help centre
+says paid Khanmigo subscriptions are only available in the United States at this
+time; a 2026 review adds the subscriber must be 18+, resident in the US, with a
+US billing address — a US payment method alone does not qualify a family abroad.
+The $4/mo / $44/yr figure this digest quoted for five weeks was for a product
+this family cannot buy. **Do not quote it as purchasable again.**
+**The salvage:** Khanmigo's FREE TEACHER TOOLS are available in nearly every
+country; the stated exceptions are Cuba, Iran, North Korea, Syria and the
+Crimea, Donetsk and Luhansk regions of Ukraine. Taiwan is not excluded, and
+under 非學校型態實驗教育 the parent is the registered educator, so that route is
+probably open. LIMIT: student-facing Khanmigo in a classroom still needs a
+DISTRICT PARTNERSHIP, unobtainable here — there is no route to the AI tutor
+itself. Country counts conflict (Microsoft 49; third parties 44+ or 70+); the
+help centre governs and is ~290 days old. Khan Academy core and Official SAT
+Practice remain free worldwide and unaffected.
+
+**CK-12 — the one platform that explicitly accommodates a class of one.** Its
+own help centre: every tool available to teachers is available to parents or
+guardians teaching at home, and "if you are homeschooling, it is fine to have a
+class of only one, or a few students." Classes support assignments and progress
+tracking. Open educational resources: customisable FlexBook textbooks,
+interactive simulations, adaptive practice; strongest in maths and science.
+LIMITS: adaptive-practice grade coverage CONFLICTS (grades 1-5 per one source,
+upper-elementary through high school per another) — check by subject;
+simulations and adaptive practice are online only; English/history catalogues
+are thinner; it is a library with assignment tools, not a day-by-day curriculum.
+Standing contrast worth reusing: CK-12 accommodates a class of one as policy;
+Bebras does not accommodate it at all.
+
+**COURSERA — indicative only, weak sourcing.** Audit: free with a free account,
+lectures and readings, graded assignments and certificate locked; offered on
+many individual course pages but hidden on specialization and certificate pages;
+one guide claims a "Full Course, No Certificate" option that does include graded
+work (most say locked — check the course page). Financial aid: a fee-waiver
+application on most courses and certificates, ~15 days to decide, ~180 days to
+finish; one source claims a recent 90%-of-fee cap (UNCONFIRMED); no published
+income thresholds or country cutoffs, and **whether aid is granted outside the US
+is NOT ESTABLISHED**. Coursera Plus $59/mo or $399/yr. EVERY source found was a
+third-party blog — Coursera's own policy pages did not surface. Say so when
+using this entry.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -288,6 +331,19 @@ George (10-08), Pearce (10-14). **From the next index-4 day (2026-10-20) the slo
 needs a new source** — candidates: Nature's own "best science books" round-ups,
 Science's editors' picks, the Royal Society longlist years prior, or the 2027
 prize cycle once announced. Advance the index and say so if nothing is sourced.
+
+### Index 5 (Booker) status as of 2026-10-15
+
+The six 2008 Best of the Booker finalists — all former winners — are
+*Midnight's Children* (Rushdie), *Disgrace* (Coetzee), *Oscar and Lucinda*
+(Carey), *The Conservationist* (Gordimer), *The Siege of Krishnapur* (Farrell)
+and *The Ghost Road* (Barker). Five are now used; **Gordimer's The
+Conservationist is the last one**, after which this slot moves to Booker winners
+generally.
+**Correction logged:** the 2026-10-03 digest called *Moon Tiger* a "Best of the
+Booker finalist." It was not one — Penelope Lively won the Booker in 1987, which
+is all that should have been claimed. The ledger line has been corrected. Do not
+substitute another list for it without verifying that list.
 
 ## Section 5 — Competitions for the 11-year-old
 
@@ -463,6 +519,29 @@ explicitly by the family.
   <https://technovationchallenge.org/competition/>
 - Unverified alternates: Conrad Challenge; hackathons.
 
+### Part A addition verified 2026-10-15 — THE CONRAD CHALLENGE
+
+Conrad Foundation, out of Space Center Houston. https://conrad.spacecenter.org/
+**ACTIVATION STAGE CLOSES 29 OCTOBER 2026, 11:59pm CT**; Innovation Stage
+(brief, video, website) due **7 JANUARY 2027**; Innovation Summit in Houston
+**21-24 APRIL 2027** — all per the official 2026-27 student guide, which
+overrides the third-party sites giving 30 October and 8 January.
+Ages **13-18**, so THE ELDER CHILD ONLY (unlike Technovation, which starts at 8).
+Teams of **2-5 students** plus one **team coach aged 18+**. Teams may compete
+FROM ANYWHERE IN THE WORLD and the guide explicitly encourages recruiting
+teammates from other schools, cities, states or countries. One aggregator says
+homeschooled students are eligible; the official guide's snippet did not state
+it. Work product: an innovation addressing a real problem plus a workable
+business plan.
+FEE CONFLICT: several sources say stages 1-2 are free with **$499 per team** from
+the Innovation Stage; one listing says entry is free outright; the official guide
+excerpt did not state a fee. Verify before the January stage, not before October.
+WHY IT MATTERS: no gender condition, no residence filter, no host institution, no
+school — the only gatekeeper is an adult willing to be called a coach, which also
+makes it the easiest form of the standing UT-department ask. And it gives the
+elder child a reason to ASSEMBLE an international team rather than wait to be
+selected for one.
+
 ### Part B — a recurring problem to attempt
 - **Advent of Code** — daily programming puzzles each December morning, free,
   global. **Caveats:** Wikipedia now gives the window as 1–12 December where older
@@ -486,6 +565,23 @@ permission.
 
 **The framing that emerged and should be kept:** everything blocked is blocked by
 an institution; everything open can be started this afternoon.
+
+### Part C obstacles list as of 2026-10-15
+
+1. AMC 8 host in Taiwan. 2. Bebras class-of-one registration. 3. 臺灣區小學數學
+奧林匹亞競賽 individual registration. 4. The 非學校型態實驗教育 MOE olympiad route
+with the education bureau. 5. J-1 / J-2 status. 6. GLOBE Taiwan's school-based
+partnership route (NCU office). 7. No wet-lab access (JEI mentor requirement is
+the sharpest form of the ask). 8. Conrad needs 1-4 teammates and an adult coach —
+the only item solvable by asking PEOPLE rather than institutions.
+RETIRED, both answered no, and never to be re-listed as blockers: Clark Scholars
+(US citizens and permanent residents only, resolved 10-14) and paid Khanmigo (US
+only, resolved 10-15). Framing: a resolved no costs nothing further; an open
+maybe costs attention every day.
+UNBLOCKED list to close on: CS50x, CK-12 with a class of one, free Khanmigo
+teacher tools, GLOBE Observer, Foldit, Eterna, Kuayue Cup, North Star, Beast
+Academy, Exercism, freeCodeCamp, Omega Learn, MIT OCW, Project Euler, Advent of
+Code.
 
 ### Alternation and its mitigation
 The family chose alternating days over two daily sections or folding in. The risk —
