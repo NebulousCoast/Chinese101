@@ -42,3 +42,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-13 — Moving Up Without Losing Your Way: The Ethical Costs of Upward Mobility — Jennifer M. Morton — Princeton/Harvard recommended reading
 2026-10-14 — Despite It All: A Handbook for Climate Hopefuls — Fred Pearce — Royal Society Trivedi Science Book Prize 2026 shortlist (Nature/Science slot; final title on that list)
 2026-10-15 — The Siege of Krishnapur — J.G. Farrell — Booker (1973 winner, Best of the Booker finalist)
+2026-10-16 — Gray Matters: A Biography of Brain Surgery — Theodore H. Schwartz — GatesNotes (summer 2026 list, via Kirkus; Gates listed among the book's endorsers)

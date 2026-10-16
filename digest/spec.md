@@ -164,6 +164,33 @@ is NOT ESTABLISHED**. Coursera Plus $59/mo or $399/yr. EVERY source found was a
 third-party blog — Coursera's own policy pages did not surface. Say so when
 using this entry.
 
+### Section 1 findings logged 2026-10-16
+
+**PHYSOLY IS COMMUNITY-BUILT — disclose it the way Omega Learn is disclosed.**
+https://physoly.tech/ and https://physoly.tech/kalda/ — a free hub of notes,
+handouts and olympiad problems for high school students, plus a Discord of
+thousands of competitors. Its resources page is credited to "Members of
+Physoly" with NO named founder or organisation, and the Kalda solution manuals
+began as a pilot project from the Art of Problem Solving community, mostly
+written by volunteers on a private forum (the mechanics manual alone covers 86
+problems and 74 "ideas"). Strong peer work, NOT an answer key.
+**THE DISTINCTION TO STATE EVERY TIME:** the HANDOUTS are Jaan Kalda's own, a
+long-standing olympiad trainer, freely distributed from ioc.ee/~kalda/ipho with
+an IPhO formula sheet. The problems have authority; the solutions are
+crowd-written. Handouts as the spine, Physoly manuals as a check, in that order.
+Whether every Physoly resource is free is UNCONFIRMED; the Kalda pages are.
+
+**PHET — the contrast case, and institutionally accountable.** Run by the
+University of Colorado Boulder. Free interactive simulations across physics,
+chemistry, biology, earth science and maths; browser-based or OFFLINE via a
+desktop app. https://phet.colorado.edu/ NUMBERS CONFLICT by vintage: 170+ sims
+in 130+ languages (most recent source), 140+ (2018 CU Boulder deck), 100+ and 59
+languages (2017 deck) — PhET's own current figure did not surface, so quote the
+range, not a number. LICENCE CONFLICT: CC BY-NC 4.0 per Wikipedia vs plain CC BY
+per a 2017 CU Boulder deck — check before any public reuse. LIMIT, same as the
+Labster verdict: a simulation is not a laboratory and solves no credential
+problem; its value is letting a child break something expensive repeatedly.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -490,6 +517,32 @@ on the official roster, which is why searches for "Taiwan" kept failing. 2026 wa
 Incheon; **2027 is Madrid**. The in-country selecting partner is still
 unidentified; the ask now goes to FIRST Global directly for their national-team
 contact.
+
+### Section 6 addition verified 2026-10-16 — THE WORLD SCHOLAR'S CUP
+
+https://www.scholarscup.org/calendar/ — THE FIRST ITEM THAT SERVES BOTH CHILDREN
+IN ONE EVENT, and the first with a round inside Taiwan.
+Shape: teams of THREE, four events — team debate, COLLABORATIVE WRITING, the
+Scholar's Challenge, the Scholar's Bowl. Regional round -> Global Round ->
+Tournament of Champions at Yale, reached by exceeding a points threshold at a
+Global or Mini-Global Round (one school's account: ~8,000 scholars at a Global
+Round narrowing to ~2,000 at Yale).
+Divisions: JUNIOR DIVISION = born on or after 1 July 2013 and at least 10 at the
+regional round — fits the 11-year-old; the elder child is senior division.
+TAIWAN: the HSINCHU round, listed on the official calendar as a Taiwan city
+usually visiting in MARCH; 2026 ran 21-22 March; **2027 dates NOT ANNOUNCED** and
+the calendar flags estimates as the host's guess.
+**THE OPEN CONFLICT (Standing Rule 4 applies — resolve it, do not let it sit):**
+general rules allow mixed and INDEPENDENT teams, but the 2026 Hsinchu round said
+only students ATTENDING SCHOOL IN TAIWAN could register, for capacity reasons.
+The ask, to the Hsinchu host: does a 自學 student with a 設籍學校 count as
+attending school in Taiwan, and is an independent team of three accepted there.
+COST: unknown for Taiwan; the only figure found anywhere was 878 CNY for a round
+in China. Global Rounds abroad are the expensive part — treat the regional round
+as the only committed cost.
+Framing: a competition with collaboration inside it rather than pure
+collaboration, but the three-person team and the collaborative writing event are
+real, and unlike FIRST Global there is no national selection in the way.
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program
