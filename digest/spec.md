@@ -191,6 +191,40 @@ per a 2017 CU Boulder deck — check before any public reuse. LIMIT, same as the
 Labster verdict: a simulation is not a laboratory and solves no credential
 problem; its value is letting a child break something expensive repeatedly.
 
+### Section 1 findings logged 2026-10-17 — reasoning resources
+
+**CALLING BULLSHIT — free, the strongest no-cost critical-reasoning course found.**
+INFO 270 / BIOL 270 at the University of Washington, Carl Bergstrom and Jevin
+West. Everything is public: syllabus, readings, tools, CASE STUDIES and TEN
+EDITED VIDEO LECTURES. https://callingbullshit.org/ (syllabus at
+/syllabus.html; lectures on a YouTube playlist). Topics: causality vs
+correlation, statistical traps, misleading visualisation, limits of big data,
+PUBLICATION BIAS, fake news. Taught at 130+ universities.
+LIMITS: university level — right for the elder child, too early for the
+11-year-old; the site's own syllabus still says "next offered Autumn Quarter
+2023" so the page is stale though the materials are not; no enrolment, grading
+or certificate. The same team has a newer LLM project at thebullshitmachines.com
+— NOT examined; name it, do not recommend it, until it is checked.
+Standing use: one case study a week is the reasoning analogue of Project Euler.
+
+**毛毛蟲兒童哲學基金會 (Caterpillar Children's Philosophy Foundation) — the local
+P4C organisation, and the answer to "search in Chinese first" for philosophy.**
+Taiwanese foundation formally established 1990, with roots in 1976 when 楊茂秀
+(then 輔仁大學哲學系) translated Matthew Lipman's first Philosophy for Children
+textbook 《哲學教室》 into Chinese — Lipman founded P4C, so this is its
+Chinese-language branch, not an imitation. 台北市大安區和平東路一段199巷3號, with a
+Taitung presence. http://www.caterpillar.url.tw/
+THE METHOD, reusable for free and the model for section 8: 探索社群, a community
+of inquiry — in 楊茂秀's own description the QUESTION MATTERS MORE THAN THE
+ANSWER and the closing summary runs under half an hour; the adult keeps the
+question open rather than supplying answers.
+WHAT COULD NOT BE FOUND: no current 2026 schedule or fee list. Stale figures
+only — NT$4,200 per stage (past teacher training), NT$4,500 ten-session adult
+course at early bird, NT$8,000 past 國小 summer camp, all expired; 毛毛蟲之友
+members have had a 10% discount; books normally priced (《哲學的小孩》 NT$320).
+Treat as a PHONE CALL, not a sign-up: ask what runs this term for a 國小 child
+and for a parent, and whether 自學 families are served.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -434,6 +468,27 @@ advertises a 19 December Bebras with individual entry and an 8 December deadline
 contradicting NTNU on every point. Trust NTNU; nobody should pay a third party
 for access to a free challenge.
 
+### Section 5 addition verified 2026-10-17 — JOHN LOCKE INSTITUTE GLOBAL ESSAY PRIZE
+
+The first contest found that serves BOTH children: free, no school, no host, no
+residence filter. Open to students from ANY COUNTRY under 19 at the submission
+deadline, with a JUNIOR CATEGORY for entrants under 15 judged by a separate
+panel. Essays capped at 2,000 words excluding notes and bibliography. Prizes are
+scholarships — three per division at $5,000 / $2,000 / $1,000, plus a $10,000
+grand prize and an Honorary Junior Fellowship for the best essay overall.
+**THE 2027 CYCLE IS NOT ANNOUNCED** (as of early Sept 2026 the Institute had
+published neither dates nor questions). Last year's pattern, to be treated as
+EXPECTED not stated and verified on johnlocke.org: questions late January,
+registration closing 31 March, essays due 31 May, shortlist 7 July.
+CONFLICTS to report, never resolve by picking: the junior cutoff appears as "14
+or younger on 31 May", "under 15 on 31 May", and "fifteenth birthday after 30
+June"; the fee appears as free-with-a-late-submission-fee and as simply free.
+CATCH: juniors write on the SAME THIRTY QUESTIONS as seniors — separate judging,
+same prompts, so an 11-year-old answers a question set for an 18-year-old.
+STANDING ADVICE: at eleven the point is not winning. Take one published 2026
+question, spend six weeks on 2,000 words with real objections, submit a later
+cycle. The deadline is the gift; the prize is incidental.
+
 ## Section 6 — International collaboration (even-numbered dates)
 
 Added 2026-10-12 at the family's request ("add more international collaboration
@@ -595,6 +650,29 @@ makes it the easiest form of the standing UT-department ask. And it gives the
 elder child a reason to ASSEMBLE an international team rather than wait to be
 selected for one.
 
+### Part A addition verified 2026-10-17 — THE ETHICS OLYMPIAD
+
+https://ethicsolympiad.org/ — **ITS TERMS AND CONDITIONS STATE THAT HOME-SCHOOLED
+STUDENTS MAY PARTICIPATE AS A TEAM.** Written down, not inferred — the only item
+in the digest so far that grants this explicitly rather than requiring a phone
+call. Lead with that whenever this appears.
+Shape: teams of up to five, entirely ONLINE over Zoom, needing only a stable
+connection. Real ethical cases released in advance, then discussed before judges.
+**IT IS NOT DEBATE** — no side is assigned; teams are assessed on the quality of
+their reasoning, including how well they engage the other team's position.
+SENIOR DIVISION (15-18): MAY 2027, A$260-270 per team, one to two teams per
+school max, and the EARLY-BIRD RATE REQUIRES REGISTERING BEFORE JANUARY 2027 —
+that, not May, is the clock. A credit-card option exists for registrants outside
+Australia to avoid international transfer fees.
+MIDDLE SCHOOL DIVISION: next event NOVEMBER 2026 for YEARS 7-9, A$265 per team
+in 2026, no confirmed 2027 date or fee. **THE 11-YEAR-OLD IS TOO YOUNG** (grade
+5-6 equivalent is below Year 7) — say so plainly every time, because "middle
+school" plus "November" reads as available.
+BUDGET TERM: FULL TEAM FEES APPLY REGARDLESS OF TEAM SIZE — a solo entrant pays
+for a team.
+Do not confuse it with the Pan American Ethics Olympiad (3 April 2027, $225 USD
+per team, $180 early bird) — Americas region.
+
 ### Part B — a recurring problem to attempt
 - **Advent of Code** — daily programming puzzles each December morning, free,
   global. **Caveats:** Wikipedia now gives the window as 1–12 December where older
@@ -644,10 +722,41 @@ DEADLINE LEAD AT THE TOP, on every day, regardless of whose turn it is.** An off
 must never hide a deadline. That is how the September physics-olympiad window was
 lost and it will not be the mechanism twice.
 
+## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
+
+Added 2026-10-17 at the family's request ("something for kids to think, like
+philosophy and critical reasoning"). Serves BOTH children.
+
+**SHORT ON PURPOSE AND DAILY.** One question worth arguing about, the reasoning
+MOVE it teaches, the TRAP to watch for, and (when useful) how to run it. Roughly
+150-250 words. It is a habit, not a syllabus — the brevity is the design, and a
+long section here would be the first thing to collapse.
+
+Structural note offered to the family on 2026-10-17: section 8 could instead
+alternate with 6 and 7, or become a weekly longer piece. They have not answered;
+until they do, it runs daily and short. The 6/7 alternation is unchanged.
+
+**THE METHOD TO FOLLOW** — 楊茂秀's 探索社群 (community of inquiry, see section 1):
+the question matters more than the answer; the adult does not supply the answer;
+keep the question open longer than is comfortable; summarise briefly or not at
+all. Prefer questions an 11-year-old and a high-schooler can hold on EQUAL
+TERMS — that is the rarest and most valuable property.
+
+**GOOD SHAPES:** an identity-over-time puzzle (bicycle with every part replaced,
+then the body's cells — used 2026-10-17); a fairness case with no clean answer;
+a question where "it depends what you mean by X" is the START of the discussion
+rather than the end of it; a claim-dressed-as-data to pick apart (pair with
+Calling Bullshit). AVOID: trick questions with a single intended answer, and
+anything where the adult is obviously testing recall.
+
+**SUBSTANTIAL FINDS GO ELSEWHERE**, not into this section: reasoning and
+philosophy PLATFORMS to section 1, essay and ethics COMPETITIONS to sections 5
+and 7. Section 8 stays a daily question.
+
 ## Format
 
 Markdown, written to `archive/<YYYY-MM-DD>.md`, and HTML for the email.
-`# Daily Digest — <YYYY-MM-DD>`, then one `##` per section (six on any given day: 1-5 daily, plus section 6 on even dates or section 7 on odd dates). Every
+`# Daily Digest — <YYYY-MM-DD>`, then one `##` per section (seven on any given day: 1-5 and 8 daily, plus section 6 on even dates or section 7 on odd dates). Every
 factual claim carries a source link. Where a search turned up nothing solid,
 write "nothing new found today" — do not invent programs, deadlines, or
 prices. Fabricated application deadlines are the worst possible failure here.

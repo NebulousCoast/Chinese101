@@ -137,3 +137,36 @@ rather than two daily sections or folding into existing ones.
 **The framing worth keeping**, which emerged from building Part C: everything
 blocked is blocked by an institution; everything open can be started this
 afternoon.
+
+## 2026-10-17 — section 8 added (philosophy and critical reasoning)
+
+The family asked for "something for kids to think, like philosophy and critical
+reasoning." Rather than put a seventh research section into an email that already
+runs long, this was split three ways:
+
+1. **Section 8 — "Thinking"** — new, DAILY, and deliberately short (150-250
+   words): one question, the reasoning move it teaches, the trap to watch for,
+   and how to run it. Modelled on 楊茂秀's 探索社群 (community of inquiry): the
+   question matters more than the answer, the adult does not supply one, and the
+   closing summary stays short. Preference for questions an 11-year-old and a
+   high-schooler can hold on equal terms.
+2. **Resources to section 1** — Calling Bullshit (free UW course, fully public,
+   130+ universities) and 毛毛蟲兒童哲學基金會 (the Chinese-language branch of
+   Lipman's P4C movement, in Taipei since 1990, lineage to a 1976 translation).
+3. **Competitions to sections 5 and 7** — the John Locke Institute Global Essay
+   Prize (free, worldwide, Junior category under 15, serves both children) and
+   the Ethics Olympiad (online, and the ONLY item in forty-one days whose terms
+   and conditions explicitly state that home-schooled students may enter as a
+   team).
+
+Structural choice offered and not yet answered: section 8 could instead alternate
+with 6 and 7, or be a weekly longer piece. Until the family says otherwise it
+runs daily and short, and the 6/7 alternation is untouched.
+
+The footer rule gained a final item, "thinking".
+
+**Emerging pattern worth recording:** as of day forty-one the recurring obstacle
+is no longer any single institution — it is TEAMMATES. Conrad needs one to four
+plus a coach, the Ethics Olympiad charges a full team fee whatever the team size,
+and the World Scholar's Cup needs three. It is the only item on the obstacles
+list that no institution controls.
