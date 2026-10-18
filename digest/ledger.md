@@ -44,3 +44,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-15 — The Siege of Krishnapur — J.G. Farrell — Booker (1973 winner, Best of the Booker finalist)
 2026-10-16 — Gray Matters: A Biography of Brain Surgery — Theodore H. Schwartz — GatesNotes (summer 2026 list, via Kirkus; Gates listed among the book's endorsers)
 2026-10-17 — Never Let Me Go — Kazuo Ishiguro — NYT 100 Best Books of the 21st Century (#9)
+2026-10-18 — La Condition humaine (Man's Fate) — Andre Malraux — Le Monde 100 Books of the Century (#5; Prix Goncourt 1933)

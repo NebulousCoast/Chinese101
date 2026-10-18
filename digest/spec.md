@@ -225,6 +225,24 @@ members have had a 10% discount; books normally priced (《哲學的小孩》 NT
 Treat as a PHONE CALL, not a sign-up: ask what runs this term for a 國小 child
 and for a parent, and whether 自學 families are served.
 
+### Section 1 finding logged 2026-10-18 — BRILLIANT PRICE PARTLY RESOLVED
+
+Brilliant's OWN SUBSCRIBE PAGE (https://brilliant.org/subscribe/) lists
+**INDIVIDUAL $20/MONTH** and **FAMILY $40/MONTH WITH SIX SEATS**. Use those,
+per the rule that the organisation's own page beats any third party. Retire the
+old four-way "price conflicts" line.
+Third-party figures to recognise as probably stale: $27.99/mo or $161.88/yr;
+~$20/mo billed annually as one ~$240 payment; ~$30 month-to-month.
+**STILL UNRESOLVED:** whether the $40 family figure is billed monthly or as one
+annual payment — third-party estimates for six seats span $160-$190/yr to
+$480/yr, a threefold spread. Tell the family to check the checkout screen.
+Annual plans auto-renew; a refund window of a few days after an annual purchase
+is reported. Included: 40+ courses, no ads, no in-app purchases, one
+subscription across devices, "Koji tutoring". FREE TIER IS ONE LESSON PER DAY.
+STANDING RECOMMENDATION: for the reasoning goal the family set on 17 Oct, the
+FREE stack (Calling Bullshit, 毛毛蟲's books, section 8) beats Brilliant. If
+bought at all, buy it for the 11-year-old's maths intuition and buy ONE seat.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -392,6 +410,17 @@ George (10-08), Pearce (10-14). **From the next index-4 day (2026-10-20) the slo
 needs a new source** — candidates: Nature's own "best science books" round-ups,
 Science's editors' picks, the Royal Society longlist years prior, or the 2027
 prize cycle once announced. Advance the index and say so if nothing is sourced.
+
+### Index 2 (Le Monde) — WHAT THE LIST ACTUALLY IS, disclosed 2026-10-18
+
+Say this whenever the list is cited: it is NOT a critical canon. It came from a
+READER POLL run in spring 1999 by the retailer Fnac and the newspaper Le Monde,
+and the organisers stated the aim was not to assemble the hundred most
+distinguished French literary works of the century but to reflect the emotional
+attachments of the French public. A #1 means "most loved in France in 1999", not
+"best". The digest cited it six times before disclosing this.
+Used so far: #1 L'Étranger, #2 À la recherche du temps perdu, #3 The Trial,
+#4 Le Petit Prince, #5 La Condition humaine, plus Le Grand Meaulnes.
 
 ### Index 5 (Booker) status as of 2026-10-15
 
@@ -598,6 +627,51 @@ as the only committed cost.
 Framing: a competition with collaboration inside it rather than pure
 collaboration, but the three-person team and the collaborative writing event are
 real, and unlike FIRST Global there is no national selection in the way.
+
+### Section 6 additions verified 2026-10-18
+
+**iNATURALIST AND SEEK — citizen science whose contributions are ATTRIBUTABLE**,
+unlike Zooniverse. An observation is posted, others (often specialists) propose
+IDs; when MORE THAN TWO-THIRDS agree on a species and the observation passes
+iNaturalist's Data Quality Assessment it becomes RESEARCH GRADE and is exported
+to GBIF. https://www.inaturalist.org/
+NUMBERS WITH CAVEATS: GBIF's own metrics page for the iNaturalist research-grade
+dataset shows 8,149 citations against 169,720,759 occurrences; an older community
+estimate gave 2,202+ peer-reviewed publications, its author warning it came from
+semi-automated processing of only six publication indices; a BioScience article
+estimates ~7 papers/day globally use GBIF data of all kinds. NEVER round this to
+"your child's observations will be in scientific papers" — the honest sentence is
+that the dataset they contribute to is cited thousands of times.
+UNDER-13 ROUTE: **SEEK REQUIRES NO ACCOUNT**, stores records on-device by
+default, and does not send precise location unless the user signs in to
+iNaturalist and submits; posting through is optional and needs parental consent
+for a child. AGE CUTOFF CONFLICTS IN iNATURALIST'S OWN MATERIALS — the Seek
+privacy policy frames protections around users "12 and younger", the posting
+announcement says "under 13". Point the family at the privacy policy.
+LICENCE: only CC0, CC-BY or CC-BY-NC observations export to GBIF (81.4M research
+grade vs 99.6M under an exporting licence; users report GBIF running tens of
+millions behind the site total). Set the licence deliberately. NOT a credential —
+a named, licensed, citable data contribution.
+
+**THE TEAMMATE PROBLEM — no institution solves it, confirmed 2026-10-18.**
+Conrad's own 2026-27 student guide says to assemble a team from classmates and
+students at other institutions; the site suggests schoolmates, siblings, camp
+friends "or any other eligible students you know". THERE IS NO OFFICIAL MATCHING
+BOARD. Solo entry is not allowed (2-5 students plus an adult coach). What exists:
+Conrad's Alumni Leadership Council webinar on finding teammates and vetting
+collaborators (https://conrad.spacecenter.org/webinar-dream-team/). What also
+exists and should be DECLINED: at least one paid consultancy advertising to match
+students with "other driven students" — 2024-era information, charges a fee, no
+evidence of quality. Never recommend paying a consultant to introduce a child to
+strangers.
+THE FOUR REAL ROUTES, none needing institutional permission: (1) Taiwan's 自學 and
+共學團體 networks — the most under-used asset in this family's situation; (2) the
+UT department for OTHER STUDENTS, not only for an adult (graduate students and
+postdocs have teenage siblings, cousins and children); (3) the Ethics Olympiad,
+whose terms permit a home-schooled team, so the need is two to four more families
+rather than an institution; (4) the World Scholar's Cup, which permits
+INDEPENDENT teams of three in its general rules (the Hsinchu school-only question
+is still open with the host).
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program
