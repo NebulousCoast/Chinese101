@@ -243,6 +243,20 @@ STANDING RECOMMENDATION: for the reasoning goal the family set on 17 Oct, the
 FREE stack (Calling Bullshit, 毛毛蟲's books, section 8) beats Brilliant. If
 bought at all, buy it for the 11-year-old's maths intuition and buy ONE seat.
 
+### Section 1 finding re-verified 2026-10-19 — ANKI
+
+FREE on desktop (Windows, Mac, Linux), FREE on Android as AnkiDroid, FREE for
+AnkiWeb sync with an account. AnkiMobile on iOS is a ONE-TIME purchase — $24.99
+in the US store and reportedly EUR 29.99 in the German store, so the price varies
+by storefront and the Taiwanese figure is unknown. No subscription, no in-app
+purchases, no free trial or lite tier on iOS. Desktop and AnkiDroid are open
+source and volunteer-maintained; the claim that iOS revenue funds development is
+widely repeated but was NOT confirmed from a primary source.
+CAVEAT TO STATE: every reachable source was a third-party blog, not Anki's own
+pages or the App Store. LIMIT, unchanged: a retention tool, not a learning tool —
+right for formulas, Chinese characters and vocabulary, wrong for what AMC 8
+tests, which is recognising the kind of problem in front of you.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -411,6 +425,17 @@ needs a new source** — candidates: Nature's own "best science books" round-ups
 Science's editors' picks, the Royal Society longlist years prior, or the 2027
 prize cycle once announced. Advance the index and say so if nothing is sourced.
 
+### Index 3 (Princeton/Harvard) — provenance discipline, 2026-10-19
+
+Susan Wolf's *Meaning in Life and Why It Matters* was used in this slot on the
+strength of Princeton University Press and the University Center for Human
+Values; **its Pre-read status could NOT be confirmed** and the email said so.
+Keep doing that: the slot is "Princeton/Harvard recommended reading", so a press
+or centre lineage is enough, but never assert a Pre-read listing unverified.
+Its structure is worth remembering as a model for the reasoning thread: two Wolf
+lectures, then printed responses from John Koethe (p.67), Robert M. Adams (p.75),
+Nomy Arpaly (p.85) and Jonathan Haidt (p.92), then Wolf's reply (p.102).
+
 ### Index 2 (Le Monde) — WHAT THE LIST ACTUALLY IS, disclosed 2026-10-18
 
 Say this whenever the list is cited: it is NOT a critical canon. It came from a
@@ -517,6 +542,43 @@ same prompts, so an 11-year-old answers a question set for an 18-year-old.
 STANDING ADVICE: at eleven the point is not winning. Take one published 2026
 question, spend six weeks on 2,000 words with real objections, submit a later
 cycle. The deadline is the gift; the prize is incidental.
+
+### AMC 8 IN TAIWAN — RESOLVED 2026-10-19. REPLACES EVERY EARLIER AMC 8 ENTRY.
+
+**財團法人九九文教基金會 (the 99 Cultural and Educational Foundation) administers
+MAA's AMC competitions in Taiwan.** https://www.99cef.org.tw/maa-amc/
+- **AMC 8 Taiwan exam date: 22 JANUARY 2027 (Friday)**, per the foundation's own
+  announcement.
+- **REGISTRATION IS IN TWO FORMS: 團體報名 AND 個別報名.** INDIVIDUAL REGISTRATION
+  EXISTS — online, print a payment slip, pay. The 120-student threshold applies
+  only to a school applying to run its OWN test centre, not to a student sitting
+  at an existing one.
+- 2026 cycle: fee **NT$700 per student**, registration 5-12 December 2025,
+  payment deadline 15 December.
+- 2026 test centres across Taipei, Taoyuan, Hsinchu, Taichung, Changhua, Nantou,
+  Chiayi, Tainan, Kaohsiung, Pingtung, Hualien and Kinmen — 南華高中 and 陽明高中
+  (Taipei), 台中一中, 高雄中學, plus added 台北國家考場, 花蓮海星高中, 金門金城國中.
+  Popular centres fill.
+- **FEE WAIVER:** 300 subsidised places for (中)低收入戶 students; individual
+  registrants send documentation by fax or email after registering.
+- The foundation's AMC page says registration opens 每年十二月 in both forms.
+  **2027 dates, fee and grade rule are NOT YET PUBLISHED** — say so; treat NT$700
+  and early December as the expected shape. Grade rule: the 2026 簡章 text visible
+  did not state one; a 2020 non-official notice said 國中二年級(8年級)以下, which
+  matches the MAA's grade-8-or-below rule but is six years old.
+- AMC 10/12 individual registration in the 2026 cycle ran 18-30 Sept with payment
+  by 1 Oct — relevant for the elder child next year.
+
+**NEVER AGAIN SAY: that Taiwan has no AMC host; that the MAA registers only
+schools and sites so individuals cannot enter; or that the 28 October US
+early-bird is this family's deadline. All three were wrong and were repeated for
+five weeks.** The root cause: a Taiwanese problem researched in English. The rule
+"SEARCH IN CHINESE FIRST" was added on 3 October and not applied to the
+longest-standing blocker for sixteen days. Standing advice now: free preparation
+(Omega Learn's Mastering AMC 8, student-run, plus free past papers) and NT$700 on
+the exam itself — a first AMC 8 should measure the child, and a coached score
+measures less than an uncoached one. An AoPS Online course starting late January
+2027 prepares for the 2028 exam, not this one.
 
 ## Section 6 — International collaboration (even-numbered dates)
 

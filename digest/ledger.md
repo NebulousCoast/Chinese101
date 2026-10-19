@@ -45,3 +45,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-16 — Gray Matters: A Biography of Brain Surgery — Theodore H. Schwartz — GatesNotes (summer 2026 list, via Kirkus; Gates listed among the book's endorsers)
 2026-10-17 — Never Let Me Go — Kazuo Ishiguro — NYT 100 Best Books of the 21st Century (#9)
 2026-10-18 — La Condition humaine (Man's Fate) — Andre Malraux — Le Monde 100 Books of the Century (#5; Prix Goncourt 1933)
+2026-10-19 — Meaning in Life and Why It Matters — Susan Wolf — Princeton/Harvard recommended reading (Princeton UP / University Center for Human Values; Pre-read status unverified)
