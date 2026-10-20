@@ -257,6 +257,29 @@ pages or the App Store. LIMIT, unchanged: a retention tool, not a learning tool 
 right for formulas, Chinese characters and vocabulary, wrong for what AMC 8
 tests, which is recognising the kind of problem in front of you.
 
+### Section 1 finding verified 2026-10-20 — POLYPAD BY AMPLIFY
+
+https://polypad.amplify.com/ — FREE, and **NO ACCOUNT IS NEEDED TO START**.
+An account is required only to SAVE, SHARE or ASSIGN work; teacher accounts via
+email or Google, Amplify or Desmos Classroom. Content: virtual manipulatives —
+shapes, tiles, number lines, fraction bars, algebra tiles, dice, spinners,
+graphs, coordinate planes. "Most comprehensive library on the internet" is
+Amplify's own marketing claim; label it as such. Runs on all devices and
+browsers; aimed mainly at middle and high school, adaptable downward.
+TERMS (unusually clear for a free tool): free for PERSONAL, EDUCATIONAL AND
+NON-COMMERCIAL use; embedding via image, iFrame or JavaScript API is permitted
+including commercially PROVIDED the content is not paywalled, with a limit of
+10,000 iFrame/API requests per year; required credit line "Materials created
+using Polypad by Amplify"; sharing others' created content needs their
+permission.
+WHY IT BELONGS in the 11-year-old's free package (with CK-12, Khan core, past
+AMC 8 papers, Omega Learn): it is the only item that makes abstract arithmetic
+physically manipulable, which is what AMC 8 geometry and counting reward.
+CONFLICT TO FLAG, NOT RESOLVE: an Amplify page announces "The 2026 Polypad Art
+and Music Contest is live!", but the standing record says the 2026 contest closed
+6 May and the page's URL belongs to Amplify's FY26 campaign — read as STALE and
+tell the family to check the contest page itself.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -416,7 +439,26 @@ Before choosing, read `ledger.md` and **never repeat a title already listed**.
 After writing the digest, append the new title to it. If the day's source is
 exhausted, move to the next index and note the shift.
 
-### Index 4 (Nature/Science slot) — SOURCE EXHAUSTED as of 2026-10-14
+### Index 4 (Nature/Science slot) — NEW SOURCE SET 2026-10-20
+
+**The replacement vein is NATURE'S OWN BOOKS & ARTS SECTION** — its individual
+book reviews plus Andrew Robinson's recurring "Books in brief" column, which
+covers five science titles at a time. https://www.nature.com/books-culture and
+the review index at https://www.nature.com/nature/articles?type=book-review
+Why this rather than a year-end list: it is Nature's own editorial judgement and
+it refreshes monthly, so the slot never runs dry again. Nature's year-end picks
+appear in December and can be folded in when they do; as of 20 Oct the 2026 list
+was not out. **There is NO Trivedi longlist** — checked 20 Oct; the prize
+publishes judges, a six-title shortlist and a winner, nothing between.
+Used from the new vein: Helvarg, *Forest of the Sea* (Books in brief, 25 Sept
+2026). Other identified titles in that installment for future use: an edited
+collection by Siri Carpenter (11 science articles, each with a commentary and an
+author interview — title not captured), and Kit Chapman's chemistry history
+(already used 26 Sept from the Trivedi list — do not repeat). A Neil Turok review
+of a Stephen Hawking biography ran 1 Oct 2026 (Vol 658, issue 8134, pp 26-28) but
+THE BOOK'S TITLE AND AUTHOR COULD NOT BE ESTABLISHED — identify them before using.
+
+### Previous index 4 source — EXHAUSTED as of 2026-10-14
 
 All six Royal Society Trivedi Science Book Prize 2026 shortlisted titles have now
 been used: Barneoud (09-15), Cohen (09-20), Chapman (09-26), Ramirez (10-02),
@@ -734,6 +776,40 @@ whose terms permit a home-schooled team, so the need is two to four more familie
 rather than an institution; (4) the World Scholar's Cup, which permits
 INDEPENDENT teams of three in its general rules (the Hsinchu school-only question
 is still open with the host).
+
+### Section 6 addition verified 2026-10-20 — EDITING 中文維基百科
+
+The collaboration with no gatekeeper, no fee, no age floor and a permanent public
+record. All of the following comes from Wikipedia's own 給未成年用戶的建議 page,
+not a third party.
+- **NO AGE REQUIREMENT.** Wikipedia does not ask editors for age or identity.
+  Registration needs no personal data; an email address is optional.
+- **MINORS ARE HELD TO THE SAME STANDARD** — the guidance states explicitly that
+  being a minor does not excuse a policy violation and that blocks apply equally.
+  Present that as the reason the activity is worth something, not as a warning.
+- SAFETY GUIDANCE, to repeat verbatim in effect: do not publish real name, age or
+  precise address; do not let family or friends use the account; the community
+  STRONGLY ADVISES minors and children not to register under a real name or any
+  nickname traceable to them.
+- **ANONYMOUS EDITING IS WORSE FOR PRIVACY**: unregistered edits exposed the IP in
+  public history, and since 24 JUNE 2025 they are attributed to temporary accounts
+  valid 90 days which cannot be logged into and have no password. A registered
+  pseudonymous account is the private option.
+- PERMISSIONS LADDER: most accounts become 自動確認使用者 (autoconfirmed) after
+  SEVEN DAYS AND FIFTY EDITS. CheckUser-type permissions need age 18 and
+  identification to the Wikimedia Foundation — irrelevant to ordinary editing.
+WHY IT COUNTS AS REAL COLLABORATION: shared permanent artefact, every edit
+attributed, timestamped and reversible, and strangers with more expertise will
+argue about sourcing — the only activity in the digest where an 11-year-old can
+be corrected in public by an adult who cares about accuracy.
+LIMITS: NOT a credential (a contribution history is verifiable dated evidence,
+not a qualification); edits will be reverted, sometimes brusquely, so an adult
+should be nearby the first few times. Sourcing caveat: one newcomer walkthrough
+found was a 5+-year-old personal Medium post — official policy pages govern.
+HOW TO START, worth repeating whenever this appears: not by writing an article —
+find three articles about something the family actually knows (a Taiwanese place,
+a local species, a Chinese-language book) and add ONE properly sourced sentence
+to each.
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program
