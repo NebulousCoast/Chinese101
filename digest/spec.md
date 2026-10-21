@@ -16,6 +16,46 @@ verbatim into the Routine prompt so that a firing never depends on repo state.
 | EdTech lens | Parent / homeschool |
 | Austin link | Summers only — mother is a UT Austin visiting scholar teaching a summer course. Non-residents, no family in Austin. |
 
+### 團體自學 — THE CATEGORY ERROR, found 2026-10-21. READ THIS BEFORE ANY SECTION.
+
+Taiwan's 非學校型態實驗教育 has **THREE** forms, not one: **個人** (individual),
+**團體** (group) and **機構** (institution). The 團體 form is an **自學互助會**, a
+mutual-aid self-learning association founded jointly by the parents of **THREE OR
+MORE STUDENTS** and capped at **THIRTY people** in total.
+**WHY THIS MATTERS MORE THAN ALMOST ANYTHING ELSE IN THIS FILE:** for five weeks
+the digest treated this family as individual self-learners facing institutions
+that register classes rather than students, while separately recording
+"teammates" as the top obstacle. 團體自學 addresses both at once — a group is a
+recognised 實驗教育 unit, plausibly with a 指導老師 and a roster, which is what
+Bebras, Conrad, the Ethics Olympiad and the World Scholar's Cup each ask for in
+different words. **STOP ASKING ORGANISERS "can an individual self-learner
+register?" and START ASKING "what do you accept from a 團體自學 group?"**
+NOT VERIFIED, and must not be asserted: how any organiser actually treats a 團體;
+whether forming one is practical or worth the administrative cost for this
+family; the county application calendar for 團體自學.
+
+### WHERE THE OTHER SELF-LEARNING FAMILIES ARE (verified 2026-10-21)
+
+The teammate obstacle has a Taiwanese answer that was missed because the search
+was in the wrong language and the wrong category:
+- **「聚起來」/ 自學生小聚** — since 2018, self-learners themselves run 小聚, small
+  meetups described as functioning like a student club, in northern, central and
+  southern Taiwan, explicitly so 自學生 can make friends and FORM TEAMS to learn
+  together. A teammate network run by the students.
+- **台灣親子共學教育促進會** (founded 2012) — more than FORTY 共學團 groups as of
+  2016, including 大腳小腳親子共學團 and **暖暖蛇青少年共學團** (youth).
+- **自主學習促進會** — youth courses and activities; pairs experienced
+  self-learning families with newcomers; mentor assessment and resource referral.
+- **保障教育選擇權聯盟** (homeschool.tw) — self-learning plan resources including
+  county-by-county plan templates.
+- Facebook communities from one roundup: 國高中自學生社群, 高雄自學團交流區,
+  南台灣自學團, 自學共學分享基地.
+SCALE, per MOE figures: high-school 非學校型態實驗教育 enrolment more than TRIPLED
+in seven years — 453 students in 104學年度 to 1,694 in 110學年度.
+STALENESS CAVEAT to repeat: the Facebook roundup dates from 2013 and the 共學團
+count from 2016; activity now is unconfirmed. These are questions for other
+parents, not for officials.
+
 ## Section 1 — Interactive learning platforms for BYOD
 
 Surface **2–3 items**. **This section is not news-driven.** It was originally
@@ -280,6 +320,32 @@ and Music Contest is live!", but the standing record says the 2026 contest close
 6 May and the page's URL belongs to Amplify's FY26 campaign — read as STALE and
 tell the family to check the contest page itself.
 
+### Section 1 finding re-verified 2026-10-21 — OUTSCHOOL, and a claim softened
+
+Live video classes from independent teachers, typically SMALL GROUPS OF 2-15
+STUDENTS. https://outschool.com/ — **a membership is NOT required to take a
+class**, stated on Outschool's own page. Pay-per-class: teacher-set, roughly
+$9-$40 for a 55-minute session (review-site aggregation, early 2026).
+Memberships are credit-based: **80 credits $40/month** (Outschool says ~1 group
+class a week) and **144 credits $70/month**; each credit is worth 50 cents
+against class prices; larger plans add bonus credits. A marketplace/service fee
+is added at checkout on pay-per-class bookings and waived for members.
+CONFLICT: one review site lists "100 credits ($85)" — does not match Outschool's
+own figures; the membership page governs.
+UNVERIFIED AND IMPORTANT HERE: nothing found on international payment, currency
+options or regional pricing. Prices appear to be USD; whether a Taiwanese card
+works, and the total cost, is unknown.
+**CLAIM SOFTENED:** the standing line was "the real limit is time zones, teachers
+mostly North American, Taipei 12-15 hours ahead." Today's sources say classes RUN
+AT ALL HOURS specifically to accommodate time zones, and teachers are advised to
+list times in UTC when promoting globally. The limit is real but milder — fewer
+options at civilised Taipei hours, not none. Do not repeat the stronger version.
+**NEW USE TO KEEP RAISING:** every other platform here is the child alone with
+material; Outschool puts the child in a small live group with 2-15 other students
+repeatedly over weeks. With teammates as the top obstacle, a recurring Outschool
+class is the cheapest room full of candidates available. Frame it as a room with
+other children in it, never as a recruiting service.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -489,7 +555,17 @@ attachments of the French public. A #1 means "most loved in France in 1999", not
 Used so far: #1 L'Étranger, #2 À la recherche du temps perdu, #3 The Trial,
 #4 Le Petit Prince, #5 La Condition humaine, plus Le Grand Meaulnes.
 
-### Index 5 (Booker) status as of 2026-10-15
+### Index 5 (Booker) — FINALISTS EXHAUSTED as of 2026-10-21
+
+Gordimer's *The Conservationist* was the LAST of the six 2008 Best of the Booker
+finalists. All six are now used: Rushdie (09-09), Coetzee (09-14), Barker
+(09-21), Carey (10-09), Farrell (10-15), Gordimer (10-21). **From the next
+index-5 day the slot moves to Booker winners generally — say so in the email when
+it does.** The 1974 prize is generally recorded as SHARED with Stanley
+Middleton's *Holiday*; that was not verified in the 21 Oct sources and was
+flagged as unverified in the email.
+
+### Superseded — Index 5 (Booker) status as of 2026-10-15
 
 The six 2008 Best of the Booker finalists — all former winners — are
 *Midnight's Children* (Rushdie), *Disgrace* (Coetzee), *Oscar and Lucinda*
