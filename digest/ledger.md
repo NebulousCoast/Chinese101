@@ -48,3 +48,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-19 — Meaning in Life and Why It Matters — Susan Wolf — Princeton/Harvard recommended reading (Princeton UP / University Center for Human Values; Pre-read status unverified)
 2026-10-20 — Forest of the Sea: The Remarkable Life and Imperiled Future of Kelp — David Helvarg — Nature Books & Arts (Books in brief, 25 Sept 2026; new index-4 source)
 2026-10-21 — The Conservationist — Nadine Gordimer — Booker (1974 winner, reportedly shared with Middleton's Holiday — unverified; last of the six Best of the Booker finalists)
+2026-10-22 — Remarkably Bright Creatures — Shelby Van Pelt — GatesNotes (holiday fiction pick, reported by Katie Couric's site with a direct Gates quote)

@@ -346,6 +346,26 @@ repeatedly over weeks. With teammates as the top obstacle, a recurring Outschool
 class is the cheapest room full of candidates available. Frame it as a room with
 other children in it, never as a recruiting service.
 
+### Section 1 finding re-verified 2026-10-22 — DUOLINGO, and an unanswered question
+
+ENERGY SYSTEM: Duolingo is moving free users from hearts to an "energy" system,
+which Duolingo itself describes as a usage-based battery for free learners.
+Third-party guides estimate the free cap at ~15-20 MINUTES A DAY or about 2-3
+lessons — guides' estimates, mutually inconsistent. Super removes the cap and ads.
+**PRICING IS THE WORST CONFLICT IN THE WHOLE DIGEST.** Monthly $12.99 / $13.99 /
+$16.99 (the last from a Sept 2026 iOS account). Annual $59.99 (older guides) /
+$83.99 / $95.99 / $119.99. Family most often $119.99/yr for up to six, but one
+Sept 2026 account showed $143.99. Prices vary by account, region and billing
+route — tell the family to read their own app store and believe nothing else.
+**UNANSWERED AND WORTH CHASING:** the DUOLINGO ENGLISH TEST — cost, what CEFR
+level a score maps to, and who accepts it. All three failed to surface. This
+matters because 國立臺北護理健康大學's MUN conference requires CEFR B2 (see section
+6), so "how does a self-learner evidence an English level?" is now a live
+practical question with no answer in this file. Until it has one, the advice is
+to ask the organiser what proof they accept.
+STANDING JUDGEMENT: a habit tool, not a proficiency tool. Do not buy Super to
+satisfy a language requirement.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -532,6 +552,20 @@ George (10-08), Pearce (10-14). **From the next index-4 day (2026-10-20) the slo
 needs a new source** — candidates: Nature's own "best science books" round-ups,
 Science's editors' picks, the Royal Society longlist years prior, or the 2027
 prize cycle once announced. Advance the index and say so if nothing is sourced.
+
+### Index 0 (GatesNotes) — SOURCING RULE, set 2026-10-22
+
+**gatesnotes.com does not surface in this container's search index**, so Gates's
+own posts cannot be read. Accept only NAMED OUTLETS REPORTING HIS LISTS — e.g.
+Kirkus for the summer 2026 list, a Katie Couric piece for the holiday fiction
+pick (which carried a direct Gates quote). **Aggregator sites claiming to list
+"242 Bill Gates recommended books", or 38, or 14, are NOT evidence** and must not
+be used; their counts contradict each other. Unverifiable claims seen and
+rejected: that Gates recommended *The Coming Wave* (Suleyman) and *Chip War*
+(Miller) — a dedicated search for a Gates/Chip War link found nothing, so neither
+may be used in this slot until a named outlet reports it.
+When an index-0 day has no properly attributed candidate, SAY SO in the email and
+advance the index rather than quoting an aggregator.
 
 ### Index 3 (Princeton/Harvard) — provenance discipline, 2026-10-19
 
@@ -886,6 +920,39 @@ HOW TO START, worth repeating whenever this appears: not by writing an article �
 find three articles about something the family actually knows (a Taiwanese place,
 a local species, a Chinese-language book) and add ONE properly sourced sentence
 to each.
+
+### Section 6 addition verified 2026-10-22 — MODEL UNITED NATIONS, and two individual-entry routes
+
+MUN is normally the most school-gated activity there is — conferences take
+delegations, schools assign countries — but NOT universally in this region.
+**TAKES INDIVIDUAL DELEGATES:**
+- **HKMUN 2027**, Hong Kong, **19-21 MARCH 2027**; an **Individual Delegate Form**
+  exists; general registration deadline **31 DECEMBER 2026**. https://www.hkmun.org/
+- **MUN TOKYO 2027**, **9-11 MARCH 2027**; high-school delegates listed as **AGES
+  11 TO 19**, so BOTH children are in range; individual students complete an
+  online form. https://mymun.com/conferences/mun-tokyo-2027
+**IN TAIWAN:**
+- **YMUNT (Yale Model United Nations Taiwan)**, **12-14 MARCH 2027, TAIPEI** —
+  organisers provide training materials, online introductory activities and
+  pre-conference in-person training. **UNKNOWN: whether it accepts individual
+  registrations or requires a school delegation**, and its precise eligibility.
+  First question to ask. https://ymunt.org/
+- **國立臺北護理健康大學 國際暨兩岸教育中心** MUN — registration open as of 22 Oct;
+  two days, four formal sessions, UN SDG themes; open to high school and tertiary
+  students OF ANY NATIONALITY who are **"currently studying in Taiwan"**; requires
+  **CEFR B2 English** or equivalent certificate. 2027 dates not found.
+**THE PATTERN WORTH REPEATING TO THE FAMILY: the phrase "currently studying in
+Taiwan" (or its equivalent) now blocks THREE separate things** — the Hsinchu
+World Scholar's Cup round, this Taipei MUN conference, and in a different form
+Bebras. One well-phrased enquiry about what a 非學校型態實驗教育 student counts as
+could unlock all three. Nobody has yet asked it.
+WHY IT COUNTS AS COLLABORATION: a committee is a working group of strangers
+producing a jointly drafted resolution under time pressure, with blocs forming
+and dissolving — and it ends with the child in a room with hundreds of teenagers
+from other countries, which addresses the teammate obstacle as a side effect.
+LIMITS: no credential; fees, flights and hotels for Hong Kong or Tokyo are real
+and UNPRICED here; a first conference is bewildering. Taipei in March is the
+cheap test.
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program
