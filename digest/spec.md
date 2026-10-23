@@ -366,6 +366,28 @@ to ask the organiser what proof they accept.
 STANDING JUDGEMENT: a habit tool, not a proficiency tool. Do not buy Super to
 satisfy a language requirement.
 
+### Section 1 finding verified 2026-10-23 — WOLFRAM ALPHA
+
+FREE BASIC: sign-in only, answers queries. **SOURCES CONFLICT** on whether the
+free tier also gives the FIRST STEP of a solution (one says yes, one says
+step-by-step is entirely behind Pro). Pro adds step-by-step solutions, a
+practice-problem generator, guided calculator apps, longer computation time,
+file uploads with instant analysis, downloadable custom graphics.
+PRICES (USD; Wolfram's own page did not surface, so all third-party): PRO
+$9.99/mo or ~$5/mo billed annually ($60/yr). PRO PREMIUM $12/mo or $8.25/mo at
+$99/yr, adding ~3x computation time, 5MB uploads, priority support.
+**STUDENT PRICE AND THE GATE THAT MATTERS HERE:** one source lists student Pro at
+$32.75 per six months (~$5.46/mo) with eligibility requiring **a school .edu
+email, or failing that your SCHOOL DETAILS AND EXPECTED GRADUATION DATE**;
+another mentions ~30% off via UNiDAYS; an old Wikipedia table's $2.99/mo is
+almost certainly stale. This is the same "what counts as a school" gate as
+"currently studying in Taiwan" — whether 非學校型態實驗教育 documentation satisfies
+it is UNKNOWN.
+STANDING RECOMMENDATION, unchanged: for an olympiad student STAY ON THE FREE
+TIER — step-by-step solutions destroy the value of a hard problem, and with the
+AMC 8 on 22 Jan 2027 a tool that hands over the method is worse than no tool.
+Unverifiable caveat seen: several reviews call step-by-step buggy in some cases.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -982,6 +1004,26 @@ explicitly by the family.
   <https://technovationchallenge.org/competition/>
 - Unverified alternates: Conrad Challenge; hackathons.
 
+### Conrad Challenge FEES — resolved 2026-10-23, replaces the old "fee conflict" line
+
+From the Conrad Foundation's OWN student guide (the 2025-26 edition, which is the
+one reachable here): the **ACTIVATION and LEAN CANVAS stages carry NO FEE**, the
+**INNOVATION STAGE costs $499 PER TEAM**, and **FINANCIAL AID IS AVAILABLE for
+that fee, awarded on application quality and need** — the aid route was missed in
+three earlier emails and must be mentioned whenever the fee is. One listing also
+shows a SEPARATE **$499 per attendee** for the Innovation Summit in Houston, a
+different charge from the stage fee, with travel on top. Third-party sources
+repeat the same figures for 2026-27.
+**TWO THINGS STILL UNSETTLED, both about money — say both:**
+1. The readable guide is 2025-26; the 2026-27 figures are third-party agreement,
+   not the Foundation's own 2026-27 document.
+2. **THE STAGE NAMES DO NOT LINE UP ACROSS SOURCES.** The official 2026-27 guide
+   gave "Activation to 29 Oct, Innovation Stage (brief/video/website) due 7 Jan";
+   a third party gives "Stage 1 due 30 Oct, Stage 2 due 8 Jan" with the $499
+   attaching to Stage 3. **NEVER tell the family the January submission is free.**
+   The question to put to the Foundation: which stage does the fee attach to?
+Retire the old "fee conflict unresolved ($499 vs free outright)" phrasing.
+
 ### Part A addition verified 2026-10-15 — THE CONRAD CHALLENGE
 
 Conrad Foundation, out of Space Center Houston. https://conrad.spacecenter.org/
@@ -1052,7 +1094,31 @@ permission.
 **The framing that emerged and should be kept:** everything blocked is blocked by
 an institution; everything open can be started this afternoon.
 
-### Part C obstacles list as of 2026-10-15
+### Part C obstacles list as of 2026-10-23 — SEVEN ITEMS
+
+1. 臺灣區小學數學奧林匹亞競賽 individual registration (closed 26 Oct 2026).
+2. The 非學校型態實驗教育 MOE olympiad route with the education bureau — blocks
+   Sept 2027, and still the ONLY blocker verified to genuinely require an
+   institution to act.
+3. J-1 / J-2 status — determines most of section 3.
+4. GLOBE Taiwan's school-based partnership route — the NCU office is the ask.
+5. No wet-lab access — structural; the JEI mentor requirement is the sharpest form.
+6. TEAMMATES — no official matching service anywhere; four routes recorded above
+   (自學/共學團體 networks, the UT department asked for STUDENTS, the Ethics
+   Olympiad's homeschool permission, the World Scholar's Cup's independent teams).
+7. **"WHAT COUNTS AS A SCHOOL" — one item, not four.** In a single week the same
+   gate appeared as "currently studying in Taiwan" (Hsinchu World Scholar's Cup;
+   the 國立臺北護理健康大學 MUN), as "a teacher registering a class" (Bebras), as
+   "your school details and expected graduation" (Wolfram's student discount), and
+   as 由各該直轄市、縣(市)主管機關報名 (the MOE olympiads). ONE question wearing
+   five costumes: what does a 非學校型態實驗教育 student, or a 團體自學 group, count
+   as? One well-phrased enquiry to the education bureau, copied in substance to
+   each organiser, addresses all of them. **Frame it this way from now on rather
+   than treating each organiser as a separate problem.**
+RETIRED: Clark Scholars, paid Khanmigo (answered no); the AMC 8 host (answered
+yes, 19 Oct).
+
+### Superseded — Part C obstacles list as of 2026-10-15
 
 1. AMC 8 host in Taiwan. 2. Bebras class-of-one registration. 3. 臺灣區小學數學
 奧林匹亞競賽 individual registration. 4. The 非學校型態實驗教育 MOE olympiad route
