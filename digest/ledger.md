@@ -50,3 +50,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-21 — The Conservationist — Nadine Gordimer — Booker (1974 winner, reportedly shared with Middleton's Holiday — unverified; last of the six Best of the Booker finalists)
 2026-10-22 — Remarkably Bright Creatures — Shelby Van Pelt — GatesNotes (holiday fiction pick, reported by Katie Couric's site with a direct Gates quote)
 2026-10-23 — The Known World — Edward P. Jones — NYT 100 Best Books of the 21st Century (#4, highest-ranked American novel; Pulitzer 2004)
+2026-10-24 — Voyage au bout de la nuit (Journey to the End of the Night) — Louis-Ferdinand Celine — Le Monde 100 Books of the Century (on the list per Wikidata; the commonly cited rank 6 is unconfirmed)

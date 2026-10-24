@@ -388,6 +388,40 @@ TIER — step-by-step solutions destroy the value of a hard problem, and with th
 AMC 8 on 22 Jan 2027 a tool that hands over the method is worse than no tool.
 Unverifiable caveat seen: several reviews call step-by-step buggy in some cases.
 
+### SECTION 1 — THE ROTATION POOL IS EXHAUSTED as of 2026-10-24. STANDING VERDICT MAP.
+
+Every substantial platform on the pool list has now had a proper entry. **From
+here section 1 RE-VERIFIES rather than discovers, and the email must say which it
+is doing.** A new platform only enters if something genuinely new appears.
+
+THE FREE STACK TO RECOMMEND — 11-year-old: CK-12 (its own help centre permits a
+class of one), Polypad (no account needed), Khan Academy core, past AMC 8 papers,
+Omega Learn's *Mastering AMC 8* (STUDENT-RUN — always disclose).
+Elder child: CS50x (auto-graded, required project, FREE certificate), Exercism
+(free forever, volunteer human mentoring), MIT OCW (2,500+ courses, NO credit or
+certificate), the Kalda handouts with Physoly's CROWD-WRITTEN solutions (always
+disclose), Calling Bullshit (free, University of Washington, fully public),
+Project Euler, Wolfram's FREE tier.
+For the parent: free Khanmigo TEACHER tools (available in Taiwan; the parent is
+the registered educator).
+
+THE THREE COUNTEREXAMPLES to "free means no feedback": Exercism, freeCodeCamp
+(projects; the certificate is NOT a credential), CS50x.
+
+BUY ORDER: (1) nothing this quarter except the NT$700 AMC 8 entry; (2) Beast
+Academy $99.99/yr if anything at all — depth, not exam prep, Level 5 = ages
+10-13; (3) AoPS Online $495/16wk ONLY after an AMC 8 score warrants it, and a
+course starting late Jan 2027 prepares for the 2028 exam.
+DO NOT BUY: Codecademy; Labster; Duolingo Super for a language requirement;
+Wolfram Pro before January; Brilliant for the reasoning goal specifically; any
+paid Khanmigo tier (unbuyable from Taiwan).
+
+STILL UNRESOLVED ACROSS THE SECTION — chase these when the item next appears:
+Brilliant's family billing period ($160-$480/yr depending on source); whether
+Outschool accepts a Taiwanese card and the total cost; the Duolingo English
+Test's cost and CEFR mapping; whether 非學校型態實驗教育 documentation satisfies
+Wolfram's student-discount gate.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -588,6 +622,21 @@ rejected: that Gates recommended *The Coming Wave* (Suleyman) and *Chip War*
 may be used in this slot until a named outlet reports it.
 When an index-0 day has no properly attributed candidate, SAY SO in the email and
 advance the index rather than quoting an aggregator.
+
+### Index 2 (Le Monde) — titles used, and the Céline handling, 2026-10-24
+
+Used so far: L'Étranger (#1), À la recherche du temps perdu (#2), The Trial (#3),
+Le Petit Prince (#4), La Condition humaine (#5), Le Grand Meaulnes, and Voyage au
+bout de la nuit (on the list per Wikidata; **the commonly cited rank 6 could only
+be sourced to a user review and an AI-generated page, so it was published as
+UNCONFIRMED** — keep doing that).
+HOW CÉLINE WAS HANDLED, as the model for any author-with-a-problem: the
+antisemitic pamphlets, the Occupation-era collaboration and the conviction in
+absentia were stated FIRST, as established historical record, together with the
+admission that the day's searches had not covered them. Never omit the fact and
+never imply it was verified when it was not.
+Suggested alternative from the same list for a teenager, offered in the email:
+Boris Vian's *L'Écume des jours* — inventive, short, not yet used.
 
 ### Index 3 (Princeton/Harvard) — provenance discipline, 2026-10-19
 
@@ -975,6 +1024,38 @@ from other countries, which addresses the teammate obstacle as a side effect.
 LIMITS: no credential; fees, flights and hotels for Hong Kong or Tokyo are real
 and UNPRICED here; a first conference is bewildering. Taipei in March is the
 cheap test.
+
+### Section 6 addition verified 2026-10-24 — OPEN-SOURCE CONTRIBUTION, and a genuine age floor
+
+**THE FIRST ITEM IN SECTION 6 THAT DEFINITIVELY EXCLUDES THE 11-YEAR-OLD, and the
+only obstacle in the whole digest that is a LAW rather than a gatekeeper's
+preference.** Say that contrast — it is clarifying rather than discouraging.
+GitHub's Terms of Service: a user must be **AT LEAST 13 YEARS OF AGE**, the stated
+reason being compliance with United States law, and GitHub will **TERMINATE THE
+ACCOUNT IMMEDIATELY** on learning a user is under 13. A country's higher minimum
+governs where one exists. A github/site-policy discussion requesting
+parental-consent accounts reports that the company does not meet the legal
+requirements for verifying parental consent, citing COPPA — community thread, not
+official policy, but it explains the absence of a consent route.
+So: the elder child may have an account; the 11-year-old may not. **NEVER suggest
+a workaround**, and never suggest putting a child's work under a parent's account
+and calling it theirs. (The Terms say a machine account must be set up by an
+individual human accepting the Terms on its behalf, which points the same way.)
+**UNANSWERED, AND THE REAL QUESTION FOR THE ELDER CHILD: can a minor sign a
+CONTRIBUTOR LICENSE AGREEMENT?** Many substantial projects require a CLA or a
+Developer Certificate of Origin before merging; a contract signed by a minor is a
+genuine legal question these sources did not resolve. Tell the family to check the
+specific project's CLA provider before investing weeks. DCO sign-off is probably
+less fraught than a corporate CLA — also not certain.
+ONE RULE THAT DOES ACCOMMODATE TEENAGERS: GitHub Sponsors permits ages 13-17 to
+give and receive funds where Stripe can verify a legal guardian.
+WHY IT COUNTS: a pull request is reviewed by a stranger anywhere, the discussion
+is public and permanent, the artefact is used by others, the commit carries the
+child's name. Like Wikipedia, the value is public correction by someone who cares;
+unlike Wikipedia, the thing has to run.
+LIMITS: no credential; "good first issue" labels are often mislabelled and lead
+into month-long rabbit holes; the commonest failure is an unmaintained project.
+STARTING MOVE to repeat: fix documentation in a project the child already uses.
 
 ### Leads not yet verified
 Foldit and Eterna (citizen science with published-paper history); GLOBE Program
