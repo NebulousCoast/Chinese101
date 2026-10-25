@@ -422,6 +422,34 @@ Outschool accepts a Taiwanese card and the total cost; the Duolingo English
 Test's cost and CEFR mapping; whether 非學校型態實驗教育 documentation satisfies
 Wolfram's student-discount gate.
 
+### Section 1 finding, 2026-10-25 — FIRST NEW ENTRANT SINCE THE POOL CLOSED
+
+**Teaching Children Philosophy — Prindle Institute for Ethics, DePauw University.**
+~300 discussion guides, each built on one children's book: the philosophical
+question inside the story, open-ended questions, notes on facilitating. Sized for
+a single 30-45 minute session. Indexed by theme, topic and age band; K-5 core with
+a growing middle-grade set. Lineage: originates with **Thomas Wartenberg** (the
+book-module approach, Mount Holyoke); Prindle hosts it as his digital partner. Also
+deposited in DePauw's institutional scholarship repository.
+
+STANDING RULE 6 DISCLOSURE: guides are individually credited, sometimes to
+"Prindle Institute" and sometimes to a named person. Recent batches came from
+UNDERGRADUATES in a Northeastern University class, a children's librarian, and the
+Institute's own Hillman interns. Named institution + an accepting editor, so well
+above Omega Learn / Physoly, but NOT peer-reviewed curriculum.
+
+NOT CONFIRMED: no reachable page states a price. prindleinstitute.org AND
+scholarship.depauw.edu both fail WebFetch (getaddrinfo ENOTFOUND). "Free" is very
+likely, not verified. Say so every time this is recommended until a page is read.
+
+**毛毛蟲兒童哲學基金會 — new detail.** Has historically run a 兒童哲學教育師資培訓,
+at least once jointly with 國立台東大學. Format: TWO co-facilitators running an
+探索社群, 25-30 places, 線上報名 or 現場報名. Contact on that 簡章: 02-2357-9936
+ext 11. LIMIT: the 簡章 is from ~2018; no evidence it still runs, number is eight
+years old. **This is the only route in the whole file where the PARENT becomes the
+qualified adult instead of searching for one** — which bears directly on the
+teammates/coach obstacle in section 7.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -502,6 +530,31 @@ is thin because American programmes in this category filter on residence, not
 because the search was thin. Stop hunting for a third American option; spend the
 effort on the education bureau and on section 6.
 
+### Section 2 finding, 2026-10-25 — THE SEARCH TRAP, AND THE AFS CHAPTER PATTERN
+
+**The trap, so it is not re-walked every week.** Searching for "funded study abroad
+/ scholarship + Taiwan + high school" returns, at the top, almost exclusively
+INBOUND money: the MOFA Taiwan Scholarship, the MOE scholarship administered via
+American Councils (Spring 2027 deadline was 15 October), the Taiwan Scholarship
+programme. These fund FOREIGNERS COMING TO TAIWAN, or fund Americans to study
+Chinese here. They are not for this family and they will outrank the real answer
+for every sensible phrasing. Skip past them.
+
+**Where the real route is.** Outbound high-school exchange in Taiwan runs through
+the exchange organisations, NOT government scholarship portals: AFS, YFU, Rotary
+Youth Exchange.
+
+**The chapter pattern, as evidence for timing.** AFS Vietnam selects ten students a
+year for a FULLY FUNDED placement; AFS Hong Kong has run a 15-18 scholarship
+closing 31 JANUARY. Nothing at all found for AFS Taiwan's 2027 cycle, in English or
+Chinese — chapter scholarship notices live on Facebook pages with no search-index
+weight, so this will NOT be discovered by searching. If AFS Taiwan follows the same
+calendar, the window opens roughly six to eight weeks from 25 October.
+
+FOURTH QUESTION FOR THE SINGLE ENQUIRY: does AFS Taiwan offer a scholarship place
+for 2027, when does it open, and does 非學校型態實驗教育 enrolment satisfy a
+"currently a high-school student" condition?
+
 ## Section 3 — Summer camps and activities near UT Austin
 
 Surface **2–3 items**. **Summer only** — the family is in Austin solely while
@@ -554,6 +607,28 @@ Deadlines follow Section 2's verification discipline. Summer 2027
 registration was expected to open January 2027, so outside that window most
 items are **"mark the date"**, not "apply now" — say which. Rotate the
 featured camps.
+
+### Section 3 finding, 2026-10-25 — THE TWO UT-RUN CAMP FAMILIES, AND WHEN TO LOOK
+
+Summer 2027 registration is open for nothing UT-run as of 25 October. Do not
+invent dates; give the shape of the field instead.
+
+THE TWO UT-RUN CAMP FAMILIES: **UTeach Outreach** (3rd-12th grade, inquiry-based
+hands-on STEM, the College of Natural Sciences teacher-preparation arm — the
+11-year-old fits comfortably) and **Theatre and Dance Youth Summer Camps** (College
+of Fine Arts). Both have historically announced registration around
+**FEBRUARY-MARCH** for the following summer. That is the month to check, not now.
+
+NON-UT FALLBACK, PRICED: City of Austin Parks and Recreation camps, ages 5-15,
+across recreation centres; the 2026 season ran 8 June - 12 August. NON-AUSTIN-
+RESIDENT rate at a recreation centre was **$220/week**; residents get an earlier
+registration window than this family will. Use as a FLOOR on the cost of supervised
+daytime, not as a recommendation.
+
+LIMIT: none of these pages addresses a non-US-resident child, because none has been
+asked. Day camps do not normally care about immigration status. What will actually
+decide it is whether J-2 status permits the child to enrol in a paid programme —
+a question for the UT VISITING-SCHOLAR OFFICE, not a camp registrar.
 
 ## Section 4 — Book of the day
 
@@ -683,6 +758,26 @@ Booker finalist." It was not one — Penelope Lively won the Booker in 1987, whi
 is all that should have been claimed. The ledger line has been corrected. Do not
 substitute another list for it without verifying that list.
 
+### Section 4 finding, 2026-10-25 — THE PRINCETON PRE-READ LIST, PARTIALLY ESTABLISHED
+
+Rotation index 3 (Princeton/Harvard) has a usable backbone now. The Pre-read began
+in 2013, one book per incoming class, chosen by President Eisgruber. Established
+from Princeton's own newsroom announcements:
+
+  2013 — The Honor Code — Kwame Anthony Appiah
+  2014 — Meaning in Life and Why It Matters — Susan Wolf   [used 2026-10-19]
+  2015 — Whistling Vivaldi — Claude M. Steele               [used 2026-10-25]
+  2016 — Our Declaration — Danielle Allen
+  2017 — What Is Populism? — Jan-Werner Müller
+  2018 — a Keith Whittington book on free speech and universities (title unverified)
+
+2019 onward NOT established. Appiah, Allen and Müller are UNUSED and all three suit
+the elder child. Verify each against princeton.edu's own announcement before using
+it — that is what made the Steele and Wolf attributions safe.
+
+RESOLVED 2026-10-25: the 2026-10-19 ledger flag on Susan Wolf ("Pre-read status
+unverified") is closed — Wolf was the 2014 Pre-read. Ledger line corrected in place.
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -802,6 +897,39 @@ longest-standing blocker for sixteen days. Standing advice now: free preparation
 the exam itself — a first AMC 8 should measure the child, and a coached score
 measures less than an uncoached one. An AoPS Online course starting late January
 2027 prepares for the 2028 exam, not this one.
+
+### Section 5 finding, 2026-10-25 — 臺灣區小學數學奧林匹亞競賽, AND A VERIFICATION TECHNIQUE
+
+**第26屆臺灣區小學數學奧林匹亞競賽.** 主辦 財團法人南山學園教育基金會; 承辦
+新北市南山高級中學. Target band 國小五、六年級, and the 簡章 states 中低年級也可報名.
+初賽報名 closed 民國115年10月26日(一) = Mon 26 Oct 2026. NT$700 for 初賽; training +
+決賽 a SEPARATE NT$700 later. 初賽 Sun 8 Nov 2026, 09:00-11:00. No refunds.
+Enquiries (02) 2245-3000 ext 70125.
+
+REGISTRATION FLOW — THE STRUCTURALLY IMPORTANT PART: 南山中學 front page →
+「小學數學奧林匹亞競賽」 → enter the registrant's details → the system issues a
+報名者專屬帳號 → pay by 網路ATM / 傳統ATM or in person at the 服務中心 → the
+organisers SMS **THE PARENT** about three days later → the parent looks up the
+准考證號碼 online. No school appears anywhere in the described flow.
+
+OPEN, AND IT MAY NOW BE MOOT: no statement found anywhere about whether a 自學生 /
+非學校型態實驗教育 student may enter. Absence of a mentioned 就讀學校 field is NOT
+confirmation that none exists. If the family reports back, record the answer here.
+NEXT CYCLE: watch for the 第27屆 簡章 around August-September 2027.
+
+**NEW TECHNIQUE — THE DAY-OF-WEEK CHECK (generalises Standing Rule 2 into a test).**
+Taiwanese 簡章 label dates with the weekday: 10月26日(一), 11月8日(日). Those labels
+are only self-consistent for ONE year. Checking them against the actual calendar
+tells a current-cycle 簡章 from last year's in one command, without reading the
+民國 year at all:
+    date -u -d 2026-10-26 +%A   → Monday   ✓ matches (一)
+This caught a competing page saying 「即日起至10月27日止」 — the 第25屆 簡章 from
+民國114年. **Run this check on every dated Taiwanese PDF before quoting a deadline.**
+
+ALSO NOTED, near-misses for an 11-year-old with a free international entry: Ocean
+Awareness Contest HAS an 11-14 Junior Division but its cycle closed in June;
+Foyle's Young Poets opens at 11 but publishes no date I could verify; Write the
+World's justice competition is free and global but starts at 13.
 
 ## Section 6 — International collaboration (even-numbered dates)
 
@@ -1153,8 +1281,10 @@ per team, $180 early bird) — Americas region.
 
 ### Part B — a recurring problem to attempt
 - **Advent of Code** — daily programming puzzles each December morning, free,
-  global. **Caveats:** Wikipedia now gives the window as 1–12 December where older
-  sources say 1–25, and the 2026 schedule is unconfirmed — plan for twelve days.
+  global. **Window settled 2026-10-25: 1–12 DECEMBER** — cut from 25 days for the
+  2025 edition, stated as applying from 2025 onward (see the RESOLVED block under
+  section 7). The 2026 page itself is unreadable from here, so this is policy, not
+  a page read.
   **From 2025 onward only PRIVATE leaderboards are supported**; public global
   leaderboards retired, so the compete-with-the-world framing is gone. The value is
   dated puzzles of escalating difficulty, each a small artefact for a public repo.
@@ -1224,6 +1354,49 @@ DEADLINE LEAD AT THE TOP, on every day, regardless of whose turn it is.** An off
 must never hide a deadline. That is how the September physics-olympiad window was
 lost and it will not be the mechanism twice.
 
+### Section 7 finding, 2026-10-25 — THE "WHAT COUNTS AS A SCHOOL" OBSTACLE, NARROWED
+
+This REVISES the 2026-10-23 consolidation. That entry said one obstacle wore five
+costumes and implied it was everywhere. It is narrower than that.
+
+THE 奧林匹亞 (section 5, above) is a large, long-running, nationally recognised
+Taiwanese mathematics competition run by a private school's foundation, and its
+registration path is: parent enters details, parent pays, parent gets the SMS,
+parent looks up the seat number. That is the **THIRD** institution-free route found,
+after 九九文教基金會's 個別報名 for the AMC 8 and the Ethics Olympiad's explicit
+homeschool-team permission.
+
+REVISED READING. The institution requirement is concentrated in exactly two places:
+  (1) STATE-MEDIATED SELECTION — the MOE olympiad route; anything where a
+      主管機關 nominates. This is the only blocker verified to genuinely require
+      an institution.
+  (2) AMERICAN PROGRAMMES USING SCHOOL ENROLMENT AS A PROXY for age and residency.
+It is LARGELY ABSENT from Taiwanese privately-run competitions, which simply sell
+seats.
+
+THE TEST TO APPLY, in place of the old framing. Not "will they accept a 自學生" but:
+**"who decides who sits this — a government office, a school, or a cashier?"**
+Where it is a cashier, the family is in.
+
+### RESOLVED 2026-10-25 — ADVENT OF CODE WINDOW (was open since early October)
+
+**1-12 DECEMBER, not 1-25.** The event was cut from 25 days to 12 for the 2025
+edition, stated as applying from 2025 onward. The GLOBAL LEADERBOARD was removed at
+the same time; only private leaderboards remain. Reasons given: maintainer burnout,
+AI-assisted solvers finishing puzzles within seconds of release, denial-of-service
+attacks from competitors. LIMIT: adventofcode.com fails WebFetch, so this rests on
+secondary coverage of the creator's announcement — it is "2025 onward policy," not
+a 2026 page read directly. Practical effect: a twelve-day commitment from 1 Dec and
+no leaderboard to chase, which suits the elder child BETTER, not worse.
+
+**CONRAD CHALLENGE 2026-27, from the organiser's own Student Guide.** Activation
+Stage 27 Aug - **29 Oct 2026**; Innovation Stage **7 Jan 2027**; Innovation Summit
+21-24 Apr 2027. Teams **2-5 students aged 13-18, plus a coach** (any adult over 18
+willing to be named — the PARENT QUALIFIES). Award Force portal. The aggregator
+Aralia gives 30 October; that is last cycle's date and Aralia states on its own page
+that it is not the organiser. Second instance of the last-year's-date failure in one
+day — see the day-of-week check under section 5.
+
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 
 Added 2026-10-17 at the family's request ("something for kids to think, like
@@ -1254,6 +1427,16 @@ anything where the adult is obviously testing recall.
 **SUBSTANTIAL FINDS GO ELSEWHERE**, not into this section: reasoning and
 philosophy PLATFORMS to section 1, essay and ethics COMPETITIONS to sections 5
 and 7. Section 8 stays a daily question.
+
+### DISCIPLINE NOTE, 2026-10-25 — PRONOUNS FOR THE CHILDREN
+
+The 2026-10-25 email used "she" and "her" for the 11-year-old in section 8.
+**NEITHER CHILD'S GENDER HAS EVER BEEN STATED by the recipient**, and that is
+already recorded in the Recipient profile above. This was a self-inflicted error.
+Flagged to the recipient in the reply rather than corrected by a second email.
+EVERY future digest writes "the child", "the 11-year-old", "the elder child", or
+they/them. Check section 8 and section 4's suitability line specifically — those
+are where the slip happened, because they address the parent about one child.
 
 ## Format
 
