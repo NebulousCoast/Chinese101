@@ -450,6 +450,27 @@ years old. **This is the only route in the whole file where the PARENT becomes t
 qualified adult instead of searching for one** — which bears directly on the
 teammates/coach obstacle in section 7.
 
+### Section 1 finding, 2026-10-26 — DUOLINGO ENGLISH TEST, PARTIALLY RESOLVED
+
+Closes part of a standing open item. **US$70 single test, stated as the SAME IN
+EVERY COUNTRY** before local tax and currency conversion — so no Taiwan penalty,
+and Standing Rule 1 does NOT bite here the way it did on Khanmigo. Two-test bundle
+**US$118** (= $59 each); the DET is retakeable and a second attempt is usually
+worth more than extra preparation, so the bundle is the sane purchase. **21 days to
+sit it after purchase.** Accepted at roughly 6,000-6,500 institutions.
+
+CAUTIONS TO REPEAT EVERY TIME:
+- Age rule genuinely INCONSISTENT across sources: one says at least 13, another
+  says over 13 with parental consent for under-13s. Parental consent and a VALID
+  GOVERNMENT PHOTO ID are required either way — the ID is the real question for a
+  seventeen-year-old in Taiwan, not the age.
+- **NOT accepted standalone for UK or Australian VISA purposes** even where the
+  university accepts it for admission. It is a US-facing credential.
+
+STILL NOT RESOLVED: no DET-to-CEFR mapping found, and every figure above is from
+third-party exam-guide blogs, NOT Duolingo's own pages. Say "verify on the official
+site before buying" every time this appears.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -554,6 +575,49 @@ calendar, the window opens roughly six to eight weeks from 25 October.
 FOURTH QUESTION FOR THE SINGLE ENQUIRY: does AFS Taiwan offer a scholarship place
 for 2027, when does it open, and does 非學校型態實驗教育 enrolment satisfy a
 "currently a high-school student" condition?
+
+### Section 2 finding, 2026-10-26 — RSI 2027 FULLY VERIFIED, HOMESCHOOL PERMITTED, AND A NEW BLOCKER
+
+Verified from **CEE's own press release of 6 October 2026** plus CEE's Apply page
+and RSI Application FAQs. This upgrades a date previously carried on last year's
+pattern (11 Dec 2024 was the 2025 cycle) — the exact failure mode Standing Rule 2
+exists for. The date survived the check.
+
+  DEADLINE: **11:59 p.m. Eastern, Friday 11 December 2026.** No late applications.
+  CAMPUSES — NEW, THERE ARE NOW TWO: MIT 20 Jun - 31 Jul 2027; **Stanford 27 Jun -
+    7 Aug 2027.**
+  AGE: must be **16 by 1 July** of the programme year. High-school SENIORS NOT
+    ELIGIBLE — you apply in the junior year.
+  COST: the PROGRAMME is cost-free. There is an APPLICATION fee, listed US$75
+    domestic / **US$35 international track** (one portal listing — confirm).
+  NOTIFICATION: all applicants told at the same time, in March.
+  RECOMMENDATIONS: CEE's own Apply page says **TWO** teacher or research-supervisor
+    recommendations, MAXIMUM three. Third-party guides say three required, or two
+    plus an optional third, or two to four. REPORT THE CONFLICT, trust the official
+    page: two.
+
+**EXPLICIT HOMESCHOOL PERMISSION — the first in this file.** CEE's own application
+FAQ states that **PUBLIC, PRIVATE AND HOMESCHOOL STUDENTS CAN ALL APPLY.** In
+writing, from the organisation. Never again report RSI as homeschool-uncertain.
+
+**THE NEW BLOCKER, and it is now the highest-value unknown in the whole file.**
+The same FAQ says international applicants apply through **THEIR COUNTRY'S
+DESIGNATED CEE PARTNER ORGANISATION**. Who Taiwan's partner is — or whether Taiwan
+has one — is not findable (cee.org refuses WebFetch). This is the institution
+obstacle in a NEW COSTUME: not a school, a designated national intermediary.
+
+ACTION TO KEEP PRESSING until answered: write to CEE programme staff asking
+(a) who the designated partner organisation for Taiwan is, (b) whether an applicant
+may apply DIRECTLY if there is none, (c) whether 非學校型態實驗教育 enrolment is
+accepted as the homeschool route the FAQ already permits.
+
+ALSO: a "15 January US / 15 March international" deadline still circulates in older
+third-party guides. **It is wrong for this cycle** — one date, 11 Dec 2026, no
+separate international deadline. Do not let it resurface.
+
+WHO WRITES THE TWO LETTERS is a real obstacle for a 非學校型態實驗教育 student. The
+parent-educator can write one; two from the same household will read badly. This is
+an additional reason the UT department ask matters.
 
 ## Section 3 — Summer camps and activities near UT Austin
 
@@ -778,6 +842,31 @@ it — that is what made the Steele and Wolf attributions safe.
 RESOLVED 2026-10-25: the 2026-10-19 ledger flag on Susan Wolf ("Pre-read status
 unverified") is closed — Wolf was the 2014 Pre-read. Ledger line corrected in place.
 
+### Section 4 note, 2026-10-26 — INDEX 4 SOURCE SUBSTITUTION, AND THE NATURE VEIN'S STATUS
+
+Index 4 is "Nature & Science editors' picks". On 26 Oct it was filled by an
+editors'-pick ANTHOLOGY instead — *The Best American Science and Nature Writing
+2026*, guest editor Randall Munroe, Mariner Books, pub. 20 Oct 2026 — and the email
+SAID SO rather than implying Nature chose it.
+
+STATUS OF THE TWO UNDERLYING SOURCES:
+- **Nature Books & Arts** is NOT exhausted. nature.com refuses WebFetch, and the
+  October 2026 instalment is not in the search index, but instalments of "Books in
+  brief" from **31 July and 28 August 2026** ARE indexed (Andrew Robinson reviews
+  five picks per instalment). Try those by name before substituting again.
+- **Science's** picks are a YEAR-END feature and had not run as of late October.
+  Check science.org from early December.
+
+HANDLING AN ANTHOLOGY in this slot: it has no thesis, so write about the EDITORIAL
+argument (the selection criterion) rather than inventing a central claim. Munroe's
+stated criterion — pieces that explained WHY WE KNOW those facts, not just the
+facts — doubles as section 8 material.
+
+PROVENANCE CAUTION RECORDED: listings credit **Jaime Green** alongside Munroe
+without stating her role (almost certainly series editor to his guest editor). Not
+asserted in the email. No full table of contents is findable, so any contributor
+list from this book is partial.
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -930,6 +1019,21 @@ ALSO NOTED, near-misses for an 11-year-old with a free international entry: Ocea
 Awareness Contest HAS an 11-14 Junior Division but its cycle closed in June;
 Foyle's Young Poets opens at 11 but publishes no date I could verify; Write the
 World's justice competition is free and global but starts at 13.
+
+### Section 5 finding, 2026-10-26 — JOHN LOCKE 2027 STATUS AND THE 2026 CALENDAR
+
+**The 2027 cycle is UNANNOUNCED** as of 26 Oct 2026. Standing Rule 2 holds: do not
+act on circulating dates. One promotional site estimates "late April" 2027; that
+conflicts with the actual 2026 window and is an estimate, not an announcement.
+
+THE 2026 CALENDAR, as the reference for when to watch:
+  registration OPENED **2 February 2026**, closed 31 March
+  submissions 1 April - 31 May, late entry possible for a fee (to 7 or 21 June)
+  eligibility: 18 or younger on 31 May; **JUNIOR PRIZE 14 or younger on 31 May**
+
+So **WATCH EARLY FEBRUARY**. The 11-year-old is a Junior Prize entrant; the elder
+child is in the main competition. Free to enter, worldwide — which is why this item
+stays in the file despite the long wait.
 
 ## Section 6 — International collaboration (even-numbered dates)
 
@@ -1192,6 +1296,49 @@ Scholar's Cup; IAYC (astronomy, 16–24, Europe); Hacktoberfest (13+ worldwide, 
 2026 rules changed so pull requests no longer count toward rewards, and the DEV
 Weekend Challenge is 18+ — weaker than it looks for a minor).
 
+### Section 6 addition verified 2026-10-26 — IASC, AND A THIRD KIND OF INSTITUTION GATE
+
+**THE INTERNATIONAL ASTRONOMICAL SEARCH COLLABORATION (IASC).** Students receive
+time-lapse sky images taken hours earlier, use free software (**Astrometrica**) to
+find moving objects, and submit measurements. Original discoveries are recognised by
+the **MINOR PLANET CENTER and the IAU** — credit in the permanent astronomical
+record, not a certificate. Run as an educational service by a consortium: the
+Astronomical Research Institute, **Hardin-Simmons University**, the Global Hands-On
+Universe Association, and the Lawrence Hall of Science. **Participation and software
+stated to be at NO COST** (Standing Rule 6: named institutions, so accountability
+exists). Contact: **Dr Patrick Miller, Hardin-Simmons University.**
+
+Qualifies under this section's strict filter: a team contributing measurements to a
+shared permanent scientific record, no travel, no residence filter.
+
+**THE GATE — AND IT REFUTES PART OF THE 2026-10-25 NARROWING.** IASC registers
+SCHOOLS. Past campaigns selected teams largely on a ONE-PARAGRAPH STATEMENT FROM A
+TEACHER explaining why the teacher and students wanted to take part; some campaigns
+capped places per country.
+
+On 25 October the "what counts as a school" obstacle was narrowed to two categories
+(state-mediated selection; American programmes using school enrolment as a residency
+proxy). IASC is NEITHER. **THIRD CATEGORY, added 2026-10-26: CAPACITY-RATIONED
+PROGRAMMES**, where the school is the unit because a small team of academics can
+only supervise so many groups. This is arithmetic, not gatekeeping — and it is the
+MOST TRACTABLE of the three, because a rationing gate responds to a persuasive
+paragraph in a way a residency rule never does.
+
+The family satisfies it in substance already: a registered 非學校型態實驗教育 unit
+with the parent as registered educator IS a teacher with students in the only sense
+IASC needs. 團體自學 would make it unarguable.
+
+LIMITS: the current campaign calendar is unfindable — iasc.cosmosearch.org AND
+science.nasa.gov both refuse WebFetch; the 2026 GLOBAL campaign closed registration
+3 April 2026; the only visible 2026-27 campaign is **Nepal-only and needs 45
+participants from one institution**, so it is no model. Most detail above comes from
+campaign pages between 2013 and 2021 read through the search index. **Mechanism
+reliable, every date unknown.**
+
+THE ASK, one email: Dr Patrick Miller — when does the next campaign open, may a
+registered home-education unit in Taiwan enter as a team, and what is the minimum
+team size.
+
 ## Section 7 — Challenges (odd-numbered dates)
 
 Added 2026-10-12. **Appears on ODD dates only.** THREE PARTS, all three requested
@@ -1437,6 +1584,19 @@ Flagged to the recipient in the reply rather than corrected by a second email.
 EVERY future digest writes "the child", "the 11-year-old", "the elder child", or
 they/them. Check section 8 and section 4's suitability line specifically — those
 are where the slip happened, because they address the parent about one child.
+
+### FORMAT DISCIPLINE, corrected 2026-10-26
+
+Two drifts from the Routine's stored instruction were corrected today and must not
+recur:
+1. **SUBJECT LINE** is `Daily Digest — D Month YYYY` — e.g. "Daily Digest — 26
+   October 2026". Recent emails had drifted to a hook-style subject.
+2. **SEND BOTH `body` AND `htmlBody`.** The plain-text alternative had been omitted.
+   Plain text carries the same content, NOT markdown syntax.
+3. **FOOTER, canonical string:** "Daily digest · 8:00 am Taipei · learning platforms
+   · study abroad · Austin camps · book of the day · contests for the 11-year-old ·
+   collaboration (even days) · challenges (odd days) · thinking". Recent emails had
+   used a condensed variant.
 
 ## Format
 
