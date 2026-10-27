@@ -471,6 +471,32 @@ STILL NOT RESOLVED: no DET-to-CEFR mapping found, and every figure above is from
 third-party exam-guide blogs, NOT Duolingo's own pages. Say "verify on the official
 site before buying" every time this appears.
 
+### Section 1 finding, 2026-10-27 — BRILLIANT'S PRICE IS NOW *BLOCKED*, NOT UNRESOLVED
+
+Carried as an open question for weeks; closing it as unanswerable from here, per
+Standing Rule 4.
+
+WHAT BRILLIANT'S OWN HELP PAGES DO SAY: the family plan is a FIXED PRICE FOR UP TO
+SIX SEATS; each member gets their own full Premium account; and there is also a
+**ONE-SEAT FAMILY OPTION PRICED THE SAME AS INDIVIDUAL PREMIUM, described
+explicitly as being for parents or homeschool families** (useful detail — it means
+the parent can hold a family-plan seat without buying six). For the number, those
+pages point at brilliant.org/subscribe, which cannot be opened from this container.
+
+THE FIGURES, ALL CONFLICTING: family plan $299.99/yr (one comparison site) vs
+$40/mo = $480/yr (another). Individual annual Premium $149.99 / $149 / $161.88 /
+**$240 — and the $240 is from BRILLIANT'S OWN marketing article.** So the
+inconsistency is PARTLY INTERNAL to Brilliant's pages, not merely third-party noise.
+
+THE GENERALISABLE LESSON, worth applying to any platform: when an organisation's
+OWN pages disagree with each other, the number is probably regional, promotional, or
+both, and no amount of searching resolves it. Stop searching and tell the family to
+open the checkout page logged out.
+
+RECOMMENDATION UNCHANGED AND PRICE-INDEPENDENT: do NOT buy Brilliant for the
+reasoning goal. Calling Bullshit is free, is a real University of Washington course
+with named faculty, and is aimed at exactly the skill requested on 17 October.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -1035,6 +1061,38 @@ So **WATCH EARLY FEBRUARY**. The 11-year-old is a Junior Prize entrant; the elde
 child is in the main competition. Free to enter, worldwide — which is why this item
 stays in the file despite the long wait.
 
+### Section 5 addition verified 2026-10-27 — 全國國小學術能力檢定賽 (TRPEC), AND HOW TO READ IT
+
+**2026 全國國小學術能力檢定賽.** 主辦 **臺灣探究與實作教育學會 (TRPEC)**.
+Subjects 國文 / 英文 / 數學 / 自然. Eligible 國小中年級 (3-4) AND 高年級 (5-6).
+報名 to **115年11月8日(日) = Sun 8 Nov 2026**; test **Sun 15 Nov 2026**.
+一律網路報名 at trpec.com.tw (domain refuses WebFetch). Fee **880元/人** — present in
+one school's reposting of the 簡章 and ABSENT from another, so confirm.
+Format **線上監考**: camera + stable connection, supervision throughout.
+
+**NO INSTITUTION IN THE ENTRY PATH** — no venue, no school, no site registration. A
+parent registers a child on a website and the child sits it at home. THE THIRD such
+Taiwanese competition found in October (after 九九文教's AMC 8 個別報名 and the
+南山 奧林匹亞), which further supports the 2026-10-25-and-26 obstacle taxonomy.
+
+DAY-OF-WEEK CHECK PASSED: the 簡章 labels 11月8日 and 11月15日 as 星期日; both are
+Sundays in 2026. Current cycle.
+
+**HOW TO READ IT, and this is the important part.** The 簡章 describes the question
+style as **升私中、資優學力檢測題型** — private-secondary-entrance and
+gifted-screening format. It is a BENCHMARK TEST SOLD AS A COMPETITION.
+- AWARD STRUCTURE, taken from a SISTER competition's 簡章 by the same association
+  and therefore NOT CONFIRMED for this one: 金牌 top 5%, 銀牌 5.01-10%, 銅牌
+  10.01-20%, 優選 20.01-30%, rest a 參賽證書. If it carries across, **~30% OF
+  ENTRANTS GET A MEDAL** — a receipt, not a distinction, and a reason to re-enter.
+- STANDING RULE 6: the 簡章's contacts are a MOBILE NUMBER (0911-163685) and
+  **trpec@all4you.com.tw — a COMMERCIAL domain, not the association's own.** Not
+  improper; evidence of a small operation. Disclose it every time.
+
+VERDICT TO REPEAT: good for a real deadline, a real invigilated test, and a scored
+four-subject result. NOT a credential. **If only one entry is bought this quarter,
+buy the AMC 8 at NT$700, not this at 880元.**
+
 ## Section 6 — International collaboration (even-numbered dates)
 
 Added 2026-10-12 at the family's request ("add more international collaboration
@@ -1543,6 +1601,72 @@ willing to be named — the PARENT QUALIFIES). Award Force portal. The aggregato
 Aralia gives 30 October; that is last cycle's date and Aralia states on its own page
 that it is not the organiser. Second instance of the last-year's-date failure in one
 day — see the day-of-week check under section 5.
+
+### Section 7 CORRECTION, 2026-10-27 — THE ETHICS OLYMPIAD EARLY-BIRD CLAIM IS RETRACTED
+
+**WHAT WAS SAID for weeks, including in the Routine prompt: that the senior
+division's real clock was "the early-bird cutoff BEFORE JANUARY 2027."
+THAT IS NOT SUBSTANTIATED AND IS WITHDRAWN.** No 2027 Ethics Olympiad page has ever
+been read. ethicsolympiad.org refuses WebFetch and the search index carries no 2027
+date, fee or early-bird deadline.
+
+HOW THE ERROR HAPPENED: organiser mailing-list posts from 2023 and 2024 said "sign
+up now to attract an early bird discount". That was generalised into a deadline.
+Standing Rule 2's exact failure mode, committed after the rule was written down.
+
+GOOD NEWS BURIED IN IT: a **2027 Senior registration page EXISTS** at
+ethicsolympiad.org/registration/ethics-olympiads/senior-2027/ — so the cycle is
+live. Unreadable, but live.
+
+WHAT CAN BE SAID, WITH ITS AGE ATTACHED:
+- Format: ONLINE, Years 6-12, divisions Junior / Middle / Senior. Middle and Senior
+  teams that do well are invited to INTERNATIONAL FINALS.
+- Fees: A$40/student members, A$45 non-members — UNDATED flyer, looks like 2020.
+  Do not plan on it.
+- A paid membership discounts online registration; whether a home-education unit can
+  hold one is unknown.
+- **REGIONS: a 2021 organiser post lists Australia, New Zealand, Hong Kong,
+  Singapore and India. TAIWAN HAS NEVER APPEARED ON THAT LIST.** This may be the
+  REAL obstacle, and it is not the one that was being reported. The homeschool
+  permission is real but worthless if no Olympiad covers the country.
+
+THE ONE EMAIL THAT REPLACES ALL OF THIS: **admin@ethicsolympiad.org** — may a
+Taiwan-based home-education team enter the 2027 Senior division, through which
+regional Olympiad, on what date, at what fee. Until answered, the Ethics Olympiad is
+**BLOCKED**, not "available with homeschool permission".
+
+### DEAD OR CLOSED — added 2026-10-27: THE HIGH SCHOOL ETHICS BOWL
+
+**"IHSEB" is the INDIANA High School Ethics Bowl, NOT International.** Hosted at
+the Prindle Institute, DePauw. 2027 event 6 Feb 2027 in Greencastle IN; local
+deadline 1 Dec 2026; $175 NHSEB national fee; two-step registration (locally with
+Prindle, then nationally at NHSEB.org). Winner goes to NHSEB Central Divisional
+Playoffs, also at Prindle.
+
+IT FEEDS **NHSEB**, whose stated eligibility is students enrolled in grades 9-12 at
+an **ACCREDITED US HIGH SCHOOL**, plus a SCHOOL ADMINISTRATION ENDORSEMENT and an
+approved adult coach. Teams 3-7 students, up to 5 seated per match. National
+championship 23-25 Apr 2027, UNC Chapel Hill.
+
+**CLOSED to this family on two filters, and "accredited US high school" is not
+negotiable by email.** Never offer it again. Do not confuse it with the Ethics
+Olympiad (Australasian, online) or with the Prindle Institute's Teaching Children
+Philosophy guides (section 1, 25 Oct), which remain useful.
+
+### Section 7 WARNING, 2026-10-27 — A CHINESE-LANGUAGE PAGE PUBLISHING *US* AMC 8 DATES
+
+Found while searching in Chinese for 國小 competitions: a tutoring company's
+Chinese-language page giving AMC 8 as regular deadline **5 Jan 2027 at US$75**, late
+**15 Jan at US$115**, exam **21-27 Jan 2027**. THOSE ARE THE UNITED STATES DATES AND
+FEES AND THEY ARE NOT THIS FAMILY'S.
+
+Taiwan: 財團法人九九文教基金會, registration 5-12 Dec with payment by 15 Dec,
+**NT$700**, exam **22 Jan 2027**, 個別報名 exists.
+
+**A CHINESE-LANGUAGE PAGE ABOUT AN AMERICAN COMPETITION IS NOT A TAIWANESE SOURCE.**
+Standing Rule 7 was written because the digest researched a Taiwanese problem in
+English; this is the mirror-image trap and it is live on the open web. Tell the
+family: if US dollar figures appear, they are on the wrong page.
 
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 

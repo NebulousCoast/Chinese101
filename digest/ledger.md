@@ -53,3 +53,4 @@ Format: `YYYY-MM-DD — Title — Author — source`
 2026-10-24 — Voyage au bout de la nuit (Journey to the End of the Night) — Louis-Ferdinand Celine — Le Monde 100 Books of the Century (on the list per Wikidata; the commonly cited rank 6 is unconfirmed)
 2026-10-25 — Whistling Vivaldi: How Stereotypes Affect Us and What We Can Do — Claude M. Steele — Princeton Pre-read (2015, programme year 3, confirmed from Princeton's own April 2015 announcement)
 2026-10-26 — The Best American Science and Nature Writing 2026 — Randall Munroe (guest editor) — Nature/Science slot, filled by an editors'-pick anthology because Nature's own October Books & Arts column is unreachable and unindexed; Mariner Books, pub. 20 Oct 2026
+2026-10-27 — The End of Everything — M. John Harrison — Booker Prize 2026 shortlist (Serpent's Tail, June 2026; shortlist per NPR and thebookerprizes.com — one book site says longlist, which is not a conflict; winner announced 9 Nov 2026)
