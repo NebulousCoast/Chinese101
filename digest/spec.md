@@ -497,6 +497,35 @@ RECOMMENDATION UNCHANGED AND PRICE-INDEPENDENT: do NOT buy Brilliant for the
 reasoning goal. Calling Bullshit is free, is a real University of Washington course
 with named faculty, and is aimed at exactly the skill requested on 17 October.
 
+### Section 1 finding, 2026-10-28 — OUTSCHOOL IS RESOLVED, AND IN THE FAMILY'S FAVOUR
+
+Closes a standing open item carried since early October. From OUTSCHOOL'S OWN
+support article on paying for classes (not a third-party summary): prices default
+to USD, but payment can be made in **USD, GBP, CAD, AUD, KRW, TWD, JPY, HKD, EUR**.
+**TWD IS ON THE LIST.** All major credit and debit cards, plus Google Pay and Apple
+Pay. US-based company; its own page says learners are located worldwide.
+
+Note how this cuts the other way from Khanmigo: Taiwan is a normal enough market
+that Outschool ADDED THE CURRENCY rather than merely tolerating a foreign card.
+Standing Rule 1 says check both filters — it does not say the answer is always no.
+
+LIMITS TO STATE EVERY TIME: the article does not say whether any country is
+excluded, and does not confirm unrestricted access either, so the only certainty is
+that the currency exists in their system. And THE COST QUESTION HAS NO ANSWER:
+Outschool is a MARKETPLACE, every class priced by its own teacher, a few dollars for
+a one-off to several hundred for a multi-week course. Never quote "the price of
+Outschool"; quote the price of a class.
+
+THE RECOMMENDATION THIS UNLOCKS, and it is the only paid recommendation in the file
+that is not a subscription: **ONE one-off class, in one subject, for the cost of a
+cinema ticket**, to learn whether a live teacher on a screen is something either
+child responds to. That answers a question about the CHILD rather than about the
+PRODUCT, which is why it beats any annual plan.
+
+The 10-24 "STILL UNRESOLVED ACROSS THE SECTION" list is now down to: Brilliant's
+price (BLOCKED, 27 Oct, and irrelevant); the Duolingo English Test's CEFR mapping;
+and whether 非學校型態實驗教育 documentation satisfies Wolfram's student discount.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -893,6 +922,28 @@ without stating her role (almost certainly series editor to his guest editor). N
 asserted in the email. No full table of contents is findable, so any contributor
 list from this book is partial.
 
+### Section 4 note, 2026-10-28 — SLOT 0 (GATESNOTES) IS EXHAUSTED
+
+Gates's summer 2026 list was three books and ALL THREE are in the ledger
+(Holsinger, Sorkin, Schwartz), plus the holiday fiction pick (Van Pelt). No October
+or November 2026 pick surfaces anywhere. gatesnotes.com does not surface from this
+container.
+
+**THE AGGREGATORS ARE NOT A FALLBACK AND MUST NOT BE USED.** One site lists
+Suleyman's *The Coming Wave* and Miller's *Chip War* as Gates "2026 picks" with NO
+GATES SOURCE ATTACHED. Another claims 242 recommendations, another 38, none dated.
+That is indistinguishable from a fabricated recommendation, which is the single
+worst failure available in this section.
+
+HANDLING: on a slot-0 day, advance to slot 1 (NYT 100 Best Books of the 21st
+Century) and SAY SO IN THE EMAIL. Revisit slot 0 only if a NAMED OUTLET (Kirkus,
+Fortune, CNBC) reports a new Gates list — his holiday list has historically appeared
+in early December, so check around then.
+
+SLOT 1 STATUS: eight titles used (Wilkerson, Alexander, Kingsolver, Ferrante #1,
+Desmond, Lee, Ishiguro #9, Jones #4, Whitehead #7). Plenty of list left. The Times'
+own list page is NOT reachable, so every rank is secondary-sourced — say so.
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -1092,6 +1143,53 @@ gifted-screening format. It is a BENCHMARK TEST SOLD AS A COMPETITION.
 VERDICT TO REPEAT: good for a real deadline, a real invigilated test, and a scored
 four-subject result. NOT a credential. **If only one entry is bought this quarter,
 buy the AMC 8 at NT$700, not this at 880元.**
+
+### Section 5 CORRECTION, 2026-10-28 — "KUAYUE CUP, 31 DECEMBER" NEVER EXISTED
+
+**REMOVED FROM THE DEADLINE BOARD.** It had been carried for several weeks. The
+simple truth from the 簡章:
+
+- **跨越盃全國國小數學能力競賽 RUNS IN LATE SUMMER, NOT WINTER.** 第1屆 held
+  15 Sept 2024, registration closed 25 Aug 2024. 第2屆 held Sat 23 Aug 2025 at
+  10:00, registration closed Sat 9 Aug 2025, fee **380元**, online, 網路報名 only,
+  divided 低/中/高年級. 第3屆 NOT FINDABLE — on the pattern it ran in Aug 2026 and
+  has passed. **Watch July-August 2027 for 第3屆 or 第4屆.**
+- The only 跨越盃 with a live future deadline is a DIFFERENT competition, the
+  國語文 one, below.
+
+WHY THE ERROR HAPPENED: "Kuayue Cup" entered the board as an ENGLISH
+TRANSLITERATION with a year-end date attached, and no 簡章 was ever read in Chinese.
+Standing Rule 7's root cause without its usual symptom. **COROLLARY: any
+transliterated Taiwanese item on the deadline board is suspect until a 簡章 has been
+read. Audit the rest of the board the same way.**
+
+### Section 5 addition verified 2026-10-28 — 2027 國語文跨越盃 (TRPEC), AND THE ELIGIBILITY LINE
+
+報名 即日起至 **116年2月11日 (Thu 11 Feb 2027)**, 網路報名 only. Competition
+**116年2月21日(日) = Sun 21 Feb 2027** (day-of-week check PASSES). Fee **580元**.
+Divisions 國小 低/中/高年級 plus 國中組 (years 1-3) — the 11-year-old is 高年級.
+**線上監考**: camera + stable connection, invigilated throughout.
+
+**參賽對象: 全國公私立國小、國中、高中(含普通高中、綜合高中、技術型高中)在學學生**,
+plus 高中畢業的學測重考生.
+
+**THAT ELIGIBILITY LINE QUALIFIES THE 2026-10-27 ENTRY.** Yesterday's spec said the
+檢定賽 had "NO INSTITUTION IN THE ENTRY PATH". That was an INFERENCE from a
+described registration flow, not a read eligibility line. 公私立…在學學生 is a
+school-enrolment phrase, and it is the SAME ORGANISATION. Soften the claim wherever
+it appears: the 檢定賽's registration FLOW appears not to ask for a school, but its
+ELIGIBILITY LINE has not been read.
+
+**THE ACTION, and it is efficient:** ONE phone call to TRPEC (0911-163685) answers
+whether 非學校型態實驗教育 satisfies 在學學生 for BOTH competitions at once.
+
+**TRPEC'S PORTFOLIO — the Standing Rule 6 disclosure, sharpened.** 簡章 seen for at
+least FOUR branded competitions: 全國國小學術能力檢定賽 880元, 跨越盃全國國小數學
+能力競賽 380元, 2027 國語文跨越盃 580元, 全國高中學術能力檢定賽. All
+online-invigilated, all 網路報名, all priced per student. Not a scandal — the tests
+are real and sitting one has value. But **read them as PRODUCTS WITH A PRICE rather
+than honours with a standing**, and help the family decide how many to buy rather
+than treating each announcement as an opportunity.
 
 ## Section 6 — International collaboration (even-numbered dates)
 
@@ -1396,6 +1494,43 @@ reliable, every date unknown.**
 THE ASK, one email: Dr Patrick Miller — when does the next campaign open, may a
 registered home-education unit in Taiwan enter as a team, and what is the minimum
 team size.
+
+### Section 6 addition verified 2026-10-28 — EXOPLANET WATCH, AND A REFRAME OF THE TEAMMATES OBSTACLE
+
+**NASA'S EXOPLANET WATCH.** Participants measure the brightness dip as a known
+planet transits its star and submit the measurement; the aggregate refines transit
+timings, which future space telescopes need for efficient scheduling. NASA-run,
+named scientists (Standing Rule 6 satisfied).
+
+**THE NO-TELESCOPE ROUTE, which is what makes it usable here:** NASA's own page
+describes a **DATA CHECKOUT system** — request observation data and analyse it
+yourself. Archival data from the **MicroObservatory** in Tucson is available the
+same way. Some coverage says a smartphone suffices for OBSERVING; treat as
+optimistic. Results are stored through an **AAVSO account**, set up on joining.
+
+**WHAT IT CONFERS — do not upgrade this.** Coverage says participants are
+*credited if their data is used* in future papers. That is NOT co-authorship. Place
+it on the existing scale: Foldit and Eterna DO confer collective authorship;
+Zooniverse confers NO establishable credit; Exoplanet Watch sits between them.
+Honest phrasing: "acknowledged contribution to published work."
+
+**THE REFRAME, AND IT IS THE MOST USEFUL IDEA IN THE FILE THIS WEEK.** Exoplanet
+Watch runs a **SLACK WORKSPACE** with **BIWEEKLY TEAM MEETINGS**; beginners
+explicitly welcomed. That is a standing, fortnightly, international group working on
+a shared technical problem, joinable with no institution, teacher, fee or visa.
+
+For 52 days the top obstacle has been TEAMMATES, and the search has been conducted
+inside COMPETITIONS. **That is the wrong place: a competition wants a team that
+ALREADY EXISTS, while a working group wants PARTICIPANTS — and then teams form
+inside it.** Add this as a FIFTH route to the teammates list, and prefer it: three
+months of being useful in a working group may dissolve the Conrad / Ethics Olympiad
+teammate problem as a side effect. Look for more working groups, not more contests.
+
+LIMITS: science.nasa.gov refuses WebFetch; read via the search index and AAVSO /
+astronomy-club pages. **No source explicitly confirms international eligibility and
+none restricts it** — the coverage is US-CENTRIC, which is not US-ONLY. The AAVSO is
+long-established and international, making a country bar unlikely but unverified.
+Entry point: the "how to contribute" checklist on NASA's own page.
 
 ## Section 7 — Challenges (odd-numbered dates)
 
@@ -1721,6 +1856,20 @@ recur:
    · study abroad · Austin camps · book of the day · contests for the 11-year-old ·
    collaboration (even days) · challenges (odd days) · thinking". Recent emails had
    used a condensed variant.
+
+### PRE-SEND CHECK, added 2026-10-28 after a near miss
+
+On 28 Oct the first send TIMED OUT after 60s. A `search_threads` check of sent mail
+(`in:sent subject:"Daily Digest" newer_than:1d`) returned empty, so it was safe to
+re-send rather than risk a duplicate. **ALWAYS CHECK SENT MAIL BEFORE RE-SENDING
+AFTER A TIMEOUT — a timeout is not proof of non-delivery.**
+
+The timeout was lucky: the composed email was **MISSING SECTION 5 ENTIRELY** — six
+sections instead of seven — and that was only noticed while rewriting.
+
+**COUNT THE SECTION HEADINGS BEFORE EVERY SEND.** There must be SEVEN: 1, 2, 3, 4,
+5, 8, and exactly one of 6 (even dates) or 7 (odd dates). A section referenced from
+the lead ("details in section 5") is especially easy to promise and then omit.
 
 ## Format
 
