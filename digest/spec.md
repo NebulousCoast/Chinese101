@@ -526,6 +526,40 @@ The 10-24 "STILL UNRESOLVED ACROSS THE SECTION" list is now down to: Brilliant's
 price (BLOCKED, 27 Oct, and irrelevant); the Duolingo English Test's CEFR mapping;
 and whether 非學校型態實驗教育 documentation satisfies Wolfram's student discount.
 
+### Section 1 finding, 2026-10-27/28/29 — WOLFRAM'S HOMESCHOOL DISCOUNT, NARROWED TO ONE QUESTION
+
+**From WOLFRAM'S OWN Mathematica student-pricing page: the student subscription is
+available to students at "AN APPROVED HOMESCHOOL LOCATION."** Their phrase. The
+category exists; stop treating homeschool eligibility as the open question.
+
+THREE DETAILS THAT MATTER MORE THAN THE HEADLINE:
+1. **VERIFICATION CAN COME AFTER PURCHASE** — proof at purchase or within two weeks,
+   and the store terms describe TEMPORARY ACTIVATION KEYS extended once status is
+   confirmed. So this never has to be solved before buying.
+2. **THE ACCEPTED PROOF IS ALL ENROLLED-STUDENT SHAPED** — dated student ID, class
+   registration, class schedule, school bill, or a URL from the institution's public
+   web directory. None obviously fits a 非學校型態實驗教育 household. **WHAT THE
+   FAMILY HAS IS THE 核定函** — a dated official document from a government office
+   attesting to the arrangement, which is a STRONGER document than a class schedule.
+   This is now the only open question.
+3. **A SECOND DOOR:** Wolfram's academic-pricing article treats homeschool EDUCATORS
+   separately, requiring "proof of your employment or status as a homeschool
+   educator" at purchase. **The parent is the registered educator** — possibly the
+   easier route.
+
+THE ASK: orders@wolfram.com, or student registration +1-217-398-5151. (a) Is a
+非學校型態實驗教育 核定函 accepted as proof of student status? (b) Does the
+registered parent-educator qualify under the homeschool-educator route?
+
+**BUY ORDER UNCHANGED: nothing from Wolfram before January**, free tier suffices
+now. The value of this finding is knowing the answer IN January rather than
+discovering it then.
+
+DO NOT CITE ADOBE'S POLICY AS EVIDENCE. A comparison page lists Adobe homeschool
+proofs (dated letter of intent, association membership ID, dated curriculum purchase
+records). Different company; it says nothing about Wolfram. Useful only as a picture
+of what a homeschool-shaped proof list looks like.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -943,6 +977,25 @@ in early December, so check around then.
 SLOT 1 STATUS: eight titles used (Wilkerson, Alexander, Kingsolver, Ferrante #1,
 Desmond, Lee, Ishiguro #9, Jones #4, Whitehead #7). Plenty of list left. The Times'
 own list page is NOT reachable, so every rank is secondary-sourced — say so.
+
+### Section 4 note, 2026-10-29 — SLOT 1 RANKS NOW CROSS-CHECK EACH OTHER
+
+*Austerlitz* (Sebald, 2001, tr. Anthea Bell) is **#8** — directly between
+*The Underground Railroad* at **#7** (used 28 Oct) and *Never Let Me Go* at **#9**
+(used 17 Oct). **Three consecutive ranks now corroborate one another**, which is the
+first time a rank in this slot rests on more than one secondary source. The NYT's own
+list page remains unreachable; bookriot.com is ALSO blocked (getaddrinfo ENOTFOUND).
+
+TWO CONFLICTS TO KEEP STRAIGHT, both likely to recur:
+- A **Penguin Random House** page labels *Austerlitz* "3". That is that page's own
+  numbering of its own selection, NOT the list rank. All other sources say 8.
+- **The Guardian ran its OWN "100 best books of the 21st century" list in 2019**, on
+  which *Austerlitz* is **5th**. Different newspaper, different list, five years
+  earlier. Any rank found for a book on this slot must be checked for WHICH list it
+  belongs to before being quoted.
+
+SLOT 1 USED SO FAR (10): Wilkerson, Alexander, Kingsolver, Ferrante #1, Desmond,
+Lee, Ishiguro #9, Jones #4, Whitehead #7, Sebald #8.
 
 ## Section 5 — Competitions for the 11-year-old
 
@@ -1802,6 +1855,50 @@ Taiwan: 財團法人九九文教基金會, registration 5-12 Dec with payment by
 Standing Rule 7 was written because the digest researched a Taiwanese problem in
 English; this is the mirror-image trap and it is live on the open web. Tell the
 family: if US dollar figures appear, they are on the wrong page.
+
+### Section 7 RESOLVED 2026-10-29 — TECHNOVATION'S GENDER CONDITION, STATED
+
+Carried for weeks as "gender eligibility condition unresolved". **From
+Technovation's OWN eligibility page (2026 season):**
+
+  Accepts students who identify as **FEMALE, TRANS, NONBINARY, OR GENDER
+  NONCONFORMING.** Students who were assigned male at birth **AND** who
+  self-identify as male cannot enter.
+
+STATE THE CONDITION, NEVER EVALUATE IT. Whether either child falls inside it is the
+family's to know; the profile rule forbids assuming, and neither child's gender has
+ever been stated.
+
+REST OF THE 2026 OFFICIAL RULES: **ages 8-18 as of 1 AUGUST.** Divisions Beginner
+8-12, Junior 13-15, Senior 16-18 — so **BOTH CHILDREN HAVE A DIVISION**, true of
+very few items in this file. FREE to enter.
+
+THE 2027 CYCLE IS THIRD-PARTY ONLY — flag every figure:
+- registration reportedly OPENED 12 Oct 2026 (so possibly open now), CLOSES
+  **11 Mar 2027**, final submissions 5 May 2027;
+- two listings DISAGREE on whether age counts as of 1 Aug 2026 or 1 Aug 2027 — for a
+  child near a division boundary that is the difference between two divisions;
+- several aggregators describe a NEW CO-ED / "MIXED" TRACK for 2027, **unconfirmed
+  from any Technovation source**. If real it changes the gender condition entirely,
+  so CHECK IT, never repeat it.
+- the official student page reachable here is a CACHED older version inviting
+  notification sign-up for the 2026-27 season.
+
+ACTION: technovationchallenge.org first — is registration open, what is the
+age-cutoff date, does a mixed track exist. If 11 Mar holds there are four months,
+making this the least urgent and best-sourced team opportunity in the file.
+
+### OBSTACLES AUDIT — the shape of it, recorded 2026-10-29
+
+Nine blockers; **SIX are a single message only the family can send**: CEE (Taiwan's
+partner organisation), admin@ethicsolympiad.org, TRPEC 0911-163685,
+technovationchallenge.org, orders@wolfram.com, Dr Patrick Miller at Hardin-Simmons.
+The seventh is the municipal education bureau (13 asks). The eighth is teammates —
+now best addressed through WORKING GROUPS rather than competitions (see the 28 Oct
+Exoplanet Watch entry). The ninth, GitHub's age 13, is a law.
+
+**Say this count out loud in the audit.** It is the honest shape of the problem and
+it is why the section keeps ending the same way.
 
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 
