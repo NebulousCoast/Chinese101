@@ -560,6 +560,44 @@ proofs (dated letter of intent, association membership ID, dated curriculum purc
 records). Different company; it says nothing about Wolfram. Useful only as a picture
 of what a homeschool-shaped proof list looks like.
 
+### Section 1, 2026-10-30 — THE OPEN LIST IS EMPTY. DET/CEFR RESOLVED.
+
+**THE DUOLINGO ENGLISH TEST -> CEFR, the last of the four open items.** Scored
+10-160 in steps of 5; aligned to CEFR, IELTS Academic, TOEFL iBT.
+  CEFR: **100-125 = B2 · 130-150 = C1 · 155-160 = C2.** Above 120 = "proficient".
+  IELTS: 120-125 ~ 6.5 · 130-135 ~ 7 · 160 ~ 8.5-9.
+  TOEFL iBT: 160 ~ 120 · 125 ~ 93-97.
+PLANNING TARGETS: a B2 requirement is cleared with room at ~105; a C1 requirement
+needs 130.
+
+THREE WARNINGS THAT MATTER MORE THAN THE NUMBERS:
+1. **THE OFFICIAL CHART CHANGED AND OLD CHARTS INFLATE.** Duolingo previously
+   equated 125 with IELTS **7.5**; it now equates the same 125 with **6.5**. A full
+   point of unfavourable drift. Any UNDATED chart online is as likely to be the old
+   one — never quote a DET/IELTS figure without checking its vintage.
+2. **SOME "2026 OFFICIAL TABLES" ARE NOT.** One site under that heading maps 120 to
+   IELTS 6.5-7.0 and TOEFL 95-99, conflicting with the official figures and carrying
+   NO attribution to Duolingo. Same pattern as the Gates aggregators (28 Oct) and
+   the Chinese-language page publishing US AMC 8 dates (27 Oct).
+3. **THE CONCORDANCE IS WEAKER THAN A TABLE LOOKS** — built from a limited sample of
+   score reports, and the average of subscore comparisons does not always match the
+   overall comparison. **Universities set their own thresholds**; the only number
+   that decides anything is on the institution's own admissions page.
+
+**STATUS OF THE FOUR ITEMS THAT HAD BEEN OPEN SINCE EARLY OCTOBER — ALL CLOSED:**
+  Outschool + Taiwanese card .... RESOLVED YES (28 Oct, TWD listed by Outschool)
+  Wolfram student discount ....... RESOLVED IN PRINCIPLE (29 Oct); only "does a
+                                   核定函 count as proof" is left, one email
+  DET -> CEFR .................... RESOLVED (30 Oct, above)
+  Brilliant's price .............. **BLOCKED, not answered** (27 Oct). Brilliant's
+                                   own pages give four prices for individual
+                                   Premium, one in its own marketing article.
+
+**THE HONEST SEVEN-WEEK SUMMARY OF THIS SECTION, to reuse:** the free stack is
+sufficient; nothing needs buying before January; and the one paid experiment worth
+making is A SINGLE OUTSCHOOL CLASS rather than any annual plan, because it answers a
+question about the child instead of about the product.
+
 ### STANDING RULE 4, learned 2026-10-14 (applies to every section)
 
 **An unresolved eligibility conflict older than two weeks is written down as
@@ -996,6 +1034,22 @@ TWO CONFLICTS TO KEEP STRAIGHT, both likely to recur:
 
 SLOT 1 USED SO FAR (10): Wilkerson, Alexander, Kingsolver, Ferrante #1, Desmond,
 Lee, Ishiguro #9, Jones #4, Whitehead #7, Sebald #8.
+
+### Section 4 note, 2026-10-30 — LE MONDE'S PROVENANCE, WITH THE ACTUAL NUMBERS
+
+Upgrade the standing provenance caveat. The list was produced in **SPRING 1999** by
+the retailer **Fnac** and the newspaper **Le Monde**. They began from a
+**PRELIMINARY LIST OF 200 TITLES** compiled by booksellers and journalists, and
+asked **17,000 FRENCH PARTICIPANTS** one question: *"Quels livres sont restés dans
+votre mémoire?"* — **which books have stuck in your mind.**
+
+So it measures MEMORY AND ATTACHMENT, not merit, and the pre-selection of 200 by
+trade insiders bounds what could appear at all. State both facts whenever a rank from
+this list is quoted — it explains the list's shape better than any theory of French
+taste, and it is a better caveat than the vague "reader poll" used until now.
+
+USED SO FAR (9): Camus #1, Proust #2, Kafka #3, Saint-Exupéry #4, Malraux #5,
+Steinbeck #7, Beckett #12, Alain-Fournier, Céline.
 
 ## Section 5 — Competitions for the 11-year-old
 
@@ -1584,6 +1638,52 @@ astronomy-club pages. **No source explicitly confirms international eligibility 
 none restricts it** — the coverage is US-CENTRIC, which is not US-ONLY. The AAVSO is
 long-established and international, making a country bar unlikely but unverified.
 Entry point: the "how to contribute" checklist on NASA's own page.
+
+### Section 6 addition verified 2026-10-30 — DISTRIBUTED PROOFREADERS, AND IT CERTIFIES THE WORK
+
+**Possibly the LOWEST-BARRIER real collaboration in the whole file.** Public-domain
+books are scanned; volunteers proofread pages one at a time against the scanned image
+in a browser. Each page passes through multiple rounds of proofing and formatting by
+DIFFERENT PEOPLE, and the finished text is published by **PROJECT GUTENBERG**.
+Running since 2000, "a web-based cooperation on an international scale" in its own
+description. FREE. No institution. No application. Register and start.
+
+MEETS THE SECTION'S BAR: the output is a REAL SHARED ARTEFACT — a permanent,
+publicly available e-text that dozens of strangers made together.
+
+**IT WILL CERTIFY THE WORK — unusual, and directly useful for a
+非學校型態實驗教育 portfolio.** From DP's own "Certification of Volunteer Work":
+- certificate identifies the volunteer by **DP USERNAME, the REAL NAME provided, and
+  the REGISTERED EMAIL**, and states **the TIME PERIOD worked and the NUMBER OF
+  PAGES completed**;
+- **minimum 21 DAYS registered** before any confirmation is sent;
+- **no more than 50 PAGES PER DAY** counted;
+- **THEY DO NOT TRACK HOURS** and will not estimate them — they say explicitly this
+  matters because many schools want hours;
+- certification is **BY EMAIL ONLY**, to the organisation and the volunteer; they
+  state they will **NOT fill in an online form**;
+- NOT available for court-ordered community service or for programmes operated by
+  federal, state or municipal governments;
+- longer-term volunteers: contact **dphelp**. For extra evidence they suggest the
+  "Pages Proofread Per Day" script output alongside the certificate.
+
+**THE 21-DAY RULE IS THE ACTIONABLE PART: registering NOW costs nothing and makes a
+certificate possible later; registering in order to get one is three weeks too late.**
+
+LIMITS — two real gaps. pgdp.net refuses WebFetch (and bookriot.com is blocked the
+same way), so this is search-index reading; the certification terms came back in
+enough detail to be confident but the page was not seen. **NO MINIMUM AGE
+ESTABLISHED**, and it is NOT established whether volunteers are **NAMED IN THE
+FINISHED GUTENBERG E-TEXT** or only counted internally. Both are on DP's New
+Volunteer FAQ, which the family can open. **Ask before assuming the 11-year-old may
+register.**
+
+**SECOND INSTANCE OF THE 28 OCT REFRAME, and gentler than the first.** Competitions
+want teams that already exist; working groups want participants. DP has forums,
+mentoring, and advanced project-facilitator roles with PUBLISHED PREREQUISITES —
+several months since registration, a set number of completed pages, and a mentor.
+**A visible ladder is exactly what a child with no institution behind them cannot
+usually find.** Keep looking for working groups with ladders, not more contests.
 
 ## Section 7 — Challenges (odd-numbered dates)
 
