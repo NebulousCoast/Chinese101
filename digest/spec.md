@@ -2000,6 +2000,59 @@ Exoplanet Watch entry). The ninth, GitHub's age 13, is a law.
 **Say this count out loud in the audit.** It is the honest shape of the problem and
 it is why the section keeps ending the same way.
 
+### Section 7 CORRECTION, 2026-10-31 — "NO OFFICIAL MATCHING SERVICE" IS RETRACTED
+
+**WHAT WAS SAID in every obstacles audit: that teammates are the top obstacle and
+that THERE IS NO OFFICIAL MATCHING SERVICE. THAT IS WRONG AND IS WITHDRAWN.**
+
+**THE WORLD SCHOLAR'S CUP'S OWN FAQ: students may REGISTER INDIVIDUALLY AND ASK TO
+BE JOINED WITH OTHER SCHOLARS LOOKING FOR TEAMMATES.** Asked whether all team
+members must come from the same school, the FAQ answers **"Not at all!"** Teams are
+generally THREE students, from the same school or different schools.
+
+HOW THE ERROR HAPPENED: the WSC sat in the section 6 pool described as taking
+"independent teams" — a WEAKER AND DIFFERENT CLAIM (a team formed outside a school
+may enter). It does not mean the organiser will FIND teammates. The FAQ sentence was
+never read. **Lesson: when an item is in the pool as a partial answer to the file's
+top obstacle, read its FAQ in full rather than carrying the summary.**
+
+**HSINCHU ROUND 2027 — VERIFIED, DATED, OPEN.** 13-14 MARCH 2027 at **HSINCHU COUNTY
+AMERICAN SCHOOL**, in Taiwan; the official calendar shows **registration OPEN**. No
+flight, no visa, no residence filter on the travel.
+- TWO-PERSON TEAMS permitted but cap at **30,000 points instead of 40,000** and are
+  unlikely to win team recognition in some events — allowed AND disadvantaged, which
+  argues for using the matching rather than entering as a pair.
+- A team may compete at only ONE regional round per season; schools may field
+  unlimited teams.
+
+TWO CAVEATS, BOTH REAL:
+1. **The 2026 Hsinchu page restricted entry to students who "ATTEND SCHOOL IN
+   TAIWAN", AND THE STATED REASON WAS CAPACITY.** 2027 rules may differ;
+   scholarscup.org refuses WebFetch so the 2027 page was not read.
+2. **The fee is NOT stated.** The organiser says "usually a small tournament fee that
+   varies by round". A third-party prep company estimates US$50-150/student — an
+   estimate from an interested party, not a price. Never quote it as one.
+
+THE ASK — one message, three parts: may a 非學校型態實驗教育 student in Taiwan enter
+the Hsinchu round; is the individual-registration-and-matching route available for
+that round; what is the fee. 133 days out, registration already open.
+
+### STANDING INSIGHT, 2026-10-31 — A RATION IS NOT A LIMIT
+
+The 2026 Hsinchu restriction gave its REASON: capacity. That distinction is now a
+tool to apply everywhere in this file.
+
+**A LIMIT** ("no one over fifteen", "accredited US high school", GitHub's age 13) is
+a rule about what you ARE. Asking changes nothing.
+**A RATION** ("only local students, because we have run out of places") is a rule
+about SUPPLY. Rations have edges, waiting lists, and exceptions when a place opens.
+
+They look identical from outside. **So the enquiry template changes: ASK WHY THE
+RESTRICTION EXISTS, not merely whether it applies.** A reason identifies the kind of
+rule; an exception request only reveals one person's mood. Apply this to the TRPEC
+在學學生 call, to the WSC message, and to the IASC teacher-statement gate (already
+classified as capacity-rationed on 26 Oct — the same insight, arrived at twice).
+
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 
 Added 2026-10-17 at the family's request ("something for kids to think, like
@@ -2067,6 +2120,24 @@ sections instead of seven — and that was only noticed while rewriting.
 **COUNT THE SECTION HEADINGS BEFORE EVERY SEND.** There must be SEVEN: 1, 2, 3, 4,
 5, 8, and exactly one of 6 (even dates) or 7 (odd dates). A section referenced from
 the lead ("details in section 5") is especially easy to promise and then omit.
+
+### STRUCTURAL LIMIT, recorded 2026-10-31 — THE PRIMARY PAGES ARE MOSTLY UNREACHABLE
+
+Say this to the family ONCE rather than as a per-item caveat, and then keep flagging
+individual items briefly.
+
+BLOCKED FOR WebFetch as of 31 Oct (getaddrinfo ENOTFOUND): cee.org, ttu.edu,
+globe.gov, royalsociety.org, granta.com, eternagame.org, adventofcode.com,
+en.wikipedia.org, nature.com, prindleinstitute.org, scholarship.depauw.edu,
+ethicsolympiad.org, trpec.com.tw, iasc.cosmosearch.org, science.nasa.gov,
+bookriot.com, pgdp.net, **technovationchallenge.org** (new), **scholarscup.org**
+(new).
+
+**THE DIVISION OF LABOUR HAS SHIFTED: this digest is good at establishing THAT
+something exists and poor at confirming its CURRENT TERMS.** Every date on those
+domains is "the index says". The family can open any of them in four seconds. So:
+state the finding, name the domain as unreadable, and tell them which two or three
+to spot-check — the ones money or a deadline depends on.
 
 ## Format
 
