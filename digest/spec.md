@@ -1436,8 +1436,10 @@ a named, licensed, citable data contribution.
 **THE TEAMMATE PROBLEM — no institution solves it, confirmed 2026-10-18.**
 Conrad's own 2026-27 student guide says to assemble a team from classmates and
 students at other institutions; the site suggests schoolmates, siblings, camp
-friends "or any other eligible students you know". THERE IS NO OFFICIAL MATCHING
-BOARD. Solo entry is not allowed (2-5 students plus an adult coach). What exists:
+friends "or any other eligible students you know". CONRAD ITSELF HAS NO MATCHING
+BOARD — but note, corrected 2026-10-31, that THE WORLD SCHOLAR'S CUP DOES run one
+(register individually, ask to be joined with others seeking teammates), so a team
+formed there can then enter Conrad. Solo entry is not allowed (2-5 students plus an adult coach). What exists:
 Conrad's Alumni Leadership Council webinar on finding teammates and vetting
 collaborators (https://conrad.spacecenter.org/webinar-dream-team/). What also
 exists and should be DECLINED: at least one paid consultancy advertising to match
@@ -1807,9 +1809,14 @@ an institution; everything open can be started this afternoon.
 3. J-1 / J-2 status — determines most of section 3.
 4. GLOBE Taiwan's school-based partnership route — the NCU office is the ask.
 5. No wet-lab access — structural; the JEI mentor requirement is the sharpest form.
-6. TEAMMATES — no official matching service anywhere; four routes recorded above
-   (自學/共學團體 networks, the UT department asked for STUDENTS, the Ethics
-   Olympiad's homeschool permission, the World Scholar's Cup's independent teams).
+6. TEAMMATES — CORRECTED 2026-10-31: ONE official matching service exists, THE
+   WORLD SCHOLAR'S CUP (register individually and ask to be joined with other
+   scholars seeking teammates; team members need not share a school). No OTHER
+   organiser runs one. FIVE routes now: the WSC's matching (Hsinchu round
+   13-14 Mar 2027, registration open — PREFER THIS), working groups such as the
+   Exoplanet Watch Slack and Distributed Proofreaders, 自學/共學團體 networks,
+   the UT department asked for STUDENTS, and the Ethics Olympiad's homeschool
+   permission.
 7. **"WHAT COUNTS AS A SCHOOL" — one item, not four.** In a single week the same
    gate appeared as "currently studying in Taiwan" (Hsinchu World Scholar's Cup;
    the 國立臺北護理健康大學 MUN), as "a teacher registering a class" (Bebras), as
