@@ -1051,6 +1051,30 @@ taste, and it is a better caveat than the vague "reader poll" used until now.
 USED SO FAR (9): Camus #1, Proust #2, Kafka #3, Saint-Exupéry #4, Malraux #5,
 Steinbeck #7, Beckett #12, Alain-Fournier, Céline.
 
+### Section 4, 2026-11-01 — INDEX 4 IS ALIVE: HOW TO WORK NATURE'S "BOOKS IN BRIEF"
+
+**THE METHOD THAT WORKED, after two weeks of substituting.** Do NOT search for
+"Nature Books and Arts October 2026" — nature.com is blocked and the generic query
+returns nothing. **SEARCH FOR THE INSTALMENT BY REVIEWER AND DATE:** `Nature "Books
+in brief" Andrew Robinson <date> five books reviewed titles`. That surfaced the
+28 Aug 2026 instalment, "Mysteries of the deep and AI friendship", *Nature* 657,
+343, doi:10.1038/d41586-026-02725-9. **Andrew Robinson reviews FIVE science picks
+per instalment**, so each indexed instalment is up to five slot-4 books.
+
+INSTALMENTS CONFIRMED TO EXIST (titles via the index): 31 July 2026; 28 Aug 2026
+("Mysteries of the deep and AI friendship"). Others seen in listings: "Einstein the
+musician, AI prophets and more"; "From Victorian voyages to vanishing maps"; "The
+power of ignorance and peering into the Milky Way"; "Marvellous microbes, memory and
+the multiverse"; "Why we seek to fly". **Each of those is a fresh pool of five —
+work them by title.**
+
+LIMIT: only ONE of the five titles from 28 Aug surfaced (*Artificially Yours*). Two
+more are described without being named (forest carbon and biodiversity after
+clearcut logging; a portrait of the deep ocean). nature.com AND the csnsf.org mirror
+are both blocked. So expect one usable title per instalment, not five.
+
+USED FROM THIS VEIN: *Artificially Yours*, Valerie Tiberius (2026-11-01).
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -2059,6 +2083,57 @@ RESTRICTION EXISTS, not merely whether it applies.** A reason identifies the kin
 rule; an exception request only reveals one person's mood. Apply this to the TRPEC
 在學學生 call, to the WSC message, and to the IASC teacher-statement gate (already
 classified as capacity-rationed on 26 Oct — the same insight, arrived at twice).
+
+### Section 7, 2026-11-01 — THE ETHICS OLYMPIAD'S ACTUAL CALENDAR AND FORMAT
+
+Found by searching IN CHINESE, which Standing Rule 7 required and which had never
+been done for this item. The regional question is still blocked, but the item is now
+understood.
+
+**STILL BLOCKED:** whether any regional Olympiad covers TAIWAN. Chinese-language
+searching for Taiwanese, Hong Kong or Singaporean registration returned NOTHING —
+every page that exists is Australian or New Zealand. `admin@ethicsolympiad.org`
+remains the one message that settles it.
+
+**NOW KNOWN, and it reframes the item:**
+- **SENIOR Olympiad (15-18) is held in MAY each year.** MIDDLE SCHOOL (12-14) is
+  held in **NOVEMBER**.
+- Runs on **ZOOM** — "all you need is access to the internet" (organisers, via an
+  Australian school's description). No venue, no travel, no site registration.
+- Modelled on the US **Ethics Bowl** — which is why the 27 Oct confusion with the
+  INDIANA bowl happened. Keep them apart.
+- Fees from a 2020 Australian flyer (DATED, do not plan on them): ~A$40/student
+  members, A$45 non-members, **NO COST FOR SUPERVISING TEACHERS**, early-bird
+  discounts exist.
+
+**THIS EXPLAINS THE PHANTOM JANUARY DEADLINE retracted on 27 Oct.** A MAY event does
+not take registrations in December. The real window is **LATE FEBRUARY TO APRIL**,
+and the "early bird" language is a discount INSIDE that window. Carry it on the board
+as a WATCH DATE, never as a deadline, until a 2027 page is actually read.
+
+TWO THINGS TO REPEAT: the supervising adult is **FREE**, so the parent can be that
+adult at no cost; and a May Zoom event is the MOST ACCESSIBLE team competition in the
+file IF Taiwan is covered.
+
+UNCHANGED: Middle School is **12-14 year olds**, so the 11-year-old is TOO YOUNG
+regardless of the regional answer. (Earlier note said "Years 7-9" — same conclusion,
+and the age band is the clearer statement.)
+
+### Section 2 technique, 2026-11-01 — HOW TO PHRASE THE ENQUIRIES
+
+Recorded because the audit's bottleneck is unsent messages, so the only remaining
+lever is making each one CHEAPER TO SEND.
+
+**DO NOT ask a yes/no question that invites a one-word answer and a slow reply**
+("does Taiwan have a partner organisation?"). **STATE THE POSITION AND ASK WHAT TO
+DO**: a Taiwanese citizen resident in Taiwan, educated under 非學校型態實驗教育,
+intending to apply for RSI 2027, who cannot identify a partner organisation for
+Taiwan — what is the correct route, and does any earlier deadline apply?
+
+**A question with a concrete person in it gets answered by whoever opens it.** Apply
+the same shape to the Ethics Olympiad, World Scholar's Cup, IASC and Wolfram asks,
+and combine with the 31 Oct rule: ASK WHY A RESTRICTION EXISTS, not merely whether it
+applies.
 
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 
