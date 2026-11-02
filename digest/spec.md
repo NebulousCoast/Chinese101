@@ -608,6 +608,29 @@ eligibility page said US citizens or permanent residents. Every conflict gets a
 resolution attempt against the primary page each time it appears, and an
 undated or third-party claim never outweighs the organisation's own current page.
 
+### Section 1, 2026-11-02 — THE FREE STACK PRICED IN HOURS (use this, not just the list)
+
+Money stopped being the constraint once the open list closed; ATTENTION is the
+constraint, and the recommendation had never been added up. Reuse these figures.
+
+  Past AMC 8 paper to the clock ...... 40 min + ~30 reviewing, weekly
+  One Calling Bullshit case study .... ~1 hour incl. the conversation after
+  CS50x .............................. 4-8 HOURS per problem set — the heavy one
+  Exercism ........................... elastic, 20 min to 2 hours; mentoring reply
+                                       arrives days later, which suits an
+                                       irregular week
+  CK-12 / Polypad .................... reactive repair for what the papers expose;
+                                       no fixed cost
+  Teaching Children Philosophy guide . 30-45 min, sized that way deliberately
+
+**TOTALS: ~3 HOURS/WEEK for the 11-year-old; 6-10 for the elder child**, the latter
+almost entirely CS50x.
+
+**ORDER TO CUT IN, if the week is shorter:** Exercism first → the philosophy guide →
+CS50x down to one problem set a fortnight. **NEVER cut the AMC 8 papers while an
+exam is inside 90 days, and never cut Calling Bullshit** — an hour a week is the
+17 October request and the only item serving it.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
@@ -1711,6 +1734,43 @@ several months since registration, a set number of completed pages, and a mentor
 **A visible ladder is exactly what a child with no institution behind them cannot
 usually find.** Keep looking for working groups with ladders, not more contests.
 
+### Section 6 addition verified 2026-11-02 — MOZILLA COMMON VOICE: TAIWAN AS AN ASSET
+
+**THE FIRST ITEM IN THIS SECTION WHERE BEING IN TAIWAN MAKES THE CONTRIBUTION MORE
+VALUABLE RATHER THAN MERELY POSSIBLE** — worth noting as a category, because every
+other entry treats Taiwan as a filter to work around.
+
+WHAT IT IS: volunteers read short sentences aloud and record themselves; other
+volunteers listen and vote on whether the sentence was read correctly. Output is a
+public, openly licensed speech dataset — for most languages the thing that does not
+exist and cannot be bought.
+
+**WHY TAIWAN: the site's own locale list includes BOTH 台語 (Taiwanese) AND
+華語(台灣) (Taiwanese Mandarin) as SEPARATE locales.** Speech tech trained on
+Mainland Mandarin serves Taiwanese Mandarin poorly and 台語 not at all, so a
+household speaking either contributes something A LARGER CONTRIBUTOR ELSEWHERE
+CANNOT SUBSTITUTE.
+
+MECHANICS, from the project's own guidance: record until at least FIVE sentences,
+then submit; natural voice, not performance; clips are VALIDATED BY OTHER SPEAKERS
+and need acceptance by TWO people to enter the main dataset, while one rejected by
+two is released in a DIFFERENT SUBSET rather than deleted; the sentences read are
+CC0.
+
+MEETS THE SECTION'S BAR because **the validation step is a genuine TWO-WAY
+DEPENDENCY** — your clips need two strangers, theirs need you.
+
+**LIMITS, and the third one is a stop sign:**
+- **NO INDIVIDUAL CREDIT AT ALL.** An anonymous dataset row. Same tier as Zooniverse;
+  below Foldit, Eterna and Distributed Proofreaders. Say so every time.
+- **NO MINIMUM AGE OR PARENTAL-CONSENT RULE COULD BE ESTABLISHED.**
+- **THE LICENCE FOR THE CONTRIBUTED AUDIO ITSELF IS UNCONFIRMED** — only the
+  SENTENCES READ are known to be CC0. Different things.
+- **Therefore: tell the family to read the Terms and Privacy page on
+  commonvoice.mozilla.org BEFORE either child records.** The asset being donated is a
+  child's voice, published openly. This is the one item in the file where a summary is
+  not an adequate basis for acting.
+
 ## Section 7 — Challenges (odd-numbered dates)
 
 Added 2026-10-12. **Appears on ODD dates only.** THREE PARTS, all three requested
@@ -2220,6 +2280,28 @@ something exists and poor at confirming its CURRENT TERMS.** Every date on those
 domains is "the index says". The family can open any of them in four seconds. So:
 state the finding, name the domain as unreadable, and tell them which two or three
 to spot-check — the ones money or a deadline depends on.
+
+### Section 4 note, 2026-11-02 — BOOKER 2026, AND A SELF-INFLICTED SLIP
+
+**THE 2026 SHORTLIST, confirmed from thebookerprizes.com's own 2026 pages** (not from
+news coverage): *The End of Everything* (M. John Harrison, used 27 Oct),
+*The Disappearers* (Marlon James), *John of John* (Douglas Stuart),
+*The Things We Never Say* (Elizabeth Strout, used 2 Nov), *Black Bag* (Luke Kennard),
+*May We Feed the King* (Rebecca Perry). Chair **Mary Beard**, with Raymond Antrobus,
+Jarvis Cocker, Rebecca Liu, Patricia Lockwood. James and Stuart are PAST WINNERS;
+HALF the list are first-time shortlistees. **WINNER ANNOUNCED MON 9 NOV 2026**, Old
+Billingsgate, £50,000. FOUR TITLES REMAIN UNUSED in this slot.
+
+**CORRECTION TO MY OWN 27 OCT EMAIL:** I wrote that Strout was "receiving her second
+shortlisting". The prize's own pages call her a **THREE-TIME NOMINEE**. The phrase
+came from a search summary and was printed as fact without being checked against the
+organisation's page — Standing Rule 2 applies to biographical trivia too, not only to
+deadlines. Corrected in the 2 Nov email and in the ledger.
+
+RECURRING CONFLICT PATTERN TO EXPECT: Wikipedia book-stubs often say LONGLISTED where
+the official site says SHORTLISTED, because the stub was not updated. Not a
+contradiction (every shortlisted book was longlisted first) — but always cite the
+official prize-year page.
 
 ## Format
 
