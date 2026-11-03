@@ -1,0 +1,155 @@
+{
+  "title": "What If I Could Freeze Time Whenever I Wanted?",
+  "fps": 30,
+  "duration": 57.0,
+  "bank_start": 30.0,
+  "drain_rate": 1.0,
+
+  "beats": [
+    { "id": 1, "name": "The Hook",          "start": 0.0,  "end": 2.0,  "set": "hill" },
+    { "id": 2, "name": "The First Freeze",  "start": 2.0,  "end": 8.0,  "set": "hill" },
+    { "id": 3, "name": "Step One: Cookies", "start": 8.0,  "end": 15.0, "set": "street" },
+    { "id": 4, "name": "Step Two: The Test","start": 15.0, "end": 22.0, "set": "classroom" },
+    { "id": 5, "name": "Step Three: The Animals", "start": 22.0, "end": 30.0, "set": "pond" },
+    { "id": 6, "name": "Step Four: The Friend",   "start": 30.0, "end": 40.0, "set": "playground" },
+    { "id": 7, "name": "Step Five: The Lock",     "start": 40.0, "end": 48.0, "set": "town" },
+    { "id": 8, "name": "The Ending",        "start": 48.0, "end": 57.0, "set": "hill" }
+  ],
+
+  "freezes": [
+    { "beat": 2, "start": 3.0,  "end": 5.0,  "bank_drain": 2.0 },
+    { "beat": 3, "start": 9.0,  "end": 12.0, "bank_drain": 3.0 },
+    { "beat": 4, "start": 16.0, "end": 20.0, "bank_drain": 4.0 },
+    { "beat": 5, "start": 24.0, "end": 29.0, "bank_drain": 5.0 },
+    { "beat": 6, "start": 33.0, "end": 39.0, "bank_drain": 6.0 },
+    { "beat": 7, "start": 41.0, "end": 46.0, "bank_drain": 5.0 },
+    { "beat": 8, "start": 50.0, "end": 55.0, "bank_drain": 5.0 }
+  ],
+
+  "holds": [
+    { "beat": 7, "start": 46.0, "end": 48.0, "note": "The lock: freeze has ended but nothing moves. No drain, frozen look, music out." },
+    { "beat": 8, "start": 55.0, "end": 57.0, "note": "Final card. Bank holds at 0.0." }
+  ],
+
+  "hud_keyframes": [
+    [0.0, 30.0],
+    [3.0, 30.0], [5.0, 28.0],
+    [9.0, 28.0], [12.0, 25.0],
+    [16.0, 25.0], [20.0, 21.0],
+    [24.0, 21.0], [29.0, 16.0],
+    [33.0, 16.0], [39.0, 10.0],
+    [41.0, 10.0], [46.0, 5.0],
+    [50.0, 5.0], [55.0, 0.0],
+    [57.0, 0.0]
+  ],
+
+  "captions": [
+    { "id": "question", "start": 0.0,  "end": 2.0,  "style": "question", "text": "What if I could freeze time whenever I wanted?" },
+    { "id": "beat2",    "start": 2.0,  "end": 7.8,  "style": "lower",    "text": "I pause the world. It costs me 1 second per second." },
+    { "id": "beat3",    "start": 8.0,  "end": 14.8, "style": "lower",    "text": "Step one: cookies. Harmless, right?" },
+    { "id": "beat4",    "start": 15.0, "end": 21.8, "style": "lower",    "text": "Step two: freeze the teacher to cheat." },
+    { "id": "beat5",    "start": 22.0, "end": 29.8, "style": "lower",    "text": "Step three: things get stuck when I stop them." },
+    { "id": "beat6",    "start": 30.0, "end": 39.8, "style": "lower",    "text": "Step four: I froze someone and left them there." },
+    { "id": "beat7",    "start": 40.0, "end": 47.8, "style": "lower",    "text": "I can’t stop. I don’t know how to stop." },
+    { "id": "final",    "start": 50.5, "end": 57.0, "style": "card",     "text": "What if you couldn’t unfreeze it?" }
+  ],
+
+  "vo": [
+    { "beat": 1, "file": "assets/audio/vo/beat_01.wav", "start": 0.3,  "line": "I found out I could." },
+    { "beat": 2, "file": "assets/audio/vo/beat_02.wav", "start": 2.3,  "line": null },
+    { "beat": 3, "file": "assets/audio/vo/beat_03.wav", "start": 8.3,  "line": null },
+    { "beat": 4, "file": "assets/audio/vo/beat_04.wav", "start": 20.2, "line": "Nobody noticed. Nobody ever notices." },
+    { "beat": 5, "file": "assets/audio/vo/beat_05.wav", "start": 22.3, "line": null },
+    { "beat": 6, "file": "assets/audio/vo/beat_06.wav", "start": 33.6, "line": "I just wanted to get away." },
+    { "beat": 7, "file": "assets/audio/vo/beat_07.wav", "start": 40.3, "line": null },
+    { "beat": 8, "file": "assets/audio/vo/beat_08.wav", "start": 50.6, "line": "Some moments are supposed to move." }
+  ],
+
+  "music": {
+    "file": "assets/audio/music/lofi.mp3",
+    "mute_during_freezes": true,
+    "mute_during_holds": true,
+    "extra_mutes": [],
+    "slow_from": 22.0,
+    "soft": [{ "start": 48.0, "end": 50.0, "fade_in": 1.0 }]
+  },
+
+  "sfx": {
+    "vinyl": { "file": "assets/audio/sfx/vinyl.wav", "during": "freezes_and_holds" },
+    "wind":  { "file": "assets/audio/sfx/wind.wav",  "beats": [1, 5, 6, 7, 8], "rise_beat": 7 }
+  },
+
+  "camera": {
+    "1": [
+      { "type": "dolly", "t0": 0.0, "t1": 2.0, "ease": "out",
+        "from": { "pos": [2.6, -7.6, 4.9], "look": [0.0, 6.0, 3.8] },
+        "to":   { "pos": [1.6, -5.0, 4.6], "look": [0.0, 6.0, 3.8] }, "lens": [26, 28] }
+    ],
+    "2": [
+      { "type": "dolly", "t0": 2.0, "t1": 3.0, "ease": "inout",
+        "from": { "pos": [1.6, -5.0, 4.6], "look": [0.0, 6.0, 3.8] },
+        "to":   { "pos": [-1.44, -3.95, 4.6], "look": [0.0, 1.2, 4.1] }, "lens": [28, 28] },
+      { "type": "orbit", "t0": 3.0, "t1": 5.0, "ease": "inout",
+        "center": [0.0, 0.0], "radius": [4.2, 4.2], "height": [4.6, 4.6], "deg": [-110, -45],
+        "look": [0.0, 1.2, 4.1], "lens": [28, 28] },
+      { "type": "orbit", "t0": 5.0, "t1": 8.0, "ease": "out",
+        "center": [0.0, 0.0], "radius": [4.2, 6.2], "height": [4.6, 5.2], "deg": [-45, -25],
+        "look": [0.0, 1.2, 4.1], "lens": [28, 26] }
+    ],
+    "3": [
+      { "type": "dolly", "t0": 8.0, "t1": 9.0, "ease": "inout",
+        "from": { "pos": [-7.5, -6.5, 3.0], "look": [-2.0, 2.0, 1.2] },
+        "to":   { "pos": [-7.0, -6.0, 2.9], "look": [-2.0, 2.0, 1.2] }, "lens": [24, 24] },
+      { "type": "dolly", "t0": 9.0, "t1": 12.0, "ease": "inout",
+        "to":   { "pos": [-2.6, -3.4, 2.0], "look": [0.0, 3.8, 1.2] }, "lens": [24, 28] },
+      { "type": "dolly", "t0": 12.0, "t1": 15.0, "ease": "out",
+        "to":   { "pos": [-1.0, -2.6, 1.7], "look": [0.8, 2.0, 1.1] }, "lens": [28, 30] }
+    ],
+    "4": [
+      { "type": "dolly", "t0": 15.0, "t1": 16.0, "ease": "inout",
+        "from": { "pos": [4.5, -3.5, 3.0], "look": [-1.4, 3.3, 1.3] },
+        "to":   { "pos": [4.2, -3.2, 2.9], "look": [-1.4, 3.3, 1.3] }, "lens": [24, 24] },
+      { "type": "orbit", "t0": 16.0, "t1": 20.0, "ease": "inout",
+        "center": [0.0, 2.5], "radius": [7.08, 6.5], "height": [2.9, 2.7], "deg": [-53.6, -100],
+        "look": [-1.4, 3.3, 1.3], "lens": [24, 24] },
+      { "type": "dolly", "t0": 20.0, "t1": 22.0, "ease": "inout",
+        "to":   { "pos": [2.6, 1.2, 2.1], "look": [1.6, 6.0, 1.9] }, "lens": [24, 30] }
+    ],
+    "5": [
+      { "type": "dolly", "t0": 22.0, "t1": 24.0, "ease": "inout",
+        "from": { "pos": [-5.0, -3.6, 2.2], "look": [-0.4, 3.2, 1.4] },
+        "to":   { "pos": [-4.6, -3.0, 2.1], "look": [-0.4, 3.2, 1.4] }, "lens": [26, 26] },
+      { "type": "orbit", "t0": 24.0, "t1": 29.0, "ease": "inout",
+        "center": [-0.4, 3.2], "radius": [7.48, 4.0], "height": [2.1, 1.9], "deg": [-124.1, -60],
+        "look": [-0.4, 3.2, 1.4], "lens": [26, 28] },
+      { "type": "hold", "t0": 29.0, "t1": 30.0 }
+    ],
+    "6": [
+      { "type": "dolly", "t0": 30.0, "t1": 33.0, "ease": "inout",
+        "from": { "pos": [3.8, -4.6, 2.3], "look": [-0.8, -0.2, 1.1] },
+        "to":   { "pos": [3.39, -4.0, 2.2], "look": [-0.8, -0.2, 1.1] }, "lens": [24, 26] },
+      { "type": "orbit", "t0": 33.0, "t1": 36.0, "ease": "inout",
+        "center": [-1.0, -0.2], "radius": [5.82, 3.0], "height": [2.2, 1.7], "deg": [-40.8, -190],
+        "look": [-0.8, -0.2, 1.1], "lens": [26, 28] },
+      { "type": "dolly", "t0": 36.0, "t1": 39.0, "ease": "inout",
+        "to":   { "pos": [-3.3, 0.7, 1.8], "look": [6.0, -2.5, 0.9] }, "lens": [28, 30] },
+      { "type": "hold", "t0": 39.0, "t1": 40.0 }
+    ],
+    "7": [
+      { "type": "dolly", "t0": 40.0, "t1": 42.0, "ease": "inout",
+        "from": { "pos": [2.2, -3.4, 1.7], "look": [0.0, 0.5, 1.1] },
+        "to":   { "pos": [2.6, -4.2, 2.0], "look": [0.0, 0.5, 1.0] }, "lens": [26, 26] },
+      { "type": "dolly", "t0": 42.0, "t1": 46.0, "ease": "inout",
+        "to":   { "pos": [12.0, -26.0, 22.0], "look": [0.0, 2.0, 0.0] }, "lens": [26, 22] },
+      { "type": "dolly", "t0": 46.0, "t1": 48.0, "ease": "out",
+        "to":   { "pos": [12.5, -27.0, 22.8], "look": [0.0, 2.0, 0.0] }, "lens": [22, 22] }
+    ],
+    "8": [
+      { "type": "dolly", "t0": 48.0, "t1": 50.0, "ease": "inout",
+        "from": { "pos": [-1.6, -5.2, 3.9], "look": [0.5, 10.0, 4.6] },
+        "to":   { "pos": [-1.5, -4.8, 3.85], "look": [0.5, 10.0, 4.6] }, "lens": [26, 26] },
+      { "type": "dolly", "t0": 50.0, "t1": 57.0, "ease": "out",
+        "to":   { "pos": [-2.4, -7.6, 4.4], "look": [0.3, 10.0, 4.0] }, "lens": [26, 24] }
+    ]
+  }
+}

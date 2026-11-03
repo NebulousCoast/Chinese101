@@ -1,0 +1,72 @@
+{
+  "palette": {
+    "sky":    "#3D4778",
+    "ground": "#6F8F5E",
+    "warm":   "#E8894A",
+    "stone":  "#A9AFC2",
+    "light":  "#F1E9DC",
+    "dark":   "#2B2838"
+  },
+  "hud_accent": "#FFD166",
+  "hud_warning": "#FF4B4B",
+  "hud_warning_below": 10.0,
+
+  "fonts": {
+    "caption": {
+      "file": "assets/fonts/caption.ttf",
+      "fallback": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    },
+    "hud_label": {
+      "file": "assets/fonts/hud_label.ttf",
+      "fallback": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    },
+    "hud_value": {
+      "file": "assets/fonts/hud_value.ttf",
+      "fallback": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
+    }
+  },
+
+  "layout_1080": {
+    "width": 1080,
+    "height": 1920,
+    "safe_top": 250,
+    "safe_bottom": 350,
+    "side_margin": 60,
+    "hud":      { "y": 270, "width": 440, "height": 180, "label_px": 32, "value_px": 92, "radius": 28, "bg_alpha": 150 },
+    "question": { "y": 490, "px": 64 },
+    "lower":    { "bottom": 1500, "px": 56 },
+    "card":     { "center_y": 980, "px": 76 },
+    "caption_max_chars": 32,
+    "caption_max_lines": 2,
+    "caption_pad_x": 36,
+    "caption_pad_y": 22,
+    "caption_line_gap": 10,
+    "caption_bg_alpha": 160,
+    "caption_fade_out": 0.3
+  },
+
+  "freeze_look": {
+    "saturation": 0.4,
+    "grain_strength": 10
+  },
+
+  "render": {
+    "preview": { "width": 540,  "height": 960,  "engine": "eevee",  "samples": 16 },
+    "final":   { "width": 1080, "height": 1920, "engine": "cycles", "samples": 128 }
+  },
+
+  "audio": {
+    "sample_rate": 48000,
+    "target_lufs": -14.0,
+    "true_peak_db": -1.5,
+    "vo_db": 0.0,
+    "music_db": -10.0,
+    "duck_db": -8.0,
+    "wind_db": -18.0,
+    "wind_rise_db": 6.0,
+    "vinyl_db": -16.0,
+    "music_soft_db": -6.0,
+    "music_slow_rate": 0.85,
+    "edge_fade_s": 0.04
+  }
+}
