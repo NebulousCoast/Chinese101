@@ -29,7 +29,8 @@
   .stage{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;
     border-radius:18px;box-shadow:0 18px 40px -22px rgba(150,90,20,.55);background:#000}
   .scene{position:absolute;inset:0;animation:sceneIn .5s ease-out both}
-  .ground{position:absolute;left:0;right:0;bottom:0;height:24%}
+  .ground{position:absolute;left:0;right:0;top:76%;height:24%}
+  .area{position:absolute;inset:0}
   .actor{position:absolute;line-height:1;transform-origin:50% 100%;
     font-family:"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif}
   .actor>span{display:inline-block}
@@ -91,6 +92,26 @@
   .playover b{width:12cqw;height:12cqw;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;
     font-size:5cqw;color:var(--accent-dark);box-shadow:0 1cqw 3cqw rgba(0,0,0,.3);padding-left:1cqw}
 
+  /* reel mode (9:16): the picture area sits in the upper part, captions above the Reels/Shorts UI */
+  .stage.reel{aspect-ratio:9/16;--k:1.6}
+  .stage.reel .area{top:13%;height:52%;bottom:auto}
+  .stage.reel .area .ground{height:200%}
+  .stage.reel .label{font-size:4.4cqw;border-width:.45cqw;padding:1cqw 2.6cqw;border-radius:3cqw}
+  .stage.reel .title{top:9%;padding:0 6%;display:flex;flex-direction:column;align-items:center}
+  .stage.reel .title .en{order:1;font-size:8.4cqw;font-weight:900;line-height:1.15;margin:0}
+  .stage.reel .title .zh{order:2;font-size:6cqw;line-height:1.3;margin-top:2cqw;font-weight:800}
+  .stage.reel .title .kicker{font-size:4.4cqw;padding:1cqw 3.4cqw;margin-bottom:2.6cqw;background:rgba(0,0,0,.16)}
+  .stage.reel .cap{top:auto;bottom:19%;left:5%;right:5%;gap:2.6cqw;padding:2.8cqw 3.4cqw;border-radius:4cqw}
+  .stage.reel .cap .who{font-size:7cqw}
+  .stage.reel .cap>div:last-child{display:flex;flex-direction:column-reverse}   /* English first, Chinese under it */
+  .stage.reel .cap .en{font-size:4.8cqw;line-height:1.3;color:var(--ink);font-weight:800;margin:0}
+  .stage.reel .cap .zh{font-size:3.7cqw;line-height:1.4;color:#7a6a55;font-weight:700;margin-top:1.4cqw}
+  .stage.reel .title .kicker{order:0}
+  .stage.reel .vocab{top:22%;left:7%;right:7%;grid-template-columns:repeat(2,1fr);gap:3.6cqw}
+  .stage.reel .vcard{padding:3cqw;border-radius:3.6cqw}
+  .stage.reel .vcard .h{font-size:11cqw}
+  .stage.reel .vcard .p{font-size:4.6cqw}
+  .stage.reel .vcard .e{font-size:3.8cqw}
   /* render mode: just the stage, edge to edge */
   body.render{padding:0;background:#000;display:block}
   body.render header,body.render .eps,body.render .bar,body.render .ctrls,body.render .note{display:none}
@@ -159,8 +180,8 @@ const EPISODES = [
           {e:"❓",x:24,y:62,s:5,an:"pop bob",d:1.2} ] },
 
     { dur:7, bg:"linear-gradient(#bfe6ff,#e9f7ff)", g:"#a3d977",
-      zh:"今天早上我突然想到：如果世界上從來沒有電話，會怎麼樣？",
-      en:"This morning I suddenly wondered: what if phones had never been invented?",
+      zh:"今天早上我突然想到這個問題……一直想個不停！",
+      en:"This morning I suddenly wondered about it… and I couldn't stop thinking!",
       a:[ {e:"🧒",x:24,y:52,s:16,an:"pop bob",d:.2},
           {e:"💭",x:50,y:28,s:17,an:"pop",d:.9},
           {e:"📱",x:50,y:26,s:7,an:"pop",d:1.3},
@@ -310,11 +331,12 @@ function buildScene(sc){
       return `${n} ${d}s ${tf} ${delay}s ${it} ${fill}`;
     }).join(",");
     const m = a.m || [0,0];
-    parts.push(`<div class="actor${a.flip?" flip":""}" style="left:${a.x}%;top:${a.y}%;font-size:${a.s}cqw;`+
-      `margin:-${a.s/2}cqw 0 0 -${a.s/2}cqw;--mx:${m[0]}cqw;--my:${m[1]}cqw;animation:${anim}"><span>${a.e}</span></div>`);
+    parts.push(`<div class="actor${a.flip?" flip":""}" style="left:${a.x}%;top:${a.y}%;font-size:calc(${a.s}cqw * var(--k,1));`+
+      `margin:calc(-${a.s/2}cqw * var(--k,1)) 0 0 calc(-${a.s/2}cqw * var(--k,1));--mx:${m[0]}cqw;--my:${m[1]}cqw;animation:${anim}"><span>${a.e}</span></div>`);
   }
   for (const l of sc.labels || [])
     parts.push(`<div class="label" style="left:${l.x}%;top:${l.y}%;animation:pop .6s cubic-bezier(.3,1.6,.5,1) ${l.d||0}s both">${esc(l.t)}</div>`);
+  parts.unshift(`<div class="area">`); parts.push(`</div>`);   // ground, actors, labels live in the picture area
   if (sc.title){
     parts.push(`<div class="title"><div class="kicker">${esc(sc.title.kicker)}</div>`+
       (sc.title.zh?`<div class="zh">${esc(sc.title.zh)}</div>`:"")+
@@ -426,6 +448,31 @@ function renderEpisodeList(){
 /* ── deterministic render mode (used by scripts/render-whatif.mjs to make an MP4) ── */
 let shownForRender = -1;
 window.timeline = () => ep.scenes.map(s => s.dur);
+// Reel render: the render script injects window.REEL = {lines:[{id, scene, lead, tail, vd, en, zh}]}.
+// Scenes follow the narration order, each lasts long enough for its voice and its last animation.
+function applyReel(R){
+  const scenes = R.lines.map(l => {
+    const sc = { ...ep.scenes[l.scene] };
+    const last = Math.max(0, ...(sc.a || []).map(a => a.d + (a.an.includes("move") ? (a.md || 2) : .6)),
+                          ...(sc.labels || []).map(x => (x.d || 0) + .6), ...(sc.vocab || []).map((_, i) => .9 + i * .5));
+    sc.dur = +Math.max(l.lead + l.vd + l.tail, last + .8).toFixed(3);
+    if (sc.title?.kicker?.includes("Episode")) sc.title = { ...sc.title, kicker: "如果……？ What if?" };
+    sc.line = l; return sc;
+  });
+  ep = { ...ep, scenes };
+  const EV = [], lines = []; let t = 0;
+  scenes.forEach((sc, i) => {
+    if (i) EV.push({ t: +t.toFixed(3), type: "whoosh", dur: .5, soft: 1 });
+    EV.push({ t: +(t + sc.line.lead).toFixed(3), type: "voice", id: sc.line.id });
+    lines.push({ id: sc.line.id, en: sc.line.en, zh: sc.line.zh, t0: t, v0: t + sc.line.lead, vd: sc.line.vd, t1: t + sc.dur });
+    (sc.a || []).forEach((a, k) => { if (/pop|move/.test(a.an)) EV.push({ t: +(t + a.d).toFixed(3), type: "pop", n: k % 5 }); });
+    (sc.vocab || []).forEach((_, k) => EV.push({ t: +(t + .4 + k * .5).toFixed(3), type: "pop", n: k }));
+    t += sc.dur;
+  });
+  const dur = +t.toFixed(2);
+  window.EXPORT = { ev: EV.sort((a, b) => a.t - b.t), lines, dur,
+    music: { bpm: 108, start: .2, stops: [], end: dur - 1.6, finalAt: dur - 1.6 } };
+}
 window.seek = t => {
   let start = 0, i = 0;
   while (i < ep.scenes.length - 1 && t >= start + ep.scenes[i].dur){ start += ep.scenes[i].dur; i++; }
@@ -438,6 +485,7 @@ window.seek = t => {
 if (RENDER){
   document.body.classList.add("render");
   ep = EPISODES.find(e => e.id === params.get("render")) || EPISODES[0];
+  if (params.has("reel")) { stage.classList.add("reel"); applyReel(window.REEL); }
   const cap = params.get("cap");
   if (cap === "zh") stage.classList.add("hide-en");
   if (cap === "en") stage.classList.add("hide-zh");

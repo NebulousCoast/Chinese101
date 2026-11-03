@@ -1,0 +1,108 @@
+[
+ {
+  "id": "s00",
+  "scene": 0,
+  "lead": 0.8,
+  "tail": 1.0,
+  "en": "What if phones had never been invented?",
+  "zh": "如果從來沒有發明電話？"
+ },
+ {
+  "id": "s01",
+  "scene": 1,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "This morning I suddenly wondered about it… and I couldn't stop thinking!",
+  "zh": "今天早上我突然想到這個問題……一直想個不停！"
+ },
+ {
+  "id": "s02",
+  "scene": 2,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "The telephone was invented in 1876. Before that, talking to someone far away wasn't easy at all!",
+  "zh": "電話是一八七六年發明的。在那以前，想跟遠方的人說話，可沒那麼簡單喔！",
+  "say": "The telephone was invented in eighteen seventy-six. Before that, talking to someone far away wasn't easy at all!"
+ },
+ {
+  "id": "s03",
+  "scene": 3,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "I want to talk to Grandma, who lives far away. With no phone, I'd have to write her a letter.",
+  "zh": "我想跟住在很遠的奶奶說話。沒有電話，我只能寫一封信給她。"
+ },
+ {
+  "id": "s04",
+  "scene": 4,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "The letter rides in the mail truck and takes days to arrive. When Grandma writes back, I wait days again!",
+  "zh": "信要坐郵差的車，好幾天才會到。奶奶回信，我又要再等好幾天！"
+ },
+ {
+  "id": "s05",
+  "scene": 5,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "Our family goes on a trip and gets lost! No map app, so Dad has to unfold a giant paper map.",
+  "zh": "全家出去玩，結果迷路了！沒有地圖App，爸爸只好打開一張超大的紙地圖。"
+ },
+ {
+  "id": "s06",
+  "scene": 6,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "Want to play with my best friend? I'd run to his house and knock: \"Is Xiaoming home? Can he come out to play?\"",
+  "zh": "想找好朋友玩？我就跑到他家門口敲門：「小明在家嗎？可以出來玩嗎？」",
+  "say": "Want to play with my best friend? I'd run to his house and knock. Is Xiao Ming home? Can he come out to play?"
+ },
+ {
+  "id": "s07",
+  "scene": 7,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "If someone gets hurt or there's a fire, nobody can call for help. Someone has to run as fast as they can to get a doctor or firefighters!",
+  "zh": "如果有人受傷或失火了，沒辦法打一一九。得有人用最快的速度跑去找醫生和消防員！"
+ },
+ {
+  "id": "s08",
+  "scene": 8,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "Maybe everyone would send notes by pigeon! People long ago really trained homing pigeons to fly messages home.",
+  "zh": "說不定大家會用鴿子送信！以前的人真的會訓練信鴿，讓牠們飛回家送消息喔。"
+ },
+ {
+  "id": "s09",
+  "scene": 9,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "On the bus there are no phone games. I'd read a book, watch the clouds out the window, or chat with the person next to me.",
+  "zh": "坐公車的時候不能玩手機遊戲。我會看書、看窗外的雲，或是跟旁邊的人聊天。"
+ },
+ {
+  "id": "s10",
+  "scene": 10,
+  "lead": 0.8,
+  "tail": 1.0,
+  "en": "Without phones, lots of things would be slower and harder. But at dinner, maybe everyone would look at each other and talk more.",
+  "zh": "沒有電話，很多事會變慢、變麻煩。可是吃晚飯的時候，大家也許會多看看彼此、多聊聊天。"
+ },
+ {
+  "id": "s12",
+  "scene": 12,
+  "lead": 0.45,
+  "tail": 0.55,
+  "en": "Today's words: if, telephone, invent, write a letter, map, friend.",
+  "zh": "今天學到的生詞：如果、電話、發明、寫信、地圖、朋友。"
+ },
+ {
+  "id": "s11",
+  "scene": 11,
+  "lead": 0.6,
+  "tail": 2.8,
+  "en": "What do you think? Would you want to live in a world without phones? Why?",
+  "zh": "你覺得呢？你想住在一個沒有電話的世界嗎？為什麼？"
+ }
+]
