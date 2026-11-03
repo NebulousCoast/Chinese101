@@ -128,7 +128,7 @@ def compress(x, thr=.25, ratio=3.):
 voice = compress(voice / (np.abs(voice).max() + 1e-9) * .9)
 active = lfilter([.0006], [1, -.9994], (np.abs(voice).max(axis=1) > .02).astype(float))
 duck = 1 - .5 * np.clip(active * 1.6, 0, 1)
-mix = np.tanh((music * duck[:, None] + sfx * .8 + voice * 1.2) * .9) / .9 * .7
+mix = np.tanh((music * duck[:, None] * .7 + sfx * .8 + voice * 1.2) * .9) / .9 * .7
 (EP / "out").mkdir(exist_ok=True); sf.write(EP / "out" / "mix.wav", mix[: int(DUR * SR)], SR, subtype="PCM_24")
 rms = lambda x: 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9); sp = np.abs(voice).max(axis=1) > .02
 print(f"  mix.wav {DUR}s · voice {rms(voice[sp] * 1.2):.1f} dB vs music {rms(music[sp] * duck[sp, None]):.1f} dB while speaking")
