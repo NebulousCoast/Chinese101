@@ -151,6 +151,7 @@ def lofi_score():
     # cozy tape tone: roll off the top, a touch of saturation
     for ch_ in (0, 1): music[:, ch_] = np.tanh(filt(music[:, ch_], "low", 5200) * 1.2) / 1.2
     vin = vinyl(N) * .55; music[:, 0] += vin; music[:, 1] += np.roll(vin, 37)
+    music[:] *= M.get("level", .55)          # lo-fi sits well under the voice
 
 # ── score ──
 if M.get("style") == "lofi":
