@@ -5,6 +5,7 @@
 //   window.DUR, window.render(t), window.EV, window.TIMELINE, window.READY
 import * as THREE from "three";
 import * as kit from "./kit.js";
+import { makeCollage } from "./collage.js";
 
 export const W = 1080, H = 1920;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
@@ -99,6 +100,12 @@ export async function boot(epId) {
   const world = await ep.build(ctx);
   for (const id in L) ctx.ev(L[id].v0, "voice", { id });
 
+  /* collage b-roll: any line with "broll" gets a paper-cutout clip over the 3D */
+  await document.fonts.ready;
+  const collages = Object.values(L).filter(l => l.broll).map((l, i) => makeCollage(l, l.broll, i + 1));
+  collages.forEach(c => c.events.forEach(e => EV.push({ ...e, t: +e.t.toFixed(3) })));
+  const ov = document.getElementById("ov"), og = ov.getContext("2d");
+
   /* subtitles */
   const sub = document.getElementById("sub"), subEn = sub.querySelector(".en"), subZh = sub.querySelector(".zh");
   let shown = null;
@@ -122,12 +129,13 @@ export async function boot(epId) {
     const f = new THREE.Vector3(...(c.shadowAt || c.look));
     sun.target.position.copy(f); sun.position.copy(f).addScaledVector(sunDir, 30);
     if (c.shadowSize) { sc.left = sc.bottom = -c.shadowSize; sc.right = sc.top = c.shadowSize; sc.updateProjectionMatrix(); }
-    renderer.render(scene, camera);
+    if (!collages.some(c => c.covers(t))) renderer.render(scene, camera);   // skip 3D when paper covers it
+    og.clearRect(0, 0, W, H);
+    for (const c of collages) c.draw(og, t);
     subtitles(t);
   };
   window.DUR = DUR; window.EV = EV;
   window.TIMELINE = { lines: Object.values(L).map(({ id, en, zh, t0, v0, vd, t1 }) => ({ id, en, zh, t0, v0, vd, t1 })), music: world.music || null, dur: DUR };
-  await document.fonts.ready;
   window.render(0);
   window.READY = true;
   return { ep, T };

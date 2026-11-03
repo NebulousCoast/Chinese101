@@ -24,6 +24,23 @@ Want a change? Say it in plain words ("slower ending", "make the cow bigger", "a
 voice") and Claude edits the episode. `sh make.sh <id> --no-voice` re-renders without
 re-recording the voice.
 
+### Collage B-roll: paper-cutout clips from one line
+Add `"broll"` to any line in `lines.json` and that line becomes a paper-cutout clip that
+assembles itself piece by piece over the 3D scene, with no filming and no drawing:
+```json
+{"id": "insight", "en": "So maybe money is special… because it's hard to get?", "zh": "…",
+ "broll": {}}
+```
+- **Pieces** are picked from the nouns spoken in the clip (money → bill + coin, everyone → paper crowd,
+  hard → mountain, special → gem, …) and each one slaps down when its word is spoken.
+- **Cut-out words**: CAPS words in the line become ransom-note letters (or the longest word).
+- A torn paper sheet wipes in and out; tear and slap sounds are added to the mix automatically.
+- Options: `"from"`/`"to"` (part of the line, 0–1), `"pieces"` (choose them yourself),
+  `"words"` (choose the cut-out words), `"paper"` (sheet colour).
+  The piece library is `LIB` in `engine/collage.js` (bill, coin, bag, ice cream, tree, house,
+  person, crowd, mountain, gem, lock, burst, apple, question, cloud, heart, cow, squirrel), and
+  `KEYWORDS` maps words to pieces.
+
 ### Checking before the full render
 ```bash
 node engine/render.mjs <id> sheet 0:60:2   # contact sheet of frames, every 2 s → out/sheet.jpg
@@ -44,6 +61,7 @@ node engine/render.mjs <id> serve          # live preview in a browser (silent)
 |---|---|
 | `engine/kit.js` | builders: `person()` (blocky, posable: `POSES`, `walk()`), `cow()`, `squirrel()`, `bird()`, `tree()`, `bush()`, `rock()`, `cloud()`, `ground()`, `house()`, `fence()`, `stand()`, `sign()` (changeable text), `bill()`, `coin()`, `apple()`, `iceCream()`, `rake()` |
 | `engine/engine.js` | the stage: soft sun + sky light, shadows that follow the shot, sky gradient and fog, captions, timeline from the voice; helpers `key()`, `poseTrack()`, `camTrack()` (with cuts), `drift()` |
+| `engine/collage.js` | Collage B-roll: paper-cutout clips generated from one line |
 | `engine/render.mjs` | headless capture: events, stills, contact sheet, full video (parallel workers) |
 | `engine/tts.py` | the kid's voice (Kokoro `af_sky`, pitched up slightly) |
 | `engine/mix.py` | original marimba score, 18 synthesised sound effects, ducking under the voice |

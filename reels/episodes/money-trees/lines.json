@@ -34,14 +34,29 @@
   "tail": 2.2,
   "en": "And when everyone has tons of money… one ice cream costs $1,000!",
   "zh": "大家的錢都多到爆……一支冰淇淋就變成一千塊！",
-  "say": "And when everyone has tons of money... one ice cream costs a thousand dollars!"
+  "say": "And when everyone has tons of money... one ice cream costs a thousand dollars!",
+  "broll": {
+   "from": 0,
+   "to": 0.62,
+   "words": [
+    "TONS"
+   ]
+  }
  },
  {
   "id": "insight",
   "lead": 1.6,
   "tail": 1.6,
   "en": "So maybe money is special… because it's hard to get?",
-  "zh": "所以……錢會珍貴，是因為它很難得到嗎？"
+  "zh": "所以……錢會珍貴，是因為它很難得到嗎？",
+  "broll": {
+   "from": 0,
+   "to": 1,
+   "words": [
+    "SPECIAL",
+    "HARD TO GET?"
+   ]
+  }
  },
  {
   "id": "apple",

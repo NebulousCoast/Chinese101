@@ -20,7 +20,7 @@
 <script type="importmap">{"imports":{"three":"../node_modules/three/build/three.module.js"}}</script>
 </head>
 <body>
-<div id="frame"><canvas id="c"></canvas><div id="vig"></div><div id="sub"><div class="en"></div><div class="zh"></div></div></div>
+<div id="frame"><canvas id="c"></canvas><canvas id="ov" width="1080" height="1920" style="position:absolute;inset:0"></canvas><div id="vig"></div><div id="sub"><div class="en"></div><div class="zh"></div></div></div>
 <script type="module">
   import { boot } from "./engine.js";
   const q = new URLSearchParams(location.search);

@@ -80,7 +80,12 @@ def whistle(d): t = tt(d); return sweep(1800, 700, d) * np.sin(np.pi * t / d) * 
 def bonk(): t = tt(.35); return (sweep(300, 120, .35) * np.exp(-t * 14) + filt(noise(.35), "low", 1500) * np.exp(-t * 60) * .5) * .9
 def crunch(): t = tt(.25); return filt(noise(.25), "band", [800, 6000]) * (np.abs(np.sin(2 * np.pi * 30 * t)) ** 3) * np.exp(-t * 9) * .9
 
-FX = {"rake": lambda e: rake(), "whoosh": lambda e: whoosh(e.get("dur", .5), e.get("soft", 0)), "rustle": lambda e: rustle(e.get("dur", 1)),
+def tear(d, soft=0):
+    t = tt(d); x = filt(noise(d), "band", [900, 7000]); crackle = (rng.uniform(0, 1, len(t)) < .02) * rng.uniform(.5, 1, len(t))
+    return (x * (.5 + .5 * np.sin(np.pi * t / d)) * (.4 + .6 * filt(crackle, "low", 300) * 8) * env(len(t), .01, .08)) * (.3 if soft else .45)
+def slap(n=0):
+    t = tt(.16); return (filt(noise(.16), "band", [200, 2500]) * np.exp(-t * 45) + sweep(180 + 15 * n, 90, .16) * np.exp(-t * 30) * .6) * .8
+FX = {"tear": lambda e: tear(e.get("dur", .4), e.get("soft", 0)), "slap": lambda e: slap(e.get("n", 0)), "rake": lambda e: rake(), "whoosh": lambda e: whoosh(e.get("dur", .5), e.get("soft", 0)), "rustle": lambda e: rustle(e.get("dur", 1)),
       "sparkle": lambda e: sparkle(), "pop": lambda e: popsnd(e.get("n", 0)), "boing": lambda e: boing(), "chitter": lambda e: chitter(),
       "dig": lambda e: dig(e.get("dur", .8)), "toss": lambda e: toss(), "moo": lambda e: moo(), "munch": lambda e: munch(), "kaching": lambda e: kaching(),
       "plop": lambda e: plop(), "coin": lambda e: coinsnd(), "whistle": lambda e: whistle(e.get("dur", .5)), "bonk": lambda e: bonk(), "crunch": lambda e: crunch()}
