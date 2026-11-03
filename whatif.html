@@ -54,7 +54,7 @@
     font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC","WenQuanYi Zen Hei",sans-serif}
   .cap .zh{font-size:2.85cqw;font-weight:800;line-height:1.35}
   .cap .en{font-size:1.85cqw;color:#7a6a55;margin-top:.4cqw;line-height:1.3}
-  .stage.hide-en .cap .en,.stage.hide-zh .cap .zh{display:none}
+  .stage.hide-en .cap .en,.stage.hide-zh .cap .zh,.stage.hide-zh .title .zh{display:none}
 
   .vocab{position:absolute;left:5%;right:5%;top:20%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.8cqw}
   .vcard{background:#fff;border-radius:1.8cqw;padding:1.4cqw;text-align:center;
@@ -457,6 +457,12 @@ function applyReel(R){
                           ...(sc.labels || []).map(x => (x.d || 0) + .6), ...(sc.vocab || []).map((_, i) => .9 + i * .5));
     sc.dur = +Math.max(l.lead + l.vd + l.tail, last + .8).toFixed(3);
     if (sc.title?.kicker?.includes("Episode")) sc.title = { ...sc.title, kicker: "如果……？ What if?" };
+    if (!R.lines.some(x => x.zh)) {   // English-only reel: drop every bit of Chinese on screen
+      const noCJK = str => str.replace(/[\u3000-\u303f\u3400-\u9fff\uff00-\uffef]+/g, "").replace(/^\s*[·…]?\s*/, "").trim();
+      if (sc.title) sc.title = { ...sc.title, kicker: noCJK(sc.title.kicker).replace(/^[\s·…?？]+/, ""), zh: "" };
+      if (sc.labels) sc.labels = sc.labels.map(x => ({ ...x, t: noCJK(x.t) }));
+      sc.zh = sc.zh && " ";   // keep the caption box; its Chinese line is hidden
+    }
     sc.line = l; return sc;
   });
   ep = { ...ep, scenes };
@@ -485,7 +491,7 @@ window.seek = t => {
 if (RENDER){
   document.body.classList.add("render");
   ep = EPISODES.find(e => e.id === params.get("render")) || EPISODES[0];
-  if (params.has("reel")) { stage.classList.add("reel"); applyReel(window.REEL); }
+  if (params.has("reel")) { stage.classList.add("reel"); applyReel(window.REEL); if (!window.REEL.lines.some(x => x.zh)) stage.classList.add("hide-zh"); }
   const cap = params.get("cap");
   if (cap === "zh") stage.classList.add("hide-en");
   if (cap === "en") stage.classList.add("hide-zh");

@@ -14,6 +14,7 @@ EP = ROOT / "episodes" / sys.argv[1]
 E = json.loads((EP / "out" / "events.json").read_text())
 SR = 48000; DUR = E["dur"]; N = int((DUR + 1) * SR)
 M = E.get("music") or {}
+if (EP / "music.json").exists(): M = {**M, **json.loads((EP / "music.json").read_text())}   # per-episode music choice, e.g. {"style": "lofi"}
 rng = np.random.default_rng(11)
 music, sfx, voice = (np.zeros((N, 2)) for _ in range(3))
 
@@ -98,8 +99,63 @@ for e in E["ev"]:
     else: missing.add(e["type"])
 if missing: print("  (no sound for:", ", ".join(sorted(missing)) + ")")
 
+# ── lo-fi chill: jazzy chords, relaxed swung groove, vinyl crackle, cozy late-night ──
+def rhodes(f, d=2.5, vel=1.):
+    t = tt(d); trem = 1 + .12 * np.sin(2 * np.pi * 4.6 * t)
+    body = np.sin(2 * np.pi * f * t + .8 * np.exp(-t * 6) * np.sin(2 * np.pi * f * t)) * np.exp(-t * 1.1)   # soft FM bark
+    bell = .25 * np.sin(2 * np.pi * f * 7.02 * t) * np.exp(-t * 18) * vel
+    return (body + bell + .15 * np.sin(4 * np.pi * f * t) * np.exp(-t * 2.5)) * trem * env(len(t), .006, .25) * (.6 + .4 * vel)
+def lofi_bass(f, d):
+    t = tt(d); y = np.tanh(1.6 * (np.sin(2 * np.pi * f * t) + .25 * np.sin(4 * np.pi * f * t))) * np.exp(-t * 1.4)
+    return filt(y, "low", 420) * env(len(t), .01, .12)
+def lofi_kick(): t = tt(.35); return sweep(110, 42, .35) * np.exp(-t * 11) * .95
+def lofi_snare():
+    t = tt(.28); return filt(filt(noise(.28), "band", [900, 4500]) * np.exp(-t * 16) + .5 * np.sin(2 * np.pi * 190 * t) * np.exp(-t * 28), "low", 5000) * .55
+def lofi_hat(open_=False):
+    d = .22 if open_ else .05; t = tt(d); return filt(noise(d), "high", 6500) * np.exp(-t * (12 if open_ else 70)) * .4
+def vinyl(n):
+    crackle = np.zeros(n); k = rng.integers(0, n, int(n / SR * 9)); crackle[k] = rng.uniform(-1, 1, len(k)) * rng.uniform(.2, 1, len(k)) ** 3
+    pops = np.zeros(n); k2 = rng.integers(0, n, int(n / SR * .6)); pops[k2] = rng.choice([-1, 1], len(k2))
+    hiss = filt(rng.uniform(-1, 1, n), "band", [2000, 9000]) * .02
+    rumble = filt(rng.uniform(-1, 1, n), "low", 60) * .08
+    return filt(crackle, "high", 1200) * .35 + filt(pops, "low", 2500) * .5 + hiss + rumble
+def lofi_score():
+    bpm = M.get("bpm", 76); B = 60 / bpm; sw = .62                  # swing: the off-8th lands late
+    # ii–V–I–vi in F, rootless jazzy voicings (min9, 13, maj9, min9)
+    PROG = [(43, [58, 62, 65, 69]), (36, [52, 58, 62, 69]), (41, [57, 60, 64, 67]), (38, [53, 57, 60, 64])]
+    MEL = [[None, 77, None, 74], [76, None, 72, None], [None, 72, 74, 69], [None, None, 67, None]]
+    stops = M.get("stops", []); quiet = lambda x: any(a <= x < b for a, b in stops)
+    t, bar, end = M.get("start", 0), 0, M["end"]
+    while t < end - .01:
+        root, ch = PROG[bar % 4]
+        if not quiet(t):
+            for k, m in enumerate(ch): add(music, rhodes(midi(m), B * 4 + .5, .7), t + k * .018, .085, -.25 + .17 * k)
+            push = t + B * (1 + sw)                                          # chord anticipation on the "and" of 2
+            if bar % 2: [add(music, rhodes(midi(m), B * 2, .5), push + k * .015, .05, .2) for k, m in enumerate(ch[1:])]
+            add(music, lofi_bass(midi(root), B * 1.8), t, .55)
+            add(music, lofi_bass(midi(root + (7 if bar % 2 else 12)), B * 1.2), t + B * (2 + sw), .4)
+        for beat in range(4):
+            for half in (0, 1):
+                x = t + B * (beat + (sw if half else 0))
+                if x >= end or quiet(x): continue
+                vel = .8 + .2 * rng.random()
+                add(music, lofi_hat(open_=(beat == 3 and half == 1 and bar % 2 == 1)), x, .16 * vel * (1 if half == 0 else .7), .35)
+                if half == 0 and beat in (0,) or (beat == 2 and half == 1 and bar % 2 == 0): add(music, lofi_kick(), x, .6)
+                if half == 0 and beat in (1, 3): add(music, lofi_snare(), x + .012, .38 * vel, -.1)
+        if bar % 8 >= 4 and not quiet(t):                                   # a lazy melody every other phrase
+            for i, m in enumerate(MEL[bar % 4]):
+                if m: add(music, rhodes(midi(m), B * 1.6, 1.0), t + B * i + (B * (sw - .5) if i % 2 else 0), .06, .3)
+        t += 4 * B; bar += 1
+    fa = M.get("finalAt", end)
+    for k, m in enumerate([41, 57, 60, 64, 67, 72]): add(music, rhodes(midi(m), 4.0, .8), fa + k * .05, .09, -.3 + .12 * k)
+    # cozy tape tone: roll off the top, a touch of saturation
+    for ch_ in (0, 1): music[:, ch_] = np.tanh(filt(music[:, ch_], "low", 5200) * 1.2) / 1.2
+    vin = vinyl(N) * .55; music[:, 0] += vin; music[:, 1] += np.roll(vin, 37)
+
 # ── score ──
-if M:
+if M.get("style") == "lofi":
+    lofi_score()
+elif M:
     B = 60 / M.get("bpm", 112)
     PROG = [(65, [65, 69, 72]), (62, [62, 65, 69]), (58, [58, 62, 65]), (60, [60, 64, 67])]   # F Dm Bb C
     MEL = [[77, None, 76, 74, 72, None, 74, None], [74, None, 72, 69, 72, None, None, None], [70, None, 72, 74, 77, None, 76, None], [76, 74, 72, None, 79, None, None, None]]
