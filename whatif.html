@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>如果……？ · What If? with 碩寬</title>
+<style>
+  :root{
+    --bg:#fff7ec; --ink:#2d2a26; --accent:#ff8a3d; --accent-dark:#e96f1f;
+    --soft:#ffe3c7; --line:#f0d9bf; --muted:#8a7a66;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC","WenQuanYi Zen Hei",system-ui,sans-serif;
+    background:radial-gradient(circle at 20% -10%,#ffe9d2,var(--bg));color:var(--ink);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px}
+  header{text-align:center;margin-bottom:10px}
+  header h1{font-size:1.5rem;margin:0}
+  header p{margin:3px 0 0;color:var(--muted);font-size:.85rem}
+  header a{color:var(--accent-dark)}
+  .wrap{width:100%;max-width:960px}
+
+  /* episode picker */
+  .eps{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 12px}
+  .ep{border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 14px;font-size:.88rem;cursor:pointer;color:var(--ink)}
+  .ep.on{border-color:var(--accent);background:linear-gradient(135deg,var(--accent),#ffb066);color:#fff;font-weight:700}
+  .ep[disabled]{opacity:.5;cursor:default}
+
+  /* the 16:9 stage — everything inside is sized in cqw so it scales like a video */
+  .stage{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;
+    border-radius:18px;box-shadow:0 18px 40px -22px rgba(150,90,20,.55);background:#000}
+  .scene{position:absolute;inset:0;animation:sceneIn .5s ease-out both}
+  .ground{position:absolute;left:0;right:0;bottom:0;height:24%}
+  .actor{position:absolute;line-height:1;transform-origin:50% 100%;
+    font-family:"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif}
+  .actor>span{display:inline-block}
+  .actor.flip>span{transform:scaleX(-1)}
+  .label{position:absolute;transform:translate(-50%,-50%);background:#fff;border:.25cqw solid var(--ink);
+    border-radius:2cqw;padding:.6cqw 1.6cqw;font-size:2.4cqw;font-weight:800;white-space:nowrap;
+    box-shadow:0 .5cqw 0 rgba(0,0,0,.15)}
+
+  .title{position:absolute;left:0;right:0;top:12%;text-align:center;color:#fff;
+    text-shadow:0 .4cqw 0 rgba(0,0,0,.25)}
+  .title .zh{font-size:6.4cqw;font-weight:900;letter-spacing:.2cqw}
+  .title .en{font-size:3cqw;font-weight:700;margin-top:.8cqw;opacity:.95}
+  .title .kicker{display:inline-block;background:rgba(255,255,255,.25);border-radius:99px;
+    padding:.4cqw 1.6cqw;font-size:2cqw;margin-bottom:1.2cqw;font-weight:700}
+
+  .cap{position:absolute;left:3%;right:3%;bottom:3.5%;display:flex;gap:1.6cqw;align-items:center;
+    background:rgba(255,255,255,.94);border-radius:2cqw;padding:1.4cqw 2cqw;
+    box-shadow:0 .6cqw 1.6cqw -.6cqw rgba(0,0,0,.35);animation:capIn .5s .25s ease-out both}
+  .cap .who{flex:0 0 auto;text-align:center;font-size:4.4cqw;line-height:1}
+  .cap .who small{display:block;font-size:1.4cqw;font-weight:800;color:var(--accent-dark);margin-top:.3cqw;
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC","WenQuanYi Zen Hei",sans-serif}
+  .cap .zh{font-size:2.85cqw;font-weight:800;line-height:1.35}
+  .cap .en{font-size:1.85cqw;color:#7a6a55;margin-top:.4cqw;line-height:1.3}
+  .stage.hide-en .cap .en,.stage.hide-zh .cap .zh{display:none}
+
+  .vocab{position:absolute;left:5%;right:5%;top:20%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.8cqw}
+  .vcard{background:#fff;border-radius:1.8cqw;padding:1.4cqw;text-align:center;
+    box-shadow:0 .6cqw 0 rgba(0,0,0,.12);animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}
+  .vcard .h{font-size:5cqw;font-weight:900;color:var(--accent-dark);line-height:1.15}
+  .vcard .p{font-size:2.1cqw;font-weight:700;color:#5c7cfa}
+  .vcard .e{font-size:1.8cqw;color:#7a6a55}
+
+  /* actor animations — each uses its own property so they can stack */
+  @keyframes sceneIn{from{opacity:0}to{opacity:1}}
+  @keyframes capIn{from{opacity:0;translate:0 2cqw}to{opacity:1;translate:0 0}}
+  @keyframes pop{0%{scale:0}70%{scale:1.15}100%{scale:1}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes move{from{translate:var(--mx) var(--my)}to{translate:0 0}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2cqw)}}
+  @keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-2.4cqw)}60%{transform:translateY(-2.4cqw)}}
+  @keyframes wiggle{0%,100%{rotate:-8deg}50%{rotate:8deg}}
+  @keyframes spin{to{rotate:360deg}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-.6cqw)}75%{transform:translateX(.6cqw)}}
+  @keyframes pulse{0%,100%{scale:1}50%{scale:1.12}}
+  @keyframes flap{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-1cqw) scaleY(.85)}}
+
+  /* controls */
+  .bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:12px 0 6px;position:relative;cursor:pointer}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb066)}
+  .ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 14px;font-size:.95rem;cursor:pointer;color:var(--ink)}
+  .btn.main{background:linear-gradient(135deg,var(--accent),#ffb066);color:#fff;border-color:var(--accent);font-weight:800;min-width:110px}
+  .sel{display:flex;gap:4px;align-items:center;font-size:.82rem;color:var(--muted)}
+  .sel select{border:1px solid var(--line);border-radius:10px;padding:6px 8px;background:#fff;font-size:.88rem}
+  .note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.6}
+
+  .playover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.25);cursor:pointer;z-index:5}
+  .playover b{width:12cqw;height:12cqw;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:5cqw;color:var(--accent-dark);box-shadow:0 1cqw 3cqw rgba(0,0,0,.3);padding-left:1cqw}
+
+  /* render mode: just the stage, edge to edge */
+  body.render{padding:0;background:#000;display:block}
+  body.render header,body.render .eps,body.render .bar,body.render .ctrls,body.render .note{display:none}
+  body.render .wrap{max-width:none}
+  body.render .stage{border-radius:0;width:100vw;height:100vh;aspect-ratio:auto}
+</style>
+</head>
+<body>
+<header>
+  <h1>🤔 如果……？ What If?</h1>
+  <p>碩寬的「如果」小影片 · Big questions from a kid's point of view — <a href="index.html">回到打字 ✏️</a></p>
+</header>
+
+<div class="wrap">
+  <div class="eps" id="eps"></div>
+  <div class="stage" id="stage"></div>
+  <div class="bar" id="bar"><i id="barFill"></i></div>
+  <div class="ctrls">
+    <button class="btn" id="prevBtn" title="上一段 · previous">⏮</button>
+    <button class="btn main" id="playBtn">▶ 播放 Play</button>
+    <button class="btn" id="nextBtn" title="下一段 · next">⏭</button>
+    <label class="sel">🔊
+      <select id="voiceSel">
+        <option value="zh">中文旁白 Chinese</option>
+        <option value="en">English narration</option>
+        <option value="off">靜音 Mute</option>
+      </select>
+    </label>
+    <label class="sel">💬
+      <select id="capSel">
+        <option value="both">中文 + English</option>
+        <option value="zh">只有中文 Chinese only</option>
+        <option value="en">English only</option>
+      </select>
+    </label>
+  </div>
+  <p class="note">旁白用瀏覽器的語音朗讀 · Narration uses your browser's built-in voice.<br>
+    小提示：先開「只有中文」看一次，再開英文對照！ Tip: watch once in Chinese only, then again with English.</p>
+</div>
+
+<script>
+/* ───────────────────────── EPISODES ─────────────────────────
+   Each episode is a list of scenes. A scene has:
+     bg      CSS background for the sky / room
+     g       optional ground colour (bottom strip)
+     dur     minimum seconds on screen
+     zh, en  the kid's narration (caption + voice)
+     title   {kicker, zh, en} for a title card instead of a caption
+     a       actors: {e emoji, x %, y %, s size (cqw), an animation list,
+                      d delay s, m [dx,dy] start offset in cqw for "move", md move secs, flip}
+     labels  [{t text, x, y, d}] speech-bubble style labels
+     vocab   [[hanzi, pinyin, english], ...] word cards
+   To add an episode: copy one block, change the scenes, add it to EPISODES.
+*/
+const EPISODES = [
+{
+  id:"phones",
+  zh:"如果從來沒有發明電話？",
+  en:"What if phones had never been invented?",
+  scenes:[
+    { dur:5, bg:"linear-gradient(160deg,#ff9a3d,#ff6f91)",
+      title:{kicker:"如果……？ What If? · 第 1 集 Episode 1", zh:"如果從來沒有發明電話？", en:"What if phones had never been invented?"},
+      a:[ {e:"☎️",x:38,y:62,s:13,an:"pop wiggle",d:.3},
+          {e:"📱",x:58,y:62,s:12,an:"pop bob",d:.6},
+          {e:"❓",x:74,y:60,s:7,an:"pop bob",d:1},
+          {e:"❓",x:24,y:62,s:5,an:"pop bob",d:1.2} ] },
+
+    { dur:7, bg:"linear-gradient(#bfe6ff,#e9f7ff)", g:"#a3d977",
+      zh:"大家好，我是碩寬！今天早上我突然想到：如果世界上從來沒有電話，會怎麼樣？",
+      en:"Hi, I'm Shuòkuān! This morning I suddenly wondered: what if phones had never been invented?",
+      a:[ {e:"🧒",x:24,y:52,s:16,an:"pop bob",d:.2},
+          {e:"💭",x:50,y:28,s:17,an:"pop",d:.9},
+          {e:"📱",x:50,y:26,s:7,an:"pop",d:1.3},
+          {e:"🚫",x:50,y:26,s:10,an:"pop pulse",d:2.2},
+          {e:"🌞",x:86,y:14,s:9,an:"spin",d:0} ] },
+
+    { dur:7, bg:"linear-gradient(#ffe7b3,#fff6dd)",
+      zh:"電話是一八七六年發明的。在那以前，想跟遠方的人說話，可沒那麼簡單喔！",
+      en:"The telephone was invented in 1876. Before that, talking to someone far away wasn't easy at all!",
+      a:[ {e:"☎️",x:50,y:40,s:15,an:"pop wiggle",d:.3},
+          {e:"🗓️",x:20,y:30,s:9,an:"pop",d:.8},
+          {e:"🎩",x:78,y:34,s:9,an:"pop bob",d:1.2} ],
+      labels:[{t:"1876",x:20,y:52,d:1.1}] },
+
+    { dur:8, bg:"linear-gradient(#cfe9ff,#f2fbff)", g:"#9ccc65",
+      zh:"我想跟住在很遠的奶奶說話。沒有電話，我只能寫一封信給她。",
+      en:"I want to talk to Grandma, who lives far away. With no phone, I'd have to write her a letter.",
+      a:[ {e:"🧒",x:12,y:52,s:13,an:"pop",d:.2},
+          {e:"⛰️",x:46,y:50,s:16,an:"fade",d:0},
+          {e:"✉️",x:76,y:30,s:7,an:"move flap",d:1.2,m:[-60,10],md:4},
+          {e:"👵",x:86,y:52,s:13,an:"pop bob",d:.5},
+          {e:"🏡",x:72,y:56,s:9,an:"fade",d:.3} ] },
+
+    { dur:8, bg:"linear-gradient(#e2f0ff,#ffffff)", g:"#b0bec5",
+      zh:"信要坐郵差的車，好幾天才會到。奶奶回信，我又要再等好幾天！",
+      en:"The letter rides in the mail truck and takes days to arrive. When Grandma writes back, I wait days again!",
+      a:[ {e:"🚚",x:70,y:58,s:13,an:"move shake",d:.2,m:[-70,0],md:3,flip:true},
+          {e:"📬",x:16,y:56,s:10,an:"pop",d:.1},
+          {e:"⏳",x:46,y:22,s:9,an:"pop spin",d:1.5},
+          {e:"🧒",x:88,y:52,s:11,an:"pop bob",d:2.4},
+          {e:"😴",x:88,y:32,s:5,an:"pop bob",d:3.5} ] },
+
+    { dur:8, bg:"linear-gradient(#bde0fe,#e8f4ff)", g:"#7cb342",
+      zh:"全家出去玩，結果迷路了！沒有地圖App，爸爸只好打開一張超大的紙地圖。",
+      en:"Our family goes on a trip and gets lost! No map app, so Dad has to unfold a giant paper map.",
+      a:[ {e:"🚗",x:22,y:58,s:13,an:"move",d:0,m:[-40,0],md:1.5,flip:true},
+          {e:"👨",x:52,y:38,s:12,an:"pop",d:1.4},
+          {e:"🗺️",x:52,y:58,s:15,an:"pop wiggle",d:2},
+          {e:"❓",x:40,y:26,s:6,an:"pop bob",d:2.8},
+          {e:"❓",x:64,y:24,s:6,an:"pop bob",d:3.1},
+          {e:"🌲",x:84,y:50,s:13,an:"fade",d:0},
+          {e:"🌲",x:94,y:52,s:10,an:"fade",d:0} ] },
+
+    { dur:8, bg:"linear-gradient(#ffd6a5,#fff1e0)", g:"#c5a880",
+      zh:"想找好朋友玩？我就跑到他家門口敲門：「小明在家嗎？可以出來玩嗎？」",
+      en:"Want to play with my best friend? I'd run to his house and knock: \"Is Xiaoming home? Can he come out to play?\"",
+      a:[ {e:"🏃",x:52,y:54,s:12,an:"move hop",d:.1,m:[-45,0],md:2,flip:true},
+          {e:"🏠",x:78,y:46,s:22,an:"fade",d:0},
+          {e:"✊",x:66,y:46,s:5,an:"pop shake",d:2.3} ],
+      labels:[{t:"叩叩！Knock knock!",x:62,y:20,d:2.6}] },
+
+    { dur:9, bg:"linear-gradient(#ffcdd2,#fff3f3)", g:"#bdbdbd",
+      zh:"如果有人受傷或失火了，沒辦法打一一九。得有人用最快的速度跑去找醫生和消防員！",
+      en:"If someone gets hurt or there's a fire, nobody can call for help. Someone has to run as fast as they can to get a doctor or firefighters!",
+      a:[ {e:"🏃‍♀️",x:40,y:54,s:12,an:"move hop",d:.1,m:[-35,0],md:2.5,flip:true},
+          {e:"🚒",x:76,y:56,s:15,an:"pop shake",d:2.6},
+          {e:"🚑",x:14,y:22,s:9,an:"pop",d:1},
+          {e:"🚫",x:14,y:22,s:11,an:"pop",d:1.6},
+          {e:"💨",x:28,y:58,s:6,an:"pop pulse",d:1} ],
+      labels:[{t:"119",x:24,y:40,d:1.4}] },
+
+    { dur:9, bg:"linear-gradient(#b3e5fc,#e1f5fe)",
+      zh:"說不定大家會用鴿子送信！以前的人真的會訓練信鴿，讓牠們飛回家送消息喔。",
+      en:"Maybe everyone would send notes by pigeon! People long ago really trained homing pigeons to fly messages home.",
+      a:[ {e:"🕊️",x:30,y:30,s:10,an:"move flap",d:.2,m:[-40,15],md:3},
+          {e:"🕊️",x:55,y:20,s:8,an:"move flap",d:.8,m:[-60,20],md:3.5},
+          {e:"🕊️",x:78,y:36,s:9,an:"move flap",d:1.4,m:[-80,10],md:3.5},
+          {e:"📜",x:33,y:42,s:5,an:"move flap",d:.2,m:[-40,15],md:3},
+          {e:"☁️",x:12,y:62,s:12,an:"bob",d:0},
+          {e:"☁️",x:88,y:66,s:10,an:"bob",d:.5} ] },
+
+    { dur:9, bg:"linear-gradient(#fff9c4,#fffde7)", g:"#90a4ae",
+      zh:"坐公車的時候不能玩手機遊戲。我會看書、看窗外的雲，或是跟旁邊的人聊天。",
+      en:"On the bus there are no phone games. I'd read a book, watch the clouds out the window, or chat with the person next to me.",
+      a:[ {e:"🚌",x:50,y:46,s:22,an:"move shake",d:0,m:[-60,0],md:1.5,flip:true},
+          {e:"📚",x:20,y:24,s:8,an:"pop bob",d:2},
+          {e:"☁️",x:50,y:16,s:9,an:"pop bob",d:2.6},
+          {e:"💬",x:80,y:24,s:8,an:"pop bob",d:3.2} ] },
+
+    { dur:10, bg:"linear-gradient(#ffe0b2,#fff3e0)",
+      zh:"沒有電話，很多事會變慢、變麻煩。可是吃晚飯的時候，大家也許會多看看彼此、多聊聊天。",
+      en:"Without phones, lots of things would be slower and harder. But at dinner, maybe everyone would look at each other and talk more.",
+      a:[ {e:"🐢",x:18,y:30,s:9,an:"pop bob",d:.3},
+          {e:"👨",x:38,y:42,s:14,an:"pop bob",d:2.6},
+          {e:"🧒",x:52,y:46,s:11,an:"pop bob",d:2.8},
+          {e:"👩",x:66,y:42,s:14,an:"pop bob",d:3},
+          {e:"🍚",x:45,y:62,s:7,an:"pop",d:3.2},
+          {e:"🥢",x:59,y:62,s:7,an:"pop",d:3.4},
+          {e:"❤️",x:52,y:18,s:8,an:"pop pulse",d:4.2} ] },
+
+    { dur:7, bg:"linear-gradient(160deg,#b39ddb,#90caf9)",
+      zh:"你覺得呢？你想住在一個沒有電話的世界嗎？為什麼？",
+      en:"What do you think? Would you want to live in a world without phones? Why?",
+      a:[ {e:"🤔",x:50,y:40,s:20,an:"pop wiggle",d:.2},
+          {e:"👍",x:24,y:40,s:10,an:"pop bob",d:1.2},
+          {e:"👎",x:76,y:40,s:10,an:"pop bob",d:1.5} ] },
+
+    { dur:9, bg:"linear-gradient(160deg,#ffcc80,#ffab91)",
+      title:{kicker:"今天的生詞 · Today's words", zh:"", en:""},
+      zh:"今天學到的生詞：如果、電話、發明、寫信、地圖、朋友。",
+      en:"Today's words: if, telephone, invent, write a letter, map, friend.",
+      vocab:[["如果","rúguǒ","if"],["電話","diànhuà","telephone"],["發明","fāmíng","to invent"],
+             ["寫信","xiě xìn","write a letter"],["地圖","dìtú","map"],["朋友","péngyǒu","friend"]] },
+
+    { dur:6, bg:"linear-gradient(160deg,#81c784,#4db6ac)",
+      title:{kicker:"下一集 · Next time", zh:"如果動物會說話？", en:"What if animals could talk?"},
+      a:[ {e:"🐶",x:34,y:72,s:14,an:"pop bob",d:.4},
+          {e:"💬",x:47,y:62,s:8,an:"pop",d:1},
+          {e:"🐱",x:66,y:72,s:14,an:"pop bob",d:.7} ] },
+  ]
+},
+];
+
+/* ───────────────────────── ENGINE ───────────────────────── */
+const ANIM = {               // name → [duration s, timing, iterations, fill]
+  pop:   [.6,"cubic-bezier(.3,1.6,.5,1)",1,"both"],
+  fade:  [.6,"ease-out",1,"both"],
+  move:  [2,"ease-in-out",1,"both"],
+  bob:   [2,"ease-in-out","infinite","none"],
+  hop:   [.45,"ease-in-out","infinite","none"],
+  wiggle:[1.4,"ease-in-out","infinite","none"],
+  spin:  [3,"linear","infinite","none"],
+  shake: [.3,"linear","infinite","none"],
+  pulse: [1.2,"ease-in-out","infinite","none"],
+  flap:  [.5,"ease-in-out","infinite","none"],
+};
+const $ = id => document.getElementById(id);
+const stage = $("stage");
+const params = new URLSearchParams(location.search);
+const RENDER = params.has("render");
+
+let ep = EPISODES[0], idx = 0, playing = false, started = false;
+let timer = null, sceneStartedAt = 0, elapsedBefore = 0, speechDone = true, timeDone = false;
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function buildScene(sc){
+  const parts = [];
+  if (sc.g) parts.push(`<div class="ground" style="background:${sc.g}"></div>`);
+  for (const a of sc.a || []){
+    const names = a.an.split(/\s+/).filter(Boolean);
+    // "pop"/"fade" start invisible until their delay; looping ones begin after the entrance.
+    const anim = names.map(n => {
+      const [dur,tf,it,fill] = ANIM[n];
+      const d = n === "move" ? (a.md || dur) : dur;
+      const delay = (["pop","fade","move"].includes(n)) ? a.d : a.d + (names.includes("pop") ? .6 : 0);
+      return `${n} ${d}s ${tf} ${delay}s ${it} ${fill}`;
+    }).join(",");
+    const m = a.m || [0,0];
+    parts.push(`<div class="actor${a.flip?" flip":""}" style="left:${a.x}%;top:${a.y}%;font-size:${a.s}cqw;`+
+      `margin:-${a.s/2}cqw 0 0 -${a.s/2}cqw;--mx:${m[0]}cqw;--my:${m[1]}cqw;animation:${anim}"><span>${a.e}</span></div>`);
+  }
+  for (const l of sc.labels || [])
+    parts.push(`<div class="label" style="left:${l.x}%;top:${l.y}%;animation:pop .6s cubic-bezier(.3,1.6,.5,1) ${l.d||0}s both">${esc(l.t)}</div>`);
+  if (sc.title){
+    parts.push(`<div class="title"><div class="kicker">${esc(sc.title.kicker)}</div>`+
+      (sc.title.zh?`<div class="zh">${esc(sc.title.zh)}</div>`:"")+
+      (sc.title.en?`<div class="en">${esc(sc.title.en)}</div>`:"")+`</div>`);
+  }
+  if (sc.vocab){
+    parts.push(`<div class="vocab">`+sc.vocab.map((v,i)=>
+      `<div class="vcard" style="animation-delay:${.4+i*.5}s"><div class="h">${esc(v[0])}</div><div class="p">${esc(v[1])}</div><div class="e">${esc(v[2])}</div></div>`).join("")+`</div>`);
+  }
+  if (sc.zh && !sc.title?.zh && !sc.vocab){
+    parts.push(`<div class="cap"><div class="who">🧒<small>碩寬</small></div><div>`+
+      `<div class="zh">${esc(sc.zh)}</div><div class="en">${esc(sc.en)}</div></div></div>`);
+  }
+  return `<div class="scene" style="background:${sc.bg}">${parts.join("")}</div>`;
+}
+
+function show(i){
+  idx = Math.max(0, Math.min(ep.scenes.length - 1, i));
+  stage.innerHTML = buildScene(ep.scenes[idx]);
+  if (!RENDER && !started) addPlayOverlay();
+  updateBar(0);
+}
+
+/* ── interactive playback ── */
+function speak(sc){
+  const mode = $("voiceSel").value;
+  speechDone = true;
+  if (mode === "off" || !("speechSynthesis" in window)) return;
+  const text = mode === "en" ? sc.en : sc.zh;
+  if (!text) return;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = mode === "en" ? "en-US" : "zh-TW";
+  u.rate = mode === "en" ? .95 : .85;
+  u.pitch = 1.15;                                // a little higher — it's a kid talking
+  const re = mode === "en" ? /^en/i : /zh|cmn|Chinese/i;
+  const v = speechSynthesis.getVoices().find(v => re.test(v.lang + " " + v.name));
+  if (v) u.voice = v;
+  speechDone = false;
+  u.onend = u.onerror = () => { speechDone = true; maybeAdvance(); };
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+function maybeAdvance(){
+  if (!playing || !timeDone || !speechDone) return;
+  if (idx < ep.scenes.length - 1){ playScene(idx + 1); }
+  else { stopPlay(); updateBar(1); }
+}
+function playScene(i){
+  clearTimeout(timer);
+  show(i);
+  const sc = ep.scenes[idx];
+  timeDone = false; elapsedBefore = 0; sceneStartedAt = performance.now();
+  speak(sc);
+  timer = setTimeout(() => { timeDone = true; maybeAdvance(); }, sc.dur * 1000);
+}
+function startPlay(){
+  started = true; playing = true;
+  stage.querySelector(".playover")?.remove();
+  $("playBtn").textContent = "⏸ 暫停 Pause";
+  playScene(idx);
+}
+function stopPlay(){
+  playing = false; clearTimeout(timer);
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  document.getAnimations().forEach(a => a.pause());
+  $("playBtn").textContent = "▶ 播放 Play";
+}
+function togglePlay(){
+  if (playing){ stopPlay(); }
+  else if (idx === ep.scenes.length - 1 && timeDone){ idx = 0; startPlay(); }
+  else startPlay();
+}
+function updateBar(frac){
+  const n = ep.scenes.length;
+  $("barFill").style.width = ((idx + frac) / n * 100) + "%";
+}
+function tick(){
+  if (playing){
+    const sc = ep.scenes[idx];
+    updateBar(Math.min(1, (performance.now() - sceneStartedAt) / 1000 / sc.dur));
+  }
+  requestAnimationFrame(tick);
+}
+function addPlayOverlay(){
+  const o = document.createElement("div");
+  o.className = "playover"; o.innerHTML = "<b>▶</b>";
+  o.onclick = startPlay;
+  stage.appendChild(o);
+}
+function applyCaps(){
+  const v = $("capSel").value;
+  stage.classList.toggle("hide-en", v === "zh");
+  stage.classList.toggle("hide-zh", v === "en");
+}
+function pickEpisode(id){
+  stopPlay(); started = false; timeDone = false;
+  ep = EPISODES.find(e => e.id === id) || EPISODES[0];
+  if (!RENDER) history.replaceState(null, "", "#" + ep.id);
+  renderEpisodeList(); show(0);
+}
+function renderEpisodeList(){
+  const upcoming = ["如果動物會說話？ What if animals could talk?", "如果我會飛？ What if I could fly?"];
+  $("eps").innerHTML = EPISODES.map((e,i) =>
+      `<button class="ep${e===ep?" on":""}" data-id="${e.id}">第${i+1}集 · ${esc(e.zh)}</button>`).join("") +
+    upcoming.map(t => `<button class="ep" disabled>🔒 ${esc(t)}</button>`).join("");
+  $("eps").querySelectorAll("button[data-id]").forEach(b => b.onclick = () => pickEpisode(b.dataset.id));
+}
+
+/* ── deterministic render mode (used by scripts/render-whatif.mjs to make an MP4) ── */
+let shownForRender = -1;
+window.timeline = () => ep.scenes.map(s => s.dur);
+window.seek = t => {
+  let start = 0, i = 0;
+  while (i < ep.scenes.length - 1 && t >= start + ep.scenes[i].dur){ start += ep.scenes[i].dur; i++; }
+  if (i !== shownForRender){ show(i); shownForRender = i; }
+  const local = (t - start) * 1000;
+  document.getAnimations().forEach(a => { a.pause(); a.currentTime = local; });
+};
+
+/* ── boot ── */
+if (RENDER){
+  document.body.classList.add("render");
+  ep = EPISODES.find(e => e.id === params.get("render")) || EPISODES[0];
+  const cap = params.get("cap");
+  if (cap === "zh") stage.classList.add("hide-en");
+  if (cap === "en") stage.classList.add("hide-zh");
+  show(0);
+} else {
+  const fromHash = location.hash.slice(1);
+  ep = EPISODES.find(e => e.id === fromHash) || EPISODES[0];
+  renderEpisodeList(); show(0);
+  $("playBtn").onclick = togglePlay;
+  $("prevBtn").onclick = () => playing ? playScene(idx - 1) : show(idx - 1);
+  $("nextBtn").onclick = () => playing ? playScene(idx + 1) : show(idx + 1);
+  $("capSel").onchange = applyCaps;
+  $("bar").onclick = e => {
+    const r = $("bar").getBoundingClientRect();
+    const i = Math.floor((e.clientX - r.left) / r.width * ep.scenes.length);
+    playing ? playScene(i) : show(i);
+  };
+  if ("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => {}; }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
