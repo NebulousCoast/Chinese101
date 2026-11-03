@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Reel stage</title>
+<style>
+  @font-face{font-family:"Fredoka";font-weight:600;src:url(../fonts/fredoka-600.woff2) format("woff2")}
+  @font-face{font-family:"Noto Sans TC";font-weight:700;src:url(../fonts/notosanstc-700-subset.woff2) format("woff2")}
+  html,body{margin:0;background:#000;overflow:hidden}
+  #frame{position:relative;width:1080px;height:1920px;transform-origin:0 0}
+  canvas{display:block;width:1080px;height:1920px}
+  /* captions sit above the Shorts/Reels UI zone and clear of the right-hand buttons */
+  #sub{position:absolute;left:50%;top:1330px;width:860px;transform:translate(-50%,0);text-align:center;opacity:0;pointer-events:none}
+  #sub .en{display:inline-block;font:600 54px/1.22 Fredoka,sans-serif;color:#22252b;background:rgba(255,255,255,.92);
+    padding:14px 30px 16px;border-radius:30px;box-shadow:0 10px 0 rgba(0,0,0,.08)}
+  #sub .zh{margin-top:14px;font:700 40px/1.3 "Noto Sans TC",sans-serif;color:#fff;
+    text-shadow:0 3px 0 rgba(0,0,0,.35),0 0 14px rgba(0,0,0,.35)}
+  #vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 60%,rgba(20,30,60,.18) 100%)}
+</style>
+<script type="importmap">{"imports":{"three":"../node_modules/three/build/three.module.js"}}</script>
+</head>
+<body>
+<div id="frame"><canvas id="c"></canvas><div id="vig"></div><div id="sub"><div class="en"></div><div class="zh"></div></div></div>
+<script type="module">
+  import { boot } from "./engine.js";
+  const q = new URLSearchParams(location.search);
+  const { ep } = await boot(q.get("ep"));
+  // preview: open /engine/stage.html?ep=<id> in a browser (served by render.mjs serve) to watch silently
+  if (!q.has("render")) {
+    const fit = () => { const s = Math.min(innerWidth / 1080, innerHeight / 1920); document.getElementById("frame").style.transform = `scale(${s})`; };
+    fit(); addEventListener("resize", fit);
+    const t0 = performance.now();
+    const loop = () => { window.render(((performance.now() - t0) / 1000) % window.DUR); requestAnimationFrame(loop); };
+    loop();
+  }
+</script>
+</body>
+</html>

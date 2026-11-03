@@ -1,0 +1,7 @@
+{
+  "name": "whatif-reels",
+  "private": true,
+  "description": "Low-poly 9:16 'What if?' reels rendered from code (three.js + headless Chromium).",
+  "scripts": { "make": "sh make.sh" },
+  "dependencies": { "three": "0.170.0" }
+}

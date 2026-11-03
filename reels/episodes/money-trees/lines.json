@@ -1,0 +1,60 @@
+[
+ {
+  "id": "wonder",
+  "lead": 2.2,
+  "tail": 1.6,
+  "en": "So I was raking leaves… and I thought: wait. What if money grew on trees?",
+  "zh": "我在掃落葉的時候突然想到：等等……如果錢會長在樹上呢？"
+ },
+ {
+  "id": "dream",
+  "lead": 0.3,
+  "tail": 2.2,
+  "en": "I'd just pick a few bills… and buy ALL the ice cream!",
+  "zh": "我只要摘幾張鈔票……就能買下全部的冰淇淋！",
+  "say": "I'd just pick a few bills... and buy all the ice cream!"
+ },
+ {
+  "id": "animals",
+  "lead": 0.4,
+  "tail": 1.6,
+  "en": "Squirrels would hide dollars instead of nuts. And cows? Cash salad.",
+  "zh": "松鼠會藏鈔票，不藏堅果。那乳牛呢？吃鈔票沙拉。"
+ },
+ {
+  "id": "everyone",
+  "lead": 0.4,
+  "tail": 1.8,
+  "en": "But hmm… then everybody would have a money tree.",
+  "zh": "可是嗯……那每個人家裡都會有一棵搖錢樹。"
+ },
+ {
+  "id": "price",
+  "lead": 0.3,
+  "tail": 2.2,
+  "en": "And when everyone has tons of money… one ice cream costs $1,000!",
+  "zh": "大家的錢都多到爆……一支冰淇淋就變成一千塊！",
+  "say": "And when everyone has tons of money... one ice cream costs a thousand dollars!"
+ },
+ {
+  "id": "insight",
+  "lead": 1.6,
+  "tail": 1.6,
+  "en": "So maybe money is special… because it's hard to get?",
+  "zh": "所以……錢會珍貴，是因為它很難得到嗎？"
+ },
+ {
+  "id": "apple",
+  "lead": 1.0,
+  "tail": 1.5,
+  "en": "I'll stick with an apple tree. At least you can eat it.",
+  "zh": "我還是種蘋果樹好了。至少可以吃！"
+ },
+ {
+  "id": "ask",
+  "lead": 0.5,
+  "tail": 0,
+  "en": "What do you think?",
+  "zh": "你覺得呢？"
+ }
+]
