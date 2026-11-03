@@ -12,7 +12,7 @@ const [id = "phones", cap = "both", fpsArg = "24"] = process.argv.slice(2);
 const fps = Number(fpsArg);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 mkdirSync(path.join(root, "videos"), { recursive: true });
-const out = path.join(root, "videos", `whatif-${id}${cap === "both" ? "" : "-" + cap}.mp4`);
+const out = path.join(root, "videos", `whatif-${id}-slides${cap === "both" ? "" : "-" + cap}.mp4`);
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });

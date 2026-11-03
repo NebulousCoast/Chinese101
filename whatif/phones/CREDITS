@@ -1,0 +1,7 @@
+Third-party assets in this film
+- Voice: Kokoro-82M TTS (kokoro-onnx, voice af_sky, pitched up slightly) — Apache-2.0. https://github.com/thewh1teagle/kokoro-onnx
+- Font: Patrick Hand by Patrick Wagesreiter — SIL Open Font License 1.1 (Google Fonts)
+- Font: Gaegu by JIKJI SOFT — SIL Open Font License 1.1 (Google Fonts)
+- Font: LXGW WenKai TC by LXGW — SIL Open Font License 1.1 (Google Fonts), subset to the characters used
+Everything else (drawings, music, sound effects) is synthesised by the code in this folder.
+Directing and production method adapted from the Lemo-Opuscar guides (DIRECTOR.md, TECHNIQUE.md), MIT / CC BY 4.0, https://github.com/lemomo-ai/lemo-opuscar

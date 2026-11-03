@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>WHooF · What if phones had never been invented?</title>
+<style>
+  @font-face{font-family:"Patrick Hand";src:url(fonts/patrick-hand.woff2) format("woff2")}
+  @font-face{font-family:"Gaegu";font-weight:700;src:url(fonts/gaegu-bold.woff2) format("woff2")}
+  @font-face{font-family:"WenKai";src:url(fonts/wenkai-tc-subset.woff2) format("woff2")}
+  html,body{margin:0;background:#111;overflow:hidden}
+  canvas{display:block;width:100vw;height:100vh;object-fit:contain}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script src="voice.js"></script>
+<script>
+/* WHooF — "What if phones had never been invented?"
+   A stick-figure film drawn in marker on one big notebook page. The camera travels
+   panel to panel (Wonder → Hear → Observe → Organize → Find out), then pulls back to
+   show the whole page. Contract: window.DUR, window.render(t) (deterministic),
+   window.EV (sound events for mix.py), window.READY. */
+const W = 1920, H = 1080;
+const cv = document.getElementById("c"); cv.width = W; cv.height = H;
+const g = cv.getContext("2d");
+const INK = "#1f2430", ORANGE = "#ff7a1a", PAPER = "#f8f5ee", SOFT = "#5b6170", DOT = "#c9d3e3";
+const EN = '"Patrick Hand", sans-serif', HAND = '"Gaegu", "Patrick Hand", sans-serif', ZH = '"WenKai", "WenQuanYi Zen Hei", sans-serif';
+
+/* ── math ── */
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const eio = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const eo = k => 1 - Math.pow(1 - k, 3);
+const back = k => 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2);
+const hsh = n => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
+const vn = x => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f); return lerp(hsh(i), hsh(i + 1), u) * 2 - 1; };
+const dir = a => [Math.sin(a * Math.PI / 180), Math.cos(a * Math.PI / 180)];   // 0° = down, 90° = right, 180° = up
+
+/* ── timeline: one source of truth for picture, subtitles and sound ── */
+const VD = window.VOICE_DUR, LINES = window.LINES;
+const LINE = Object.fromEntries(LINES.map(l => [l.id, l]));
+const PX = 2160, PY = 1320;   // panel spacing on the page
+const SECS = [
+  { id: "wonder",   col: 0, row: 0, lead: 1.3, tail: 2.9, L: "W", en: "Wonder",   zh: "好奇" },
+  { id: "hear",     col: 1, row: 0, lead: 1.1, tail: 1.7, L: "H", en: "Hear",     zh: "聽" },
+  { id: "observe",  col: 2, row: 0, lead: 1.1, tail: 1.7, L: "o", en: "Observe",  zh: "觀察" },
+  { id: "organize", col: 2, row: 1, lead: 1.1, tail: 1.9, L: "o", en: "Organize", zh: "整理" },
+  { id: "find",     col: 1, row: 1, lead: 1.5, tail: 1.6, L: "F", en: "Find out", zh: "發現" },
+  { id: "end",      col: 0, row: 1, lead: 1.4, tail: 1.5 },
+];
+let T = 0;
+for (const s of SECS) { s.t0 = T; s.v0 = T + s.lead; s.vd = VD[s.id]; s.t1 = s.v0 + s.vd + s.tail; s.ox = s.col * PX; s.oy = s.row * PY; T = s.t1; }
+const S = Object.fromEntries(SECS.map(s => [s.id, s]));
+const OUT = { t0: T, card: T + 3.6, t1: T + 9.0 };
+window.DUR = +OUT.t1.toFixed(2);
+// time inside the voice line, as a fraction of it (for syncing drawings to words)
+const vf = (s, f) => s.v0 + f * s.vd;
+
+/* sound events, built once from the same numbers */
+const EV = [];
+const ev = (t, type, x = {}) => EV.push({ t: +t.toFixed(3), type, ...x });
+(function buildEvents() {
+  const A = S.wonder, B = S.hear, C = S.observe, D = S.organize, E = S.find, F = S.end;
+  SECS.forEach((s, i) => {
+    if (i) ev(s.t0, "whoosh", { dur: 1.0 });
+    if (s.L) ev(s.t0 + .55, "ding", { step: i });
+  });
+  ev(A.t0 + .1, "draw", { dur: 1.2 }); ev(A.t0 + .2, "pop");
+  const er = A.v0 + A.vd + .35; ev(er, "scribble", { dur: .45 }); ev(er + .45, "poof"); ev(er + 1.25, "pop", { hi: 1 });
+  ev(B.t0 + .3, "draw", { dur: 1.1 }); ev(vf(B, .3), "pop"); ev(vf(B, .5), "draw", { dur: .5 });
+  for (let k = 0; k < 4; k++) ev(vf(B, .72) + k * .33, "flip");
+  ev(C.t0 + .3, "draw", { dur: 1.0 });
+  [.42, .58, .72, .86].forEach(f => { ev(vf(C, f), "pop"); ev(vf(C, f) + .05, "draw", { dur: .4 }); });
+  ev(vf(C, .86) + .1, "click");
+  ev(D.t0 + .4, "draw", { dur: 1.0 });
+  [.16, .45, .74].forEach(f => { ev(vf(D, f), "draw", { dur: .5 }); ev(vf(D, f) + .3, "pop"); });
+  ev(vf(D, .45) + .5, "knock"); ev(vf(D, .45) + .75, "knock");
+  ev(E.t0 + .3, "draw", { dur: 1.2 }); ev(vf(E, .2), "draw", { dur: .6 }); ev(vf(E, .42), "ding", { step: 9 });
+  ev(vf(E, .5), "whoosh", { dur: .9, soft: 1 }); ev(vf(E, .62), "draw", { dur: .4 }); ev(vf(E, .82), "coo"); ev(vf(E, .84), "flutter", { dur: 1.4 });
+  ev(F.t0 + .3, "draw", { dur: 1.2 }); ev(vf(F, .05), "draw", { dur: .5 });
+  ev(vf(F, .36), "pop"); ev(vf(F, .5), "pop"); ev(vf(F, .66), "pop", { hi: 1 }); ev(vf(F, .82), "pop", { hi: 1 });
+  ev(OUT.t0, "whoosh", { dur: 2.2 });
+  for (let k = 0; k < 5; k++) ev(OUT.card + .4 + k * .26, "ding", { step: k, logo: 1 });
+})();
+SECS.forEach(s => ev(s.v0, "voice", { id: s.id }));
+window.EV = EV;
+window.TIMELINE = { secs: SECS.map(({ id, t0, v0, vd, t1 }) => ({ id, t0, v0, vd, t1 })), out: OUT };
+
+/* ── the marker ── */
+let FR = 0, Z = 1;     // boil frame (12 fps) and current zoom (keeps line weight sane)
+function densify(pts, step) {
+  const out = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], d = Math.hypot(x1 - x0, y1 - y0), n = Math.max(1, Math.ceil(d / step));
+    for (let k = 1; k <= n; k++) out.push([lerp(x0, x1, k / n), lerp(y0, y1, k / n)]);
+  }
+  return out;
+}
+function stroke(pts, r = 1, o = {}) {
+  if (r <= 0 || pts.length < 2) return;
+  const seed = o.seed ?? (pts[0][0] * .37 + pts[0][1] * 1.31 + pts.length);
+  const P = densify(pts, 14), wob = o.wob ?? 2.2, boil = o.still ? 0 : FR * 5.3;
+  const L = [0];
+  for (let i = 1; i < P.length; i++) L.push(L[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+  const cut = L[L.length - 1] * clamp(r);
+  g.beginPath();
+  for (let i = 0; i < P.length; i++) {
+    let [x, y] = P[i];
+    if (L[i] > cut) {   // finish exactly at the cut
+      const k = (cut - L[i - 1]) / (L[i] - L[i - 1]);
+      x = lerp(P[i - 1][0], x, k); y = lerp(P[i - 1][1], y, k);
+    }
+    x += wob * vn(seed + i * .23 + boil); y += wob * vn(seed + 50 + i * .23 + boil);
+    i ? g.lineTo(x, y) : g.moveTo(x, y);
+    if (L[i] > cut) break;
+  }
+  g.lineWidth = (o.w ?? 7); g.strokeStyle = o.c ?? INK; g.lineCap = g.lineJoin = "round";
+  g.setLineDash(o.dash ? [o.dash, o.dash * 1.6] : []);
+  g.stroke(); g.setLineDash([]);
+}
+const circlePts = (cx, cy, rx, ry = rx, a0 = -1.9, sweep = 6.55) =>
+  Array.from({ length: 40 }, (_, i) => { const a = a0 + sweep * i / 39; return [cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]; });
+const circle = (cx, cy, rad, r = 1, o) => stroke(circlePts(cx, cy, rad), r, o);
+const rectPts = (x, y, w, h) => [[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y + 3]];
+function rrectPts(x, y, w, h, q) {
+  const p = [];
+  const arc = (cx, cy, a0) => { for (let i = 0; i <= 5; i++) { const a = a0 + i / 5 * Math.PI / 2; p.push([cx + Math.cos(a) * q, cy + Math.sin(a) * q]); } };
+  arc(x + w - q, y + q, -Math.PI / 2); arc(x + w - q, y + h - q, 0); arc(x + q, y + h - q, Math.PI / 2); arc(x + q, y + q, Math.PI);
+  p.push(p[0]); return p;
+}
+// highlighter-style colour: a flat fill slightly off-register under the ink
+function blot(pts, a = 1, c = ORANGE, off = [7, 6]) {
+  if (a <= 0) return;
+  g.save(); g.globalAlpha = .9 * clamp(a); g.fillStyle = c; g.beginPath();
+  pts.forEach(([x, y], i) => i ? g.lineTo(x + off[0], y + off[1]) : g.moveTo(x + off[0], y + off[1]));
+  g.fill(); g.restore();
+}
+function text(str, x, y, r = 1, o = {}) {
+  if (r <= 0) return;
+  const n = Math.ceil(clamp(r) * [...str].length);
+  g.save();
+  g.font = `${o.weight || ""} ${o.size || 60}px ${o.font || EN}`;
+  g.fillStyle = o.c ?? INK; g.textAlign = o.align || "left"; g.textBaseline = "alphabetic";
+  const j = o.still ? 0 : 1.2;
+  g.translate(x + j * vn(FR * 3.1 + x), y + j * vn(FR * 2.7 + y)); g.rotate((o.rot || 0) * Math.PI / 180);
+  if (o.align === "center" && n < [...str].length) {  // reveal left→right without the line jumping
+    const full = g.measureText(str).width; g.textAlign = "left"; g.fillText([...str].slice(0, n).join(""), -full / 2, 0);
+  } else g.fillText([...str].slice(0, n).join(""), 0, 0);
+  g.restore();
+}
+function pop(k) { return k <= 0 ? 0 : k >= 1 ? 1 : back(k); }   // scale-in with overshoot
+function scaled(cx, cy, s, fn) { if (s <= 0) return; g.save(); g.translate(cx, cy); g.scale(s, s); g.translate(-cx, -cy); fn(); g.restore(); }
+
+/* ── stick figures ── */
+const POSE = {
+  stand:   { lean: 0, aL: [-20, -10], aR: [20, 10], lL: [-12, -4], lR: [12, 4], look: [0, 0], mouth: "smile", head: 0 },
+  holdUp:  { lean: 0, aL: [-20, -10], aR: [35, 150], lL: [-12, -4], lR: [12, 4], look: [.5, .2], mouth: "flat", head: 0 },
+  empty:   { lean: -3, aL: [-20, -10], aR: [40, 130], lL: [-12, -4], lR: [12, 4], look: [.6, .4], mouth: "o", head: 4 },
+  scratch: { lean: -4, aL: [-150, 160], aR: [40, 130], lL: [-12, -4], lR: [12, 4], look: [.2, -.6], mouth: "flat", head: -6 },
+  both:    { lean: 0, aL: [-25, 115], aR: [25, -115], lL: [-12, -4], lR: [12, 4], look: [0, .5], mouth: "smile", head: 0 },
+  listen:  { lean: 4, aL: [-20, -10], aR: [20, 10], lL: [-12, -4], lR: [12, 4], look: [.7, -.2], mouth: "smile", head: 6 },
+  talk:    { lean: -3, aL: [-60, -120], aR: [25, 0], lL: [-12, -4], lR: [12, 4], look: [-.7, 0], mouth: "open", head: -4 },
+  sitDown: { lean: 6, aL: [-10, 40], aR: [10, -40], lL: [-12, -4], lR: [12, 4], look: [0, .8], mouth: "flat", head: 10 },
+  sitUp:   { lean: 0, aL: [-10, 40], aR: [10, -40], lL: [-12, -4], lR: [12, 4], look: [0, -.1], mouth: "smile", head: 0 },
+  wave:    { lean: 0, aL: [-10, 40], aR: [150, 175], lL: [-12, -4], lR: [12, 4], look: [0, 0], mouth: "open", head: 0 },
+};
+function mixPose(a, b, k) {
+  const o = {};
+  for (const key in a) {
+    if (Array.isArray(a[key])) o[key] = a[key].map((v, i) => lerp(v, b[key][i], k));
+    else if (typeof a[key] === "number") o[key] = lerp(a[key], b[key], k);
+    else o[key] = k < .5 ? a[key] : b[key];
+  }
+  return o;
+}
+// keys: [[t, poseName], ...]; each change eases over `ease` seconds
+function track(t, keys, ease = .35) {
+  let p = POSE[keys[0][1]];
+  for (let i = 1; i < keys.length; i++) {
+    const [tk, name] = keys[i];
+    if (t >= tk) p = mixPose(p, POSE[name], eio(seg(t, tk, tk + ease)));
+  }
+  return p;
+}
+function stick(x, y, h, P, r = 1, o = {}) {
+  const kind = o.kind || "kid", seed = o.seed || x;
+  const headR = h * (kind === "kid" ? .135 : .11);
+  const hip = [x, y - h * .42];
+  const [lx, ly] = dir(180 + P.lean);
+  const neck = [hip[0] + lx * h * .28, hip[1] + ly * h * .28];
+  const [hx, hy] = dir(180 + P.lean + P.head);
+  const head = [neck[0] + hx * headR * 1.05, neck[1] + hy * headR * 1.05];
+  const sh = [lerp(neck[0], hip[0], .12), lerp(neck[1], hip[1], .12)];
+  const limb = (j, [a1, a2], l1, l2) => { const [d1x, d1y] = dir(a1), e = [j[0] + d1x * l1, j[1] + d1y * l1], [d2x, d2y] = dir(a2); return [j, e, [e[0] + d2x * l2, e[1] + d2y * l2]]; };
+  const aL = limb(sh, P.aL, h * .2, h * .18), aR = limb(sh, P.aR, h * .2, h * .18);
+  const lL = limb(hip, P.lL, h * .21, h * .21), lR = limb(hip, P.lR, h * .21, h * .21);
+  const w = o.w || 8;
+  if (o.under) o.under({ head, headR, hip, neck, hL: aL[2], hR: aR[2] });
+  circle(head[0], head[1], headR, seg(r, 0, .25), { w, seed: seed + 1 });
+  stroke([neck, hip], seg(r, .25, .4), { w, seed: seed + 2 });
+  if (kind === "gran") stroke([[hip[0] - h * .02, hip[1] - h * .12], [hip[0] - h * .13, hip[1] + h * .2], [hip[0] + h * .13, hip[1] + h * .2], [hip[0] + h * .02, hip[1] - h * .12]], seg(r, .38, .48), { w: w * .8, seed: seed + 9 });
+  stroke(aL, seg(r, .4, .55), { w, seed: seed + 3 }); stroke(aR, seg(r, .45, .6), { w, seed: seed + 4 });
+  if (!o.noLegs) { stroke(lL, seg(r, .6, .75), { w, seed: seed + 5 }); stroke(lR, seg(r, .65, .8), { w, seed: seed + 6 }); }
+  // hair / marks of who's who
+  const hr = seg(r, .8, .9);
+  if (kind === "kid") {
+    stroke([[head[0] - headR * .1, head[1] - headR], [head[0] - headR * .25, head[1] - headR * 1.45]], hr, { w: w * .7, seed: seed + 7 });
+    stroke([[head[0] + headR * .15, head[1] - headR], [head[0] + headR * .3, head[1] - headR * 1.4]], hr, { w: w * .7, seed: seed + 8 });
+  } else if (kind === "gran") {
+    circle(head[0] + headR * .55, head[1] - headR * 1.05, headR * .38, hr, { w: w * .8, seed: seed + 7 });
+    circle(head[0] - headR * .35 + P.look[0] * headR * .3, head[1] - headR * .05, headR * .22, hr, { w: 3.5, seed: seed + 10 });
+    circle(head[0] + headR * .35 + P.look[0] * headR * .3, head[1] - headR * .05, headR * .22, hr, { w: 3.5, seed: seed + 11 });
+  } else if (kind === "adult") {
+    stroke(circlePts(head[0], head[1], headR * 1.04, headR * 1.04, Math.PI * 1.05, Math.PI * .9), hr, { w: w * .9, seed: seed + 7 });
+  }
+  // face
+  const fr = seg(r, .9, 1); if (fr > 0) {
+    const ex = P.look[0] * headR * .3, ey = P.look[1] * headR * .25;
+    g.fillStyle = INK;
+    for (const s of [-1, 1]) { g.beginPath(); g.arc(head[0] + s * headR * .35 + ex, head[1] - headR * .05 + ey, headR * .1, 0, 7); g.fill(); }
+    const my = head[1] + headR * .45 + ey * .6, mx = head[0] + ex * .8;
+    if (P.mouth === "smile") stroke(circlePts(mx, my - headR * .2, headR * .3, headR * .22, .5, 2.1), fr, { w: 4.5, seed: seed + 12 });
+    else if (P.mouth === "o") circle(mx, my, headR * .13, fr, { w: 4.5, seed: seed + 12 });
+    else if (P.mouth === "open") { g.beginPath(); g.ellipse(mx, my, headR * .2, headR * .14, 0, 0, 7); g.fill(); }
+    else stroke([[mx - headR * .2, my], [mx + headR * .2, my]], fr, { w: 4.5, seed: seed + 12 });
+  }
+  return { head, headR, hL: aL[2], hR: aR[2], hip, neck };
+}
+
+/* ── props ── */
+function phone(cx, cy, s, r = 1, a = 1, o = {}) {
+  const w = 70 * s, h = 124 * s, pts = rrectPts(cx - w / 2, cy - h / 2, w, h, 14 * s);
+  blot(rrectPts(cx - w / 2 + 8 * s, cy - h / 2 + 14 * s, w - 16 * s, h - 34 * s, 4 * s), a * seg(r, .5, 1), ORANGE, [3, 3]);
+  stroke(pts, r, { w: 6 * Math.min(1, s + .2), seed: cx });
+  circle(cx, cy + h / 2 - 11 * s, 4.5 * s, seg(r, .7, 1), { w: 4, seed: cx + 1 });
+  if (o.glyph) text(o.glyph, cx, cy + 12 * s, seg(r, .8, 1), { size: 46 * s, align: "center", font: HAND, weight: 700 });
+}
+function envelope(cx, cy, s, r = 1) {
+  const w = 150 * s, h = 96 * s, x = cx - w / 2, y = cy - h / 2;
+  stroke(rectPts(x, y, w, h), seg(r, 0, .6), { w: 6 });
+  stroke([[x, y], [cx, cy + 8 * s], [x + w, y]], seg(r, .6, 1), { w: 6 });
+}
+function headerCard(s, lt) {
+  if (!s.L) return;
+  const k = seg(lt, .45, .85);
+  scaled(150, 150, pop(k), () => { blot(circlePts(150, 150, 62), 1, ORANGE, [0, 0]); circle(150, 150, 62, 1, { w: 6 }); });
+  text(s.L, 150, 176, seg(lt, .6, .9), { size: 86, align: "center", font: HAND, weight: 700 });
+  text(s.en, 240, 166, seg(lt, .7, 1.2), { size: 74, font: HAND, weight: 700 });
+  g.save(); g.font = `700 74px ${HAND}`; const wEn = g.measureText(s.en).width; g.restore();
+  text(s.zh, 260 + wEn, 164, seg(lt, 1.0, 1.3), { size: 52, font: ZH, c: SOFT });
+}
+function bubble(x, y, w, h, tailX, tailY, r = 1) {
+  const p = rrectPts(x, y, w, h, 40);
+  stroke(p, seg(r, 0, .8), { w: 6 });
+  stroke([[x + w * .3, y + h - 2], [tailX, tailY], [x + w * .45, y + h - 2]], seg(r, .7, 1), { w: 6 });
+}
+
+/* ── panels (local coordinates, 1920 × 1080 each) ── */
+const PANELS = {
+  wonder(s, lt, t) {
+    headerCard(s, lt);
+    const er = s.lead + s.vd + .35;   // the phone gets scribbled out after the question
+    const P = track(lt, [[0, "holdUp"], [er + .5, "empty"], [er + 1.1, "scratch"]]);
+    const f = stick(840, 860, 540, P, seg(lt, 0, 1.1), { kind: "kid", seed: 11 });
+    const px = f.hR[0] + 30, py = f.hR[1] - 50;
+    if (lt < er + .45) phone(px, py, 1.15, seg(lt, 0, .7));
+    // scribble-out
+    const sk = seg(lt, er, er + .45), gone = seg(lt, er + .45, er + .65);
+    if (sk > 0 && gone < 1) {
+      const zz = []; for (let i = 0; i < 9; i++) zz.push([px - 55 + (i % 2) * 110, py - 80 + i * 20]);
+      g.save(); g.globalAlpha = 1 - gone; stroke(zz, sk, { w: 12, c: ORANGE, seed: 99 }); g.restore();
+    }
+    const pf = seg(lt, er + .45, er + 1.1);   // poof
+    if (pf > 0 && pf < 1) for (let i = 0; i < 5; i++) {
+      const a = i * 1.26 + .4, d = 40 + 90 * eo(pf);
+      g.save(); g.globalAlpha = 1 - pf; circle(px + Math.cos(a) * d, py + Math.sin(a) * d, 18 * (1 - pf * .5), 1, { w: 5, seed: i }); g.restore();
+    }
+    scaled(1180, 330, pop(seg(lt, er + 1.25, er + 1.6)), () => {
+      text("?", 1180, 400, 1, { size: 260, font: HAND, weight: 700, c: ORANGE, align: "center", rot: 8 });
+    });
+  },
+
+  hear(s, lt, t) {
+    headerCard(s, lt);
+    const v = s.lead, vd = s.vd;
+    const kid = stick(560, 860, 440, POSE.listen, seg(lt, .2, 1.2), { kind: "kid", seed: 21 });
+    const talking = lt > v + .3 * vd && lt < v + vd;
+    const gp = mixPose(POSE.talk, POSE.talk, 0); gp.mouth = talking && (FR % 3 !== 0) ? "open" : "smile";
+    const gran = stick(1240, 860, 520, gp, seg(lt, .3, 1.3), { kind: "gran", seed: 23 });
+    stroke([[gran.hR[0], gran.hR[1] - 10], [gran.hR[0] + 18, 862]], seg(lt, 1.0, 1.3), { w: 7, seed: 24 });   // cane
+    // listening waves by the kid's ear
+    const wv = seg(lt, v - .3, v + .2);
+    for (let i = 0; i < 3; i++) {
+      const rr = 40 + i * 26 + 6 * Math.sin(t * 6 - i);
+      stroke(circlePts(kid.head[0] + 30, kid.head[1], rr, rr * 1.2, -.7, 1.4), wv, { w: 5, seed: 30 + i, c: i === 1 ? ORANGE : INK });
+    }
+    // grandma's memory bubble: a letter
+    bubble(880, 200, 520, 280, 1130, 520, seg(lt, v + .3 * vd, v + .3 * vd + .5));
+    envelope(1060, 335, 1.1, seg(lt, v + .5 * vd, v + .5 * vd + .5));
+    scaled(1250, 330, pop(seg(lt, v + .55 * vd, v + .55 * vd + .4)), () => {
+      stroke(circlePts(1250, 330, 34), 1, { w: 5 }); stroke([[1250, 330], [1250, 308]], 1, { w: 5 }); stroke([[1250, 330], [1268, 338]], 1, { w: 5 });
+    });
+    // calendar: days going by
+    const ck = seg(lt, v + .7 * vd - .2, v + .7 * vd + .2);
+    scaled(1650, 470, pop(ck), () => {
+      const day = 1 + Math.min(4, Math.max(0, Math.floor((lt - (v + .72 * vd)) / .33) + 1));
+      stroke(rectPts(1560, 380, 180, 190), 1, { w: 6 });
+      blot(rectPts(1560, 380, 180, 44), 1, ORANGE, [0, 0]); stroke([[1560, 424], [1740, 424]], 1, { w: 5 });
+      text(String(day), 1650, 535, 1, { size: 100, font: HAND, weight: 700, align: "center" });
+      text("days", 1650, 620, 1, { size: 44, align: "center", c: SOFT });
+    });
+  },
+
+  observe(s, lt, t) {
+    headerCard(s, lt);
+    const v = s.lead, vd = s.vd;
+    const icons = [
+      { f: .42, x: 430, y: 360, draw: (r) => {   // map
+        const p = [[330, 300], [400, 330], [470, 300], [540, 330], [540, 450], [470, 420], [400, 450], [330, 420], [330, 300]];
+        stroke(p, seg(r, 0, .6), { w: 6 }); stroke([[400, 330], [400, 450]], seg(r, .5, .7), { w: 4 }); stroke([[470, 300], [470, 420]], seg(r, .5, .7), { w: 4 });
+        stroke([[350, 400], [395, 370], [440, 395], [500, 345]], seg(r, .6, 1), { w: 5, c: ORANGE, dash: 8 });
+      } },
+      { f: .58, x: 1490, y: 360, draw: (r) => {   // camera
+        stroke(rrectPts(1400, 310, 180, 120, 18), seg(r, 0, .6), { w: 6 }); circle(1490, 372, 38, seg(r, .5, .9), { w: 6 });
+        blot(circlePts(1490, 372, 20), seg(r, .8, 1), ORANGE, [0, 0]); stroke([[1425, 310], [1440, 290], [1480, 290], [1490, 310]], seg(r, .8, 1), { w: 5 });
+      } },
+      { f: .72, x: 430, y: 690, draw: (r) => {   // clock
+        circle(430, 690, 70, seg(r, 0, .6), { w: 6 }); stroke([[430, 690], [430, 640]], seg(r, .6, .8), { w: 6 });
+        stroke([[430, 690], [465, 705]], seg(r, .7, .9), { w: 6, c: ORANGE });
+        for (let i = 0; i < 4; i++) { const [dx, dy] = dir(i * 90); stroke([[430 + dx * 58, 690 + dy * 58], [430 + dx * 66, 690 + dy * 66]], seg(r, .8, 1), { w: 4 }); }
+      } },
+      { f: .86, x: 1490, y: 690, draw: (r) => {   // flashlight + beam
+        stroke(rrectPts(1380, 665, 110, 50, 10), seg(r, 0, .5), { w: 6 }); stroke([[1490, 655], [1520, 640], [1520, 740], [1490, 725], [1490, 655]], seg(r, .4, .7), { w: 6 });
+        blot([[1525, 645], [1660, 600], [1660, 780], [1525, 735]], seg(r, .7, 1) * .55, ORANGE, [0, 0]);
+      } },
+    ];
+    // which icon is the kid looking at?
+    let look = [0, .5];
+    for (const ic of icons) if (lt > v + ic.f * vd) look = [ic.x < 960 ? -.8 : .8, ic.y < 500 ? -.6 : .4];
+    const P = { ...POSE.both, look, mouth: lt > v + .4 * vd ? "o" : "smile" };
+    const kid = stick(960, 900, 470, P, seg(lt, .2, 1.2), { kind: "kid", seed: 31 });
+    phone(960, (kid.hL[1] + kid.hR[1]) / 2 + 10, .95, seg(lt, .6, 1.3));
+    for (const ic of icons) {
+      const k = seg(lt, v + ic.f * vd, v + ic.f * vd + .45);
+      if (k <= 0) continue;
+      const from = [960 + (ic.x < 960 ? -60 : 60), 560], to = [ic.x + (ic.x < 960 ? 140 : -140), ic.y];
+      stroke([from, to], k, { w: 4, dash: 10, c: SOFT, seed: ic.x + ic.y });
+      scaled(ic.x, ic.y, pop(k * 1.2), () => ic.draw(k));
+    }
+  },
+
+  organize(s, lt, t) {
+    headerCard(s, lt);
+    const v = s.lead, vd = s.vd, fr = seg(lt, .3, 1.1);
+    stroke(rectPts(300, 240, 1360, 620), fr, { w: 6, seed: 40 });
+    stroke([[300, 360], [1660, 360]], fr, { w: 5, seed: 41 });
+    stroke([[980, 240], [980, 860]], fr, { w: 5, seed: 42 });
+    text("with a phone", 640, 322, seg(lt, .7, 1.2), { size: 58, align: "center" });
+    text("without", 1320, 322, seg(lt, .8, 1.3), { size: 58, align: "center" });
+    text("有手機", 640, 225, seg(lt, .9, 1.3), { size: 40, align: "center", font: ZH, c: SOFT });
+    text("沒有手機", 1320, 225, seg(lt, 1.0, 1.4), { size: 40, align: "center", font: ZH, c: SOFT });
+    const rows = [
+      { f: .16, y: 440, l: (r) => { phone(560, 440, .6, r); blot(circlePts(560, 430, 10), r, INK, [0, 0]); text("map app", 640, 455, r, { size: 44 }); },
+        rt: (r) => { const p = [[1180, 400], [1240, 420], [1300, 400], [1360, 420], [1360, 480], [1300, 460], [1240, 480], [1180, 460], [1180, 400]]; stroke(p, r, { w: 6 }); text("paper map", 1400, 455, r, { size: 44 }); } },
+      { f: .45, y: 600, l: (r) => { phone(560, 600, .6, r); text("text a friend", 640, 615, r, { size: 44 }); },
+        rt: (r) => { stroke(rectPts(1180, 545, 80, 120), r, { w: 6 }); circle(1245, 610, 5, r, { w: 4 }); text("knock knock!", 1290, 615, r, { size: 44, c: ORANGE }); } },
+      { f: .74, y: 760, l: (r) => { phone(560, 760, .6, r, 1, { glyph: "!" }); text("call for help", 640, 775, r, { size: 44 }); },
+        rt: (r) => {
+          const run = Math.floor(t * 8) % 2 ? { ...POSE.stand, lean: 14, aL: [-60, -10], aR: [70, 160], lL: [-40, 10], lR: [40, -10], mouth: "o" }
+                                             : { ...POSE.stand, lean: 14, aL: [60, 160], aR: [-60, -10], lL: [30, 0], lR: [-30, 20], mouth: "o" };
+          stick(1230, 840, 150, run, r, { kind: "adult", w: 5, seed: 47 });
+          for (let i = 0; i < 3; i++) stroke([[1150 - i * 6, 760 + i * 22], [1185 - i * 6, 760 + i * 22]], r, { w: 4, c: SOFT });
+          text("run for help", 1300, 775, r, { size: 44 });
+        } },
+    ];
+    for (const row of rows) {
+      const k = seg(lt, v + row.f * vd - .3, v + row.f * vd + .25), k2 = seg(lt, v + row.f * vd, v + row.f * vd + .5);
+      row.l(k);
+      stroke([[945, row.y], [1055, row.y]], k2, { w: 6, c: ORANGE, seed: row.y }); stroke([[1030, row.y - 20], [1058, row.y], [1030, row.y + 20]], seg(k2, .7, 1), { w: 6, c: ORANGE, seed: row.y + 1 });
+      row.rt(k2);
+    }
+  },
+
+  find(s, lt, t) {
+    headerCard(s, lt);
+    g.translate(0, -100);   // keep the timeline clear of the subtitles
+    const v = s.lead, vd = s.vd, fr = seg(lt, .3, 1.4);
+    stroke([[160, 720], [1780, 720]], fr, { w: 7, seed: 50 }); stroke([[1745, 695], [1785, 720], [1745, 745]], seg(fr, .8, 1), { w: 7, seed: 51 });
+    // 1876 and the first telephone
+    const tk = seg(lt, v + .18 * vd, v + .18 * vd + .7);
+    stroke([[1180, 690], [1180, 750]], tk, { w: 7, seed: 52 });
+    stroke([[1180, 650], [1180, 430]], tk, { w: 8, seed: 53 });                       // candlestick stem
+    stroke([[1110, 650], [1250, 650], [1230, 620], [1130, 620], [1110, 650]], tk, { w: 7, seed: 54 });   // base
+    scaled(1180, 420, pop(tk), () => { blot(circlePts(1180, 410, 40, 30), 1, ORANGE, [0, 0]); stroke(circlePts(1180, 410, 40, 30), 1, { w: 7 }); });   // mouthpiece
+    stroke([[1180, 500], [1270, 500], [1270, 470]], seg(tk, .5, 1), { w: 6, seed: 55 });
+    text("telephone", 1360, 560, seg(tk, .7, 1), { size: 46 }); text("電話", 1360, 610, seg(tk, .8, 1), { size: 38, font: ZH, c: SOFT });
+    stroke([[1255, 470], [1255, 410], [1300, 410], [1300, 470], [1255, 470]], seg(tk, .6, 1), { w: 6, seed: 56 });   // earpiece
+    scaled(1180, 800, pop(seg(lt, v + .42 * vd, v + .42 * vd + .4)), () => text("1876", 1180, 830, 1, { size: 110, font: HAND, weight: 700, align: "center", c: ORANGE }));
+    // today
+    phone(1640, 640, .7, seg(lt, .8, 1.6));
+    text("today", 1640, 800, seg(lt, 1.2, 1.6), { size: 46, align: "center" }); text("今天", 1640, 850, seg(lt, 1.3, 1.7), { size: 38, align: "center", font: ZH, c: SOFT });
+    // long ago: letters and pigeons
+    text("long ago", 380, 800, seg(lt, 1.0, 1.4), { size: 46, align: "center" }); text("很久以前", 380, 850, seg(lt, 1.1, 1.5), { size: 38, align: "center", font: ZH, c: SOFT });
+    envelope(400, 620, .9, seg(lt, v + .62 * vd, v + .62 * vd + .5));
+    const pk = seg(lt, v + .82 * vd, v + .82 * vd + 2.2);
+    if (pk > 0) {
+      const px = lerp(260, 860, eio(pk)), py = lerp(520, 330, eio(pk)) + 14 * Math.sin(t * 10);
+      const flap = Math.floor(t * 10) % 2;
+      stroke(circlePts(px, py, 46, 30), 1, { w: 6, seed: 60 });                        // body
+      circle(px + 48, py - 22, 18, 1, { w: 6, seed: 61 });                             // head
+      stroke([[px + 64, py - 22], [px + 82, py - 16], [px + 64, py - 12]], 1, { w: 5, c: ORANGE });   // beak
+      stroke(flap ? [[px - 10, py - 10], [px - 30, py - 70], [px + 15, py - 15]] : [[px - 10, py - 5], [px - 40, py + 40], [px + 15, py]], 1, { w: 6, seed: 62 });
+      stroke([[px - 45, py], [px - 75, py - 10], [px - 70, py + 12], [px - 45, py + 6]], 1, { w: 5 });   // tail
+      stroke([[px + 10, py + 30], [px + 10, py + 52]], 1, { w: 4 }); envelope(px + 10, py + 68, .3, 1);
+      g.fillStyle = INK; g.beginPath(); g.arc(px + 54, py - 26, 3.5, 0, 7); g.fill();
+    }
+  },
+
+  end(s, lt, t) {
+    const v = s.lead, vd = s.vd;
+    const up = v + .35 * vd, turn = v + .78 * vd;
+    const fam = [
+      { x: 620, h: 470, kind: "gran", seed: 71, keys: [[0, "sitDown"], [up, "sitUp"]], look: [.7, -.2] },
+      { x: 960, h: 400, kind: "kid", seed: 72, keys: [[0, "sitDown"], [up, "sitUp"], [turn, "wave"]], look: [0, 0] },
+      { x: 1300, h: 520, kind: "adult", seed: 73, keys: [[0, "sitDown"], [up + .15, "sitUp"]], look: [-.7, -.2] },
+    ];
+    const heads = [];
+    fam.forEach((m, i) => {
+      const P = track(lt, m.keys);
+      if (lt > up + .3 && !(m.kind === "kid" && lt > turn)) P.look = m.look;
+      heads.push(stick(m.x, 820, m.h, P, seg(lt, .2 + i * .2, 1.2 + i * .2), { kind: m.kind, seed: m.seed, noLegs: true }));
+    });
+    // table with a cloth in front of the laps
+    const tr = seg(lt, .6, 1.5);
+    g.save(); g.globalAlpha = clamp(tr * 3); g.fillStyle = PAPER; g.fillRect(420, 640, 1080, 230); g.restore();
+    stroke([[420, 640], [1500, 640]], tr, { w: 8, seed: 74 });
+    stroke([[460, 640], [480, 860]], seg(tr, .5, 1), { w: 7 }); stroke([[1460, 640], [1440, 860]], seg(tr, .5, 1), { w: 7 });
+    for (const bx of [620, 960, 1300]) {
+      stroke(circlePts(bx, 620, 60, 32, 0, Math.PI), seg(lt, 1.0, 1.4), { w: 6, seed: bx });
+      stroke([[bx - 62, 620], [bx + 62, 620]], seg(lt, 1.0, 1.4), { w: 6, seed: bx + 1 });
+    }
+    // slow? a snail on the floor
+    const sn = seg(lt, v + .02 * vd, v + .02 * vd + .6), sx = 220 + 40 * seg(lt, v, s.t1 - s.t0);
+    stroke(circlePts(sx, 820, 34, 30, 0, 12), sn, { w: 6, seed: 77 }); stroke([[sx - 50, 852], [sx + 60, 852], [sx + 70, 830]], sn, { w: 6, seed: 78 });
+    text("slow…", sx, 780, seg(sn, .7, 1), { size: 40, align: "center", c: SOFT });
+    // talking again: little bubbles and a heart
+    const b1 = seg(lt, v + .5 * vd, v + .5 * vd + .35), b2 = seg(lt, v + .58 * vd, v + .58 * vd + .35);
+    scaled(790, 250, pop(b1), () => { bubble(700, 190, 180, 100, 760, 320, 1); text("…", 790, 255, 1, { size: 60, align: "center" }); });
+    scaled(1130, 230, pop(b2), () => { bubble(1040, 170, 180, 100, 1150, 300, 1); text("…", 1130, 235, 1, { size: 60, align: "center" }); });
+    scaled(960, 200, pop(seg(lt, v + .66 * vd, v + .66 * vd + .4)), () => {
+      const p = []; for (let i = 0; i <= 40; i++) { const a = i / 40 * Math.PI * 2; p.push([960 + 16 * Math.pow(Math.sin(a), 3) * 3.2, 190 - (13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a)) * 3.2]); }
+      blot(p, 1, ORANGE, [0, 0]); stroke(p, 1, { w: 6 });
+    });
+    scaled(960, 120, pop(seg(lt, turn + .1, turn + .5)), () => text("?", 1080, 150, 1, { size: 150, font: HAND, weight: 700, c: ORANGE, rot: 10 }));
+  },
+};
+
+/* ── camera: one world → screen mapping ── */
+function shotCam(s, lt) {
+  const c = (x, y, z) => ({ x: s.ox + x, y: s.oy + y, z });
+  const mix = (a, b, k) => ({ x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), z: lerp(a.z, b.z, k) });
+  const v = s.lead, vd = s.vd;
+  switch (s.id) {
+    case "wonder":   return mix(c(905, 470, 1.9), c(960, 540, 1.0), eio(seg(lt, .5, 2.9)));                  // push out from the phone
+    case "hear":     return mix(c(960, 540, 1.0), c(1060, 520, 1.1), eio(seg(lt, 1.0, s.t1 - s.t0)));        // slow push toward grandma
+    case "observe":  return mix(c(960, 540, 1.4), c(960, 540, 1.0), eio(seg(lt, .9, v + .4 * vd)));          // pull back to reveal
+    case "organize": return mix(c(960, 540, 1.0), c(980, 560, 1.05), eio(seg(lt, 1.0, s.t1 - s.t0)));        // locked, a breath of push
+    case "find": {                                                                                           // hold on 1876, then truck back in time
+      const a = c(1200, 470, 1.15), b = c(660, 450, 1.15);
+      return mix(a, b, eio(seg(lt, v + .5 * vd, v + .5 * vd + 1.1)));
+    }
+    case "end":      return mix(c(960, 540, 1.0), c(960, 520, 1.12), eio(seg(lt, 1.0, s.t1 - s.t0)));
+  }
+}
+function camAt(t) {
+  let i = SECS.findIndex(s => t < s.t1); if (i < 0) i = SECS.length;
+  if (i === SECS.length) {   // outro: pull back to see the whole page
+    const last = SECS[SECS.length - 1], from = shotCam(last, last.t1 - last.t0);
+    const all = { x: (2 * PX + 1920) / 2, y: (PY + 1080) / 2 + 60, z: .285 };
+    const k = eio(seg(t, OUT.t0, OUT.t0 + 2.6));
+    return { x: lerp(from.x, all.x, k), y: lerp(from.y, all.y, k), z: Math.exp(lerp(Math.log(from.z), Math.log(all.z), k)) };
+  }
+  const s = SECS[i], lt = t - s.t0, cur = shotCam(s, lt);
+  if (i === 0) return cur;
+  const p = SECS[i - 1], prev = shotCam(p, p.t1 - p.t0), k = eio(seg(lt, 0, 1.0));
+  // travel between panels: a small zoom-out arc so the move reads as one page
+  const dip = Math.sin(k * Math.PI) * .12;
+  return { x: lerp(prev.x, cur.x, k), y: lerp(prev.y, cur.y, k), z: lerp(prev.z, cur.z, k) * (1 - dip) };
+}
+
+/* ── paper, HUD, subtitles, end card ── */
+function paper(c) {
+  g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = PAPER; g.fillRect(0, 0, W, H);
+  // dot grid anchored to the page
+  const step = 64, x0 = c.x - W / 2 / c.z, y0 = c.y - H / 2 / c.z, x1 = c.x + W / 2 / c.z, y1 = c.y + H / 2 / c.z;
+  const stride = c.z < .5 ? 2 : 1;
+  g.fillStyle = DOT;
+  for (let y = Math.floor(y0 / step) * step; y < y1; y += step * stride)
+    for (let x = Math.floor(x0 / step) * step; x < x1; x += step * stride) {
+      g.beginPath(); g.arc((x - c.x) * c.z + W / 2, (y - c.y) * c.z + H / 2, Math.max(1.2, 2.6 * c.z), 0, 7); g.fill();
+    }
+  // soft warm vignette
+  const vg = g.createRadialGradient(W / 2, H / 2, H * .45, W / 2, H / 2, H * 1.05);
+  vg.addColorStop(0, "rgba(120,90,40,0)"); vg.addColorStop(1, "rgba(120,90,40,.12)");
+  g.fillStyle = vg; g.fillRect(0, 0, W, H);
+}
+function hud(t) {
+  if (t > OUT.card) return;
+  const letters = ["W", "H", "o", "o", "F"];
+  let lit = 0; SECS.forEach((s, i) => { if (s.L && t > s.t0 + .55) lit = i + 1; });
+  g.save(); g.font = `700 58px ${HAND}`; g.textBaseline = "alphabetic";
+  let x = W - 330;
+  letters.forEach((L, i) => {
+    g.fillStyle = i < lit ? ORANGE : "#c7c2b8";
+    if (i === lit - 1) { const k = seg(t, SECS[i].t0 + .55, SECS[i].t0 + .9); g.save(); g.translate(x + 16, 82); g.scale(1 + .4 * Math.sin(k * Math.PI), 1 + .4 * Math.sin(k * Math.PI)); g.fillText(L, -16, 0); g.restore(); }
+    else g.fillText(L, x, 82);
+    x += g.measureText(L).width + 10;
+  });
+  g.restore();
+}
+function subtitles(t) {
+  const s = SECS.find(s => t >= s.v0 - .05 && t < Math.max(s.v0 + s.vd + .6, s.v0 + 1.8));
+  if (!s) return;
+  const L = LINE[s.id], k = seg(t, s.v0, s.v0 + .35);
+  const en = wrap(L.en, `52px ${EN}`, 1500, " "), zh = wrap(L.zh, `38px ${ZH}`, 1500, "");
+  g.save();
+  g.font = `52px ${EN}`; const w1 = Math.max(...en.map(l => g.measureText(l).width));
+  g.font = `38px ${ZH}`; const w2 = Math.max(...zh.map(l => g.measureText(l).width));
+  const bh = 34 + en.length * 60 + zh.length * 48, bw = Math.max(w1, w2) + 80, bx = (W - bw) / 2, by = H - 18 - bh;
+  g.fillStyle = "rgba(248,245,238,.94)"; g.beginPath(); g.roundRect(bx, by, bw, bh, 26); g.fill();
+  g.restore();
+  let y = by + 64;
+  en.forEach((l, i) => { text(l, W / 2, y, seg(k * en.length, i, i + 1), { size: 52, align: "center" }); y += 60; });
+  y -= 4;
+  zh.forEach((l, i) => { text(l, W / 2, y, seg(seg(t, s.v0 + .15, s.v0 + .5) * zh.length, i, i + 1), { size: 38, align: "center", font: ZH, c: SOFT }); y += 48; });
+}
+function wrap(str, font, maxW, sep) {
+  g.save(); g.font = font;
+  if (g.measureText(str).width <= maxW) { g.restore(); return [str]; }
+  // split near the middle, preferring a sentence break
+  const parts = sep ? str.split(" ") : [...str], n = parts.length;
+  let best = 1, score = 1e9;
+  for (let i = 1; i < n; i++) {
+    const a = parts.slice(0, i).join(sep), b = parts.slice(i).join(sep);
+    const brk = /[.!?:：。！？，,]$/.test(a) ? -260 : 0;
+    const sc = Math.abs(g.measureText(a).width - g.measureText(b).width) + brk;
+    if (sc < score && g.measureText(a).width <= maxW && g.measureText(b).width <= maxW) { score = sc; best = i; }
+  }
+  g.restore();
+  return [parts.slice(0, best).join(sep), parts.slice(best).join(sep)];
+}
+function endCard(t) {
+  const k = seg(t, OUT.card - .2, OUT.card + .3); if (k <= 0) return;
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.save(); g.globalAlpha = k; g.fillStyle = "rgba(248,245,238,.97)"; g.beginPath(); g.roundRect(360, 170, 1200, 740, 40); g.fill(); g.restore();
+  stroke(rrectPts(360, 170, 1200, 740, 40), k, { w: 6, seed: 90 });
+  const letters = ["W", "H", "o", "o", "F"], words = ["wonder", "hear", "observe", "organize", "find out"], zh = ["好奇", "聽", "觀察", "整理", "發現"];
+  letters.forEach((L, i) => {
+    const t0 = OUT.card + .4 + i * .26, x = 560 + i * 200;
+    scaled(x, 410, pop(seg(t, t0, t0 + .35)), () => {
+      text(L, x, 470, 1, { size: L === "o" ? 210 : 240, font: HAND, weight: 700, align: "center", c: i % 2 ? ORANGE : INK });
+    });
+    text(words[i], x, 560, seg(t, t0 + .3, t0 + .7), { size: 40, align: "center", c: SOFT });
+    text(zh[i], x, 610, seg(t, t0 + .4, t0 + .8), { size: 34, align: "center", font: ZH, c: SOFT });
+  });
+  const q = OUT.card + 2.0;
+  text("What do you think?", W / 2, 745, seg(t, q, q + .5), { size: 76, align: "center", font: HAND, weight: 700 });
+  text("你覺得呢？", W / 2, 820, seg(t, q + .3, q + .7), { size: 50, align: "center", font: ZH, c: ORANGE });
+}
+
+/* ── frame ── */
+window.render = function (t) {
+  t = clamp(t, 0, window.DUR);
+  FR = Math.floor(t * 12);
+  const c = camAt(t); Z = c.z;
+  paper(c);
+  g.setTransform(c.z, 0, 0, c.z, W / 2 - c.x * c.z, H / 2 - c.y * c.z);
+  for (const s of SECS) {
+    if (t < s.t0) continue;
+    // skip panels that are fully off screen
+    const sx = (s.ox - c.x) * c.z + W / 2, sy = (s.oy - c.y) * c.z + H / 2;
+    if (sx > W || sy > H || sx + 1920 * c.z < 0 || sy + 1080 * c.z < 0) continue;
+    g.save(); g.translate(s.ox, s.oy);
+    PANELS[s.id](s, t - s.t0, t);
+    g.restore();
+  }
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  hud(t); subtitles(t); endCard(t);
+};
+
+Promise.all([`52px ${EN}`, `700 60px ${HAND}`, `38px ${ZH}`].map(f => document.fonts.load(f, "WHooF 你覺得呢")))
+  .then(() => { window.READY = true; if (!/render/.test(location.search)) play(); });
+
+// open the file in a browser to preview (silent); the build renders frame by frame
+function play() {
+  const t0 = performance.now();
+  const loop = () => { const t = ((performance.now() - t0) / 1000) % window.DUR; window.render(t); requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
