@@ -631,6 +631,30 @@ CS50x down to one problem set a fortnight. **NEVER cut the AMC 8 papers while an
 exam is inside 90 days, and never cut Calling Bullshit** — an hour a week is the
 17 October request and the only item serving it.
 
+### Section 1, 2026-11-03 — WHY CS50x TOPS THIS SECTION: IT PRODUCES AN OBJECT A RECOMMENDER CAN DESCRIBE
+
+The argument to reuse whenever CS50x comes up, because it connects section 1 to
+section 2's deadline.
+
+**CS50x REQUIRES A FINAL PROJECT** — not a quiz or a completion certificate, but a
+thing the student designed, built and must explain. Problem sets are auto-graded;
+the project is the student's own and lives in a repository anyone can open.
+
+**THE POINT FOR A 非學校型態實驗教育 APPLICANT.** The hard part of RSI's TWO
+recommendations is not finding two adults who think well of the child; it is that
+**A RECOMMENDER NEEDS SOMETHING TO DESCRIBE.** A schoolteacher has a classroom's
+worth of observation; someone writing for a homeschooled applicant often has only
+impressions — which produce a letter that reads as warm and says nothing. A
+finished, public, explainable project gives the recommender a specific object, a set
+of decisions, and something the student **DID** rather than **IS**.
+
+Corollary worth repeating: **a half-finished course with a finished project beats a
+complete course with none.**
+
+LIMITS: CS50x's certificate is FREE but is NOT a credential and no admissions office
+treats it as one — **the project is the asset, not the paper.** And this does not
+solve the recommender problem, only makes the recommender's job possible.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
@@ -2195,6 +2219,39 @@ the same shape to the Ethics Olympiad, World Scholar's Cup, IASC and Wolfram ask
 and combine with the 31 Oct rule: ASK WHY A RESTRICTION EXISTS, not merely whether it
 applies.
 
+### Section 7 addition verified 2026-11-03 — FIRST GLOBAL, AND A FOURTH OBSTACLE CATEGORY
+
+**FIRST GLOBAL'S OWN FAQ: there is only ONE NATIONAL TEAM PER COUNTRY, and team
+selection is conducted by their IN-COUNTRY PARTNER.** To be considered you contact
+that partner via the email on its team profile page, reached from the map on
+first.global.
+
+TEAM STRUCTURE: 3-5 students aged **14-18**, plus **one adult technical
+mentor/coach**, plus **one team organizer** — **TWO adults**, a higher bar than
+Conrad's single adult over 18. **The 11-year-old is INELIGIBLE** (floor 14) — say so
+every time.
+
+TAIWAN: **CHINESE TAIPEI** appears in the national team lists for **2021, 2022,
+2023, 2025 and 2026**. The slot exists and has been used repeatedly.
+
+**FOURTH OBSTACLE CATEGORY, added today. The taxonomy was:
+(1) state-mediated selection, (2) American programmes using school enrolment as a
+residency proxy, (3) capacity-rationed programmes where a teacher's statement is the
+application. FIRST Global is none of these: it is (4) A SINGLE NATIONAL SLOT
+ALLOCATED BY A GATEKEEPER** — closer to a national sports squad than a competition.
+**You cannot register; you can only be chosen.** And unlike a ration, there is no
+version where extra room appears, so the 31 Oct "ask why the restriction exists"
+tool does not help here: the reason is structural.
+
+**THE FIRST STEP, two minutes, not performable from this container:** open the FIRST
+Global map, find the Chinese Taipei team profile, read who the in-country partner is.
+The email is published there.
+
+LIMITS: the Chinese Taipei partner could NOT be identified; no 2027 host or selection
+timeline surfaced; the 2026 event was in Incheon with organising partner FUNDESTEAM,
+which is the EVENT organiser, not a national one. Mechanism solid, Taiwanese
+specifics entirely unverified.
+
 ## Section 8 — Thinking (philosophy and critical reasoning), EVERY DAY
 
 Added 2026-10-17 at the family's request ("something for kids to think, like
@@ -2302,6 +2359,26 @@ RECURRING CONFLICT PATTERN TO EXPECT: Wikipedia book-stubs often say LONGLISTED 
 the official site says SHORTLISTED, because the stub was not updated. Not a
 contradiction (every shortlisted book was longlisted first) — but always cite the
 official prize-year page.
+
+### Section 4 note, 2026-11-03 — SLOT 1 RANKS #7-#10 NOW FORM A VERIFIED RUN
+
+*Gilead* (Robinson, 2004) is **#10** — per Book Riot's reproduction of the list and a
+**Northwestern University PDF** of it. Book Riot's listing shows #10 immediately
+followed by #9 *Never Let Me Go*, which this digest used on 17 Oct.
+
+**FOUR CONSECUTIVE RANKS ARE NOW INDEPENDENTLY CORROBORATED: Whitehead #7 (28 Oct),
+Sebald #8 (29 Oct), Ishiguro #9 (17 Oct), Robinson #10 (3 Nov).** Treat the Book Riot
+reproduction plus the Northwestern PDF as the working substitute for the NYT's own
+list page, which remains unreachable.
+
+TRAP TO AVOID: thegreatestbooks.org puts *Gilead* at **475** — that is an AGGREGATE
+across many lists, not the Times' position. Same class of error as the Guardian's
+separate 2019 list ranking *Austerlitz* 5th (noted 29 Oct). **Always check which list
+a rank belongs to.**
+
+SLOT 0 (GATESNOTES) REMAINS EXHAUSTED. Do NOT re-search it every six days. **The
+next sensible check is EARLY DECEMBER**, when his holiday list has historically
+appeared, and it is on the deadline board as a watch date.
 
 ## Format
 
