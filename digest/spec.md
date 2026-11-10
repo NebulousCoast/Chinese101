@@ -655,6 +655,36 @@ LIMITS: CS50x's certificate is FREE but is NOT a credential and no admissions of
 treats it as one — **the project is the asset, not the paper.** And this does not
 solve the recommender problem, only makes the recommender's job possible.
 
+### Section 1 — RANK THE STACK BY INTERRUPTION RESILIENCE, added 2026-11-06, TESTED 2026-11-10
+
+A homeschool plan that only works when every week is clean is not a plan. Illness,
+visitors, work and machine failures all produce the same gap. So the free stack has a
+second axis besides quality: **what a missed fortnight costs.**
+
+- **Past AMC 8 papers** — perfectly interruptible. Forty minutes, self-contained,
+  nothing degrades.
+- **Calling Bullshit, one case study a week** — self-contained; the case studies do
+  not build on each other. That is *why* it is the right reasoning resource rather
+  than a course.
+- **Exercism** — the mentoring reply arrives days later anyway, so a gap is
+  indistinguishable from the normal rhythm.
+- **CK-12, Polypad** — reactive, nothing to fall behind on.
+- **CS50x** — worst of the set. Problem sets build, four to eight hours each, and a
+  fortnight away means re-reading. Still the best item in the file; it needs
+  **protected time rather than leftover time.**
+
+**TESTED 2026-11-10 against a real three-day absence** (see THE NOVEMBER OUTAGE): the
+prediction held. Nothing in the free stack degraded. The only item that lost value was
+the one with an external clock on it — CS50x against the RSI deadline — which is the
+distinction the ranking was drawing. **A resource with no deadline cannot fall behind;
+only a resource pointed at a deadline can.**
+
+**THE COLLAPSED-WEEK MINIMUM, worth repeating whenever a week goes wrong:** for the
+11-year-old, one AMC 8 paper plus one case study — about two hours — is a complete
+week with nothing in arrears. For the elder child, one Exercism exercise plus the
+case study, **with CS50x explicitly paused rather than failed.** Pausing is a
+different thing from falling behind, and saying so out loud is what makes it true.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
@@ -1002,16 +1032,20 @@ Rotation index 3 (Princeton/Harvard) has a usable backbone now. The Pre-read beg
 in 2013, one book per incoming class, chosen by President Eisgruber. Established
 from Princeton's own newsroom announcements:
 
-  2013 — The Honor Code — Kwame Anthony Appiah
+  2013 — The Honor Code — Kwame Anthony Appiah              [used 2026-11-06]
   2014 — Meaning in Life and Why It Matters — Susan Wolf   [used 2026-10-19]
   2015 — Whistling Vivaldi — Claude M. Steele               [used 2026-10-25]
   2016 — Our Declaration — Danielle Allen
   2017 — What Is Populism? — Jan-Werner Müller
   2018 — a Keith Whittington book on free speech and universities (title unverified)
 
-2019 onward NOT established. Appiah, Allen and Müller are UNUSED and all three suit
-the elder child. Verify each against princeton.edu's own announcement before using
-it — that is what made the Steele and Wolf attributions safe.
+2019 onward NOT established. UPDATED 2026-11-10: Allen was used 31 Oct and Appiah
+6 Nov, so **2013–2016 are all now used and Müller (2017) is the only confirmed unused
+Pre-read**; the 2018 Whittington title is still unverified. This slot needs 2019 onward
+established before its next turn. Verify each against princeton.edu's own announcement
+before using it — that is what made the Steele and Wolf attributions safe. See also
+"THE SLOT'S ORIGIN, established 2026-11-06", which traces the programme back to Appiah
+as the first ever.
 
 RESOLVED 2026-10-25: the 2026-10-19 ledger flag on Susan Wolf ("Pre-read status
 unverified") is closed — Wolf was the 2014 Pre-read. Ledger line corrected in place.
@@ -1121,6 +1155,68 @@ clearcut logging; a portrait of the deep ocean). nature.com AND the csnsf.org mi
 are both blocked. So expect one usable title per instalment, not five.
 
 USED FROM THIS VEIN: *Artificially Yours*, Valerie Tiberius (2026-11-01).
+
+### Section 4, slot 3 (Princeton Pre-read) — THE SLOT'S ORIGIN, established 2026-11-06
+
+The Pre-read programme **began in 2013 with Appiah's _The Honor Code_**, announced in
+June 2013 by Christopher Eisgruber — then Provost and President-elect — and assigned
+to the **Class of 2017**, who received it by 1 July with his letter. Discussions
+followed in the residential colleges, including a lunch at Forbes College on 27
+September 2013. Verified from Princeton's own pages.
+
+Note for future picks in this slot: the Pre-read is chosen to be argued with, so a
+Pre-read entry that reports only the thesis is under-reporting the book. Every one of
+the four used so far has a published body of dissent, and finding it took one targeted
+search in each case.
+
+### Section 4 — THE CROSS-LIST TRAP, recorded 2026-11-04
+
+A rank looked up for one list can be the rank from a **different list** by the same
+kind of publication. Confirmed cases: _Wolf Hall_ is **#3** on the NYT 100 Best Books
+of the 21st Century, **1st** on the Guardian's own 2019 list, and **6th** on
+Vulture's. _Austerlitz_ is **#8** on the NYT list and **5th** on the Guardian's.
+
+**So a rank is only a rank once the LIST is named in the same source.** A bare
+"ranked third" in a search summary is worthless. When a number cannot be tied to a
+named list, say the rank is unverified rather than printing it.
+
+### Section 4, slot 1 (NYT) — RANK TABLE as of 2026-11-10
+
+Confirmed and used: **#1** Ferrante, **#2** Wilkerson (confirmed 4 Nov from the same
+top-ten roundup that gave Mantel; the 11 Sept entry had printed no rank), **#3**
+Mantel, **#4** Jones, **#6** Bolaño, **#7** Whitehead, **#8** Sebald, **#9** Ishiguro,
+**#10** Robinson. **Nine of ten.**
+
+**#5 IS THE ONLY GAP IN THE TOP TEN AND IT IS DELIBERATELY UNUSED.** On 10 Nov the
+search index supported _2666_ at #6 from several library reproductions and one
+aggregator, but gave only one weak, garbled suggestion for #5 (_The Corrections_,
+inferred from list ORDER on a StoryGraph challenge page, not from a stated rank).
+A rank inferred from adjacency is not a rank. Leave #5 until a source states it.
+
+Also unranked but used from this list: The New Jim Crow (17 Sept), Demon Copperhead
+(23 Sept), Evicted (5 Oct), Pachinko (11 Oct). nytimes.com's own list page has never
+loaded from this container.
+
+### Section 4, slot 5 (Booker) — THE 2026 PRIZE IS DECIDED, recorded 2026-11-10
+
+**M. JOHN HARRISON WON THE 2026 BOOKER PRIZE for _The End of Everything_**, announced
+at Old Billingsgate on 9 November 2026. **This digest wrote that book up on 27
+October, from the shortlist** — so the slot happened to cover the winner thirteen days
+early. At 81 Harrison is the oldest Booker winner; press reports call it the first
+science-fiction novel to take the prize. He beat Douglas Stuart and Marlon James (both
+previous winners, and the bookmakers' favourites) and Elizabeth Strout, whose _The
+Things We Never Say_ was the 2 November book.
+
+CONFLICTS, reported not resolved: the prize is **£50,000**; AP converts to US$67,000
+and ABC to US$95,000 — trust the sterling figure and neither conversion. On the date,
+Wikipedia and ABC give Monday 9 Nov while AP photo captions say Tuesday 10 Nov; 9 Nov
+is right, since ABC describes a Monday-night London ceremony. thebookerprizes.com does
+not resolve from this container, so all of it is read through the search index.
+
+**EFFECT ON THE SLOT:** the 2026 shortlist is now a decided list rather than a live
+one. Two of six shortlistees are used (Harrison 27 Oct, Strout 2 Nov); four remain,
+and they can still be used, but the slot should now say "2026 shortlist" rather than
+implying a pending result. **The 2027 longlist is the next live event — no date read.**
 
 ## Section 5 — Competitions for the 11-year-old
 
@@ -1795,6 +1891,83 @@ DEPENDENCY** — your clips need two strangers, theirs need you.
   child's voice, published openly. This is the one item in the file where a summary is
   not an adequate basis for acting.
 
+### Section 6 — THE CREDIT TIER, established 2026-11-04, extended 2026-11-06 and 2026-11-10
+
+The question that separates these projects is not "is it real science" but **can an
+individual child's contribution be pointed at afterwards.** Ranked:
+
+1. **eBird (established 4 Nov).** An individual checklist has a **published citation
+   format with the observer in the author position**. Nothing else in the pool does
+   this. Highest tier.
+2. **iNaturalist with a CC BY licence (established 6 Nov).** Research-grade
+   observations reach GBIF and are attributable; credit is a database field rather
+   than a citation format. Second tier, and genuinely good.
+3. **中文維基百科 (established 10 Nov).** Every edit is permanently in the page
+   history under the account name, and the text is CC BY-SA, so reusers owe
+   attribution upstream. Per-edit and permanent, but granular — fifty edits is an
+   account, not an achievement.
+4. **Foldit / Eterna.** Collective authorship on papers.
+5. **Distributed Proofreaders.** Certification of pages completed.
+6. **Zooniverse, Mozilla Common Voice.** No establishable individual credit.
+7. **iNaturalist with the wrong licence.** No tier at all — see below.
+
+### Section 6 — iNaturalist: THE LICENCE GATES GBIF ENTIRELY, established 2026-11-06
+
+From iNaturalist's own guidance and forums:
+
+- An observation becomes **research grade** when the community agrees on the ID.
+- Research-grade observations are bulk-exported to **GBIF** roughly **weekly**.
+- **Only if the licence permits.** CC0, CC BY and CC BY-NC are exported. **All rights
+  reserved is excluded.** And — counter-intuitively — **CC BY-SA and CC BY-ND are
+  ALSO excluded, because GBIF cannot process them.**
+- Under CC BY, reusers must **credit the observer**.
+- GBIF's "Recorded by" filter on the iNaturalist dataset uses the observer's
+  **profile name**, not a user ID.
+
+**THE ACTIONABLE FORM: this is a one-minute settings check, not a decision about
+whether to participate.** A child can reach research grade on hundreds of
+observations across a year and contribute nothing to any database if the licence is
+left on all rights reserved — or on a Creative Commons licence that *sounds* more
+generous and is in fact excluded. **CC BY both shares the data and compels
+attribution.** Nobody tells you this.
+
+**LIMITS, open:** no minimum age or account-age rule found for iNaturalist, exactly
+as for eBird. The claim that citing a GBIF DOI discharges the attribution obligation
+is a **forum post, not policy** — do not rely on it. Being in a database is not being
+cited: most observations never are.
+
+### Section 6 — 中文維基百科: A GATE HELD BY NOBODY, established 2026-11-10
+
+From 中文維基百科's own 用戶權限級別 page, as reproduced in the search index:
+
+- **自動確認用戶** (autoconfirmed): **7 days since the FIRST EDIT and 50 edits.** The
+  page notes the time requirement is measured **to the second** — so it runs from the
+  first edit, not from account creation.
+- **延伸確認** (extended confirmed): **90 days and 500 edits.**
+- **Editing through Tor** raises the first bar to 90 days and 100 edits.
+- **Sister projects are easier:** 維基語錄 and 維基教科書 autoconfirm at 7 days / 10
+  edits; 維基新聞 at 7 days / 20 edits. Useful as a ladder if the point is to clear a
+  gate quickly rather than to work on the encyclopedia.
+
+**WHY THIS MATTERS BEYOND THE ITEM — A SIXTH OBSTACLE SHAPE, AND THE ONLY BENIGN ONE.**
+Every other gate in this file is held by somebody: a 主管機關 that must nominate, a
+school that must enrol, a teacher who must write a paragraph, a national organiser who
+picks one team, a default setting that silently discards the work. **This one is held
+by nobody.** It is a waiting-and-volume gate: seven days and fifty edits, about seven
+edits a day, with no application, no fee, nobody to ask and nothing that can say no.
+The only way to fail it is not to do it. **When a gate turns out to be of this shape,
+say so loudly — it is the opposite of everything else in the file.**
+
+**LIMITS:** no **minimum age** found for a Wikimedia account — the third item in a row
+with this gap, after eBird and iNaturalist, which now looks like a pattern in how these
+projects document themselves rather than three coincidences. The thresholds above come
+from the search index's copy of 用戶權限級別 and Meta-Wiki's Chinese page gives slightly
+different figures from what appears to be older cached content, so the family should open
+用戶權限級別 directly — zh.wikipedia loads for them even where it does not for me. And
+the honest proportion: **an edit history is attributable, not impressive.** Fifty edits
+impresses nobody; five hundred careful edits concentrated in one subject area over three
+months is a different object, and that is the version worth doing.
+
 ## Section 7 — Challenges (odd-numbered dates)
 
 Added 2026-10-12. **Appears on ODD dates only.** THREE PARTS, all three requested
@@ -1985,6 +2158,22 @@ seats.
 THE TEST TO APPLY, in place of the old framing. Not "will they accept a 自學生" but:
 **"who decides who sits this — a government office, a school, or a cashier?"**
 Where it is a cashier, the family is in.
+
+EXTENDED SINCE — THE FULL TAXONOMY as of 2026-11-10:
+  (3) CAPACITY-RATIONED programmes where a teacher's statement IS the application
+      (IASC, 26 Oct).
+  (4) A SINGLE NATIONAL SLOT allocated by a gatekeeper — you cannot register at all,
+      only be chosen (FIRST Global, 3 Nov).
+  (5) A DEFAULT SETTING THAT SILENTLY DISCARDS THE WORK — not about eligibility at
+      all; iNaturalist's licence field decides whether research-grade observations
+      ever reach GBIF (6 Nov). Nothing excludes the child; the output goes nowhere.
+  (6) A WAITING-AND-VOLUME GATE HELD BY NOBODY — 中文維基百科's 自動確認用戶 at 7 days
+      and 50 edits (10 Nov). The only benign shape in the set: no application, no
+      fee, nobody to ask, and the only way to fail it is not to do it.
+
+So the cashier test answers "can we get in", and TWO further questions are now needed:
+**"once we are in, does the default let the contribution count?"** (shape 5) and
+**"is this gate held by a person, or only by the calendar?"** (shape 6).
 
 ### RESOLVED 2026-10-25 — ADVENT OF CODE WINDOW (was open since early October)
 
@@ -2320,6 +2509,42 @@ sections instead of seven — and that was only noticed while rewriting.
 5, 8, and exactly one of 6 (even dates) or 7 (odd dates). A section referenced from
 the lead ("details in section 5") is especially easy to promise and then omit.
 
+### THE NOVEMBER OUTAGE, recorded 2026-11-10 — FOUR MISSED DAYS AND THE ORDERING FIX
+
+**No digest was sent on 5, 7, 8 or 9 November 2026.** Verified against the Gmail
+sent folder, not inferred: the last email before 10 November is dated 6 November.
+The worker restarted during each run, every time before the email was sent. The
+4 and 6 November archive, ledger and spec writes were composed TWICE and lost
+TWICE, because the container is rebuilt from the remote branch and uncommitted
+work does not survive.
+
+**WHAT IT COST, concretely:** the 檢定賽 registration closed on Sunday 8 November
+inside the gap, and the 6 November email had said it was the last digest before
+the deadline. The family lost two days of warning on a decision the digest had
+spent a fortnight framing. That is the first time an outage in this file has had
+a dated consequence rather than merely a gap.
+
+**THE FIX, adopted 2026-11-10 and NOT OPTIONAL — SEND THE EMAIL FIRST.**
+The old order was: research, compose, write archive, append ledger, update spec,
+commit, push, send. Every step before the send was a place the run could die with
+nothing delivered. The new order is:
+
+  1. Read notifications. Check `git status` and the sent folder.
+  2. Research and compose.
+  3. **SEND THE EMAIL.**
+  4. Commit any stranded work from a previous day, on its own, and PUSH.
+  5. Write today's archive + ledger line, commit, PUSH.
+  6. Update spec.md, commit, PUSH.
+
+**PUSH AFTER EVERY COMMIT, not once at the end.** A commit that is not pushed is
+lost with the container exactly as an uncommitted file is. Three separate pushes
+cost nothing and each one banks what is done.
+
+**AND CHECK THE SENT FOLDER BEFORE ASSUMING A DAY RAN.** Do not infer from the
+presence or absence of an archive file — 4 November sent and did not commit, and
+the reverse is equally possible. `in:sent subject:"Daily Digest" newer_than:5d`
+and read the dates. This is the PRE-SEND CHECK pointed backwards.
+
 ### STRUCTURAL LIMIT, recorded 2026-10-31 — THE PRIMARY PAGES ARE MOSTLY UNREACHABLE
 
 Say this to the family ONCE rather than as a per-item caveat, and then keep flagging
@@ -2348,6 +2573,12 @@ news coverage): *The End of Everything* (M. John Harrison, used 27 Oct),
 Jarvis Cocker, Rebecca Liu, Patricia Lockwood. James and Stuart are PAST WINNERS;
 HALF the list are first-time shortlistees. **WINNER ANNOUNCED MON 9 NOV 2026**, Old
 Billingsgate, £50,000. FOUR TITLES REMAIN UNUSED in this slot.
+
+**RESOLVED 2026-11-10 — THE WINNER IS HARRISON'S _THE END OF EVERYTHING_**, the book
+this slot used on 27 October. Oldest winner at 81; reported as the first science-fiction
+novel to win. Full detail, and the £/US$ and date conflicts, under "THE 2026 PRIZE IS
+DECIDED, recorded 2026-11-10" in the Section 4 block above. The four unused titles are
+still usable; the slot must now describe the 2026 list as DECIDED, not pending.
 
 **CORRECTION TO MY OWN 27 OCT EMAIL:** I wrote that Strout was "receiving her second
 shortlisting". The prize's own pages call her a **THREE-TIME NOMINEE**. The phrase
