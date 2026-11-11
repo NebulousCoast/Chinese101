@@ -685,6 +685,24 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — WHAT MONEY ACTUALLY BUYS, sharpened 2026-11-11
+
+The section's standing framing has been "free matches paid on CONTENT; money buys a
+schedule and someone noticing when the student stops". The sharper version, arrived at
+from the 中文維基百科 finding rather than from any platform: **the thing money usually
+buys is a reason to show up today.**
+
+Which means a free threshold can substitute for a paid subscription when it is
+**cumulative, visible, self-paced and finite.** 中文維基百科's 自動確認用戶 bar — 7 days
+since the first edit and 50 edits — has all four properties and was not designed to
+motivate anybody; it works like a schedule by accident. For the 11-year-old a fifty-edit
+fortnight is a better weekly structure than anything purchasable in this file, and it is
+the only item in the stack where the child's work is permanently attributable by name.
+
+**Use this test on any future paid item: what does the money buy that a free threshold
+with those four properties would not?** If the answer is only "a schedule", there is a
+free one available.
+
 ## Section 2 — Study-abroad opportunities (high school)
 
 Surface **2–3 programs**. Hard filters:
@@ -980,6 +998,30 @@ admission that the day's searches had not covered them. Never omit the fact and
 never imply it was verified when it was not.
 Suggested alternative from the same list for a teenager, offered in the email:
 Boris Vian's *L'Écume des jours* — inventive, short, not yet used.
+
+UPDATED 2026-11-11: add *En attendant Godot* (#12, used 30 Oct) and *For Whom the
+Bell Tolls* (#8, used 11 Nov). **TOP-TEN STATE: #1–#9 are all used** (#6 published
+as rank-unconfirmed). **#10 is the only top-ten gap and its rank is UNCONFIRMED** —
+*L'Écume des jours* is widely said to be tenth but no source reached states it, so
+if it is used, publish it as "on the list, rank unconfirmed" exactly as Céline was.
+
+### Index 2 (Le Monde) — THE NEIGHBOUR CROSS-CHECK, a sourcing technique established 2026-11-11
+
+For *For Whom the Bell Tolls* the only reachable reproduction of the 1999 ranking was
+a **user-created Babelio list** — on its own, weak, and Standing Rule 6 requires
+saying who made it. It was published anyway, because the same list **independently
+gives #7 Steinbeck and #9 Alain-Fournier exactly as this file had already confirmed
+them from other sources in September and October.**
+
+**THE TECHNIQUE, GENERALISABLE AND WORTH REUSING: a secondary source that reproduces
+already-verified NEIGHBOURS correctly is worth more than one that asserts a single
+number.** A list can be checked against what you already know; an isolated claim
+cannot. This is how a weak source can be used honestly — state what it is, then state
+what it got right that you could check independently.
+
+**Its converse is the limit:** a source that reproduces neighbours WRONG discredits
+the whole reproduction, not just that entry. And it says nothing about entries with no
+verified neighbours, so it does not license #10.
 
 ### Index 3 (Princeton/Harvard) — provenance discipline, 2026-10-19
 
@@ -2080,6 +2122,81 @@ permission.
 
 **The framing that emerged and should be kept:** everything blocked is blocked by
 an institution; everything open can be started this afternoon.
+
+### Part C obstacles list as of 2026-11-11 — EIGHT ITEMS (supersedes the 23 Oct list)
+
+1. **The MOE olympiad route** via the education bureau. Blocks Sept 2027. Still the only
+   blocker verified to genuinely require an institution to act. *Unblocked by:* one
+   enquiry to the 直轄市/縣市 education bureau.
+2. **Taiwan's CEE partner organisation for RSI.** 30 days as of 11 Nov. *Unblocked by:*
+   CEE answering or cee.org resolving. Highest-value unknown in the file and **it has not
+   moved in three weeks** — say that rather than re-describing it.
+3. **J-1 / J-2 status and PAID enrolment.** Determines most of section 3. *Unblocked by:*
+   the UT visiting-scholar office.
+4. **Whether 非學校型態實驗教育 satisfies 在學學生.** Now decides the 11 Feb 跨越盃 (the
+   檢定賽 registration closed 8 Nov). *Unblocked by:* one call, 0911-163685.
+5. **Whether the Ethics Olympiad serves Taiwan at all.** *Unblocked by:* one email to
+   admin@ethicsolympiad.org. **SEE THE TIMING NOTE BELOW — November is the right month.**
+6. **Technovation's gender condition.** *Unblocked by:* one look at the registration page.
+7. **TEAMMATES**, still recurring. Per the 31 Oct correction, ONE official matching service
+   exists — the **World Scholar's Cup** (register individually, ask to be joined with other
+   scholars seeking teammates; members need not share a school). Hsinchu round 13–14 Mar
+   2027, registration open. **PREFER IT.** Then: working groups where teams form internally,
+   自學/共學團體 networks, the UT department asked for STUDENTS, the Ethics Olympiad's
+   homeschool permission. Never pay a consultant to introduce a child to strangers.
+8. **NO MINIMUM AGE ESTABLISHED for eBird, iNaturalist, or a Wikimedia account** — added
+   11 Nov. Three in a row. **This is now a PATTERN in how participatory projects document
+   themselves, not three coincidences**, and it should be stated as such rather than as a
+   fresh surprise each time. *Unblocked by:* reading each signup page before registering
+   anything in a child's name.
+
+RETIRED since the 23 Oct list: the 奧林匹亞 individual registration (closed 26 Oct), GLOBE
+Taiwan's school-based route and the no-wet-lab item (both structural rather than actionable,
+folded into 1 and 5), and the "what counts as a school" consolidation — which was correct as
+an insight and is now better served by item 4 plus the obstacle taxonomy.
+
+**THE CLOSE, which is mandatory and is the point of Part C: 中文維基百科's 7-day/50-edit
+threshold is the ONLY gate in this audit held by NOBODY.** No office, no school, no teacher's
+paragraph, no national organiser, no default setting that discards the work. Alongside it:
+Project Euler, past AMC 8 papers, a Calling Bullshit case study, an eBird checklist, an
+iNaturalist account with the licence set to CC BY.
+
+### Section 7 — ETHICS OLYMPIAD: WHEN TO SEND THE EMAIL, established 2026-11-11
+
+The blocker is unchanged and is NOT the homeschool rule (that is settled and favourable):
+it is whether Taiwan is served at all — the listed regions have always been Australia, New
+Zealand, Hong Kong, Singapore and India, never Taiwan — plus no 2027 date or fee ever read
+from the organisation's own page. ethicsolympiad.org does not resolve from this container.
+
+**THE NEW POINT IS TIMING, AND IT IS A REUSABLE ONE. The senior event is in MAY, so
+registration runs late February to April. An enquiry sent in NOVEMBER reaches someone who is
+not yet busy; the same enquiry in March competes with the organiser's own deadline.** Say so
+when prompting the family: the right month to ask a small organisation a question is the one
+before its season starts, not the one during it. Two sentences suffice — are teams from
+Taiwan eligible, and what are the 2027 senior dates and fee.
+
+### Section 7 — ADVENT OF CODE: THE PREPARATION IS PROJECT EULER, established 2026-11-11
+
+1–12 December (twelve days, cut from 25 for the 2025 edition and stated as applying from 2025
+onward; global leaderboard removed, only private ones remain; rests on secondary coverage
+because adventofcode.com does not resolve).
+
+**Six or eight Project Euler problems before 1 December, IN THE LANGUAGE THE STUDENT INTENDS
+TO USE, removes the category of December frustration that is not about the puzzle but about
+the plumbing — reading input, parsing it, looping.** This is the rare item in the file that
+is small, finite, has a real date attached, and needs nobody's permission. Offer it every
+time Advent of Code appears with more than a week to go.
+
+### Section 7 — TECHNOVATION: STATE OF THE UNRESOLVED CONDITION, 2026-11-11
+
+Ages 8–18, free, and the only item in section 7 that would serve BOTH children at once —
+which is why it keeps coming back. **The gender eligibility condition is still unresolved:
+the programme has historically been described as being for girls, and the current 2027
+season's own eligibility text has never been read from this container.** Per Standing Rule 4
+this is BLOCKED, not contradictory, and per the profile rule the condition is stated and the
+family decides. **Frame it as a one-look question — the registration page answers it — and
+say plainly that if the condition is open this is the strongest unexplored team item in the
+file, and if it is not, it is out.** Do not let it keep reappearing as an open maybe.
 
 ### Part C obstacles list as of 2026-10-23 — SEVEN ITEMS
 
