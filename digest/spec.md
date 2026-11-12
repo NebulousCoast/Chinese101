@@ -685,6 +685,20 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — ASK WHAT IT NEEDS BESIDES PERMISSION, added 2026-11-12
+
+**IASC REQUIRES A WINDOWS COMPUTER** (Astrometrica is Windows-only; NASA puts the
+tutorial at ~2 hours). **It is the FIRST item in the whole file with a hardware
+precondition** — every other recommendation runs in a browser. On a Mac-or-iPad
+household that converts IASC from "send an email" into a borrowed machine, a dual boot
+or a VM: a real afternoon before any astronomy.
+
+**THE GENERALISED CHECK, to run before recommending anything from section 6: what does
+it need BESIDES permission?** Three answers so far, none of them in any brochure:
+iNaturalist needs a **licence setting changed**; 中文維基百科 needs **seven days of
+patience**; IASC needs **Windows**. Eligibility is the obvious filter and is not always
+the binding one.
+
 ### Section 1 — WHAT MONEY ACTUALLY BUYS, sharpened 2026-11-11
 
 The section's standing framing has been "free matches paid on CONTENT; money buys a
@@ -1770,6 +1784,67 @@ Scholar's Cup; IAYC (astronomy, 16–24, Europe); Hacktoberfest (13+ worldwide, 
 2026 rules changed so pull requests no longer count toward rewards, and the DEV
 Weekend Challenge is 18+ — weaker than it looks for a minor).
 
+### IASC — CORRECTION 2026-11-12. THE TEACHER-STATEMENT GATE IS RETRACTED. READ THIS BEFORE THE 26 OCT BLOCK BELOW.
+
+**WHAT WAS BEING SAID:** that IASC is gated by "a teacher's one-paragraph statement
+to Dr Patrick Miller at Hardin-Simmons", and that it therefore belongs in obstacle
+category 3 (capacity-rationed, a teacher's statement IS the application).
+
+**WHAT THE REGISTRATION MATERIAL ACTUALLY SAYS** (search index + the 2025 IASC
+registration form; iasc.cosmosearch.org and scistarter.org both fail to resolve):
+
+- **THE GENERAL IASC CAMPAIGNS DO NOT REQUIRE A SCHOOL.**
+- Registration is a **form you fill in, save and EMAIL to IASC**. The 2025 form names
+  the coordinator address **iascsearch@cisco.edu**. A few business days to process.
+- **A TEAM OF AT LEAST TWO PEOPLE.**
+- **A WINDOWS COMPUTER** and an internet connection — the software is the IASC build
+  of **Astrometrica**, Windows-only; NASA puts the tutorial at about two hours.
+- **IASC WILL CONNECT A LONE PARTICIPANT WITH OTHERS IN THEIR AREA.**
+- Cost: a third-party page says free; **IASC's own readable pages do not state a
+  price**, so "free" is probable, not confirmed. Ask in the email.
+- Age: a third-party page says **no upper age limit** and that adult citizen-science
+  groups take part alongside school teams. **One page describes eligibility as GRADE 6
+  AND UP, which would exclude an 11-year-old in grade 5** — possibly outdated or
+  programme-specific, UNRESOLVED. Ask it in the registration email.
+
+**SO IASC MOVES OUT OF OBSTACLE CATEGORY 3.** Its real constraints are a teammate and
+a Windows machine, neither of which is an institution. Category 3 still exists as a
+shape, but **IASC is no longer its example, and no verified example currently remains
+in it** — say that rather than keeping the category populated by habit.
+
+**WHY THE ERROR HAPPENED, AND IT IS A NEW FAILURE MODE WORTH A RULE:** the 26 October
+block below was CAREFULLY HEDGED — it says "PAST campaigns selected teams largely on a
+one-paragraph statement", and states that its detail came from campaign pages between
+**2013 and 2021** read through the search index, ending "mechanism reliable, every date
+unknown". That was honest. **The error was COMPRESSION: when that entry was summarised
+into the Routine prompt and into later emails, it became an unhedged standing claim —
+"gated only by a teacher's one-paragraph statement".**
+
+**THE RULE THAT FOLLOWS — COMPRESSION DROPS HEDGES, AND THE HEDGE IS THE LOAD-BEARING
+PART.** Whenever a spec entry is condensed into the Routine prompt or into a lead
+paragraph, carry the qualifier with it or do not carry the claim. "Past campaigns",
+"as of 2021", "mechanism not dates" must survive the summary. A convenient CATEGORY is
+harder to dislodge than a wrong DATE, because nothing contradicts a category — this is
+the second instance this autumn after the Ethics Olympiad early-bird claim of 27 Oct,
+and both were generalisations rather than misread facts.
+
+**2027 CAMPAIGN DATES, newly found and the first real calendar this item has had:**
+- **International Asteroid Search Campaign, 4–28 JANUARY 2027 — IASC's own homepage
+  LISTS IT AS FULL.** If a chosen campaign is full, or none is named, the registrant is
+  **added to the NEXT AVAILABLE International campaign** — so registering now queues
+  rather than wastes.
+- **StAnD-affiliated campaigns (run with IASC): 1–26 APRIL 2027** and **30 APRIL –
+  25 MAY 2027.** Contact **iasc@nuclio.org**.
+- Campaigns run about a month — a defined four-week commitment with a start date.
+
+**CONFUSION TO AVOID:** the **Space Generation Advisory Council**'s "Find an Asteroid"
+campaign is a SEPARATE programme run with IASC — teams of **3 to 5**, every member must
+be an **SGAC member**, and its 2026 deadline was **15 OCTOBER 2026 (closed)**. Not the
+same as general IASC registration. The general route is the one that fits this family.
+
+**HONEST PROPORTION:** a confirmed discovery is rare. Most teams measure carefully for
+a month and find nothing. Say so before anybody starts.
+
 ### Section 6 addition verified 2026-10-26 — IASC, AND A THIRD KIND OF INSTITUTION GATE
 
 **THE INTERNATIONAL ASTRONOMICAL SEARCH COLLABORATION (IASC).** Students receive
@@ -1785,10 +1860,13 @@ exists). Contact: **Dr Patrick Miller, Hardin-Simmons University.**
 Qualifies under this section's strict filter: a team contributing measurements to a
 shared permanent scientific record, no travel, no residence filter.
 
-**THE GATE — AND IT REFUTES PART OF THE 2026-10-25 NARROWING.** IASC registers
-SCHOOLS. Past campaigns selected teams largely on a ONE-PARAGRAPH STATEMENT FROM A
-TEACHER explaining why the teacher and students wanted to take part; some campaigns
-capped places per country.
+**THE GATE — SUPERSEDED 2026-11-12, SEE THE CORRECTION BLOCK ABOVE.** What this entry
+recorded, correctly hedged at the time: that **PAST** campaigns (2013–2021 pages)
+registered SCHOOLS and selected teams largely on a ONE-PARAGRAPH STATEMENT FROM A
+TEACHER, with some campaigns capping places per country. **THAT IS NOT WHAT THE
+CURRENT REGISTRATION MATERIAL SAYS — no school is required, and the stated
+requirements are a team of two, a Windows computer and an emailed form.** Do not
+quote the teacher-statement gate again.
 
 On 25 October the "what counts as a school" obstacle was narrowed to two categories
 (state-mediated selection; American programmes using school enrolment as a residency
@@ -1809,9 +1887,14 @@ participants from one institution**, so it is no model. Most detail above comes 
 campaign pages between 2013 and 2021 read through the search index. **Mechanism
 reliable, every date unknown.**
 
-THE ASK, one email: Dr Patrick Miller — when does the next campaign open, may a
-registered home-education unit in Taiwan enter as a team, and what is the minimum
-team size.
+THE ASK — REPLACED 2026-11-12. The campaign calendar and the minimum team size are now
+KNOWN (2027 dates above; minimum two), so do not keep asking them. **The current ask is
+the registration form itself, emailed to iascsearch@cisco.edu** (or iasc@nuclio.org for
+the StAnD April/May campaigns), carrying the two still-open questions: **(1) is there a
+minimum grade or age — one page says Grade 6 and up, which would exclude an 11-year-old
+in grade 5; (2) is participation free, since IASC's own readable pages do not say.**
+Also worth asking in the same message: whether IASC's teammate connection can pair the
+family with another participant in Taiwan.
 
 ### Section 6 addition verified 2026-10-28 — EXOPLANET WATCH, AND A REFRAME OF THE TEAMMATES OBSTACLE
 
@@ -2123,6 +2206,21 @@ permission.
 **The framing that emerged and should be kept:** everything blocked is blocked by
 an institution; everything open can be started this afternoon.
 
+### TEAMMATES — A SECOND MATCHING SERVICE, found 2026-11-12
+
+The 31 Oct correction established that ONE official matching service exists (the World
+Scholar's Cup). **There are TWO. IASC will connect a lone participant with others in
+their area** — and a team of at least two is required, so the matching is part of how
+the programme works, not a favour.
+
+**AND NOTE HOW IT WAS FOUND: not by searching for teammate routes, but by re-checking a
+claim I had got wrong about something else.** The matching sentence sat in the same
+registration material as the retracted gate, and was never read because the item had
+been filed as blocked. **A WRONGLY-BLOCKED ITEM HIDES EVERYTHING ELSE ON ITS PAGE.**
+So when a correction lands, re-read the whole source rather than just the sentence that
+was wrong — and treat long-standing "blocked" entries as worth periodic re-reading for
+that reason, not only to re-test the blocker.
+
 ### Part C obstacles list as of 2026-11-11 — EIGHT ITEMS (supersedes the 23 Oct list)
 
 1. **The MOE olympiad route** via the education bureau. Blocks Sept 2027. Still the only
@@ -2278,7 +2376,9 @@ Where it is a cashier, the family is in.
 
 EXTENDED SINCE — THE FULL TAXONOMY as of 2026-11-10:
   (3) CAPACITY-RATIONED programmes where a teacher's statement IS the application
-      (IASC, 26 Oct).
+      (IASC, 26 Oct — **BUT IASC WAS RETRACTED AS THE EXAMPLE ON 2026-11-12: its
+      general campaigns need no school. The shape may be real; NO VERIFIED EXAMPLE
+      REMAINS IN IT.** Do not re-populate it from memory.)
   (4) A SINGLE NATIONAL SLOT allocated by a gatekeeper — you cannot register at all,
       only be chosen (FIRST Global, 3 Nov).
   (5) A DEFAULT SETTING THAT SILENTLY DISCARDS THE WORK — not about eligibility at
@@ -2413,7 +2513,9 @@ making this the least urgent and best-sourced team opportunity in the file.
 
 Nine blockers; **SIX are a single message only the family can send**: CEE (Taiwan's
 partner organisation), admin@ethicsolympiad.org, TRPEC 0911-163685,
-technovationchallenge.org, orders@wolfram.com, Dr Patrick Miller at Hardin-Simmons.
+technovationchallenge.org, orders@wolfram.com, and IASC at iascsearch@cisco.edu
+(the registration form — NOT a teacher-statement enquiry to Dr Patrick Miller; that
+framing was retracted 2026-11-12).
 The seventh is the municipal education bureau (13 asks). The eighth is teammates —
 now best addressed through WORKING GROUPS rather than competitions (see the 28 Oct
 Exoplanet Watch entry). The ninth, GitHub's age 13, is a law.
@@ -2471,7 +2573,9 @@ about SUPPLY. Rations have edges, waiting lists, and exceptions when a place ope
 They look identical from outside. **So the enquiry template changes: ASK WHY THE
 RESTRICTION EXISTS, not merely whether it applies.** A reason identifies the kind of
 rule; an exception request only reveals one person's mood. Apply this to the TRPEC
-在學學生 call, to the WSC message, and to the IASC teacher-statement gate (already
+在學學生 call, to the WSC message, and to the IASC gate (**retracted 2026-11-12 — see
+the correction block; the ask is now a registration form emailed to
+iascsearch@cisco.edu, asking the grade-6 and price questions**) (already
 classified as capacity-rationed on 26 Oct — the same insight, arrived at twice).
 
 ### Section 7, 2026-11-01 — THE ETHICS OLYMPIAD'S ACTUAL CALENDAR AND FORMAT
