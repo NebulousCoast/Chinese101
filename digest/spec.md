@@ -685,6 +685,30 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — THE THREE-GROUP SORT BY SETUP COST, built 2026-11-13
+
+Running yesterday's "what does it need besides permission?" question across the whole
+stack produced a FOURTH precondition and then a usable ordering.
+
+**NEW: CS50X NEEDS A COMPUTER THE STUDENT CONTROLS, not borrows.** The problem sets
+mean installing things, breaking them, and leaving a half-finished state in place for
+days. A shared family laptop that gets wiped or reclaimed between sessions is a worse
+environment for CS50x than for anything else in the file. **So the "protected time"
+point from 4 and 10 Nov is really PROTECTED TIME AND PROTECTED SPACE.**
+
+**THE SORT, which is more useful than any quality ranking:**
+1. **Needs only a browser and an hour:** past AMC 8 papers, Calling Bullshit, CK-12,
+   Polypad, Project Euler.
+2. **Needs one setting or one decision, once:** iNaturalist's licence (CC BY), eBird's
+   account, 中文維基百科's seven-day wait.
+3. **Needs infrastructure:** CS50x (a controlled machine), IASC (Windows), Exercism
+   (a working local toolchain).
+
+**ADVICE THAT FOLLOWS: a household choosing what to start should pick from group 1
+unless someone is specifically ready for group 3. The CONTENT differences between the
+groups are much smaller than the SETUP differences** — which is the real reason most
+of these plans fail, and it is not about motivation.
+
 ### Section 1 — ASK WHAT IT NEEDS BESIDES PERMISSION, added 2026-11-12
 
 **IASC REQUIRES A WINDOWS COMPUTER** (Astrometrica is Windows-only; NASA puts the
@@ -956,6 +980,32 @@ Before choosing, read `ledger.md` and **never repeat a title already listed**.
 After writing the digest, append the new title to it. If the day's source is
 exhausted, move to the next index and note the shift.
 
+### Index 4 — THE SLOT NOW HAS A QUEUE, built 2026-11-13
+
+The "search Nature's Books in brief BY REVIEWER AND DATE" technique (established
+1 Nov with Tiberius) worked a third time. **Andrew Robinson's columns found so far
+in the Oct–Nov 2026 window:**
+
+- **6 November 2026 — "Medicinal plants, lessons from mushrooms and the power of
+  smell."** Five titles; four identified. **USED 13 NOV: _On Time_, Jim Al-Khalili
+  (Princeton UP, 1 Sept 2026).** **STILL UNUSED AND READY:** _Nature's Apothecary_
+  (Margaret Willes, Bodleian Library Publishing — 100 medicinal plants after an
+  essay on European herbalism), _Sniff_ (William Tullett, Yale), _It Could Be
+  Otherwise_ (Stuart Firestein, Basic Books). The fifth title was not identified.
+- **26 October 2026 — "Elusive snow leopards and evasive particles."** Five books,
+  titles NOT yet extracted. A whole installment waiting.
+- **23 October 2026 — "The life of Darwin and the science of clouds."** Five books,
+  titles NOT yet extracted. A second installment waiting.
+- Two further reviews in the window whose authorship is NOT confirmed as Robinson's:
+  27 Oct on the origins of human speech, 9 Oct on big tech and military power.
+
+**SO THIS SLOT IS NO LONGER THE THIN ONE — it has at least three unused titles named
+and two whole unextracted installments.** Extract one installment per turn rather than
+re-searching from scratch; the queue above is the first thing to read when index 4 comes
+up. **DATE CONFLICT PATTERN, seen twice now: Nature's ARCHIVE LISTING and the ARTICLE
+PAGE disagree by a few days** (the 6 Nov column is listed as 9 Nov). **Prefer the
+article page**, and cross-check against the Books & Culture index, which agreed with it.
+
 ### Index 4 (Nature/Science slot) — NEW SOURCE SET 2026-10-20
 
 **The replacement vein is NATURE'S OWN BOOKS & ARTS SECTION** — its individual
@@ -1224,6 +1274,32 @@ Note for future picks in this slot: the Pre-read is chosen to be argued with, so
 Pre-read entry that reports only the thesis is under-reporting the book. Every one of
 the four used so far has a published body of dissent, and finding it took one targeted
 search in each case.
+
+### Section 4 — WHAT TO DO WHEN NO CRITIQUE EXISTS, established 2026-11-13
+
+For Al-Khalili's _On Time_ **every reachable review was positive** — Nature's brief
+notice, a five-star science-books blog, a Universe Today piece, a podcast interview.
+No Physics World, no Physics Today, no academic review loaded. The prompt forbids
+dressing a blurb up as reception, so the question is what to write instead.
+
+**THE ANSWER THAT WORKED, and it generalises: present the LIVE DISAGREEMENT THE BOOK
+IS A MOVE IN, not a manufactured review section.** _On Time_ argues the arrow of time
+is real and is written partly against the "time is not fundamental / does not exist"
+camp. Naming that opposing position, and saying a reader should read one of its books
+alongside, gives the family the actual other side — which is what the dissent
+requirement is for.
+
+**AND MARK IT AS YOUR OWN FRAMING.** That paragraph was explicitly labelled as mine
+rather than as sourced criticism, because the opposing authors' current statements were
+not checked that day. **This is the same distinction that failed on IASC on 12 Nov** —
+a remembered framing presented with the authority of a read source. Drawing the line
+inside the email, in the sentence itself, is cheap and is the whole fix.
+
+**A THIRD DEVICE FROM THE SAME ENTRY, worth reusing: FLAG A WEAK SOURCE INSIDE A
+STRONG LIST rather than dropping the item.** One of the three "key ideas" (that the
+arrow originates in quantum entanglement and decoherence) came only from a blog
+summary, so it was printed and labelled weakly sourced. Dropping it would have lost a
+real idea; printing it unmarked would have laundered a blog into the book's content.
 
 ### Section 4 — THE CROSS-LIST TRAP, recorded 2026-11-04
 
@@ -2236,13 +2312,20 @@ that reason, not only to re-test the blocker.
 5. **Whether the Ethics Olympiad serves Taiwan at all.** *Unblocked by:* one email to
    admin@ethicsolympiad.org. **SEE THE TIMING NOTE BELOW — November is the right month.**
 6. **Technovation's gender condition.** *Unblocked by:* one look at the registration page.
-7. **TEAMMATES**, still recurring. Per the 31 Oct correction, ONE official matching service
+7. **IASC'S GRADE FLOOR** — added 2026-11-13, and it REPLACES IASC's old entry rather
+   than adding to the list. One page says **Grade 6 and up**, which would exclude an
+   11-year-old in grade 5; IASC's own page is unreachable. *Unblocked by:* asking it in
+   the registration email, which is being sent anyway. (Also ask the price — IASC's own
+   readable pages do not state one.)
+8. **TEAMMATES — NOW TWO OFFICIAL ANSWERS, NOT NONE** (updated 2026-11-13). Per the
+   31 Oct correction, ONE official matching service
    exists — the **World Scholar's Cup** (register individually, ask to be joined with other
    scholars seeking teammates; members need not share a school). Hsinchu round 13–14 Mar
-   2027, registration open. **PREFER IT.** Then: working groups where teams form internally,
+   2027, registration open. **A SECOND APPEARED 12 NOV: IASC WILL CONNECT A LONE
+   PARTICIPANT WITH OTHERS IN THEIR AREA.** Two services, not none. **PREFER THESE.** Then: working groups where teams form internally,
    自學/共學團體 networks, the UT department asked for STUDENTS, the Ethics Olympiad's
    homeschool permission. Never pay a consultant to introduce a child to strangers.
-8. **NO MINIMUM AGE ESTABLISHED for eBird, iNaturalist, or a Wikimedia account** — added
+9. **NO MINIMUM AGE ESTABLISHED for eBird, iNaturalist, or a Wikimedia account** — added
    11 Nov. Three in a row. **This is now a PATTERN in how participatory projects document
    themselves, not three coincidences**, and it should be stated as such rather than as a
    fresh surprise each time. *Unblocked by:* reading each signup page before registering
