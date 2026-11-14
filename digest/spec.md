@@ -685,6 +685,18 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — DECEMBER IS THE WRONG MONTH FOR A SETUP COST, added 2026-11-14
+
+Advent of Code opens 1 Dec, AMC 8 registration opens 5 Dec and must be paid by 15 Dec,
+RSI closes 11 Dec, and a holiday falls in the same fortnight. **A month that already has
+four dates in it is not the month to install a toolchain or source a Windows machine.**
+
+So the three-group sort below acquires a calendar rule: **anything in the infrastructure
+group — CS50x (a controlled machine), IASC (Windows) — is set up in NOVEMBER or deferred
+to JANUARY, never begun in December.** The browser-only group is what survives a crowded
+month, and that is the practical reason it keeps heading this section rather than any
+claim about quality.
+
 ### Section 1 — THE THREE-GROUP SORT BY SETUP COST, built 2026-11-13
 
 Running yesterday's "what does it need besides permission?" question across the whole
@@ -1692,9 +1704,33 @@ Global or Mini-Global Round (one school's account: ~8,000 scholars at a Global
 Round narrowing to ~2,000 at Yale).
 Divisions: JUNIOR DIVISION = born on or after 1 July 2013 and at least 10 at the
 regional round — fits the 11-year-old; the elder child is senior division.
-TAIWAN: the HSINCHU round, listed on the official calendar as a Taiwan city
-usually visiting in MARCH; 2026 ran 21-22 March; **2027 dates NOT ANNOUNCED** and
-the calendar flags estimates as the host's guess.
+TAIWAN: the HSINCHU round. **UPDATED 2026-11-14 — THE 2027 DATE IS NOW CONFIRMED:
+13-14 MARCH 2027 at HSINCHU COUNTY AMERICAN SCHOOL, registration open**, per the
+official calendar. **Weekday test passes:** 13 Mar 2027 is a Saturday and 14 Mar a
+Sunday. The 2026 round ran 21-22 March 2026 (also Sat-Sun), so the two listings are
+distinguishable and the 2027 date is not a carried-over estimate.
+
+**ALSO VERIFIED 2026-11-14:**
+- **Teams of THREE**, competing in **FOUR events**: Team Debate, Collaborative Writing,
+  the Scholar's Challenge, the Scholar's Bowl. Regional round → Global Round →
+  Tournament of Champions. Genuinely collaborative: the debate and the writing are
+  produced together, not as parallel individual work.
+- **DIVISIONS BY AGE, AND BOTH CHILDREN FIT: Junior up to 13, Senior 14 and over**, and
+  regional rounds are generally open from **age 10 at the event date**. The 11-year-old
+  would be Junior and the elder child Senior **at the same round on the same weekend** —
+  **the only item in the whole file that serves both children on one day.** (Age figures
+  are from third-party prep pages, NOT the organiser — verify with the same message.)
+- **Individual registration with matching into a team of three at the round** holds (the
+  31 Oct finding).
+- **FEE STILL NOT ESTABLISHED.** Third-party guides say roughly US$50-150 per student
+  for regional rounds in recent seasons; the official payment page says you email the
+  registration form to get an invoice number and are then charged in USD. **Do not print
+  an estimate as a price — ask for the invoice figure.**
+
+**SOURCE-QUALITY NOTE, new and generalisable: several of the best mechanical sources on
+the WSC are COMMERCIAL PREP COMPANIES, which have a commercial interest in the event
+sounding accessible.** Use them for format and logistics; never for eligibility. Same
+caution applies to any coaching or prep business writing about a competition.
 **THE OPEN CONFLICT (Standing Rule 4 applies — resolve it, do not let it sit):**
 general rules allow mixed and INDEPENDENT teams, but the 2026 Hsinchu round said
 only students ATTENDING SCHOOL IN TAIWAN could register, for capacity reasons.
@@ -2322,7 +2358,12 @@ that reason, not only to re-test the blocker.
    exists — the **World Scholar's Cup** (register individually, ask to be joined with other
    scholars seeking teammates; members need not share a school). Hsinchu round 13–14 Mar
    2027, registration open. **A SECOND APPEARED 12 NOV: IASC WILL CONNECT A LONE
-   PARTICIPANT WITH OTHERS IN THEIR AREA.** Two services, not none. **PREFER THESE.** Then: working groups where teams form internally,
+   PARTICIPANT WITH OTHERS IN THEIR AREA.** Two services, not none.
+   **BUT NEITHER IS UNCONDITIONAL — CORRECTED 2026-11-14 under Standing Rule 8.** The
+   WSC's Hsinchu round carries an UNRESOLVED school-enrolment clause (2026 page: "only
+   students attending school in Taiwan", capacity reasons; no 2027 version found), and
+   IASC carries an unresolved grade floor. **So: two PROBABLE routes with one open
+   condition each — not two answers.** Then: working groups where teams form internally,
    自學/共學團體 networks, the UT department asked for STUDENTS, the Ethics Olympiad's
    homeschool permission. Never pay a consultant to introduce a child to strangers.
 9. **NO MINIMUM AGE ESTABLISHED for eBird, iNaturalist, or a Wikimedia account** — added
@@ -2392,7 +2433,9 @@ file, and if it is not, it is out.** Do not let it keep reappearing as an open m
    WORLD SCHOLAR'S CUP (register individually and ask to be joined with other
    scholars seeking teammates; team members need not share a school). No OTHER
    organiser runs one. FIVE routes now: the WSC's matching (Hsinchu round
-   13-14 Mar 2027, registration open — PREFER THIS), working groups such as the
+   13-14 Mar 2027 CONFIRMED from the official calendar and the weekday test,
+      registration open — **PROBABLE, NOT CONFIRMED OPEN: the school-enrolment clause
+      is unresolved, see Standing Rule 8**), working groups such as the
    Exoplanet Watch Slack and Distributed Proofreaders, 自學/共學團體 networks,
    the UT department asked for STUDENTS, and the Ethics Olympiad's homeschool
    permission.
@@ -2813,6 +2856,36 @@ sections instead of seven — and that was only noticed while rewriting.
 5, 8, and exactly one of 6 (even dates) or 7 (odd dates). A section referenced from
 the lead ("details in section 5") is especially easy to promise and then omit.
 
+### STANDING RULE 8 — THE CONDITION TRAVELS WITH THE ITEM. Established 2026-11-14 after the SAME failure on two consecutive days.
+
+**THE FAILURE, twice in two days, in two unrelated items:**
+
+- **12 Nov, IASC.** The 26 Oct entry said "**PAST** campaigns selected teams largely on
+  a one-paragraph statement from a teacher", sourced to 2013–2021 pages, ending
+  "mechanism reliable, every date unknown". That became, in the Routine prompt and in
+  emails, "**gated only by** a teacher's one-paragraph statement".
+- **14 Nov, World Scholar's Cup.** The October entry recorded the 2026 Hsinchu round's
+  own "only students **attending school in Taiwan** may register" clause, flagged it
+  under Standing Rule 4, and wrote out the ask. The obstacles list then said, flatly,
+  "**PREFER THIS**", with no caveat at all, for two weeks.
+
+**THE MECHANISM IS NOT CARELESSNESS AND NOT DISHONESTY: IT IS SUMMARISING.** A hedge is
+the least interesting clause in a sentence, so it is the first thing cut when the
+sentence is shortened for a lead paragraph, a prompt, or an audit line. Nobody decides
+to drop it. **The hedge is the load-bearing part and compression removes exactly it.**
+
+**THE RULE, and it is mechanical rather than a matter of care:**
+
+> **AN ITEM WITH AN UNRESOLVED CONDITION CARRIES THAT CONDITION INTO EVERY SENTENCE
+> THAT RECOMMENDS IT — OR IT IS NOT RECOMMENDED.** No "prefer this", no "the answer
+> is", no clean verdict, until the condition is resolved. "Probable, with X
+> unresolved" is the strongest available form, and it is a perfectly usable one.
+
+**THE TEST TO RUN BEFORE EVERY SEND:** for each item given a verdict in the email, ask
+whether spec.md's own entry for it contains the words *unconfirmed, unresolved, past,
+as of, could not, blocked* or a date older than the claim. If it does and the email does
+not, the email is wrong. **Two for two so far; assume a third is in the file now.**
+
 ### THE NOVEMBER OUTAGE, recorded 2026-11-10 — FOUR MISSED DAYS AND THE ORDERING FIX
 
 **No digest was sent on 5, 7, 8 or 9 November 2026.** Verified against the Gmail
@@ -2866,6 +2939,22 @@ something exists and poor at confirming its CURRENT TERMS.** Every date on those
 domains is "the index says". The family can open any of them in four seconds. So:
 state the finding, name the domain as unreadable, and tell them which two or three
 to spot-check — the ones money or a deadline depends on.
+
+### Index 5 (Booker) — SLOT STATE 2026-11-14, and what the standing file is for
+
+Used from the 2026 shortlist: **Harrison, _The End of Everything_** (27 Oct — and it
+WON on 9 Nov), **Strout, _The Things We Never Say_** (2 Nov), **Stuart, _John of John_**
+(14 Nov). **TWO REMAIN: Luke Kennard, _Black Bag_; Rebecca Perry, _May We Feed the
+King_.** Marlon James's _The Disappearers_ is also unused.
+
+**THE LESSON FROM THE 14 NOV ENTRY, and it is an argument for keeping this file at all:**
+today's searches tied _John of John_ to the shortlist only through a BLOG, which on its
+own is not enough to print. But the full shortlist had been confirmed from
+thebookerprizes.com's own 2026 pages on 2 November and written down here. **A weak source
+today is sufficient when a strong source was recorded a fortnight ago — provided the
+earlier verification is in the file and is cited as such in the email.** That is the
+inverse of the Standing Rule 8 failure: here the file supplied a hedge-removal that was
+EARNED. Say which it is, every time.
 
 ### Section 4 note, 2026-11-02 — BOOKER 2026, AND A SELF-INFLICTED SLIP
 
