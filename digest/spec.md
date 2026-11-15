@@ -685,6 +685,23 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — THE POST-EXAM TRIAGE, established 2026-11-15
+
+**The useful output of a sat exam is not the score; it is WHICH PART WAS HARDEST AND
+WHY — and it must be written down the same day**, because the memory of which questions
+felt wrong decays within about a day while a score takes weeks.
+
+**THREE CAUSES, THREE DIFFERENT FIXES, and they are constantly treated as one:**
+- **Didn't know the material** → past AMC 8 papers, CK-12.
+- **Ran out of time** → past AMC 8 papers STRICTLY CLOCKED, which is the single thing
+  they are best at.
+- **Misread what was asked** → NOT a maths problem. One Calling Bullshit case study a
+  week does more for it than any amount of extra arithmetic.
+
+**Only the child knows which it was, so the question has to be asked rather than
+inferred from the paper.** Reuse this after every sat exam — the 檢定賽 (15 Nov), the
+AMC 8 (22 Jan), and anything after.
+
 ### Section 1 — DECEMBER IS THE WRONG MONTH FOR A SETUP COST, added 2026-11-14
 
 Advent of Code opens 1 Dec, AMC 8 registration opens 5 Dec and must be paid by 15 Dec,
@@ -1000,10 +1017,11 @@ in the Oct–Nov 2026 window:**
 
 - **6 November 2026 — "Medicinal plants, lessons from mushrooms and the power of
   smell."** Five titles; four identified. **USED 13 NOV: _On Time_, Jim Al-Khalili
-  (Princeton UP, 1 Sept 2026).** **STILL UNUSED AND READY:** _Nature's Apothecary_
-  (Margaret Willes, Bodleian Library Publishing — 100 medicinal plants after an
-  essay on European herbalism), _Sniff_ (William Tullett, Yale), _It Could Be
-  Otherwise_ (Stuart Firestein, Basic Books). The fifth title was not identified.
+  (Princeton UP, 1 Sept 2026). USED 15 NOV as a SUBSTITUTE for the exhausted index-0
+  slot: _It Could Be Otherwise_, Stuart Firestein (Basic Books, 288pp).** **STILL
+  UNUSED AND READY:** _Nature's Apothecary_ (Margaret Willes, Bodleian Library
+  Publishing — 100 medicinal plants after an essay on European herbalism) and _Sniff_
+  (William Tullett, Yale). The fifth title was not identified.
 - **26 October 2026 — "Elusive snow leopards and evasive particles."** Five books,
   titles NOT yet extracted. A whole installment waiting.
 - **23 October 2026 — "The life of Darwin and the science of clouds."** Five books,
@@ -1017,6 +1035,32 @@ re-searching from scratch; the queue above is the first thing to read when index
 up. **DATE CONFLICT PATTERN, seen twice now: Nature's ARCHIVE LISTING and the ARTICLE
 PAGE disagree by a few days** (the 6 Nov column is listed as 9 Nov). **Prefer the
 article page**, and cross-check against the Books & Culture index, which agreed with it.
+
+### THE QUEUE IS THE SUBSTITUTION MECHANISM — established in practice 2026-11-15
+
+**Index 0 (GatesNotes) is EXHAUSTED and has been since late October; the next genuine
+refresh is Gates's HOLIDAY LIST in EARLY DECEMBER.** On 15 Nov its turn came round and
+the slot was filled from the index-4 queue (Firestein) rather than by searching from
+scratch under time pressure. **That is what the queue is for, and it is the first time
+this autumn the book slot was covered by planning rather than scrambling.**
+
+**THE PROCEDURE, now standing:**
+1. When an exhausted slot's turn comes up, take the next named title from the index-4
+   queue rather than hunting a replacement that day.
+2. **DISCLOSE THE SUBSTITUTION IN THE EMAIL, in its own sentence** — which slot was due,
+   why it is empty, where the replacement came from, and when the empty slot refreshes.
+   Never present a substitute as if it were the scheduled thing.
+3. Mark it in the ledger line as a substitute, with both slots named.
+4. Replenish: extract one un-extracted Books-in-brief installment per index-4 turn so the
+   queue never empties. Two installments (23 and 26 Oct) are still unextracted.
+
+**SLOT STATUS AS OF 15 NOV:** 0 exhausted (recheck early Dec) · 1 NYT, #5 the only
+top-ten gap and its rank unverifiable · 2 Le Monde, #1–#9 used, #10's rank unconfirmed ·
+3 Princeton Pre-read, 2013–2017 all used, 2018 unverified, 2019+ not established ·
+4 the queue, two named titles plus two installments · 5 Booker, two 2026 shortlistees
+left (Kennard, Perry) plus James's _The Disappearers_.
+**THREE OF SIX SLOTS ARE NOW THIN OR EMPTY. The December work is replenishing them, and
+it should be done BEFORE a turn comes up empty, not on the day.**
 
 ### Index 4 (Nature/Science slot) — NEW SOURCE SET 2026-10-20
 
@@ -1286,6 +1330,25 @@ Note for future picks in this slot: the Pre-read is chosen to be argued with, so
 Pre-read entry that reports only the thesis is under-reporting the book. Every one of
 the four used so far has a published body of dissent, and finding it took one targeted
 search in each case.
+
+### Section 4 — THE STRUCTURAL CRITICISM, a dissent type worth seeking out (2026-11-15)
+
+Kirkus on Firestein: "a solid and even stirring defense of science" — **and then that the
+optimism RECEDES IN THE SECOND HALF as the author presses his case against determinism.**
+The book's advertised subject gives way to its actual argument.
+
+**THAT IS THE MOST USEFUL SHAPE OF DISSENT TO LOOK FOR, and it should be preferred over
+disagreement when both are available.** It is not "I think the author is wrong"; it is
+**"the book you wrote is not the book your title promised"** — a claim about the object
+rather than about the thesis, checkable by a reader, and exactly the move a student
+writing about arguments needs to learn. Two more instances already in the file: the
+"Shame Code" objection to Appiah (the title names the wrong force, 6 Nov) and the
+"wide-ranging" note on Firestein (praise that hints the argument accumulates rather than
+builds).
+
+**SO WHEN SEARCHING FOR DISSENT, SEARCH FOR THE STRUCTURAL OBJECTION SPECIFICALLY** —
+reviews that admire a book and still say its parts do not do what its frame claims. It
+is more common than outright opposition and more instructive than either.
 
 ### Section 4 — WHAT TO DO WHEN NO CRITIQUE EXISTS, established 2026-11-13
 
@@ -2332,6 +2395,27 @@ been filed as blocked. **A WRONGLY-BLOCKED ITEM HIDES EVERYTHING ELSE ON ITS PAG
 So when a correction lands, re-read the whole source rather than just the sentence that
 was wrong — and treat long-standing "blocked" entries as worth periodic re-reading for
 that reason, not only to re-test the blocker.
+
+### Part C — THE AUDIT'S CHARACTER HAS CHANGED, recorded 2026-11-15 (NINE ITEMS)
+
+The 15 Nov list runs: 1 MOE olympiad route · 2 Taiwan's CEE partner for RSI · 3 J-1/J-2
+and paid enrolment · 4 whether 非學校型態實驗教育 satisfies 在學學生 · 5 whether the WSC
+Hsinchu round admits a 自學 student · 6 whether the Ethics Olympiad serves Taiwan ·
+7 Technovation's gender condition · 8 IASC's grade floor and price · 9 no minimum age
+established for eBird, iNaturalist or a Wikimedia account.
+
+**THE OBSERVATION WORTH CARRYING FORWARD: SIX OF THE NINE ARE NOW SETTLED BY A SINGLE
+MESSAGE OR A SINGLE PAGE-LOAD, and five of those messages are ones only the family can
+send.** The research stopped being the bottleneck some weeks ago. What remains is one
+phone call (0911-163685), four emails (the education bureau, the Hsinchu host,
+admin@ethicsolympiad.org, iascsearch@cisco.edu) and two registration pages someone has
+to open (Technovation, the three signup pages in item 9).
+
+**SO THE SECTION'S FRAMING SHOULD CHANGE WITH IT.** It is no longer "here is what is
+blocked and what I will try next". It is **"here is the short list of messages that would
+close this file, and none of them is mine to send"** — said once, plainly, without
+nagging. And per Standing Rule 8 every item carries its condition in the sentence that
+names it; the 15 Nov list is written that way and later lists should copy the form.
 
 ### Part C obstacles list as of 2026-11-11 — EIGHT ITEMS (supersedes the 23 Oct list)
 
