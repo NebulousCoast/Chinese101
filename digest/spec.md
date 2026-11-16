@@ -685,6 +685,18 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — THE AMC 8 CONSTRAINT IS WEEKS, NOT MATERIAL, recorded 2026-11-16
+
+67 days to the 22 Jan exam is nine weeks plus change, and there are far more than nine
+past AMC 8 papers. **So the binding constraint is not content and not difficulty: it is
+the number of weeks left.** Which collapses the whole preparation question into one
+decision: **WHICH DAY OF THE WEEK IS PAPER DAY** — then never revisit it.
+
+A fixed slot survives a crowded month; "when there is time" does not. That is the same
+conclusion the interruption-resilience ranking (6 Nov), the December calendar rule
+(14 Nov) and this reach independently, from three different directions. **When three
+analyses converge on "fix the slot in advance", stop analysing and say it plainly.**
+
 ### Section 1 — THE POST-EXAM TRIAGE, established 2026-11-15
 
 **The useful output of a sat exam is not the score; it is WHICH PART WAS HARDEST AND
@@ -1400,6 +1412,23 @@ aggregator, but gave only one weak, garbled suggestion for #5 (_The Corrections_
 inferred from list ORDER on a StoryGraph challenge page, not from a stated rank).
 A rank inferred from adjacency is not a rank. Leave #5 until a source states it.
 
+**UPDATED 2026-11-16 — THE TABLE NOW RUNS BEYOND THE TOP TEN.** Added: **#11 _The
+Brief Wondrous Life of Oscar Wao_ (Díaz)**, stated as 11 by a Goodreads copy of the
+list; **#13 _The Road_ (McCarthy)**, USED 16 NOV, numbered directly by a MARINet
+library list and consistent with its neighbours; **#15 _Pachinko_ (Min Jin Lee)**,
+per a University of Pennsylvania library guide that states the number — **which
+retro-fills the rank for a title this slot used on 11 OCTOBER with no rank at all.**
+
+**CONFIRMED RANKS: 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 13, 15.**
+**REFUSED, same grounds in all three cases: #5, #12 (_The Year of Magical Thinking_,
+Didion) and #14 (_Outline_, Cusk)** — each evidenced ONLY by a list's order, never by
+a stated number. **THE RULE, now applied three times: AN ADJACENCY IS NOT A RANK.**
+Two numbered neighbours do not number the book between them, because a reproduction
+can silently drop or merge an entry. Print the rank only when a source states it.
+nytimes.com's own list page has never loaded from this container.
+**UNUSED AND READY with a stated rank: #11 Díaz** (note: an author-with-a-problem
+case — if used, handle per the Céline model, stating the record first).
+
 Also unranked but used from this list: The New Jim Crow (17 Sept), Demon Copperhead
 (23 Sept), Evicted (5 Oct), Pachinko (11 Oct). nytimes.com's own list page has never
 loaded from this container.
@@ -1886,6 +1915,42 @@ HOW TO START, worth repeating whenever this appears: not by writing an article �
 find three articles about something the family actually knows (a Taiwanese place,
 a local species, a Chinese-language book) and add ONE properly sourced sentence
 to each.
+
+### MUN — RE-VERIFIED 2026-11-16. READ THIS BEFORE THE 22 OCT BLOCK BELOW.
+
+**HKMUN 2027 PASSES ITS STANDING RULE 2 CHECK, from the conference's own site:**
+**19–21 MARCH 2027** at the **HONG KONG SCIENCE AND TECHNOLOGY PARK**; regular
+registration closes **31 DECEMBER 2026 at 11:59 PM**; **an INDIVIDUAL DELEGATE FORM
+exists.** The date, the deadline and the individual route all held.
+
+**WHAT DID NOT RESOLVE: THE INDIVIDUAL DELEGATE FEE.** Not on any page reachable
+today, and hkmun.org does not resolve from this container. **Treat the cost as
+UNKNOWN, not as low**, and say so. The fee has to come from the registration form.
+**AND SAY THE LARGER COST OUT LOUD: Hong Kong is a flight, two or three nights'
+accommodation and an accompanying adult** — a different order of commitment from
+anything else in the file, and the decision to make before chasing the fee.
+
+**YMUNT (TAIPEI) — ITS DATE IS NOW UNVERIFIED.** The 22 Oct entry below records
+12–14 March 2027. **No source could re-confirm that today.** Per Standing Rule 8 it
+goes on the deadline board as UNVERIFIED with "do not plan around it".
+
+**THE CLASH THAT ALMOST GOT PRINTED, and the rule working as intended.** If YMUNT's
+date is right it collides directly with the **WSC Hsinchu round, 13–14 March 2027**
+(confirmed), and the family must choose. **That would have been a genuinely useful
+warning and it went out as PROBABLE AND UNVERIFIED instead**, because the condition
+travelled with the item. Worth remembering as the first time Standing Rule 8 cost a
+good line rather than catching a bad one — that is the trade it exists to make.
+
+**STILL OPEN since 22 Oct: whether YMUNT takes individual registrations at all.**
+Twenty-five days unasked. ymunt.org is the ask.
+
+**MUN TOKYO 2027** (9–11 March 2027, delegates **ages 11–19** so BOTH children are in
+range, individual online form) was NOT re-verified on 16 Nov — flag it as a
+month-old finding whenever it appears, not as fresh.
+
+**THE HONEST PROPORTION, to say every time MUN appears:** it confers NO credential and
+the committee's writing is published nowhere. What it supplies is the thing this file
+is shortest of — **a room of other teenagers who argue for sport.** That is the value.
 
 ### Section 6 addition verified 2026-10-22 — MODEL UNITED NATIONS, and two individual-entry routes
 
@@ -2939,6 +3004,20 @@ sections instead of seven — and that was only noticed while rewriting.
 **COUNT THE SECTION HEADINGS BEFORE EVERY SEND.** There must be SEVEN: 1, 2, 3, 4,
 5, 8, and exactly one of 6 (even dates) or 7 (odd dates). A section referenced from
 the lead ("details in section 5") is especially easy to promise and then omit.
+
+**COUNT BOTH BODIES SEPARATELY — ADDED 2026-11-16 AFTER THE CHECK FAILED THIS WAY.**
+On 16 Nov the `htmlBody` carried all seven sections and the plain-text `body` ran
+1, 2, 3, 4, 6, 8 — **section 5 missing from the plain text only.** The count was run
+on one body and the result assumed to hold for the other. **IT IS TWO DOCUMENTS AND
+IT IS TWO COUNTS.** Most clients render the HTML, so the omission probably reached
+nobody; the check still failed, and the near-identical 28 Oct failure is why this
+check exists at all.
+
+**THE MECHANICAL FORM, to run on each body in turn before the send call:** read the
+section numbers in order and say them out loud as a list. Seven numbers, ascending,
+with exactly one of 6/7. Do it twice — once for `body`, once for `htmlBody`. The
+asymmetry is the easy failure because the HTML is the one being attended to while
+writing.
 
 ### STANDING RULE 8 — THE CONDITION TRAVELS WITH THE ITEM. Established 2026-11-14 after the SAME failure on two consecutive days.
 
