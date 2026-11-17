@@ -685,6 +685,24 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — FOUR ROUTES TO ONE ANSWER: STOP ANALYSING, recorded 2026-11-17
+
+Four independent analyses in three weeks have now reached the same recommendation:
+- **6 Nov** — rank the stack by what survives an interrupted week → fix a slot.
+- **13 Nov** — sort it by setup cost → fix a slot.
+- **14 Nov** — the December calendar → fix a slot.
+- **16 Nov** — the AMC 8 arithmetic (weeks, not material) → fix a slot.
+
+**SO THE SECTION'S JOB ON THIS TOPIC IS DONE, AND THE RIGHT MOVE IS TO SAY LESS.**
+When several routes converge, a fifth framing is not insight, it is padding — and this
+section's standing instruction is to RE-VERIFY rather than discover, which means
+admitting when there is nothing to add. **"Pick paper day this week" is the whole
+recommendation.** Do not invent a new angle on it; say it short and move on.
+
+**GENERAL FORM, for any section: convergence is a stopping condition, not an invitation
+to keep going.** Note the convergence once, state the conclusion plainly, and spend the
+words elsewhere.
+
 ### Section 1 — THE AMC 8 CONSTRAINT IS WEEKS, NOT MATERIAL, recorded 2026-11-16
 
 67 days to the 22 Jan exam is nine weeks plus change, and there are far more than nine
@@ -1132,10 +1150,28 @@ Suggested alternative from the same list for a teenager, offered in the email:
 Boris Vian's *L'Écume des jours* — inventive, short, not yet used.
 
 UPDATED 2026-11-11: add *En attendant Godot* (#12, used 30 Oct) and *For Whom the
-Bell Tolls* (#8, used 11 Nov). **TOP-TEN STATE: #1–#9 are all used** (#6 published
-as rank-unconfirmed). **#10 is the only top-ten gap and its rank is UNCONFIRMED** —
-*L'Écume des jours* is widely said to be tenth but no source reached states it, so
-if it is used, publish it as "on the list, rank unconfirmed" exactly as Céline was.
+Bell Tolls* (#8, used 11 Nov).
+
+**RESOLVED 2026-11-17 — #10 IS CONFIRMED AND THE TOP TEN IS CLOSED.** *L'Écume des
+jours* (Boris Vian, 1947) is **#10**, from **TWO INDEPENDENT SOURCES THAT STATE THE
+NUMBER**: the fr.wikipedia table for the list ("10 | L'Écume des jours | Boris Vian |
+1947 | France") and **FNAC'S OWN PAGE, Fnac having CO-RUN the 1999 poll.** Used 17 Nov.
+
+**TOP-TEN STATE: #1–#10 ALL USED, nine with stated ranks** — Camus 1, Proust 2, Kafka
+3, Saint-Exupéry 4, Malraux 5, Steinbeck 7, Hemingway 8, Alain-Fournier 9, Vian 10 —
+**plus #6 Céline, on the list but still rank-unconfirmed and still unverifiable.**
+Also used: Godot (#12). **The slot's next turns must go BELOW #12**, which has never
+been researched; that is December work.
+
+**A SOURCING LESSON WORTH KEEPING: THE CO-ORGANISER'S OWN PAGE IS THE BEST AVAILABLE
+SOURCE FOR A POLL'S RANKS.** Fnac ran the poll with Le Monde, so a Fnac page stating a
+rank is near-primary. When a list was produced by two bodies, try BOTH their sites —
+this file had only ever tried Le Monde's.
+
+**AND A RESTATEMENT OF THE 4 NOV CROSS-LIST TRAP IN A NEW COSTUME:** Goodreads carries
+pages TITLED "Le Monde 100 Books of the Century" that place this book 41st and 50th.
+They are USER-MADE lists with small vote counts. **A page can carry the right list's
+NAME and the wrong list's NUMBERS** — check that a page is the list, not a tribute to it.
 
 ### Index 2 (Le Monde) — THE NEIGHBOUR CROSS-CHECK, a sourcing technique established 2026-11-11
 
@@ -2475,6 +2511,15 @@ send.** The research stopped being the bottleneck some weeks ago. What remains i
 phone call (0911-163685), four emails (the education bureau, the Hsinchu host,
 admin@ethicsolympiad.org, iascsearch@cisco.edu) and two registration pages someone has
 to open (Technovation, the three signup pages in item 9).
+
+**SHARPENED 2026-11-17 — PUT A NUMBER ON IT RATHER THAN REPEATING THE SENTIMENT.** The
+whole remaining list is **ONE PHONE CALL, FOUR EMAILS, THREE PAGE-LOADS**: eight of the
+nine items are settled by somebody spending under ten minutes. **The ninth, the MOE
+pipeline, is a RULE rather than a question and may simply be a no** — which is worth
+saying, because an item that cannot be unblocked is a different kind of entry from one
+that is merely unasked, and lumping them together overstates how much is pending.
+**Counting is better than characterising:** "the research is not the bottleneck" had
+been said three times before anyone turned it into eight items under ten minutes each.
 
 **SO THE SECTION'S FRAMING SHOULD CHANGE WITH IT.** It is no longer "here is what is
 blocked and what I will try next". It is **"here is the short list of messages that would
