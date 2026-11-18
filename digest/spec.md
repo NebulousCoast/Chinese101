@@ -685,6 +685,36 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — SPLIT THE STACK BY ATTENTION DEMAND, added 2026-11-18 (from Wolf)
+
+Maryanne Wolf's claim — that deep reading is a **circuit maintained rather than a
+capacity possessed**, and that habitual skimming builds a different one — gives this
+section an axis it has not had. Not "which resource teaches most" but **which require
+sustained attention and which reward skimming.**
+
+- **CANNOT BE SKIMMED:** a timed AMC 8 paper; a Calling Bullshit case study; a CS50x
+  problem set; a Project Euler problem; **reading a competition's actual 簡章 instead of
+  somebody's summary of it.**
+- **REWARDS SKIMMING, still useful:** CK-12, Polypad, reference lookups — **and this
+  digest.**
+
+**NOT a ranking; both are needed.** But the first group is the one to protect, and the
+digest belongs in the second. **PRACTICAL COROLLARY for section 5: do the AMC 8 paper
+ON PAPER, one sitting, screen elsewhere** — not because screens are wicked but because
+the exercise is partly sustained attention and a notification removes exactly that.
+
+### THE DIGEST'S OWN POSITION, stated 2026-11-18 and to be repeated when relevant
+
+Today's book argues that reading summaries in place of the thing erodes the capacity
+being exercised. **The digest is a summary, written by a machine that has not read the
+books it describes and cannot open many of the pages it cites.** The position taken,
+and worth restating rather than quietly dropping: **USEFUL FOR DECIDING WHAT TO READ,
+USELESS AS A SUBSTITUTE FOR READING IT.** If the email ever becomes the thing read
+instead of the books, it has made the family worse off.
+
+**Say this when a book's own argument bears on it — do not wait to be asked, and do not
+let the reasoning section raise a question the email itself dodges.**
+
 ### Section 1 — FOUR ROUTES TO ONE ANSWER: STOP ANALYSING, recorded 2026-11-17
 
 Four independent analyses in three weeks have now reached the same recommendation:
@@ -1190,6 +1220,47 @@ what it got right that you could check independently.
 **Its converse is the limit:** a source that reproduces neighbours WRONG discredits
 the whole reproduction, not just that entry. And it says nothing about entries with no
 verified neighbours, so it does not license #10.
+
+### Index 3 — THE PRE-READ LIST NOW RUNS TO THE CURRENT YEAR, established 2026-11-18
+
+On 15 Nov this slot was recorded as exhausted at 2017, with extending it marked
+"December work". **IT TOOK ONE SEARCH.** Established from princeton.edu's own
+newsroom announcements:
+
+| Year | Class | Title | Author | Status |
+| --- | --- | --- | --- | --- |
+| 2013 | 2017 | The Honor Code | Kwame Anthony Appiah | used 6 Nov |
+| 2014 | 2018 | Meaning in Life and Why It Matters | Susan Wolf | used 19 Oct |
+| 2015 | 2019 | Whistling Vivaldi | Claude M. Steele | used 25 Oct |
+| 2016 | 2020 | Our Declaration | Danielle Allen | used 31 Oct |
+| 2017 | 2021 | What Is Populism? | Jan-Werner Müller | used 12 Nov |
+| 2018 | 2022 | a Keith Whittington free-speech book | — | **title unverified** |
+| 2019 | 2023 | on the ethics of digital technology and attention | — | **title NOT FOUND** |
+| 2020 | 2024 | — | — | **unknown** |
+| 2021 | 2025 | Moving Up Without Losing Your Way | Jennifer M. Morton | **UNUSED** |
+| 2022 | 2026 | Every Day the River Changes | Jordan Salama | **UNUSED** |
+| 2023 | 2027 | — | — | **unknown** |
+| 2024 | 2028 | The Worlds I See | Fei-Fei Li | **UNUSED** |
+| 2025 | 2029 | On the Fringe: Where Science Meets Pseudoscience | Michael D. Gordin | **UNUSED** |
+| 2026 | 2030 | Reader, Come Home | Maryanne Wolf | used 18 Nov |
+
+**FOUR NAMED UNUSED TITLES** — Morton 2021, Salama 2022, Li 2024, Gordin 2025. The slot
+is comfortable into January. **UNPLACED, probably 2019 or 2023:** Jill Lepore's *This
+America* and Whittington's *Speak Freely*.
+
+**PRINCETON'S OWN PAGE IS president.princeton.edu/princeton-pre-read** — the canonical
+index, and it would likely settle 2019, 2020 and 2023 in one read.
+
+**AND THE HARVARD HALF OF THIS SLOT HAS NEVER BEEN EXPLORED AT ALL.** The slot is
+"Princeton/Harvard recommended reading" and only Princeton has ever been used. An
+untapped vein sitting in plain sight for ten weeks.
+
+**THE PROCESS LESSON, and it is about this file rather than about Princeton: LABELLING
+WORK "DECEMBER WORK" IS HOW A TWENTY-MINUTE JOB BECOMES A MONTH-LONG GAP.** The only
+reason it got done on 18 Nov is that the rotation forced the slot's turn. **A queue is
+useful for ORDER and dangerous as a PLACE TO PUT THINGS.** Corollary to adopt: when a
+slot is found thin, do the replenishing search THAT DAY — the search is almost always
+shorter than the note explaining why it was postponed.
 
 ### Index 3 (Princeton/Harvard) — provenance discipline, 2026-10-19
 
@@ -2291,6 +2362,42 @@ DEPENDENCY** — your clips need two strangers, theirs need you.
   commonvoice.mozilla.org BEFORE either child records.** The asset being donated is a
   child's voice, published openly. This is the one item in the file where a summary is
   not an adequate basis for acting.
+
+### Section 6 — OPEN-SOURCE CONTRIBUTION, examined properly 2026-11-18
+
+**IT PRODUCES THE MOST DURABLE ARTEFACT IN THE WHOLE POOL.** A merged pull request is a
+permanent, dated, publicly attributable change to something other people use, with the
+contributor's name on it, the reviewer's beside it, **and the argument about whether to
+accept it preserved in public underneath.** Not a certificate, not a database row, not a
+communiqué. On the credit tier below it belongs at or near the top with eBird.
+
+**THE AGE RULE — A LAW, NOT A GATEKEEPER.** GitHub's own Terms of Service and GitHub
+Education's terms both set **13 for a personal account**; GitHub says it does not target
+under-13s and terminates accounts it learns of. A 2017 policy thread ties this to COPPA
+(dated secondary source — the reason is probable, the rule firm).
+
+**THE CAVEAT THAT WAS NOT EXPECTED: GITHUB'S OWN TERMS SAY "YOUR COUNTRY'S MINIMUM AGE
+MAY BE OLDER."** So 13 is a floor and Taiwan's own figure is **UNESTABLISHED**. It does
+not bite today — the elder child is past any plausible floor, the 11-year-old is under
+13 either way — **but check Taiwan's position when the 11-year-old turns 13 rather than
+assuming the American number.** Generalise it: *an international service's stated
+minimum age may be the US minimum, not the local one.*
+
+**WHAT A FIRST CONTRIBUTION IS:** documentation fixes, a clearer error message, a missing
+test, a README typo. **The skill is not programming — it is reading someone else's
+codebase and contributing guidelines well enough to make a change they will accept**,
+which is the 中文維基百科 discipline rather than the CS50x one.
+
+**LIMIT, open:** how beginner-labelling conventions currently work in practice, and which
+projects are genuinely rather than nominally welcoming. Not verified 18 Nov; do not assert
+from memory.
+
+**HONEST PROPORTION:** one merged doc fix is real and is not an achievement. **A dozen
+small accepted changes to one project over three months** shows persistence and the
+ability to take review — same shape as 中文維基百科, where the threshold is trivial and
+the thing worth having lies well beyond it. **And the timing note: this is an artefact a
+recommender can describe in one sentence, which is a reason NOT to pretend starting it
+three weeks before a deadline would help.**
 
 ### Section 6 — THE CREDIT TIER, established 2026-11-04, extended 2026-11-06 and 2026-11-10
 
