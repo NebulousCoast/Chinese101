@@ -685,6 +685,23 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 1 — EVERYTHING IN THE STACK HAS A NOTATION, noticed 2026-11-19
+
+Maths has symbols, code has syntax, argument has named fallacies. **Every item in this
+file's free stack trains a child to manipulate a system that already exists** — which is
+most of what school does and is not nothing.
+
+**THE GAP: describing something that has NO notation.** Prompted by Tullett's subject, a
+sense for which there is almost no vocabulary. The cheapest exercise available: *write
+what a place smells like without using "like" or "of".* Five minutes, no account, no
+resource — **and no platform in this file offers it, because there is nothing to grade.**
+
+**FLAGGED AS MY OWN SUGGESTION, NOT A RESEARCHED FINDING, and it was labelled that way
+in the email.** Keep the label whenever it recurs. **The general discipline: when an
+idea in these emails is mine rather than sourced, say so in the sentence** — the file's
+value rests on the reader being able to tell which is which, and an unlabelled good idea
+corrodes that faster than a labelled weak one.
+
 ### Section 1 — SPLIT THE STACK BY ATTENTION DEMAND, added 2026-11-18 (from Wolf)
 
 Maryanne Wolf's claim — that deep reading is a **circuit maintained rather than a
@@ -1082,15 +1099,34 @@ in the Oct–Nov 2026 window:**
   UNUSED AND READY:** _Nature's Apothecary_ (Margaret Willes, Bodleian Library
   Publishing — 100 medicinal plants after an essay on European herbalism) and _Sniff_
   (William Tullett, Yale). The fifth title was not identified.
-- **26 October 2026 — "Elusive snow leopards and evasive particles."** Five books,
-  titles NOT yet extracted. A whole installment waiting.
-- **23 October 2026 — "The life of Darwin and the science of clouds."** Five books,
-  titles NOT yet extracted. A second installment waiting.
+- **"Elusive snow leopards and evasive particles" — DATE CORRECTED 2026-11-19.** The
+  13 Nov note dated this **26 October**; it is **23 OCTOBER online**, printed in the
+  29 Oct issue (Vol 658 Issue 8138), cited as **Nature 658, 1126 (2026)**. Robinson.
+  **EXTRACTED 19 NOV, three of five titles identified and all UNUSED:**
+  _The Age of Cures_ (Barry Werth, Simon & Schuster, 2026); _Divination Engines_
+  (Xiaochang Li, Univ. of Chicago Press, 2026 — a cultural history of technology and
+  communication); _The Matter of Architecture_ (Paul Dobraszczyk, Reaktion, 2026).
+  A fourth is a quantum-physics book by the physicist **Danni Holmes**, title not
+  established. Fifth not identified.
+- **"The life of Darwin and the science of clouds."** Five books, titles NOT yet
+  extracted — the one installment still waiting. Its date was given as 23 October in
+  the 13 Nov note and that is now suspect too, since that date belongs to the snow
+  leopards column; **re-check its date when extracting it.**
+
+**THE FILING LESSON, 2026-11-19: A WRONG DATE IN A QUEUE IS HOW A QUEUE STOPS BEING
+USABLE.** The muddle cost nothing today only because the search found the piece anyway.
+When queueing an installment, record the **DOI or the Nature volume/page citation**
+alongside the date — d41586-026-03395-3 / Nature 658, 1126 for this one — because the
+identifier survives a date error and a title does not.
 - Two further reviews in the window whose authorship is NOT confirmed as Robinson's:
   27 Oct on the origins of human speech, 9 Oct on big tech and military power.
 
-**SO THIS SLOT IS NO LONGER THE THIN ONE — it has at least three unused titles named
-and two whole unextracted installments.** Extract one installment per turn rather than
+**SO THIS SLOT IS NO LONGER THE THIN ONE.** **QUEUE AS OF 19 NOV — FOUR NAMED UNUSED
+TITLES plus one unextracted installment:** _Nature's Apothecary_ (Willes), _The Age of
+Cures_ (Werth), _Divination Engines_ (Li), _The Matter of Architecture_ (Dobraszczyk),
+and the Darwin/clouds column. _Sniff_ (Tullett) used 19 Nov; _On Time_ (Al-Khalili)
+13 Nov; _It Could Be Otherwise_ (Firestein) 15 Nov as the index-0 substitute.
+**The procedure held: one installment extracted on the turn that drew from the queue.** Extract one installment per turn rather than
 re-searching from scratch; the queue above is the first thing to read when index 4 comes
 up. **DATE CONFLICT PATTERN, seen twice now: Nature's ARCHIVE LISTING and the ARTICLE
 PAGE disagree by a few days** (the 6 Nov column is listed as 9 Nov). **Prefer the
@@ -1449,6 +1485,25 @@ Note for future picks in this slot: the Pre-read is chosen to be argued with, so
 Pre-read entry that reports only the thesis is under-reporting the book. Every one of
 the four used so far has a published body of dissent, and finding it took one targeted
 search in each case.
+
+### Section 4 — A PUBLISHER-HOSTED EXCERPT IS MARKETING, NOT RECEPTION (2026-11-19)
+
+For _Sniff_ the favourable material comprised: a **cover blurb** (Catherine Clarke), and
+an excerpt of a *Literary Review* notice **hosted on the publisher's own publicity
+page**. Neither is reception. The only real review reached was the *Spectator
+Australia*'s, which was mildly critical on structure.
+
+**THE RULE: a quotation from a review, republished by the publisher, counts as
+marketing until the review itself is read.** The selection is the publisher's, so it
+carries no information about the review's overall verdict — a demolition with one warm
+sentence in it looks identical from the publicity page. **Cite such a line only for its
+CONTENT (an idea worth passing on), never as evidence of how the book was received**,
+and say which it is. The _Literary Review_'s "olfactory world of simulacra" line was used
+on exactly that basis today.
+
+**And state the honest shape when it is thin:** "one real review, mildly critical on
+structure; everything else is a blurb" is a complete and useful answer. The prompt
+forbids dressing blurbs as reception; it does not require pretending reception exists.
 
 ### Section 4 — THE STRUCTURAL CRITICISM, a dissent type worth seeking out (2026-11-15)
 
