@@ -685,6 +685,39 @@ week with nothing in arrears. For the elder child, one Exercism exercise plus th
 case study, **with CS50x explicitly paused rather than failed.** Pausing is a
 different thing from falling behind, and saying so out loud is what makes it true.
 
+### Section 3 — THE DEPARTMENT ASK WAS ORDERED WRONGLY, corrected 2026-11-20
+
+For eleven weeks the ladder ran: Conrad coach (easy) → does anyone run a Foldit/Eterna
+puzzle → **would you mentor a manuscript (hardest, asked last)**.
+
+**If a parent may be JEI's senior mentor, the hardest ask may not need asking at all** —
+and what the department is actually good for becomes smaller and far easier to grant:
+**read a draft once; say whether a question is answerable; lend a piece of equipment.**
+
+**THE PATTERN WORTH KEEPING: THE "HARDEST ASK" WAS HARD BECAUSE I HAD MISDESCRIBED THE
+REQUIREMENT, not because the favour was large.** Before putting an ask at the bottom of
+a ladder as the big one, check that the thing it is meant to unlock actually needs it.
+
+**AND THE FOUR PEER ASKS, which go in ONE message rather than four** (established
+19–20 Nov): an asteroid-search teammate for April; a World Scholar's Cup third for
+March; an MUN companion for Hong Kong in March; and does anyone maintain an open-source
+project that takes outside contributions. All four request a **peer**, not a patron —
+which is why they are likelier to be answered than anything on the old ladder.
+
+### Section 1 — THE MISSING RESOURCE IS A NOTEBOOK, noticed 2026-11-20
+
+A JEI paper must be hypothesis-driven, so the limiting resource is **a question the child
+wants answered, recorded early enough that the measurements are real rather than
+reconstructed.**
+
+**NOTHING IN THE FREE STACK PRODUCES THAT.** CK-12 and Polypad explain; Exercism and
+CS50x drill; Calling Bullshit teaches scepticism about *other people's* claims. **None of
+them asks a child what they are curious about and then helps them measure it.** A gap in
+a file of twenty-odd resources, and what fills it costs nothing and has no website.
+
+Flagged in the email as my own observation rather than a researched finding — keep that
+label, per the 19 Nov discipline.
+
 ### Section 1 — EVERYTHING IN THE STACK HAS A NOTATION, noticed 2026-11-19
 
 Maths has symbols, code has syntax, argument has named fallacies. **Every item in this
@@ -1880,6 +1913,60 @@ audience); entry route must be stated for a homeschooler; cost exact; and say
 plainly when a thing confers no credential.
 
 ### Verified pool
+### JEI — 2026-11-20. THE MENTOR BLOCKER MAY NOT EXIST. READ THIS BEFORE THE ENTRY BELOW.
+
+**WHAT HAS BEEN SAID SINCE OCTOBER:** that JEI's requirement for a senior mentor as last
+author is the sharpest form of the no-wet-lab / no-academic-contact blocker, and that it
+converts into the hardest version of the UT-department ask ("would you mentor a
+manuscript").
+
+**WHAT TURNED UP 20 NOV, AND THE SOURCES CONFLICT:**
+- One third-party guide: a teacher, university professor, postdoctoral fellow or senior
+  graduate student may be senior mentor where the research was done at a school or
+  university — **AND A PARENT MAY SERVE AS SENIOR MENTOR WHERE THE RESEARCH WAS
+  CONDUCTED AT HOME.**
+- Another third-party guide: the mentor must hold a **TERMINAL DEGREE** or equivalent
+  expertise.
+
+**BOTH ARE THIRD-PARTY GUIDES AND JEI'S OWN SITE DID NOT SURFACE IN SEARCH.** So under
+Standing Rule 4 this is **BLOCKED, NOT RESOLVED** — but it is a different kind of
+blocked from where it has been sitting: **not "an institution must act", merely "nobody
+has read the page".** emerginginvestigators.org settles it in five minutes.
+
+**AND THE THING THIS FILE SHOULD HAVE NOTICED IN SEPTEMBER: THE CHILDREN'S MOTHER IS A
+UNIVERSITY VISITING SCHOLAR.** Eleven weeks of advising the family to go and FIND a
+senior academic, in a household that contains one. Whether her post satisfies JEI's rule
+depends on its exact wording and on her willingness — do not presume either — **but it
+is the first question to ask, not the last.**
+
+**THE GENERALISABLE ERROR, and it is worse than a wrong fact: I READ THE FAMILY'S OWN
+PROFILE AS A SET OF CONSTRAINTS AND NEVER AS A SET OF ASSETS.** "Mother is a visiting
+scholar at UT Austin" had been filed entirely under section 3 (summer travel, J-2 visa
+questions) and never once consulted when a programme asked for an academic. **Before
+calling anything blocked for want of a person, re-read the profile and ask whether the
+household already contains that person.**
+
+**OTHER MECHANICS ESTABLISHED 20 NOV, with conflicts reported:**
+- **An ADULT submits, not the student** — a teacher, mentor or lab PI submits on the
+  student's behalf. One guide mentions a signed **Mentor Approval Form**.
+- **Papers must be HYPOTHESIS-DRIVEN** — a question, a method, measurements. Not a
+  literature review, not a demonstration.
+- **One paper per student or team per year** (one guide).
+- **Submissions are ROLLING** — the only item on the deadline board with no clock.
+- **THE FEE IS UNRESOLVED AND THE THIRD PARTIES DISAGREE THREE WAYS: US$35 / US$49 with
+  need-based waivers / free.** None of those is JEI's own page. **This is the Brilliant
+  situation of 27 Oct exactly** — several third-party prices means the answer is on the
+  organisation's page and nowhere else. NOTE the entry below says "free to publish, no
+  author fees", which was recorded in October and is now one claim among four. **Do not
+  budget from any of them.**
+- **Timeline: 4–8 months** for the full review-and-revision cycle (third-party estimate).
+
+**WHAT FOLLOWS FOR PLANNING: JEI IS A 2027 ARTEFACT, NOT A 2026 ONE**, and that is a
+feature — a rolling deadline with a four-to-eight-month cycle cannot compete with the
+AMC 8 in January. **The only thing it needs this year is the question.** And the thing
+section 1 lacks, noticed the same day: nothing in the free stack asks a child what they
+are curious about and helps them measure it. A notebook does.
+
 - **Journal of Emerging Investigators** — grades 6–12 at submission, so BOTH
   children. Free to publish, no author fees, institutionally funded. Non-profit run
   by grad students, postdocs and professors across the US; founding tied to Harvard
@@ -2637,7 +2724,9 @@ A short numbered list of what is blocked and what would unblock it. Standing ite
 as of 2026-10-12: AMC 8 host in Taiwan; Clark Scholars international eligibility;
 非學校型態實驗教育 olympiad registration route with the local education bureau;
 J-1/J-2 status; 臺灣區小學數學奧林匹亞競賽 individual registration; no wet-lab
-access (structural — the JEI mentor requirement is the sharpest form of the ask);
+access (structural — **and NOT the JEI mentor requirement, retracted 2026-11-20: a
+parent may be senior mentor for home research per one guide, unresolved against JEI's
+own page**);
 Khanmigo possibly US-only. Always close with what is UNBLOCKED and needs nobody's
 permission.
 
@@ -2784,7 +2873,11 @@ file, and if it is not, it is out.** Do not let it keep reappearing as an open m
    institution to act.
 3. J-1 / J-2 status — determines most of section 3.
 4. GLOBE Taiwan's school-based partnership route — the NCU office is the ask.
-5. No wet-lab access — structural; the JEI mentor requirement is the sharpest form.
+5. No wet-lab access — structural. **NO LONGER EXEMPLIFIED BY JEI'S MENTOR RULE
+   (2026-11-20): one guide says a parent may be senior mentor for home-conducted
+   research, and the household contains a university visiting scholar in any case.
+   Unresolved against JEI's own page, so BLOCKED — but blocked on an unread page,
+   not on an institution.**
 6. TEAMMATES — CORRECTED 2026-10-31: ONE official matching service exists, THE
    WORLD SCHOLAR'S CUP (register individually and ask to be joined with other
    scholars seeking teammates; team members need not share a school). No OTHER
@@ -2812,8 +2905,9 @@ yes, 19 Oct).
 1. AMC 8 host in Taiwan. 2. Bebras class-of-one registration. 3. 臺灣區小學數學
 奧林匹亞競賽 individual registration. 4. The 非學校型態實驗教育 MOE olympiad route
 with the education bureau. 5. J-1 / J-2 status. 6. GLOBE Taiwan's school-based
-partnership route (NCU office). 7. No wet-lab access (JEI mentor requirement is
-the sharpest form of the ask). 8. Conrad needs 1-4 teammates and an adult coach —
+partnership route (NCU office). 7. No wet-lab access (**the JEI mentor example was
+RETRACTED 2026-11-20 — see the JEI block; a parent may qualify, and the household has
+an academic in it**). 8. Conrad needs 1-4 teammates and an adult coach —
 the only item solvable by asking PEOPLE rather than institutions.
 RETIRED, both answered no, and never to be re-listed as blockers: Clark Scholars
 (US citizens and permanent residents only, resolved 10-14) and paid Khanmigo (US
