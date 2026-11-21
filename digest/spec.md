@@ -704,6 +704,27 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — THE TWO PRICES RE-VERIFIED, 2026-11-21 (one held, one did not)
+
+Today's correction was a stale price, so the two figures this file tells the family to SPEND on
+were re-checked. **That is the right reflex after a stale-figure error: re-check the figures of the
+same KIND, not just the one that broke.**
+
+**BEAST ACADEMY ONLINE — HOLDS, from the publisher's own enrolment page.** US$16/month, or about
+**US$100/year** (shown as $8.34/month billed annually, i.e. $100.08). **AN ADDITIONAL STUDENT IS
+US$64.99/YEAR**, not a second full subscription; a family account takes up to six; the
+online-plus-one-level-of-books bundle is **US$160**; 10% off five or more yearly subscriptions.
+**The sibling rate is the one new fact AND IT DOES NOT HELP THIS HOUSEHOLD** — Level 5 is ages
+10–13, so it fits the 11-year-old and the elder child is out of range. Say that rather than
+reporting the discount as good news. Limits unchanged: no credential, depth not exam prep.
+**IGNORE the third-party review sites** dated Sept–Oct 2026 giving $13.33/month (the annual price
+spread over 12), ~$212/month for live group classes, and one aggregator saying $50.
+
+**AOPS ONLINE DID NOT RE-VERIFY.** The file carries **US$495 per 16-week course** and nothing
+reachable today confirmed it. Per Standing Rule 4's corollary the number is **not quoted**: tell
+the family to open the course page logged out and read it off the checkout. The judgement it
+supports is unaffected — nothing to buy this quarter.
+
 ### Section 1 — THE MISSING RESOURCE IS A NOTEBOOK, noticed 2026-11-20
 
 A JEI paper must be hypothesis-driven, so the limiting resource is **a question the child
@@ -1018,6 +1039,36 @@ WHO WRITES THE TWO LETTERS is a real obstacle for a 非學校型態實驗教育 
 parent-educator can write one; two from the same household will read badly. This is
 an additional reason the UT department ask matters.
 
+### Section 2 — THE RSI "DESIGNATED PARTNER" MAY NOT EXIST AS A STABLE FACT. 2026-11-21.
+
+**THE HIGHEST-VALUE UNKNOWN IN THE FILE MOVED TODAY, AFTER FORTY DAYS.** It had been framed as:
+international applicants apply through their country's DESIGNATED CEE PARTNER ORGANISATION, and
+Taiwan's is unidentified — so find the name. **That framing was probably wrong.**
+
+**FROM CEE'S OWN RSI APPLICATION FAQ:** prospective international applicants should contact
+**MAITE BALLESTERO, EXECUTIVE VICE PRESIDENT OF PROGRAMS**, to learn **which countries are LIKELY
+TO SPONSOR STUDENTS IN A GIVEN YEAR** — and CEE publishes **NO FIXED COUNTRY LIST**, because the
+sponsoring countries change year to year. **So there may be no stable "Taiwan partner" to find,
+and forty days were spent looking for a page that does not exist.**
+
+- A CEE **international-outreach** page does list **Taiwan** among countries associated with RSI
+  (undated, no detail). The countries where CEE runs programmes ABROAD are given as Bulgaria,
+  China, India, Israel, Saudi Arabia and Singapore, with collaborative agreements in 61 others.
+- **ADDRESS: maite@cee.org**, appearing in **CEE's own RSI application PDFs from c. 2016–2021**.
+  CEE's own documents, but five to ten years old, and one lists her under an outdated title
+  ("Program Director"). **Flag the staleness every time it is quoted; confirm against the current
+  contact page.** Her email is NOT on the current FAQ page.
+- **A CONFLICT TO REPORT, AND IT IS THE FIRST QUESTION TO ASK, NOT THE LAST.** CEE's own 2027
+  announcement says typical applicants are **in the middle of their junior year**; this file has
+  carried "seniors not eligible". One third-party guide (21 Nov) said **SOPHOMORES AND SENIORS ARE
+  BOTH INELIGIBLE**. If the elder child is a sophomore, that one sentence decides everything — and
+  it is third-party, so it goes in the email as a question.
+
+**THE LESSON, which generalises past RSI: AN UNANSWERABLE QUESTION MAY BE THE WRONG QUESTION.**
+Forty days of "what is Taiwan's partner called" returned nothing because the answer is annual and
+unpublished. **When a search has produced nothing for weeks, re-read what the organisation says the
+PROCESS is before searching again for the FACT.**
+
 ## Section 3 — Summer camps and activities near UT Austin
 
 Surface **2–3 items**. **Summer only** — the family is in Austin solely while
@@ -1126,12 +1177,13 @@ The "search Nature's Books in brief BY REVIEWER AND DATE" technique (established
 in the Oct–Nov 2026 window:**
 
 - **6 November 2026 — "Medicinal plants, lessons from mushrooms and the power of
-  smell."** Five titles; four identified. **USED 13 NOV: _On Time_, Jim Al-Khalili
+  smell."** **DOI d41586-026-03595-x** (recorded 2026-11-21, per the filing lesson below).
+  Five titles; four identified. **USED 13 NOV: _On Time_, Jim Al-Khalili
   (Princeton UP, 1 Sept 2026). USED 15 NOV as a SUBSTITUTE for the exhausted index-0
   slot: _It Could Be Otherwise_, Stuart Firestein (Basic Books, 288pp).** **STILL
-  UNUSED AND READY:** _Nature's Apothecary_ (Margaret Willes, Bodleian Library
-  Publishing — 100 medicinal plants after an essay on European herbalism) and _Sniff_
-  (William Tullett, Yale). The fifth title was not identified.
+  USED 21 NOV as a SUBSTITUTE for the exhausted index-0 slot: _Nature's Apothecary_,
+  Margaret Willes (Bodleian Library Publishing, 288pp, £25).** _Sniff_ (Tullett, Yale) used
+  19 Nov. **THIS INSTALLMENT IS NOW EXHAUSTED except for its unidentified fifth title.**
 - **"Elusive snow leopards and evasive particles" — DATE CORRECTED 2026-11-19.** The
   13 Nov note dated this **26 October**; it is **23 OCTOBER online**, printed in the
   29 Oct issue (Vol 658 Issue 8138), cited as **Nature 658, 1126 (2026)**. Robinson.
@@ -1141,10 +1193,19 @@ in the Oct–Nov 2026 window:**
   communication); _The Matter of Architecture_ (Paul Dobraszczyk, Reaktion, 2026).
   A fourth is a quantum-physics book by the physicist **Danni Holmes**, title not
   established. Fifth not identified.
-- **"The life of Darwin and the science of clouds."** Five books, titles NOT yet
-  extracted — the one installment still waiting. Its date was given as 23 October in
-  the 13 Nov note and that is now suspect too, since that date belongs to the snow
-  leopards column; **re-check its date when extracting it.**
+- **"The life of Darwin and the science of clouds" — EXTRACTED 2026-11-21, AND THE DATE
+  WAS WRONG AGAIN.** Not 23 October: **9 OCTOBER 2026 online**, DOI **d41586-026-03217-6**,
+  printed in **Vol 658 Issue 8137, 22 October 2026** (one listing gives a book-review date of
+  19 Oct — the archive-vs-article-page gap again; prefer the article page's 9 Oct). Robinson,
+  five titles, **TWO IDENTIFIED AND BOTH UNUSED:**
+  **_Darwin_, Janet Browne (Princeton UP, 2026)** — the Harvard historian's own abridgement of
+  her two-volume biography (1995, 2002); Nature's line is that it deals less with the details of
+  the science than with the cultural conditions that could shape a scientist as remarkable as
+  Darwin. **_The Book of Clouds_, Vincenzo Levizzani** — appealing and well illustrated; the
+  hook is that Luke Howard made the first systematic cloud observations in 1803 and much about
+  clouds is still poorly understood two centuries on. Three titles not identified.
+  **NOTE: this column's 9 Oct date may be the same piece as the "9 Oct on big tech and military
+  power" line below — check before treating that as a separate installment.**
 
 **THE FILING LESSON, 2026-11-19: A WRONG DATE IN A QUEUE IS HOW A QUEUE STOPS BEING
 USABLE.** The muddle cost nothing today only because the search found the piece anyway.
@@ -1154,10 +1215,15 @@ identifier survives a date error and a title does not.
 - Two further reviews in the window whose authorship is NOT confirmed as Robinson's:
   27 Oct on the origins of human speech, 9 Oct on big tech and military power.
 
-**SO THIS SLOT IS NO LONGER THE THIN ONE.** **QUEUE AS OF 19 NOV — FOUR NAMED UNUSED
-TITLES plus one unextracted installment:** _Nature's Apothecary_ (Willes), _The Age of
-Cures_ (Werth), _Divination Engines_ (Li), _The Matter of Architecture_ (Dobraszczyk),
-and the Darwin/clouds column. _Sniff_ (Tullett) used 19 Nov; _On Time_ (Al-Khalili)
+**SO THIS SLOT IS NO LONGER THE THIN ONE.** **QUEUE AS OF 21 NOV — FIVE NAMED UNUSED
+TITLES and NO unextracted installment left in hand:** _The Age of Cures_ (Werth),
+_Divination Engines_ (Li), _The Matter of Architecture_ (Dobraszczyk), _Darwin_ (Browne)
+and _The Book of Clouds_ (Levizzani). **The replenishment rule has now held twice: one
+installment extracted on the turn that drew from the queue, and the queue came out of the
+turn LARGER than it went in — five named titles against four.** The next turn that draws
+from it should extract a NEW installment (the 27 Oct human-speech review, or the 9 Oct
+big-tech one if it proves distinct from the Darwin/clouds column), because there is no
+longer one waiting. _Sniff_ (Tullett) used 19 Nov; _On Time_ (Al-Khalili)
 13 Nov; _It Could Be Otherwise_ (Firestein) 15 Nov as the index-0 substitute.
 **The procedure held: one installment extracted on the turn that drew from the queue.** Extract one installment per turn rather than
 re-searching from scratch; the queue above is the first thing to read when index 4 comes
@@ -1190,6 +1256,23 @@ top-ten gap and its rank unverifiable · 2 Le Monde, #1–#9 used, #10's rank un
 left (Kennard, Perry) plus James's _The Disappearers_.
 **THREE OF SIX SLOTS ARE NOW THIN OR EMPTY. The December work is replenishing them, and
 it should be done BEFORE a turn comes up empty, not on the day.**
+
+### SLOT STATUS REFRESH, 2026-11-21 (supersedes the 15 Nov status above)
+
+0 **exhausted** — substituted on 15 and 21 Nov; recheck for Gates's holiday list from early
+December · 1 **NYT** — top-ten gap is #5 only, rank unverifiable; #12 and #14 also refused ·
+2 **Le Monde** — top ten CLOSED (#1–#10 all used with stated ranks; #6 Céline's rank still
+unconfirmed), so the next draw goes below #10 and needs a numbered reproduction · 3 **Princeton
+Pre-read** — extended to 2026 on 18 Nov; FOUR named unused titles (Morton 2021, Salama 2022,
+Li 2024, Gordin 2025) and the HARVARD half never explored · 4 **the queue** — five named unused
+titles, no installment in hand · 5 **Booker** — one 2026 shortlistee left (Perry, _May We Feed
+the King_) plus Marlon James's _The Disappearers_.
+
+**SO THE 15 NOV COUNT OF "THREE OF SIX SLOTS THIN OR EMPTY" IS NOW TWO: index 0 (empty until
+December) and index 2 (needs a numbered source below the top ten).** Index 4 went from the
+thinnest slot to the deepest in eight days, by one rule applied twice — extract an installment
+on the turn you draw from the queue. **That is the replenishment model to copy for index 2 and
+for the Harvard half of index 3, and it should be done on a turn when the slot is NOT due.**
 
 ### Index 4 (Nature/Science slot) — NEW SOURCE SET 2026-10-20
 
@@ -1649,6 +1732,38 @@ one. Two of six shortlistees are used (Harrison 27 Oct, Strout 2 Nov); four rema
 and they can still be used, but the slot should now say "2026 shortlist" rather than
 implying a pending result. **The 2027 longlist is the next live event — no date read.**
 
+### STANDING RULE 8, THIRD FAILURE — A DEADLINE TABLE IS A SENTENCE. Corrected 2026-11-21.
+
+**WHAT WAS SAID.** For TWELVE consecutive days (10–20 Nov) the deadline board at the top of
+every email read, unhedged: *"AMC 8 Taiwan registration opens 5 Dec, pay by 15 Dec, NT$700."*
+
+**WHAT IS TRUE.** Those are the figures for the **JANUARY 2026** exam, whose registration ran
+5–12 December 2025. 財團法人九九文教基金會's OWN 2026-2027 測驗日期公告 gives only:
+**AMC 8 on 2027年1月22日(五)**, registration **預計12月開放報名**. No opening date, no closing
+date, no fee. **Weekday test passes** — `date -u -d 2027-01-22 +%A` = Friday, matching the
+公告's 「(五)」, so this is the current announcement and not a carried-over page.
+**AND NT$700 IS NOT A SAFE BUDGET:** the same foundation's **AMC 10/12 in this same 2026-27
+cycle cost NT$750 per test** (registration 18–30 Sept 2026, payment by 1 Oct, confirmed from
+the 簡章). **So the honest shape is: December, dates unpublished, NT$700–750.**
+
+**WHY IT HAPPENED, AND IT IS THE THIRD TIME IN EIGHT DAYS.** This file already carried the
+hedge, correctly worded (see the AMC 8 block below: "2027 dates, fee and grade rule are NOT YET
+PUBLISHED — say so; treat NT$700 and early December as the expected shape"). The hedge was lost
+on the way into the one-line deadline board. **Same mechanism as IASC on 12 Nov and the World
+Scholar's Cup on 14 Nov.** Standing Rule 8 was written on 14 November precisely for this and it
+was applied only to prose.
+
+**THE EXTENSION, NOW STANDING: A DEADLINE TABLE IS A SENTENCE.** Every row of the deadline board
+carries its condition in the row — "date not published", "eligibility unresolved", "fee unknown",
+"unverified" — or the row does not get a date. A table is where a hedge is most tempting to drop
+for want of space, and where dropping it does the most damage, because the table is the part of
+the email that gets acted on. **AUDIT THE DEADLINE BOARD AGAINST THIS FILE'S OWN WORDING BEFORE
+SENDING, not just the prose.**
+
+**THE DEEPER PATTERN, THIRD INSTANCE:** every one of the three failures was a case of this file
+being RIGHT and the summary being wrong. The research is not where the errors are coming from.
+**The errors are in compression.**
+
 ## Section 5 — Competitions for the 11-year-old
 
 Surface **2–3 items**. Added 2026-10-03 at the family's request: *"search for any
@@ -1756,7 +1871,13 @@ MAA's AMC competitions in Taiwan.** https://www.99cef.org.tw/maa-amc/
   did not state one; a 2020 non-official notice said 國中二年級(8年級)以下, which
   matches the MAA's grade-8-or-below rule but is six years old.
 - AMC 10/12 individual registration in the 2026 cycle ran 18-30 Sept with payment
-  by 1 Oct — relevant for the elder child next year.
+  by 1 Oct — **NT$750 PER TEST, confirmed from the 簡章 2026-11-21.** This is the best
+  available guide to what the AMC 8 will cost in December, and it is higher than NT$700.
+- **ACCOUNTABILITY NOTE, added 2026-11-21 under Standing Rule 6.** The foundation's own
+  site has carried a warning that people are **impersonating 「AMC數學競賽試務人員」 and
+  recruiting online**. Say so whenever registration is imminent, and say that registration
+  goes through 99cef.org.tw and nowhere else. Agent/代報名 channels exist (翰林, 犀牛 and
+  others quote their own fees) and are NOT the foundation.
 
 **NEVER AGAIN SAY: that Taiwan has no AMC host; that the MAA registers only
 schools and sites so individuals cannot enter; or that the 28 October US
@@ -2044,7 +2165,11 @@ Tournament of Champions at Yale, reached by exceeding a points threshold at a
 Global or Mini-Global Round (one school's account: ~8,000 scholars at a Global
 Round narrowing to ~2,000 at Yale).
 Divisions: JUNIOR DIVISION = born on or after 1 July 2013 and at least 10 at the
-regional round — fits the 11-year-old; the elder child is senior division.
+regional round — fits the 11-year-old; the elder child is senior division (14 and over,
+through the final year of pre-university study). **STATED EXPLICITLY 2026-11-21, because the
+consequence had been left implicit for weeks: THE TWO CHILDREN CANNOT BE ON THE SAME WSC TEAM.**
+Whenever the WSC is offered as the answer to the teammates obstacle, say that it solves it for
+ONE child at a time — it is not a route to a sibling pair.
 TAIWAN: the HSINCHU round. **UPDATED 2026-11-14 — THE 2027 DATE IS NOW CONFIRMED:
 13-14 MARCH 2027 at HSINCHU COUNTY AMERICAN SCHOOL, registration open**, per the
 official calendar. **Weekday test passes:** 13 Mar 2027 is a Saturday and 14 Mar a
@@ -2783,9 +2908,14 @@ names it; the 15 Nov list is written that way and later lists should copy the fo
 1. **The MOE olympiad route** via the education bureau. Blocks Sept 2027. Still the only
    blocker verified to genuinely require an institution to act. *Unblocked by:* one
    enquiry to the 直轄市/縣市 education bureau.
-2. **Taiwan's CEE partner organisation for RSI.** 30 days as of 11 Nov. *Unblocked by:*
-   CEE answering or cee.org resolving. Highest-value unknown in the file and **it has not
-   moved in three weeks** — say that rather than re-describing it.
+2. **Taiwan's RSI sponsor.** **REFRAMED 2026-11-21 AFTER FORTY DAYS — see the section 2
+   block.** It is no longer "find Taiwan's designated partner": CEE publishes **no fixed
+   country list** and names **Maite Ballestero** as the person who says which countries are
+   likely to sponsor in a given year. *Unblocked by:* one email (maite@cee.org, from CEE's own
+   2016–2021 PDFs — stale, confirm it), asking in the same message whether a SOPHOMORE may
+   apply, since one third-party guide says sophomores and seniors are both ineligible while
+   CEE's own 2027 announcement describes mid-junior-year applicants. **Twenty days to the
+   11 Dec deadline as of 21 Nov.**
 3. **J-1 / J-2 status and PAID enrolment.** Determines most of section 3. *Unblocked by:*
    the UT visiting-scholar office.
 4. **Whether 非學校型態實驗教育 satisfies 在學學生.** Now decides the 11 Feb 跨越盃 (the
@@ -2841,6 +2971,18 @@ not yet busy; the same enquiry in March competes with the organiser's own deadli
 when prompting the family: the right month to ask a small organisation a question is the one
 before its season starts, not the one during it. Two sentences suffice — are teams from
 Taiwan eligible, and what are the 2027 senior dates and fee.
+
+### Section 7 — ADVENT OF CODE: WHAT THE OFFICIAL PAGE ACTUALLY SAYS, 2026-11-21
+
+Checked ten days out. **The official 2026 About page says the puzzles begin 1 December so that day
+numbers match dates, and come out DAILY THROUGH MID-DECEMBER** — and the home page says the first
+puzzles unlock 1 December at midnight EST (UTC-5). **IT DOES NOT STATE A COUNT.** The 12-day,
+1–12 December window rests on Wikipedia's record of Eric Wastl's announcement of 22 Oct 2025 plus
+community repositories that say "12 puzzles, 1–12 December" outright; one third-party guide dated
+c. 10 Nov 2026 still says the 2026 count is unstated. adventofcode.com does not resolve from this
+container, so even the About wording is read through the index.
+**SO: 12 days is LIKELY, NOT CONFIRMED.** Say it that way. The practical advice is unaffected —
+the first puzzle is on 1 December either way, and the preparation window closes then.
 
 ### Section 7 — ADVENT OF CODE: THE PREPARATION IS PROJECT EULER, established 2026-11-11
 
@@ -3045,8 +3187,10 @@ Chinese-language page giving AMC 8 as regular deadline **5 Jan 2027 at US$75**, 
 **15 Jan at US$115**, exam **21-27 Jan 2027**. THOSE ARE THE UNITED STATES DATES AND
 FEES AND THEY ARE NOT THIS FAMILY'S.
 
-Taiwan: 財團法人九九文教基金會, registration 5-12 Dec with payment by 15 Dec,
-**NT$700**, exam **22 Jan 2027**, 個別報名 exists.
+Taiwan: 財團法人九九文教基金會, exam **22 Jan 2027 (Friday)**, 個別報名 exists.
+**CORRECTED 2026-11-21 — the "5-12 Dec / NT$700" that used to stand in this line was the
+JANUARY 2026 cycle.** For 2027 the foundation has published only the exam date and
+預計12月開放報名. Expect NT$700-750 (its AMC 10/12 in this cycle cost NT$750).
 
 **A CHINESE-LANGUAGE PAGE ABOUT AN AMERICAN COMPETITION IS NOT A TAIWANESE SOURCE.**
 Standing Rule 7 was written because the digest researched a Taiwanese problem in
@@ -3268,6 +3412,25 @@ anything where the adult is obviously testing recall.
 **SUBSTANTIAL FINDS GO ELSEWHERE**, not into this section: reasoning and
 philosophy PLATFORMS to section 1, essay and ethics COMPETITIONS to sections 5
 and 7. Section 8 stays a daily question.
+
+### Section 8 — THE WEEK'S RUN, as of 2026-11-21
+
+The thread to keep naming, because recognising an old problem in new clothes is the thing being
+trained: **Mon 17 Nov** where quality lives, object or reception · **Wed 18** where understanding
+lives, content or reading · **Thu 19** whether a thing can be known and not sayable · **Fri 20**
+whose experience counts as the subject of a study · **Sat 21** how you tell a remedy that worked
+from getting better anyway — i.e. **how you know, from inside a single case, what your evidence
+cannot show you.** Five days, one shape.
+
+**21 NOV, THE MOVE AND THE TRAP, worth reusing:** the move is wanting a COMPARISON before
+believing a cause; the trap is concluding that people in the past were credulous, when in fact
+the evidence they had (this person took this and recovered) genuinely cannot separate the two
+possibilities however carefully they looked. Willow bark → aspirin and foxglove → digoxin are the
+counterexamples that stop "they were unscientific" from working.
+**AND IT WAS TIED TO THE DAY'S OWN CORRECTION** — NT$700 was true last year, which is a single
+case repeating itself, not evidence that it still holds. **Tying section 8 to the morning's
+correction, where the shapes genuinely match, is a good habit: it costs one sentence and it stops
+the correction reading as an apology.**
 
 ### DISCIPLINE NOTE, 2026-10-25 — PRONOUNS FOR THE CHILDREN
 
