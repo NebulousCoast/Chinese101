@@ -704,6 +704,26 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — CS50x HAS TWO CERTIFICATES, and the file had only ever mentioned one. 2026-11-22.
+
+Re-verified because the file repeats "a FREE certificate" as one of the three counterexamples to
+"free means no feedback". **The free certificate HOLDS in 2026** — a **Harvard/CS50 certificate
+of completion**, requiring roughly **70%+ on the required work**, and it exists for every CS50
+course rather than only CS50x.
+
+**THE DISTINCTION NEVER DRAWN BEFORE:** that is NOT edX's **VERIFIED certificate**, which is
+listed at **US$219 for CS50x** on both edX's own CS50 page and Harvard's course page, with the
+other CS50 courses at **US$299**. Some sites still quote US$199 (looks stale); one blog claims a
+jump to $299 for CS50x, which appears to be a reader comment and contradicts both official pages
+— **report the conflict, trust the two official pages.**
+
+**THE POINT TO MAKE, not just the numbers: THE PAID CERTIFICATE IS NOT A DIFFERENT COURSE.**
+Same lectures, same problem sets, same final project. **And the thing this file actually values
+about CS50x — the final project, built by the student and explainable by them, which gives a
+recommender something to describe — comes with the FREE track.** So the paid tier buys nothing
+this family needs. **Whenever a free resource has a paid tier, say what the money changes; here
+it changes nothing except a line item.**
+
 ### Section 1 — THE TWO PRICES RE-VERIFIED, 2026-11-21 (one held, one did not)
 
 Today's correction was a stale price, so the two figures this file tells the family to SPEND on
@@ -1894,7 +1914,15 @@ measures less than an uncoached one. An AoPS Online course starting late January
 
 **第26屆臺灣區小學數學奧林匹亞競賽.** 主辦 財團法人南山學園教育基金會; 承辦
 新北市南山高級中學. Target band 國小五、六年級, and the 簡章 states 中低年級也可報名.
-初賽報名 closed 民國115年10月26日(一) = Mon 26 Oct 2026. NT$700 for 初賽; training +
+初賽報名 closed 民國115年10月26日(一) = Mon 26 Oct 2026. **AND WHERE THE PIPELINE GOES,
+established 2026-11-22 — this is the reason to diarise it for next AUGUST rather than filing it
+as a miss:** 初試 → 培訓 and 決賽 → second-stage training under **國立臺北教育大學's
+數學暨資訊教育學系** → a route to the **亞太小學數學奧林匹亞邀請賽 (APMOPS)**. **AN INTERNATIONAL
+COMPETITION REACHABLE BY A TAIWANESE PRIMARY-SCHOOL CHILD WHOSE PARENT REGISTERS THEM DIRECTLY**
+at nssh.ntpc.edu.tw; 對象 國小五、六年級, 中低年級亦可報名; 指導 by NTUE's 數資系, 承辦 by
+南山學園教育基金會. Very little else in the file has that shape — a parent-registered entry whose
+far end is an international invitational. **Watch August–October 2027.** The 2027 簡章's fee was
+not readable on 22 Nov; last cycle's was 700元. NT$700 for 初賽; training +
 決賽 a SEPARATE NT$700 later. 初賽 Sun 8 Nov 2026, 09:00-11:00. No refunds.
 Enquiries (02) 2245-3000 ext 70125.
 
@@ -2459,6 +2487,31 @@ same as general IASC registration. The general route is the one that fits this f
 **HONEST PROPORTION:** a confirmed discovery is rare. Most teams measure carefully for
 a month and find nothing. Say so before anybody starts.
 
+### IASC — PRICE RESOLVED (FREE) AND A FILL-UP CLOCK NOBODY HAD NOTICED. 2026-11-22.
+
+**THE PRICE IS SETTLED: FREE.** IASC's own pages state the service is **provided at no cost**,
+and a second listing says participation costs nothing with no prior astronomy knowledge needed.
+**This closes HALF of obstacles item 7**, which had carried "grade floor AND price" for four
+weeks. Discoveries remain recognised by the Minor Planet Center and the IAU.
+
+**THE GRADE FLOOR IS STILL BLOCKED, not contradictory** (Standing Rule 4): one page says
+**Grade 6 and up**, another **Grades 6–12** — both third-party, iasc.cosmosearch.org does not
+resolve here, and a Grade 6 floor would exclude an 11-year-old in grade 5. A third source says
+there is **no upper age limit** and that adult citizen-science groups take part alongside school
+teams, which is itself an argument that the floor may be softer than it reads.
+
+**THE CLOCK, NEW AND ACTIONABLE: CAMPAIGNS USUALLY FILL UP ABOUT 30 DAYS BEFORE THEIR START
+DATE.** So the 4–28 January campaign's practical cutoff is **~5 DECEMBER**, not January — the
+deadline board had been counting to the start date and understating the urgency by five weeks.
+**GENERALISE IT: for any capacity-rationed programme, the date that matters is when it FILLS,
+not when it starts, and organisers often state the gap.** Ask for it.
+
+**A CAUTION ON WHICH CAMPAIGN:** the January campaigns IASC's homepage currently lists are named
+NATIONAL ones (All Israel, All Nepal, All Turkey). **Ask which January campaign a Taiwan-based
+team may join**, in the same email as the grade floor, to iascsearch@cisco.edu. Requirements
+confirmed: a team of **at least two**, a **Windows computer**, an internet connection; pick a
+campaign from the schedule and email the registration form in.
+
 ### Section 6 addition verified 2026-10-26 — IASC, AND A THIRD KIND OF INSTITUTION GATE
 
 **THE INTERNATIONAL ASTRONOMICAL SEARCH COLLABORATION (IASC).** Students receive
@@ -2655,9 +2708,33 @@ test, a README typo. **The skill is not programming — it is reading someone el
 codebase and contributing guidelines well enough to make a change they will accept**,
 which is the 中文維基百科 discipline rather than the CS50x one.
 
-**LIMIT, open:** how beginner-labelling conventions currently work in practice, and which
-projects are genuinely rather than nominally welcoming. Not verified 18 Nov; do not assert
-from memory.
+**LIMIT CLOSED 2026-11-21/22, WITH NUMBERS MEASURED OFF GITHUB'S OWN SEARCH API** (`gh api
+search/issues`, so primary data rather than an article about the practice):
+- `label:"good first issue" state:open type:issue` → **476,769**
+- `label:"help wanted"` → **556,090**
+- `label:"good-first-issue"` (hyphenated) → **9,064** · `label:"beginner-friendly"` → **3,274**
+- `label:"good first issue" state:open no:assignee` → **352,870**
+- same, `created:>=2026-10-22` → **31,748** in the last 30 days
+
+**TWO CONCLUSIONS, BOTH REUSABLE.** (1) **SEARCH THE SPACED THREE-WORD LABEL.** "good first
+issue" is GitHub's own DEFAULT label text; the hyphenated variant finds about **2%** of the
+pool, so a child searching the wrong spelling would conclude the opportunity barely exists.
+**A naming convention can hide 98% of an opportunity** — the same shape as Standing Rule 7's
+language problem, in a different register. (2) **THE LABEL IS A LIVE QUEUE, NOT A GRAVEYARD:**
+~352k unassigned and ~32k fresh per month.
+
+**THE LIMIT THAT REMAINS, AND IT IS THE REAL ONE: RESPONSIVENESS.** A label means a maintainer
+TAGGED an issue, not that they will review a stranger's PR promptly or kindly — and that is
+what decides whether a first contribution becomes an artefact or a dead branch. **A COUNT
+CANNOT MEASURE IT, AND NO AMOUNT OF SEARCHING WILL.** Which is why this produced a new, and
+now the EASIEST, rung on the section-3 department ladder: **"do you contribute to an
+open-source project, and would you point at one issue a beginner could try."** A pointer from
+someone who knows which maintainers answer is cheaper to give than any favour on the old
+ladder and supplies the one thing research cannot.
+
+**METHOD NOTE: `gh api search/issues` is available in this container and is PRIMARY DATA about
+GitHub.** Secondary rate limits bite after a handful of queries in a minute — space them, and
+expect a 403 telling you so. Prefer it to articles about open-source onboarding.
 
 **HONEST PROPORTION:** one merged doc fix is real and is not an achievement. **A dozen
 small accepted changes to one project over three months** shows persistence and the
@@ -2924,10 +3001,14 @@ names it; the 15 Nov list is written that way and later lists should copy the fo
    admin@ethicsolympiad.org. **SEE THE TIMING NOTE BELOW — November is the right month.**
 6. **Technovation's gender condition.** *Unblocked by:* one look at the registration page.
 7. **IASC'S GRADE FLOOR** — added 2026-11-13, and it REPLACES IASC's old entry rather
-   than adding to the list. One page says **Grade 6 and up**, which would exclude an
-   11-year-old in grade 5; IASC's own page is unreachable. *Unblocked by:* asking it in
-   the registration email, which is being sent anyway. (Also ask the price — IASC's own
-   readable pages do not state one.)
+   than adding to the list. One page says **Grade 6 and up**, another Grades 6–12; both
+   third-party, and IASC's own page is unreachable. *Unblocked by:* asking it in
+   the registration email, which is being sent anyway.
+   **THE PRICE HALF IS RESOLVED, 2026-11-22: FREE**, per IASC's own pages — drop it from the
+   ask and stop listing it as unknown. **Add instead:** which January campaign a Taiwan-based
+   team may join, since the ones listed are named national campaigns.
+   **And the deadline on this item is ~5 DEC, not 4 Jan** — campaigns fill about 30 days
+   before the start.
 8. **TEAMMATES — NOW TWO OFFICIAL ANSWERS, NOT NONE** (updated 2026-11-13). Per the
    31 Oct correction, ONE official matching service
    exists — the **World Scholar's Cup** (register individually, ask to be joined with other
@@ -3412,6 +3493,28 @@ anything where the adult is obviously testing recall.
 **SUBSTANTIAL FINDS GO ELSEWHERE**, not into this section: reasoning and
 philosophy PLATFORMS to section 1, essay and ethics COMPETITIONS to sections 5
 and 7. Section 8 stays a daily question.
+
+### Section 8 — 22 NOV, AND A PAIR THAT WORKS
+
+**22 Nov: "When an investigation looks into something and finds nothing, what has it found?"**
+The move: separating *this did not happen* from *this was not established* — reported in the
+same words (cleared, no evidence found, no action taken) and different claims. **The trap is
+double and pulls both ways:** "nothing found" as proof nothing happened, OR as proof of a
+cover-up. Both skip the useful question — **what could this inquiry have detected?** Who could
+it compel to speak, what records could it read, what kind of event leaves no trace in either.
+Run it on a domestic case (something missing, everyone asked, nobody admits) and write down what
+the asking-around *could* and *could not* have discovered before arguing about who did it.
+
+**THE PAIR, AND IT IS THE BEST CONTINUITY THE SECTION HAS PRODUCED:** 21 Nov asked how you know,
+from inside a SINGLE CASE, what your evidence cannot show you; 22 Nov points the same question at
+a PROCEDURE. **A formal inquiry is still a method, and a method's blind spots do not announce
+themselves in its conclusion.** Six days now on one shape (17–22 Nov).
+
+**IT CAME OUT OF THE BOOK'S AUTHOR RATHER THAN ITS STORY** — the Díaz institutional reviews —
+which is a legitimate source for this section when the record is stated factually in section 4
+first and section 8 then takes only the reasoning shape, run on a household example. **Do NOT
+let section 8 carry the subject matter of an adult allegation to an 11-year-old; carry the
+inference.**
 
 ### Section 8 — THE WEEK'S RUN, as of 2026-11-21
 
