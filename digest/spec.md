@@ -704,6 +704,32 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — THE THREE COUNTEREXAMPLES, RE-VERIFIED OVER THREE DAYS (22–23 Nov)
+
+The file's standing claim is that free matches paid on CONTENT and money buys a schedule plus
+someone noticing when the student stops — **with three counterexamples: Exercism, freeCodeCamp,
+CS50x.** All three now re-checked. **CS50x 22 Nov (see below). The other two, 23 Nov:**
+
+**freeCodeCamp — HOLDS.** A registered **501(c)(3) non-profit** in the US, funded almost
+entirely by donations from the people it teaches; **donations are optional and unlock nothing.**
+Certifications free, no certificate fee, no paid upgrade. **This also answers Standing Rule 6
+favourably** — a named accountable organisation, unlike Omega Learn and Physoly.
+**ONE DATED CLAIM TO WATCH: a curriculum update is in progress and one source states the
+EXISTING certifications remain available only until 31 DECEMBER 2027.** Third-party, and the
+certification count varies by source (eleven vs thirteen). **Flagged in the email as a prompt
+to check rather than a fact** — explicitly because this email spent twelve days printing a
+stale fee, and a 2027 cutoff is the same species of figure.
+
+**Exercism — HOLDS, and the standout fact is FREE HUMAN MENTORING** across a very large number
+of language tracks. **That is the strongest single counterexample in the file, because mentoring
+is precisely what money is supposed to buy.** Non-profit, community-funded. One comparison table
+describes the free tier as "everything, with ads" — small discrepancy, worth stating.
+
+**LIMIT, stated in the email: all of 23 Nov's section 1 is third-party 2026 review sites;
+neither freecodecamp.org nor exercism.org came back in the results.** The conclusions are safe
+because the sources agree with each other and with a year of consistent reporting; the 2027
+date is not.
+
 ### Section 1 — CS50x HAS TWO CERTIFICATES, and the file had only ever mentioned one. 2026-11-22.
 
 Re-verified because the file repeats "a FREE certificate" as one of the three counterexamples to
@@ -1358,6 +1384,27 @@ Bell Tolls* (#8, used 11 Nov).
 jours* (Boris Vian, 1947) is **#10**, from **TWO INDEPENDENT SOURCES THAT STATE THE
 NUMBER**: the fr.wikipedia table for the list ("10 | L'Écume des jours | Boris Vian |
 1947 | France") and **FNAC'S OWN PAGE, Fnac having CO-RUN the 1999 poll.** Used 17 Nov.
+
+### Index 2 (Le Monde) — #11 USED 2026-11-23, AND THE PROVENANCE IS SHARPER THAN THE FILE HAD IT
+
+**#11 IS _LE DEUXIÈME SEXE_ (Simone de Beauvoir, 1949), STATED as 11 in the fr.wikipedia
+table for the list** — the same numbered source that settled Vian at #10 on 17 Nov, so the
+table has now delivered twice. **SLOT STATE: #1–#12 ALL USED**, only #6 Céline still
+rank-unconfirmed. **The next draw must go to #13 or below.**
+
+**#13 AND #14 REFUSED AGAIN, FOURTH AND FIFTH APPLICATIONS OF "AN ADJACENCY IS NOT A RANK."**
+A LibraryThing copy of the list gives the ORDER — The Second Sex / Waiting for Godot / Being
+and Nothingness / The Name of the Rose / The Gulag Archipelago — which would make #13 Sartre's
+_L'Être et le Néant_ and #14 Eco's _Le Nom de la rose_. **Order is not number.** **BUT #15 IS
+STATED: _L'Archipel du Goulag_ (Soljenitsyne, 1973), from the same fr.wikipedia table — so
+THAT is the next usable title in this slot, and #13/#14 wait for a numbered source.**
+
+**PROVENANCE, NOW PROPERLY RECORDED (and better than "emotional attachments of the French
+public"):** about **17,000 French respondents**, choosing from a **preliminary list of 200
+titles assembled by booksellers and journalists**, answering the question **"QUELS LIVRES SONT
+RESTÉS DANS VOTRE MÉMOIRE?" — which books have stuck in your mind?** **So the list measures
+MEMORABILITY, not quality and not even quite affection.** Say it that way from now on: it is
+more precise, and it is a better reason to be interested in a #11 than "most loved".
 
 **TOP-TEN STATE: #1–#10 ALL USED, nine with stated ranks** — Camus 1, Proust 2, Kafka
 3, Saint-Exupéry 4, Malraux 5, Steinbeck 7, Hemingway 8, Alain-Fournier 9, Vian 10 —
@@ -2979,6 +3026,26 @@ blocked and what I will try next". It is **"here is the short list of messages t
 close this file, and none of them is mine to send"** — said once, plainly, without
 nagging. And per Standing Rule 8 every item carries its condition in the sentence that
 names it; the 15 Nov list is written that way and later lists should copy the form.
+
+### Part C — ORDER THE AUDIT BY DEADLINE, NOT BY NUMBER. Established 2026-11-23.
+
+Two items now carry dates — **IASC at ~5 Dec (the fill-up clock) and RSI at 11 Dec** — plus the
+Ethics Olympiad email, whose argument is **the month** and expires on 30 November. So the 23 Nov
+audit was printed in three groups instead of one flat list of nine:
+
+1. **INSIDE TWO WEEKS:** IASC's grade floor + which January campaign (~5 Dec) · Taiwan's RSI
+   sponsor (11 Dec) · the Ethics Olympiad enquiry (by 30 Nov, a month rather than a deadline).
+2. **NO DEADLINE, STILL ONE MESSAGE EACH:** 在學學生 / 跨越盃 (0911-163685) · the WSC Hsinchu
+   eligibility and fee (the host, Hsinchu County American School) · J-1/J-2 paid enrolment (the
+   UT visiting-scholar office) · teammates · the three unestablished minimum ages.
+3. **THE ONE THAT IS NOT A QUESTION:** the MOE olympiad route — a RULE, and possibly simply a no.
+
+**WHY: A LIST SORTED BY NOTHING READS AS NINE EQUAL CHORES.** The counting framing (one call,
+four emails, three page-loads, one rule) established 17 Nov answered "how much is left"; it does
+not answer "what first". **Sorting by deadline answers that and costs nothing.** Keep both: the
+count for scale, the ordering for sequence. **And the general point about asks with no deadline
+— there is still a RIGHT TIME: a small organisation answers in its off-season, and a university
+office answers in November and not in late May.** Say the timing reason, not just the address.
 
 ### Part C obstacles list as of 2026-11-11 — EIGHT ITEMS (supersedes the 23 Oct list)
 
