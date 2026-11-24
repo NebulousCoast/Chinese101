@@ -1470,9 +1470,25 @@ America* and Whittington's *Speak Freely*.
 **PRINCETON'S OWN PAGE IS president.princeton.edu/princeton-pre-read** — the canonical
 index, and it would likely settle 2019, 2020 and 2023 in one read.
 
-**AND THE HARVARD HALF OF THIS SLOT HAS NEVER BEEN EXPLORED AT ALL.** The slot is
-"Princeton/Harvard recommended reading" and only Princeton has ever been used. An
-untapped vein sitting in plain sight for ten weeks.
+**THE HARVARD HALF — EXPLORED 2026-11-24, AND IT PROBABLY IS NOT A VEIN.** Ten weeks of
+calling it "an untapped vein sitting in plain sight" was itself an unchecked assumption.
+**NO Harvard College equivalent of the Pre-read surfaced: no officially assigned first-year
+book, no president's annual selection.** What exists instead, and none of it is the same kind
+of thing:
+- **Harvard College student essays** recommending books — PERSONAL picks, not an assignment.
+- **Harvard University Press's "Common Reads: First-Year Experience" collection** — **A
+  PUBLISHER'S LIST, i.e. MARKETING**, and the 19 Nov discipline applies: publisher-hosted
+  selection is not institutional recommendation.
+- **Harvard Library's curated reading lists** (e.g. "21 Books to Read This Summer", 2022) —
+  a genuine institutional list, but a library's summer list, weaker than a Pre-read and dated.
+
+**SO: the slot's usable Harvard material is Harvard Library's own lists, flagged as a weaker
+source than the Pre-read, and nothing else.** **The December replenishment plan changes
+accordingly: do NOT plan on Harvard. Settle Princeton's 2019, 2020 and 2023 gaps from
+president.princeton.edu/princeton-pre-read, which would likely close all three in one read.**
+**AND THE LESSON ABOUT THE FILE ITSELF: an "untapped vein" that nobody has looked at is not an
+asset, it is an UNTESTED ASSUMPTION — and a negative result after one search is worth more than
+ten weeks of counting it as reserve.**
 
 **THE PROCESS LESSON, and it is about this file rather than about Princeton: LABELLING
 WORK "DECEMBER WORK" IS HOW A TWENTY-MINUTE JOB BECOMES A MONTH-LONG GAP.** The only
@@ -2109,6 +2125,48 @@ audience); entry route must be stated for a homeschooler; cost exact; and say
 plainly when a thing confers no credential.
 
 ### Verified pool
+### JEI — 2026-11-24. THE OWN PAGE WAS FINALLY READ. AGE FLOOR 13, PARENT MENTOR CONFIRMED. THIS SUPERSEDES BOTH BLOCKS BELOW.
+
+**SOURCE: emerginginvestigators.org/submissions/author-eligibility — JEI'S OWN PAGE.**
+
+**CORRECTION 1, THE ONE THAT COST SOMETHING: THE AGE FLOOR IS 13, NOT GRADE 6.** JEI's page:
+middle- and high-school students **AGED 13 OR OLDER** are encouraged to submit, first submission
+**before the student enrols at university**. The file had carried "grades 6–12 at submission, so
+BOTH children" from **12 Oct**, repeated 14, 16, 18, 20 and 22 Oct. **"Grades 6–12" is a
+third-party GRADE-based restatement of an AGE-based rule, and the two come apart exactly for this
+household — a grade-6 student can be eleven. SO JEI IS AN ELDER-CHILD ITEM** until the younger
+turns 13.
+
+**ROOT CAUSE, AND IT IS A NEW SPECIES OF FAILURE FOR THIS FILE.** IASC (12 Nov), the WSC (14 Nov)
+and the AMC 8 fee (21 Nov) were all **hedges lost in compression** — the file was right and the
+summary was wrong. **THIS ONE IS WORSE AND SIMPLER: THE PRIMARY PAGE WAS NEVER OPENED.** It
+returned on the FIRST query on 24 Nov. The 20 Nov block below even says "JEI's own site did not
+surface in search" — which was treated as a fact about the web rather than as a search that needed
+rewording. **THE RULE: BEFORE RECORDING A FINDING FROM THIRD-PARTY GUIDES, SEARCH FOR THE
+ORGANISATION'S OWN TERMS/ELIGIBILITY PAGE BY ITS LIKELY URL WORDS** ("author eligibility",
+"submission guidelines", "terms") — not just by the organisation's name. A page that did not
+surface is not a page that does not exist.
+
+**CORRECTION 2, RESOLVED IN THE FAMILY'S FAVOUR AND NOW PRIMARY:** a senior mentor must be last
+author; a teacher, professor, postdoc or senior graduate student qualifies for school/university
+research; **AND A PARENT MAY SERVE AS SENIOR MENTOR WHERE THE RESEARCH WAS CONDUCTED AT HOME.**
+Stated by JEI, not inferred. **The third-party "terminal degree" claim is simply WRONG for the
+home-research case.** Undergraduates may not be senior author.
+**CONSEQUENCE FOR SECTION 3: THE TOP RUNG OF THE DEPARTMENT LADDER IS RETIRED.** "Would you mentor
+a manuscript" is not needed for JEI. **What remains is four small asks, and "read a draft once and
+say whether a question is answerable" is now the WHOLE of what the department is needed for** —
+which is far easier to grant and far easier to ask. Note the shape: resolving a blocker **shrank**
+the ask rather than removing the item.
+
+**ALSO FROM THE OWN PAGE:** a student may not submit their own work — **an adult involved in the
+research must submit, even when the student is 18 or over**; no university lab or advanced
+techniques required.
+
+**STILL UNRESOLVED: THE FEE.** US$35 / US$49-with-waivers / free — three third-party answers, and
+JEI's own FEE page still has not been read. **The October "free, no author fees" line is one claim
+among four; do not budget from any of them.** This is the Brilliant situation of 27 Oct: several
+third-party prices means the number is on the organisation's page and nowhere else.
+
 ### JEI — 2026-11-20. THE MENTOR BLOCKER MAY NOT EXIST. READ THIS BEFORE THE ENTRY BELOW.
 
 **WHAT HAS BEEN SAID SINCE OCTOBER:** that JEI's requirement for a senior mentor as last
@@ -2373,7 +2431,9 @@ registration closes **31 DECEMBER 2026 at 11:59 PM**; **an INDIVIDUAL DELEGATE F
 exists.** The date, the deadline and the individual route all held.
 
 **WHAT DID NOT RESOLVE: THE INDIVIDUAL DELEGATE FEE.** Not on any page reachable
-today, and hkmun.org does not resolve from this container. **Treat the cost as
+on 16 Nov, **nor on 24 Nov when the date, the 31 Dec 11:59 PM deadline and the Individual
+Delegate Form were all re-confirmed from the conference's own site for a second time**; and
+hkmun.org does not resolve from this container. **Treat the cost as
 UNKNOWN, not as low**, and say so. The fee has to come from the registration form.
 **AND SAY THE LARGER COST OUT LOUD: Hong Kong is a flight, two or three nights'
 accommodation and an accompanying adult** — a different order of commitment from
@@ -2393,9 +2453,14 @@ good line rather than catching a bad one — that is the trade it exists to make
 **STILL OPEN since 22 Oct: whether YMUNT takes individual registrations at all.**
 Twenty-five days unasked. ymunt.org is the ask.
 
-**MUN TOKYO 2027** (9–11 March 2027, delegates **ages 11–19** so BOTH children are in
-range, individual online form) was NOT re-verified on 16 Nov — flag it as a
-month-old finding whenever it appears, not as fresh.
+**MUN TOKYO 2027 — RE-CHECKED 2026-11-24, AND THE AGE CLAIM WENT BACKWARDS.** The 22 Oct entry
+said **ages 11–19, so BOTH children in range**. An aggregator listing read on 24 Nov describes the
+conference as for **HIGH SCHOOL AND UNIVERSITY STUDENTS with NO stated minimum age.** **So the
+11-year-old's eligibility is now BLOCKED, not contradictory** (Standing Rule 4) — do not count MUN
+Tokyo as serving the younger child until the conference's own eligibility page says so.
+**WHAT DID RESOLVE, AND IT IS THE FIRST MUN PRICE IN THIS FILE: €189 individual delegate fee**,
+registration window **30 Aug 2026 – 2 MARCH 2027**, dates **9–11 March 2027** confirmed. All from
+a third-party aggregator (mymun), NOT the conference's own site — an indication, not a quotation.
 
 **THE HONEST PROPORTION, to say every time MUN appears:** it confers NO credential and
 the committee's writing is published nowhere. What it supplies is the thing this file
@@ -2789,6 +2854,38 @@ ability to take review — same shape as 中文維基百科, where the threshold
 the thing worth having lies well beyond it. **And the timing note: this is an artefact a
 recommender can describe in one sentence, which is a reason NOT to pretend starting it
 three weeks before a deadline would help.**
+
+### Section 6 — THE AGE-13 FLOOR IS A PATTERN, NOT TWO COINCIDENCES. Established 2026-11-24.
+
+**THE TWO ITEMS IN THIS SECTION THAT PRODUCE THE MOST DURABLE ATTRIBUTABLE CREDIT — A JEI PAPER
+AND A MERGED PULL REQUEST — BOTH CARRY AN AGE FLOOR OF 13, each stated by the organisation
+itself** (JEI's author-eligibility page; GitHub's own Terms, which add that a country's minimum
+may be older). **That is not a coincidence of two websites: it is what happens when a service must
+handle a minor's identity and data.** Expect it, and check it first rather than last, on anything
+that attaches a name to a public artefact.
+
+**SO THE HONEST SHAPE OF THIS SECTION FOR THE 11-YEAR-OLD IS THINNER THAN IT HAS LOOKED:** eBird
+and iNaturalist (minimum age **still unestablished** — the third instance of the same
+documentation pattern), Foldit and Eterna (age terms unverified), GLOBE Observer, Zooniverse (no
+establishable individual credit), and the WSC Junior division with its school-enrolment condition.
+**THE 11-YEAR-OLD IS ABOUT TWO YEARS FROM A STEP CHANGE IN WHAT THIS SECTION CAN OFFER.**
+**The argument that follows: spend those two years on the one thing with NO age gate at all —
+中文維基百科's seven days and fifty edits, and a question worth measuring.** Say it that way rather
+than listing thin items as though they were equivalent.
+
+**AND THE COUNTERWEIGHT WORTH NAMING IN SECTION 5: the John Locke Junior Prize's rule (14 or under
+on 31 May) is one of the very few age rules in the whole file that works IN THE YOUNGER CHILD'S
+FAVOUR.** Point at it whenever an age floor closes something else.
+
+### Section 6 — MARCH 2027 IS NOW CROWDED. Noted 2026-11-24.
+
+**MUN Tokyo 9–11 Mar · WSC Hsinchu 13–14 Mar (confirmed) · HKMUN 19–21 Mar (confirmed) · YMUNT
+possibly 12–14 Mar (UNVERIFIED).** Three of the four are confirmed and **nothing collides yet**,
+but the family will be choosing among them rather than doing all of them. **Say so now:** the
+choice is cheaper to make in November, while HKMUN's 31 Dec registration is still open, than in
+February when two of the three have closed. **GENERAL FORM: when several dated items cluster in
+one month, flag the CLUSTER before any of them becomes urgent** — a deadline board sorted by date
+hides a clash that a sentence makes obvious.
 
 ### Section 6 — THE CREDIT TIER, established 2026-11-04, extended 2026-11-06 and 2026-11-10
 
