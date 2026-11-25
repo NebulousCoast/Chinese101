@@ -704,6 +704,26 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — CALLING BULLSHIT IS A PUBLISHED ARCHIVE, NOT A LIVE COURSE. Corrected 2026-11-25.
+
+Re-verified because this email recommends it weekly. **WHAT HOLDS:** callingbullshit.org is
+public and free, the syllabus is openly posted (Causality, Statistical traps, Visualization and
+the rest), the ten 2017 video lectures were deliberately recorded and put online free, and the
+named faculty are **Carl Bergstrom and Jevin West at the University of Washington** — which
+answers Standing Rule 6 as well as any item in the file.
+
+**WHAT DOES NOT VERIFY:** the course numbering has moved (INFO 198 / BIOL 106B at launch in
+spring 2017, later INFO 270 / BIOL 270), the most recent readable syllabus says "next offered
+**Autumn Quarter 2023**", a 2023 UW news story says the two teach it annually, and **NO 2026
+OFFERING COULD BE CONFIRMED.**
+
+**THE DISTINCTION THE FILE HAD NEVER DRAWN, and it generalises: FOR A FREE PUBLIC COURSE SITE,
+"IS THE COURSE RUNNING?" AND "ARE THE MATERIALS AVAILABLE?" ARE DIFFERENT QUESTIONS — and only
+the second matters to a family that is not enrolling.** The recommendation is unchanged (one
+case study a week); what changes is the description. **Call it a published archive, which is
+what it is.** The emails had implied a live course, which invites a question nobody here needs
+answered and would make a non-offering year read as bad news.
+
 ### Section 1 — THE THREE COUNTEREXAMPLES, RE-VERIFIED OVER THREE DAYS (22–23 Nov)
 
 The file's standing claim is that free matches paid on CONTENT and money buys a schedule plus
@@ -1261,10 +1281,39 @@ identifier survives a date error and a title does not.
 - Two further reviews in the window whose authorship is NOT confirmed as Robinson's:
   27 Oct on the origins of human speech, 9 Oct on big tech and military power.
 
-**SO THIS SLOT IS NO LONGER THE THIN ONE.** **QUEUE AS OF 21 NOV — FIVE NAMED UNUSED
-TITLES and NO unextracted installment left in hand:** _The Age of Cures_ (Werth),
-_Divination Engines_ (Li), _The Matter of Architecture_ (Dobraszczyk), _Darwin_ (Browne)
-and _The Book of Clouds_ (Levizzani). **The replenishment rule has now held twice: one
+### Index 4 — 2026-11-25: AN INSTALLMENT ALREADY VISITED WAS LEFT 80% UNMINED
+
+**THE 28 AUGUST COLUMN — "Mysteries of the deep and AI friendship: Books in brief", DOI
+d41586-026-02725-9, Nature 657, 343, Vol 657 Issue 8131 (print 10 Sept 2026), Robinson.**
+This file **already used one title from it on 1 NOVEMBER** (_Artificially Yours_, Tiberius) —
+and never recorded the other four. Re-extracted 25 Nov, **THREE MORE NAMED AND ALL UNUSED:**
+_When the Forest Breathes_ (Suzanne Simard, Knopf, 2026) · _The Unconscious_ (Antonio Melechi,
+MIT Press, 2026) · _The Dark Frontier_ (Jeffrey Marlow, Random House, 2026 — the deep sea
+below ~200 m). Fifth title not identified.
+
+**THE PROCESS RULE, AND IT IS THE CHEAPEST ONE IN THIS FILE: WHEN YOU OPEN AN INSTALLMENT,
+EXTRACT AND RECORD *ALL FIVE* TITLES, NOT JUST THE ONE YOU NEED TODAY.** The marginal cost is
+nil — the titles are on the page you already have — and the alternative is re-finding the same
+page months later, which is exactly what happened here. The 1 Nov turn took one title and left
+four on the table for twenty-four days.
+
+**AND THE VEIN IS DEEPER THAN THE FILE ASSUMED.** The queue was built as "the Oct–Nov 2026
+window". The 28 Aug column shows the column is a long-running recurring feature with a
+browsable archive, so **the vein extends backwards indefinitely** — index 4 is not a slot that
+can run dry, it is a slot that needs an extraction discipline.
+
+**CORRECTION TO THIS FILE'S OWN QUEUE NOTE: the "27 Oct on the origins of human speech" is NOT
+a Books-in-brief column.** It is a **single full review dated 26 OCTOBER 2026**, titled
+**"Women might have invented language — but not alone"**, printed in Vol 658 Issue 8138
+(29 Oct); the listing does not name the reviewer. So it yields ONE title, not five — and the
+title itself was not named in the listing. Worth having as an index-4 source, but it is a
+different kind of item from a roundup.
+
+**SO THIS SLOT IS NO LONGER THE THIN ONE.** **QUEUE AS OF 25 NOV — SEVEN NAMED UNUSED TITLES:**
+_Divination Engines_ (Li), _The Matter of Architecture_ (Dobraszczyk), _Darwin_ (Browne),
+_The Book of Clouds_ (Levizzani), _When the Forest Breathes_ (Simard), _The Unconscious_
+(Melechi), _The Dark Frontier_ (Marlow). **USED 25 NOV: _The Age of Cures_ (Werth)** — the
+FOURTH CONSECUTIVE turn filled from the queue in order rather than by searching under pressure. **The replenishment rule has now held twice: one
 installment extracted on the turn that drew from the queue, and the queue came out of the
 turn LARGER than it went in — five named titles against four.** The next turn that draws
 from it should extract a NEW installment (the 27 Oct human-speech review, or the 9 Oct
@@ -1748,6 +1797,27 @@ STRONG LIST rather than dropping the item.** One of the three "key ideas" (that 
 arrow originates in quantum entanglement and decoherence) came only from a blog
 summary, so it was printed and labelled weakly sourced. Dropping it would have lost a
 real idea; printing it unmarked would have laundered a blog into the book's content.
+
+### Section 4 — THE MOVING ATTRIBUTION. A sourcing lesson, 2026-11-25.
+
+The Werth entry's best demonstration. **The publisher's page carries an admiring quotation
+about the book being "a warning about conflicts playing out again today". In one search it was
+attributed to SCIENCE; in another, to the NEW YORK TIMES.** Same page, two readings, two
+outlets.
+
+**SO THE QUOTE WAS PRINTED WITH NO ATTRIBUTION AT ALL, and the reason was stated in the email.**
+This is the strongest available argument for the 19 Nov rule that **a publisher-hosted review
+excerpt is MARKETING, NOT RECEPTION** — not because publishers lie, but because the excerpt is
+detached from its source and an excerpt's provenance degrades the moment it is lifted.
+**THE TEST, now standing: if a praise quotation's OUTLET cannot be pinned down on two tries,
+print the praise without the outlet or not at all — never pick one.** (Standing Rule 5 says
+report conflicts and never pick; a conflict about WHO SAID IT is still a conflict.)
+
+**AND THE COUNTERWEIGHT, so the rule does not become a reason to drop all reception:**
+a TRADE VERDICT is reception. *Publishers Weekly*'s starred review is a judgement by a named
+trade publication with a known process, and it belongs in the entry even when the publisher is
+the one quoting it, because the STARRED designation is a fact about PW rather than a sentence
+lifted out of a review.
 
 ### Section 4 — THE CROSS-LIST TRAP, recorded 2026-11-04
 
@@ -3679,6 +3749,35 @@ which is a legitimate source for this section when the record is stated factuall
 first and section 8 then takes only the reasoning shape, run on a household example. **Do NOT
 let section 8 carry the subject matter of an adult allegation to an 11-year-old; carry the
 inference.**
+
+### Section 8 — 23–25 NOV, AND A PAIR THAT BRACKETS ONE PROBLEM
+
+- **23 Nov:** which things about you were you born, and which did you become? Move: ask what
+  SITUATION produced a trait before accepting the trait as given. Trap: nature-versus-nurture
+  as a finishing move; the interesting cases are a chosen becoming, or a trait reinforced until
+  nobody can separate the parts. Run it by having everyone name one of each, then swap lists and
+  argue the opposite. Named as a relative of 17 Nov — **where quality lives vs where a trait
+  lives: the same manoeuvre, checking whether a property belongs to a thing or to its
+  circumstances.**
+- **24 Nov (from Morton):** if getting good at something takes you away from the people you did
+  it with, what do you owe them? Move: noticing a cost with **no column**. Trap: optimising it
+  as a trade-off, which treats the people as a quantity; the harder version asks whether some of
+  the loss is a WRONG rather than a price. Relative of 20 Nov — whose experience counts as the
+  SUBJECT vs whose costs count as COSTS.
+- **25 Nov (from the Werth entry's 3.2-out-of-5 from FIVE ratings):** how many times does
+  something have to be measured before the average means anything? Move: separating a number's
+  **PRECISION** from its **RELIABILITY** — the decimal place is doing work it has not earned.
+  Trap: concluding averages are useless, or that only huge samples count; **the real question is
+  not "how many?" but "how much do the answers disagree, and did anyone tell me?"** Five
+  measurements of a stick may be plenty; five opinions about a book are not.
+
+**THE BRACKET WORTH NOTICING, and it was said in the email: 21 Nov asked how you tell a real
+effect from getting better anyway — the problem of having ONE case. 25 Nov asks how many cases
+it takes before a number is worth reading. Same subject, opposite end of the same ruler.**
+**AND THE SOURCE PATTERN HOLDING WELL: four of the last five questions came out of the day's
+book — twice from its argument, once from its author's record, once from a NUMBER IN ITS
+RECEPTION.** That last is the cheapest and least obvious source and should be looked for:
+a rating, a sample size, a price, a count of reviews.
 
 ### Section 8 — THE WEEK'S RUN, as of 2026-11-21
 
