@@ -704,6 +704,32 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — PRINDLE'S TEACHING CHILDREN PHILOSOPHY: PROVENANCE CORRECTED UPWARD, 2026-11-26.
+
+Re-verified because it is the only resource in the file built specifically for running a
+philosophical discussion with a child. **What it is: 200+ FREE discussion guides, each built around
+a PICTURE BOOK, hosted by the PRINDLE INSTITUTE FOR ETHICS at DEPAUW UNIVERSITY and archived in
+DePauw's scholarly repository.**
+
+**THE PROVENANCE IS BETTER THAN THIS FILE HAS BEEN SAYING: the guides ORIGINATED WITH THOMAS
+WARTENBERG**, the philosopher whose method they embody; **Prindle partnered with him in 2019 and
+became their digital home.** The file had led with the undergraduate-authorship caveat and never
+mentioned the lineage, which understated the resource.
+
+**THE CAVEAT IS CONFIRMED BUT SHOULD BE STATED MORE PRECISELY.** Prindle's own news post credits new
+guides to a class of undergraduates at Northeastern, a children's librarian in California, and its
+own Hillman interns — so "partly written by undergraduates and interns" is true. **BUT INDIVIDUAL
+GUIDES CARRY A "MODULE BY" BYLINE**, so the author of the specific guide in hand is visible; some are
+credited to the institute itself. **SO THE INSTRUCTION CHANGES FROM "BE WARY" TO "LOOK AT THE
+BYLINE."** That is a better habit, it is the same habit this file asks of its own reader, and it is
+the general form: **where authorship varies within a resource, point at the byline rather than
+discounting the whole collection.**
+
+**TWO LIMITS:** the guides are built on **picture books**, so the library aims well below eleven —
+the METHOD transfers upward, the BOOKLIST does not; and **Wartenberg's own book _Big Ideas for
+Little Kids_ is sold separately** (guides free, book not, and nothing here requires the book). The
+readable pages are roughly a year old or more, so **treat "200+" as approximate.**
+
 ### Section 1 — CALLING BULLSHIT IS A PUBLISHED ARCHIVE, NOT A LIVE COURSE. Corrected 2026-11-25.
 
 Re-verified because this email recommends it weekly. **WHAT HOLDS:** callingbullshit.org is
@@ -2925,6 +2951,49 @@ the thing worth having lies well beyond it. **And the timing note: this is an ar
 recommender can describe in one sentence, which is a reason NOT to pretend starting it
 three weeks before a deadline would help.**
 
+### Section 6 — FIRST GLOBAL: THE BLOCKER WAS A PAGE-LOAD. 2026-11-26.
+
+Carried since October as "Taiwan competes as **CHINESE TAIPEI**; the in-country partner is still
+unidentified." **FROM FIRST GLOBAL'S OWN FAQ:** each country gets **ONE national team**, selection
+is "conducted by our in-country partner", and prospective students should **contact the national
+partner via the email address on that country's TEAM PROFILE PAGE**, reached from a **map on
+first.global**. **So the partner was never hidden — it is one click into a map this container
+cannot render.**
+
+**SAME SHAPE AS THE RSI REFRAMING OF 21 NOV, three days apart, and that makes it a pattern worth a
+rule: WHEN A SEARCH FOR A NAME HAS FAILED FOR WEEKS, SEARCH FOR THE ORGANISATION'S STATED PROCESS
+INSTEAD.** The process almost always names a route (a person, a page, a map) even when it does not
+name the fact. Two of the file's longest-standing blockers dissolved this way inside a week, and
+neither needed new information — only a differently-worded question.
+
+**2027 DETAILS, from FIRST Global's own press release plus Spanish press:** **MADRID, 20–23 OCTOBER
+2027, at the CAJA MÁGICA**; over 2,000 young people from **191 countries** expected; the Madrid
+edition run by **FIRST Global Spain**, a private non-profit initiative (TBC Agency and Start You Up
+among the promoters). **AGES 14–18 per the FAQ — THE ELDER CHILD ONLY, and the highest age floor in
+the file.** One team per country keeps this as the digest's example of **a single national slot held
+by a gatekeeper** — but the gatekeeper is now reachable by email rather than unnamed.
+
+### Section 6 — FOLDIT AND ETERNA: THE CONFUSABLE-DOMAIN TRAP. 2026-11-26.
+
+Their age terms have been open for six weeks and **today's direct attempt failed cleanly.** Record
+what is and is not known:
+- **Eterna's OWN history page** says its players "represent people as young as age 10 and as old as
+  octogenarians". **THAT IS A DESCRIPTION OF WHO PLAYS, NOT A RULE.** Never quote it as permission.
+- **Foldit's own terms did not surface at all.** One third-party review suggests ages 12+ — a
+  recommendation, not a rule.
+
+**THE NEAR-MISS, AND IT IS THE THIRD MEMBER OF A FAMILY THIS FILE NOW TRACKS.** A terms-of-service
+page at **eternem.app** sets a minimum of 13 with parental consent under 18. **IT IS A DIFFERENT
+SERVICE — nothing links it to eternagame.org.** Taking it would have produced a confident, specific,
+WRONG age rule **that would have looked better sourced than the honest answer**, which is what makes
+this failure mode dangerous.
+**THE FAMILY OF TRAPS, all three now named together:** (1) a Chinese-language page publishing the
+UNITED STATES competition's dates and fees (27 Oct); (2) a page carrying the right book list's NAME
+with a different list's NUMBERS (Goodreads "Le Monde 100 Books", 17 Nov); (3) **A CONFUSABLE DOMAIN**
+(eternem.app for eternagame.org, 26 Nov). **THE COMMON STRUCTURE: the source is not wrong about
+itself — it is about SOMETHING ELSE, and the resemblance is in the label rather than in the content.
+So the check is not "is this credible?" but "is this ABOUT the thing I asked about?"**
+
 ### Section 6 — THE AGE-13 FLOOR IS A PATTERN, NOT TWO COINCIDENCES. Established 2026-11-24.
 
 **THE TWO ITEMS IN THIS SECTION THAT PRODUCE THE MOST DURABLE ATTRIBUTABLE CREDIT — A JEI PAPER
@@ -3750,6 +3819,33 @@ first and section 8 then takes only the reasoning shape, run on a household exam
 let section 8 carry the subject matter of an adult allegation to an 11-year-old; carry the
 inference.**
 
+### Section 8 — 26 NOV, and the longest-running thread restated
+
+**26 Nov (from Perry):** how would we know about a day that nobody wrote down? **Move: the past
+arrives through TWO filters — somebody had to record it, AND the record had to survive.** A king
+"almost forgotten by history" is not a king about whom little happened; he is a king whose paperwork
+went missing, and from here the two look identical. **Trap, and it has two sides failing in opposite
+directions:** reading absence of evidence as absence of events, OR reading a surviving record as
+simply true when what survived is what somebody with interests thought worth keeping. **The middle
+question is the useful one: WHAT KIND OF THING TENDS NOT TO GET WRITTEN DOWN?** Ordinary days; work
+done by people who could not write; anything everybody already knew. Run it on the household — what
+could a stranger reconstruct about this week from what physically exists, then three true things
+that left no trace.
+
+**Named as a relative of 22 Nov at a different scale: that day asked what an INVESTIGATION could
+have detected; today asks the same of the HISTORICAL RECORD, which is an investigation nobody
+designed and nobody is running.** Same question, four hundred years long.
+
+**THE THREAD SINCE 17 NOV IS NOW TEN DAYS AND ONE SHAPE: what a method, a measurement, a record or
+an account CANNOT SHOW, and how you would know.** 17th quality in object vs reception · 18th
+understanding in content vs reading · 19th known-but-unsayable · 20th whose experience is the
+subject · 21st one case vs a comparison · 22nd what an inquiry could detect · 23rd trait vs
+circumstance · 24th costs with no column · 25th precision vs reliability · 26th recorded vs
+survived. **This is the longest sustained run the section has produced, and it was not planned — it
+came from whichever book the rotation threw up.** Worth saying to the family once: the thread is
+real but it is emergent, and if it starts to feel like a syllabus the section should break it
+deliberately.
+
 ### Section 8 — 23–25 NOV, AND A PAIR THAT BRACKETS ONE PROBLEM
 
 - **23 Nov:** which things about you were you born, and which did you become? Move: ask what
@@ -3932,6 +4028,29 @@ something exists and poor at confirming its CURRENT TERMS.** Every date on those
 domains is "the index says". The family can open any of them in four seconds. So:
 state the finding, name the domain as unreadable, and tell them which two or three
 to spot-check — the ones money or a deadline depends on.
+
+### Index 5 (Booker) — SLOT REFILLED FROM THE 2026 LONGLIST, 2026-11-26. SUPERSEDES THE 14 NOV STATE.
+
+**_May We Feed the King_ (Rebecca Perry) USED 26 NOV — the LAST unused 2026 shortlistee.** All six
+are now used: Harrison 27 Oct (and he won on 9 Nov), Strout 2 Nov, Stuart 14 Nov, Kennard 20 Nov,
+Perry 26 Nov; **Marlon James's _The Disappearers_ remains unused.** Today's Booker page for Perry's
+book independently corroborated Harrison as winner with the other five shortlisted — a second
+confirmation of what this file recorded on 2 and 10 Nov.
+
+**THE REPLENISHMENT, done on the turn that emptied the slot (the index-4 discipline, applied here
+for the first time): THE BOOKER PRIZE 2026 LONGLIST**, announced **28 JULY 2026** and chosen from
+**163 books** published in the UK and/or Ireland between 1 Oct 2025 and 30 Sept 2026. Sources: NPR
+and the Booker Prizes' own longlist announcement. **SIX LONGLIST-ONLY TITLES, ALL UNUSED:**
+_The Shadow of the Object_ (Chloe Aridjis) · _Switzy_ (Emma Cline) · _Helen of Nowhere_ (Makenna
+Goodman) · _The Renovation_ (Kenan Orhan) · _The Palm House_ (Gwendoline Riley) · _All Them Dogs_
+(Djamel White — one of three debuts on the list). **A THIRTEENTH LONGLISTED TITLE DID NOT SURFACE
+and should be found before the list is treated as complete.**
+
+**SO THE SLOT WENT FROM ONE TITLE TO SEVEN IN ONE TURN.** And the vein beyond that is deep: the
+longlist exists for every year, the International Booker is a separate prize with its own lists,
+and Booker winners before 1973 are untouched. **Index 5 is not a slot that can run dry either — it
+needs the same extraction discipline as index 4: when its turn comes and the pool is short, take
+the next ADJACENT LIST rather than hunting a single title.**
 
 ### Index 5 (Booker) — SLOT STATE 2026-11-14, and what the standing file is for
 
