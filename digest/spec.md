@@ -704,6 +704,29 @@ March; an MUN companion for Hong Kong in March; and does anyone maintain an open
 project that takes outside contributions. All four request a **peer**, not a patron —
 which is why they are likelier to be answered than anything on the old ladder.
 
+### Section 1 — PROJECT EULER NEEDS NO ACCOUNT. Established 2026-11-27, and it changes the no-gate list.
+
+Checked properly for the first time, four days before Advent of Code, having been recommended all
+month as the preparation. **Operator: CREATED BY COLIN HUGHES, non-commercial, registration
+completely free — from Project Euler's OWN About page.** No company, no paid tier, no upsell: a
+cleaner Standing Rule 6 answer than most of the free stack.
+
+**THE FINDING: THE PROBLEMS CAN BE VIEWED AND SOLVED WITHOUT SIGNING UP** (stated on its own page).
+An account records progress and puts you on the member list; **it is not needed to read a problem and
+solve it.** **SO THE AGE-FLOOR QUESTION — which closes JEI (13), GitHub (13) and FIRST Global (14) —
+SIMPLY DOES NOT ARISE, because there is nothing to join.** No age rule appears anywhere on its own
+pages, and for the younger child that is now academic.
+
+**THE NO-GATE LIST FOR THE 11-YEAR-OLD IS THEREFORE TWO ITEMS, AND THE NEW ONE IS BETTER:**
+**Project Euler needs NOTHING**; **中文維基百科 needs an account** before its seven-day/fifty-edit
+threshold means anything. Lead with Project Euler when the age floors are the subject.
+**THE GENERAL MOVE WORTH REUSING: when a service's age rule is unreadable, ask whether an ACCOUNT is
+required for the part the child actually wants.** Sometimes the gate guards only the scoreboard.
+
+**LIMITS:** no credential, nobody marks the work, and the problem count did not verify. Membership is
+given as ~1.35 million who have solved at least one problem and varies between cached versions of the
+page — **an order of magnitude, not a statistic.**
+
 ### Section 1 — PRINDLE'S TEACHING CHILDREN PHILOSOPHY: PROVENANCE CORRECTED UPWARD, 2026-11-26.
 
 Re-verified because it is the only resource in the file built specifically for running a
@@ -1307,6 +1330,28 @@ identifier survives a date error and a title does not.
 - Two further reviews in the window whose authorship is NOT confirmed as Robinson's:
   27 Oct on the origins of human speech, 9 Oct on big tech and military power.
 
+### Index 4 — 2026-11-27: FIVE MORE INSTALLMENTS LOCATED, AND THE VEIN IS PROVEN INEXHAUSTIBLE
+
+The 25 Nov note predicted the vein extends backwards. **Confirmed: FIVE further 2026 "Books in brief"
+columns surfaced, each with five titles, all with DOIs recorded so a date error cannot lose them:**
+- **"Marvellous microbes, memory and the multiverse"** — d41586-026-00241-4
+- **"To infinity and beyond Earth's pale blue dot"** — d41586-026-00077-y
+- **"From Victorian voyages to vanishing maps"** — d41586-026-00567-z
+- **"From bats at dusk to asteroid quests"** — d41586-026-01304-2
+- **"Vanishing tongues and life on Mars"** — d41586-026-01655-w, **22 MAY 2026, Nature 654, 322**,
+  Vol 654 Issue 8118 (print 11 June). **ONE TITLE EXTRACTED: a 2026 WILLIAM COLLINS book by SOPHIA
+  SMITH GALER** — the title itself was NOT in Nature's listing, so it must be looked up before use
+  and **must NOT be guessed** (see the fabricated-titles trap below). Four titles unidentified.
+
+**SO INDEX 4 CAN BE TREATED AS INEXHAUSTIBLE: ~25 further titles are reachable from these five DOIs
+alone, and the column runs monthly.** The slot's problem was never supply; it was an extraction habit.
+**THE 6 NOV COLUMN REMAINS THE MOST RECENT** — no newer one found on 27 Nov.
+
+**A RECURRING DATE CONFUSION TO IGNORE: search summaries keep swapping the October columns** (today's
+put snow leopards at 26 Oct and Darwin/clouds at 23 Oct; the file has them, correctly, at 23 Oct and
+9 Oct). **THE DOIs ARE THE ANCHOR — d41586-026-03395-3 = snow leopards, d41586-026-03217-6 =
+Darwin/clouds.** Third application of the 19 Nov filing lesson, and it has now paid for itself twice.
+
 ### Index 4 — 2026-11-25: AN INSTALLMENT ALREADY VISITED WAS LEFT 80% UNMINED
 
 **THE 28 AUGUST COLUMN — "Mysteries of the deep and AI friendship: Books in brief", DOI
@@ -1422,6 +1467,22 @@ George (10-08), Pearce (10-14). **From the next index-4 day (2026-10-20) the slo
 needs a new source** — candidates: Nature's own "best science books" round-ups,
 Science's editors' picks, the Royal Society longlist years prior, or the 2027
 prize cycle once announced. Advance the index and say so if nothing is sourced.
+
+### Index 0 (GatesNotes) — RE-CHECKED 2026-11-27: GENUINELY EXHAUSTED, AND THE WATCH IS NARROWED
+
+**Checked rather than assumed**, because the 24 Nov Harvard lesson was that an unexamined "empty" or
+"untapped" label is an untested assumption. **The label survives the test:** the summer 2026 list's
+three picks (Sorkin 10 Sept, Holsinger 16 Sept, Schwartz 16 Oct) plus the holiday fiction pick
+(Van Pelt 22 Oct) are all in the ledger, and **no 2026 holiday list has appeared as of 27 Nov.**
+
+**THE WATCH IS NARROWED FROM "EARLY DECEMBER" TO WEEKLY FROM NOW.** The cadence is two lists a year —
+summer in June/July, **holiday in NOVEMBER OR DECEMBER** — and the **2025 holiday list appeared in
+NOVEMBER 2025**. So "early December" was already a slightly late guess. Check weekly; it could land
+any day.
+
+**A SOURCING HAZARD FOUND IN THE SAME PASS: the GatesNotes page for the 2026 summer list sits at the
+URL `/books/reading-lists/reader/summer-books-2025` while describing itself as the 2026 summer best
+list.** A URL year is not a content year — do not date a Gates list from its slug.
 
 ### Index 0 (GatesNotes) — SOURCING RULE, set 2026-10-22
 
@@ -2951,6 +3012,34 @@ the thing worth having lies well beyond it. **And the timing note: this is an ar
 recommender can describe in one sentence, which is a reason NOT to pretend starting it
 three weeks before a deadline would help.**
 
+### THE FOURTH TRAP, AND THE WORST: A CONTENT FARM THAT INVENTS THE ANSWER WHILE CITING A REAL SOURCE. 2026-11-27.
+
+Three traps surfaced in ONE morning's searching. Record all three together, because the family-facing
+lesson is the shared structure rather than any one instance.
+
+1. **AGGREGATORS WITH NO SOURCE (the 28 Oct warning, holding).** Searching Gates's 2026 holiday list
+   again produced Suleyman's _The Coming Wave_ and Miller's _Chip War_ as his "2026 picks" with **no
+   Gates source attached.** Unchanged and still unusable.
+2. **FABRICATED TITLES ATTACHED TO A GENUINE ARTICLE — NEW, AND THE MOST DANGEROUS YET.** Searching
+   for the five titles in Robinson's real column "Vanishing tongues and life on Mars" (DOI
+   d41586-026-01655-w) returned **scienceanddiscovery.com and thescientificfrontier.com offering books
+   called "Cosmic Tongues & Martian Echoes" and "Mars Life: A New Frontier", with sales and funding
+   figures, CITING THE REAL NATURE PIECE.** Those titles do not appear in Nature's own listing.
+   **They answered exactly the question asked, in exactly the form wanted.**
+3. **A CONFUSABLE DOMAIN, second instance in two days:** projecteuler.**chat** (a forum) carrying COPPA
+   discussion, for projecteuler.**net**. Yesterday it was eternem.app for eternagame.org.
+
+**THE SHARED STRUCTURE, AND IT IS THE RULE TO CARRY: ALL THREE WERE *ABOUT* SOMETHING ADJACENT TO THE
+QUESTION, AND ALL THREE WERE MORE SPECIFIC AND MORE CONFIDENT THAN THE HONEST ANSWER.** So the
+heuristic is counter-intuitive and worth saying in the email whenever it applies: **a page that answers
+your exact question in exact numbers deserves MORE suspicion than a page that says "we don't publish
+that."** Specificity is cheap to generate and expensive to verify.
+
+**AND THE OPERATIONAL CONSEQUENCE FOR THE INDEX-4 EXTRACTION DISCIPLINE: when extracting titles from a
+Books-in-brief column, ONLY nature.com's own listing (or a mirror that reproduces its text verbatim)
+counts.** A site that paraphrases the column is not extracting it; it may be inventing it. The 25 Nov
+rule said record all five titles — this adds: record them only from Nature.
+
 ### Section 6 — FIRST GLOBAL: THE BLOCKER WAS A PAGE-LOAD. 2026-11-26.
 
 Carried since October as "Taiwan competes as **CHINESE TAIPEI**; the in-country partner is still
@@ -3818,6 +3907,28 @@ which is a legitimate source for this section when the record is stated factuall
 first and section 8 then takes only the reasoning shape, run on a household example. **Do NOT
 let section 8 carry the subject matter of an adult allegation to an 11-year-old; carry the
 inference.**
+
+### Section 8 — 27 NOV, AND THE RUT NAMED OUT LOUD
+
+**27 Nov (from Li's title):** what is the difference between predicting something and knowing it?
+**Move: a very good prediction and an understanding are not the same achievement — and the better the
+prediction gets, the harder they are to tell apart.** Trap, in both directions: accuracy settles it
+(if it always gets the answer right it must understand) OR it obviously never understands, which is a
+conclusion rather than an argument. **The useful move is to hunt a case where they COME APART** —
+something predictable by someone with no idea what is going on, and something understood but
+unpredictable (the weather). Run it on someone in the room who can predict a sibling perfectly.
+
+**THE RUN IS NOW ELEVEN DAYS IN ONE SHAPE (17–27 Nov) AND THAT WAS SAID TO THE FAMILY IN THE EMAIL,
+with an explicit invitation to break it.** Wording used, and worth reusing when any section develops
+an unplanned pattern: *"It is a real thread and it is also a rut. If it starts to feel like a syllabus
+rather than an argument, say so and the section will change direction."*
+**THE DISCIPLINE: name an emergent pattern once it is long enough to constrain the next choice, and
+hand the decision to the family rather than either hiding it or defending it.** The 17 Oct brief says
+the question matters more than the answer; a run that becomes a curriculum inverts that.
+
+**IF THE FAMILY DOES NOT RESPOND, break it anyway by the fifteenth day** — not because the thread is
+bad, but because the section's value is in recognising an old problem in NEW clothes, and eleven
+consecutive variations on one problem is the same clothes.
 
 ### Section 8 — 26 NOV, and the longest-running thread restated
 
