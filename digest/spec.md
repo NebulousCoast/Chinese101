@@ -1917,6 +1917,28 @@ Vulture's. _Austerlitz_ is **#8** on the NYT list and **5th** on the Guardian's.
 "ranked third" in a search summary is worthless. When a number cannot be tied to a
 named list, say the rank is unverified rather than printing it.
 
+### Section 4, slot 1 (NYT) — RANKS 18, 19, 20 ADDED AND A CONFLICT RESOLVED. 2026-11-28.
+
+**Every previously confirmed rank had been used** (1,2,3,4,6,7,8,9,10,11,13,15 — #11 Díaz went on
+22 Nov), so the slot came up needing replenishment on its own turn. **THE PENN LIBRARIES GUIDE
+DELIVERED THREE MORE, NUMBERED DIRECTLY** — the same source that settled #15 Pachinko:
+- **#20 _Erasure_ — Percival Everett. USED 28 NOV.**
+- **#19 _Say Nothing: A True Story of Murder and Memory in Northern Ireland_ — Patrick Radden Keefe. UNUSED.**
+- **#18 _Lincoln in the Bardo_ — George Saunders. UNUSED.**
+
+**THE CONFLICT, AND HOW IT WAS DECIDED.** A **user-contributed quiz site (listchallenges)** instead
+put **_Hurricane Season_ (Melchor) at 19** and implied **Labatut's _When We Cease to Understand the
+World_ at 18**, with Mukherjee's _The Emperor of All Maladies_ nearby; the search summary itself
+called its numbering garbled. **Penn wins on two grounds: it numbers entries directly, and it has
+already been verified correct once (#15).** The quiz site is recorded as another instance of a page
+carrying the right list's NAME with the wrong list's NUMBERS — **fifth application of the rule.**
+**Mukherjee, Labatut and Melchor are therefore ON the list but RANK-UNCONFIRMED**; they are usable
+titles if cited without a number, like Céline on the Le Monde list.
+
+**SO THE SLOT HAS TWO STATED-RANK TITLES IN HAND (Keefe #19, Saunders #18) plus three
+rank-unconfirmed ones**, and the next replenishment should read **the Penn guide's 40–21 band**,
+which is the proven source and would likely yield twenty at once. **STILL REFUSED: #5, #12, #14.**
+
 ### Section 4, slot 1 (NYT) — RANK TABLE as of 2026-11-10
 
 Confirmed and used: **#1** Ferrante, **#2** Wilkerson (confirmed 4 Nov from the same
@@ -3083,6 +3105,48 @@ with a different list's NUMBERS (Goodreads "Le Monde 100 Books", 17 Nov); (3) **
 itself — it is about SOMETHING ELSE, and the resemblance is in the label rather than in the content.
 So the check is not "is this credible?" but "is this ABOUT the thing I asked about?"**
 
+### Section 6 — THE GATE TAXONOMY, AND THE ATTRIBUTION COST. Established 2026-11-28. READ WITH THE 24 NOV AGE-FLOOR NOTE.
+
+**THE QUESTION THAT REORGANISED THIS SECTION (from the 27 Nov Project Euler finding): IS THE AGE RULE
+ABOUT DOING THE WORK, OR ONLY ABOUT HAVING AN ACCOUNT?** The file had been treating one gate as two.
+
+**ZOONIVERSE RESOLVED 2026-11-28, from its OWN pages:** its volunteer page says anyone **UNDER 16
+needs a parent or guardian to sign off on registration**; its blog says **THERE IS NO AGE LIMIT FOR
+PARTICIPATING.** Free, needing only an email address and username; under-16s are pointed at
+Zooniverse's own **Youth Policy** before registering, and a review site adds that parents may
+register children of any age. **SO 16 IS THE HIGHEST FLOOR IN THE FILE AND THE ONLY ONE WITH A
+DOCUMENTED ROUTE THROUGH IT.**
+
+**THE THREE-WAY SPLIT, which replaces the flat "age floors" list for planning purposes:**
+1. **GATES ON THE WORK** — nothing to do but wait: **JEI 13**, **GitHub 13** (country minimum may be
+   higher), **FIRST Global 14–18**.
+2. **GATES ON THE ACCOUNT ONLY, with a published way through:** **Zooniverse** (parental sign-off);
+   **iNaturalist's SEEK** (no account; the recorded under-13 route); **Project Euler** (no account to
+   solve); **中文維基百科** (editable without an account, though the 7-day/50-edit threshold needs one).
+3. **GATES NOBODY WILL STATE**, after repeated attempts: **eBird, iNaturalist proper, Foldit, Eterna.**
+
+**AND THE FINDING THAT MATTERS, WHICH THE FILE NEARLY MISSED: ALMOST EVERY ROUTE AROUND AN AGE GATE
+SURRENDERS THE ATTRIBUTION THAT MADE THE ITEM WORTH DOING.** Measured against this file's own credit
+tier: **Seek does NOT produce research-grade attributable records and so does not reach GBIF; a
+parent-registered Zooniverse account credits the PARENT; an anonymous Wikipedia edit credits an IP
+ADDRESS.** So the choice is not blocked-or-unblocked. **It is: DO THE WORK NOW AND OWN IT LATER, or
+WAIT TWO YEARS AND OWN IT FROM THE START.** Both are defensible; presenting the workarounds as
+solutions is not, because they solve PARTICIPATION and give up CREDIT.
+
+**THE GENERAL RULE, and it applies beyond age gates: WHEN A WORKAROUND APPEARS, CHECK WHAT IT COSTS
+AGAINST THE REASON THE ITEM WAS ON THE LIST.** A workaround that defeats the item's purpose is a
+different item, not the same item unlocked.
+
+**PRACTICAL UPSHOT FOR THE NEXT TWO YEARS — the 11-year-old's ATTRIBUTABLE work lives in three
+places:** Project Euler solutions in a repository the child owns; a 中文維基百科 account the family
+sets up together and is open about; and a John Locke Junior essay (14-or-under, the one rule that
+favours the younger child). **Say that rather than listing the thin items as equivalents.**
+
+**AND IT PRODUCED A NEW, CHEAPEST DEPARTMENT ASK (section 3, fifth rung): "does anyone already have a
+Zooniverse / eBird / iNaturalist account they use with their own children, and how did they handle the
+age rules?"** Not a favour and not an introduction — **a question about paperwork**, answered in one
+sentence by anyone who has done it, and unanswerable by searching.
+
 ### Section 6 — THE AGE-13 FLOOR IS A PATTERN, NOT TWO COINCIDENCES. Established 2026-11-24.
 
 **THE TWO ITEMS IN THIS SECTION THAT PRODUCE THE MOST DURABLE ATTRIBUTABLE CREDIT — A JEI PAPER
@@ -3907,6 +3971,32 @@ which is a legitimate source for this section when the record is stated factuall
 first and section 8 then takes only the reasoning shape, run on a household example. **Do NOT
 let section 8 carry the subject matter of an adult allegation to an 11-year-old; carry the
 inference.**
+
+### Section 8 — THE RUN WAS BROKEN DELIBERATELY ON 2026-11-28, AS PROMISED
+
+**28 Nov (from Everett):** should you be proud of something that came easily? **Move: separate HOW
+HARD something was from HOW GOOD it is, then ask which one praise is actually for.** Monk writes the
+book he despises in days, in a voice he finds contemptible, and it outsells everything he values —
+**and he cannot explain why the effort in the other books should make them better.** Trap: that
+difficulty is what makes an achievement real, which has the strange consequence that **the better you
+get, the less your successes count.** Run it by having everyone name one hard thing and one easy
+thing and say which they are prouder of, then ask **which they would rather be praised for** — most
+people answer those two differently and the gap is the point.
+**Closed with a direct application: if a past AMC 8 paper turns out easy, that is not a wasted
+afternoon and not cheating — it is INFORMATION.**
+
+**THE BREAK WAS MADE AND ANNOUNCED.** 17–27 Nov ran eleven consecutive questions on one shape (what a
+method, measurement, record or account cannot show). 27 Nov named it as both a thread and a rut and
+offered the family the choice; **28 Nov changed family of question — from EPISTEMIC to EVALUATIVE
+(effort, merit, desert) — without waiting for an answer**, per the 27 Nov note to break it by day
+fifteen regardless.
+**THE DISCIPLINE, now twice-tested and worth keeping: name an emergent pattern once it constrains the
+next choice, offer the choice, then ACT rather than waiting for permission on a matter of editorial
+variety.** The family's silence on the 17 Oct 6/7-alternation offer is the precedent: an unanswered
+offer should not freeze the section.
+**NEW TERRITORY NOW OPEN, since eleven days of epistemics are banked:** desert and effort (28 Nov),
+promises and obligation, what a group owes a member, fairness in dividing things, whether a rule can
+be unfair while being applied correctly.
 
 ### Section 8 — 27 NOV, AND THE RUT NAMED OUT LOUD
 
